@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Ability Creator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .add-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .action-btn {
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .abilities-list {
+            margin-top: 30px;
+        }
+        .ability-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .ability-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .ability-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .edit-btn {
+            background-color: #FFA500;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-btn {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        #output {
+            width: 100%;
+            height: 200px;
+            margin-top: 20px;
+            font-family: monospace;
+            white-space: pre;
+            overflow: auto;
+        }
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 4px 4px 0 0;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #2196F3;
+            color: white;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Ability Creator</h1>
+        
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'Creator')">Ability Creator</button>
+            <button class="tablinks" onclick="openTab(event, 'List')">Abilities List</button>
+            <button class="tablinks" onclick="openTab(event, 'JSON')">Export JSON</button>
+        </div>
+        
+        <div id="Creator" class="tabcontent" style="display:block;">
+            <h2>Create New Ability</h2>
+            <div class="form-group">
+                <label for="ability-name">Ability Name:</label>
+                <input type="text" id="ability-name" placeholder="Enter ability name">
+            </div>
+            
+            <div class="form-group">
+                <label for="ability-type">Ability Type:</label>
+                <select id="ability-type">
+                    <option value="StatBoost">Stat Boost</option>
+                    <option value="Environmental">Environmental</option>
+                    <option value="DamageResponse">Damage Response</option>
+                    <option value="ContactEffect">Contact Effect</option>
+                    <option value="TargetCondition">Target Condition</option>
+                </select>
+            </div>
+            
+            <h3>Conditions</h3>
+            <div class="form-group">
+                <label for="condition-requirement">Requirement:</label>
+                <select id="condition-requirement">
+                    <option value="hp_threshold">HP Threshold</option>
+                    <option value="biome">Biome</option>
+                    <option value="weather">Weather</option>
+                    <option value="daytime">Daytime</option>
+                    <option value="damage_type">Damage Type</option>
+                    <option value="on_contact">On Contact</option>
+                    <option value="target_hp">Target HP</option>
+                    <option value="weather_change">Weather Change</option>
+                </select>
+            </div>
+            
+            <div id="condition-fields">
+                <!-- Dynamic condition fields will appear here -->
+            </div>
+            
+            <h3>Effects</h3>
+            <div id="effects-container">
+                <!-- Effects will be added here -->
+            </div>
+            
+            <button class="add-btn" onclick="addEffect()">+ Add Effect</button>
+            
+            <h3>Drawbacks (Optional)</h3>
+            <div id="drawbacks-container">
+                <!-- Drawbacks will be added here -->
+            </div>
+            
+            <button class="add-btn" onclick="addDrawback()">+ Add Drawback</button>
+            
+            <div class="btn-container">
+                <button class="action-btn" onclick="saveAbility()">Save Ability</button>
+                <button class="action-btn" onclick="clearForm()">Clear Form</button>
+            </div>
+        </div>
+        
+        <div id="List" class="tabcontent">
+            <h2>Saved Abilities</h2>
+            <div id="abilities-list" class="abilities-list">
+                <!-- Saved abilities will be listed here -->
+                <p>No abilities saved yet.</p>
+            </div>
+        </div>
+        
+        <div id="JSON" class="tabcontent">
+            <h2>Export Abilities as JSON</h2>
+            <button class="action-btn" onclick="generateJSON()">Generate JSON</button>
+            <textarea id="output" readonly></textarea>
+            <button class="action-btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let abilities = [];
+        let editingIndex = -1;
+        
+        // Open tab function
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+            
+            if (tabName === "List") {
+                renderAbilitiesList();
+            } else if (tabName === "JSON") {
+                generateJSON();
+            }
+        }
+        
+        // Initialize the condition fields based on selected requirement
+        document.getElementById('condition-requirement').addEventListener('change', updateConditionFields);
+        
+        function updateConditionFields() {
+            const requirement = document.getElementById('condition-requirement').value;
+            const container = document.getElementById('condition-fields');
+            container.innerHTML = '';
+            
+            switch(requirement) {
+                case 'hp_threshold':
+                    container.innerHTML = `
+                        <div class="form-group">
+                            <label for="hp-threshold">HP Threshold (%):</label>
+                            <input type="number" id="hp-threshold" min="1" max="100" value="30">
+                        </div>
+                    `;
+                    break;
+                case 'biome':
+                    container.innerHTML = `
+                        <div class="form-group">
+                            <label for="biomes">Biomes (comma separated):</label>
+                            <input type="text" id="biomes" placeholder="Desert, Volcano, etc.">
+                        </div>
+                    `;
+                    break;
+                case 'weather':
+                    container.innerHTML = `
+                        <div class="form-group">
+                            <label for="weathers">Weather Conditions (comma separated):</label>
+                            <input type="text" id="weathers" placeholder="Sunny, Clear, etc.">
+                        </div>
+                    `;
+                    break;
+                case 'daytime':
+                    container.innerHTML = `
+                        <div class="form-group">
+                            <label for="daytimes">Daytime Periods (comma separated):</label>
+                            <input type="text" id="daytimes" placeholder="Night, Dusk, etc.">
+                        </div>
+                    `;
+                    break;
+                case 'damage_type':
+                    container.innerHTML = `
+                        <div class="form-group">
+                            <label for="damage-types">Damage Types (comma separated):</label>
+                            <input type="text" id="damage-types" placeholder="physical, fire, etc.">
+                        </div>
+                    `;
+                    break;
+                case 'on_contact':
+                    container.innerHTML = `
+                        <div class="form-group">
+                            <label for="contact-chance">Chance to Trigger (%):</label>
+                            <input type="number" id="contact-chance" min="1" max="100" value="30">
+                        </div>
+                    `;
+                    break;
+                case 'target_hp':
+                    container.innerHTML = `
+                        <div class="form-group">
+                            <label for="target-hp-threshold">Target HP Threshold (%):</label>
+                            <input type="number" id="target-hp-threshold" min="1" max="100" value="40">
+                        </div>
+                        <div class="form-group">
+                            <label for="target-hp-comparison">Comparison:</label>
+                            <select id="target-hp-comparison">
+                                <option value="below">Below</option>
+                                <option value="above">Above</option>
+                            </select>
+                        </div>
+                    `;
+                    break;
+                case 'weather_change':
+                    container.innerHTML = `
+                        <div class="form-group">
+                            <label for="weather-change-turns">Turns Since Weather Change:</label>
+                            <input type="number" id="weather-change-turns" min="1" max="10" value="1">
+                        </div>
+                    `;
+                    break;
+            }
+        }
+        
+        // Initialize condition fields
+        updateConditionFields();
+        
+        // Add a new effect
+        function addEffect() {
+            const container = document.getElementById('effects-container');
+            const effectId = Date.now();
+            
+            const effectCard = document.createElement('div');
+            effectCard.className = 'card';
+            effectCard.id = `effect-${effectId}`;
+            effectCard.innerHTML = `
+                <button class="remove-btn" onclick="removeElement('effect-${effectId}')">×</button>
+                <div class="form-group">
+                    <label for="effect-stat-${effectId}">Stat to Modify:</label>
+                    <select id="effect-stat-${effectId}">
+                        <option value="attack">Attack</option>
+                        <option value="defense">Defense</option>
+                        <option value="speed">Speed</option>
+                        <option value="accuracy">Accuracy</option>
+                        <option value="evasion">Evasion</option>
+                        <option value="hp_regen">HP Regeneration</option>
+                        <option value="damage_reduction">Damage Reduction</option>
+                        <option value="status">Status Effect</option>
+                    </select>
+                </div>
+                <div class="form-group" id="stat-value-container-${effectId}">
+                    <label for="effect-modifier-${effectId}">Modifier Value:</label>
+                    <input type="number" id="effect-modifier-${effectId}" value="10">
+                </div>
+                <div class="form-group">
+                    <label for="effect-type-${effectId}">Modifier Type:</label>
+                    <select id="effect-type-${effectId}">
+                        <option value="percentage">Percentage</option>
+                        <option value="flat">Flat Value</option>
+                        <option value="percentage_per_turn">Percentage Per Turn</option>
+                    </select>
+                </div>
+            `;
+            
+            container.appendChild(effectCard);
+            
+            // Add event listener to change fields based on selected stat
+            document.getElementById(`effect-stat-${effectId}`).addEventListener('change', function() {
+                updateEffectFields(effectId);
+            });
+        }
+        
+        // Update effect fields based on selected stat
+        function updateEffectFields(effectId) {
+            const statType = document.getElementById(`effect-stat-${effectId}`).value;
+            const container = document.getElementById(`stat-value-container-${effectId}`);
+            
+            if (statType === 'status') {
+                container.innerHTML = `
+                    <label for="effect-status-${effectId}">Status Effect:</label>
+                    <select id="effect-status-${effectId}">
+                        <option value="poison">Poison</option>
+                        <option value="burn">Burn</option>
+                        <option value="freeze">Freeze</option>
+                        <option value="paralyze">Paralyze</option>
+                        <option value="sleep">Sleep</option>
+                    </select>
+                    <div class="form-group">
+                        <label for="effect-duration-${effectId}">Duration (turns):</label>
+                        <input type="number" id="effect-duration-${effectId}" min="1" value="3">
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <label for="effect-modifier-${effectId}">Modifier Value:</label>
+                    <input type="number" id="effect-modifier-${effectId}" value="10">
+                `;
+            }
+        }
+        
+        // Add a new drawback
+        function addDrawback() {
+            const container = document.getElementById('drawbacks-container');
+            const drawbackId = Date.now();
+            
+            const drawbackCard = document.createElement('div');
+            drawbackCard.className = 'card';
+            drawbackCard.id = `drawback-${drawbackId}`;
+            drawbackCard.innerHTML = `
+                <button class="remove-btn" onclick="removeElement('drawback-${drawbackId}')">×</button>
+                <div class="form-group">
+                    <label for="drawback-stat-${drawbackId}">Stat to Modify:</label>
+                    <select id="drawback-stat-${drawbackId}">
+                        <option value="attack">Attack</option>
+                        <option value="defense">Defense</option>
+                        <option value="speed">Speed</option>
+                        <option value="accuracy">Accuracy</option>
+                        <option value="evasion">Evasion</option>
+                        <option value="max_hp">Max HP</option>
+                        <option value="elemental_vulnerability">Elemental Vulnerability</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="drawback-modifier-${drawbackId}">Modifier Value:</label>
+                    <input type="number" id="drawback-modifier-${drawbackId}" value="-10">
+                </div>
+                <div class="form-group">
+                    <label for="drawback-type-${drawbackId}">Modifier Type:</label>
+                    <select id="drawback-type-${drawbackId}">
+                        <option value="percentage">Percentage</option>
+                        <option value="flat">Flat Value</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="outside-condition-${drawbackId}"> 
+                        Only apply when outside ability condition
+                    </label>
+                </div>
+            `;
+            
+            container.appendChild(drawbackCard);
+        }
+        
+        // Remove an element (effect or drawback)
+        function removeElement(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.remove();
+            }
+        }
+        
+        // Collect condition data based on the selected requirement
+        function getConditionData() {
+            const requirement = document.getElementById('condition-requirement').value;
+            const condition = {
+                requirement: requirement
+            };
+            
+            switch(requirement) {
+                case 'hp_threshold':
+                    condition.threshold = parseInt(document.getElementById('hp-threshold').value);
+                    break;
+                case 'biome':
+                    condition.biomes = document.getElementById('biomes').value
+                        .split(',')
+                        .map(item => item.trim())
+                        .filter(item => item !== '');
+                    break;
+                case 'weather':
+                    condition.weathers = document.getElementById('weathers').value
+                        .split(',')
+                        .map(item => item.trim())
+                        .filter(item => item !== '');
+                    break;
+                case 'daytime':
+                    condition.daytimes = document.getElementById('daytimes').value
+                        .split(',')
+                        .map(item => item.trim())
+                        .filter(item => item !== '');
+                    break;
+                case 'damage_type':
+                    condition.types = document.getElementById('damage-types').value
+                        .split(',')
+                        .map(item => item.trim())
+                        .filter(item => item !== '');
+                    break;
+                case 'on_contact':
+                    condition.chance = parseInt(document.getElementById('contact-chance').value);
+                    break;
+                case 'target_hp':
+                    condition.threshold = parseInt(document.getElementById('target-hp-threshold').value);
+                    condition.comparison = document.getElementById('target-hp-comparison').value;
+                    break;
+                case 'weather_change':
+                    condition.turns = parseInt(document.getElementById('weather-change-turns').value);
+                    break;
+            }
+            
+            return condition;
+        }
+        
+        // Collect data from effects
+        function getEffects() {
+            const effects = [];
+            const effectCards = document.querySelectorAll('#effects-container .card');
+            
+            effectCards.forEach(card => {
+                const effectId = card.id.split('-')[1];
+                const statType = document.getElementById(`effect-stat-${effectId}`).value;
+                
+                const effect = {
+                    stat: statType
+                };
+                
+                if (statType === 'status') {
+                    effect.status_effect = document.getElementById(`effect-status-${effectId}`).value;
+                    effect.duration = parseInt(document.getElementById(`effect-duration-${effectId}`).value);
+                } else {
+                    effect.modifier = parseInt(document.getElementById(`effect-modifier-${effectId}`).value);
+                    effect.type = document.getElementById(`effect-type-${effectId}`).value;
+                }
+                
+                effects.push(effect);
+            });
+            
+            return effects;
+        }
+        
+        // Collect data from drawbacks
+        function getDrawbacks() {
+            const drawbacks = [];
+            const drawbackCards = document.querySelectorAll('#drawbacks-container .card');
+            
+            drawbackCards.forEach(card => {
+                const drawbackId = card.id.split('-')[1];
+                
+                const drawback = {
+                    stat: document.getElementById(`drawback-stat-${drawbackId}`).value,
+                    modifier: parseInt(document.getElementById(`drawback-modifier-${drawbackId}`).value),
+                    type: document.getElementById(`drawback-type-${drawbackId}`).value
+                };
+                
+                const outsideCondition = document.getElementById(`outside-condition-${drawbackId}`).checked;
+                if (outsideCondition) {
+                    drawback.outside_condition = true;
+                }
+                
+                drawbacks.push(drawback);
+            });
+            
+            return drawbacks.length > 0 ? drawbacks : undefined;
+        }
+        
+        // Save the ability
+        function saveAbility() {
+            const name = document.getElementById('ability-name').value.trim();
+            
+            if (!name) {
+                alert('Please enter an ability name');
+                return;
+            }
+            
+            if (document.querySelectorAll('#effects-container .card').length === 0) {
+                alert('Please add at least one effect');
+                return;
+            }
+            
+            const ability = {
+                name: name,
+                type: document.getElementById('ability-type').value,
+                conditions: getConditionData(),
+                effects: getEffects(),
+                drawbacks: getDrawbacks()
+            };
+            
+            if (editingIndex >= 0) {
+                // Update existing ability
+                abilities[editingIndex] = ability;
+                editingIndex = -1;
+            } else {
+                // Add new ability
+                abilities.push(ability);
+            }
+            
+            clearForm();
+            alert(`Ability "${name}" saved successfully!`);
+            
+            // Switch to abilities list tab
+            document.querySelector('.tablinks[onclick*="List"]').click();
+        }
+        
+        // Clear the form
+        function clearForm() {
+            document.getElementById('ability-name').value = '';
+            document.getElementById('ability-type').selectedIndex = 0;
+            document.getElementById('condition-requirement').selectedIndex = 0;
+            updateConditionFields();
+            
+            document.getElementById('effects-container').innerHTML = '';
+            document.getElementById('drawbacks-container').innerHTML = '';
+            
+            editingIndex = -1;
+        }
+        
+        // Render the abilities list
+        function renderAbilitiesList() {
+            const container = document.getElementById('abilities-list');
+            
+            if (abilities.length === 0) {
+                container.innerHTML = '<p>No abilities saved yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            abilities.forEach((ability, index) => {
+                const card = document.createElement('div');
+                card.className = 'ability-card';
+                
+                const header = document.createElement('div');
+                header.className = 'ability-header';
+                
+                const title = document.createElement('h3');
+                title.textContent = ability.name;
+                
+                const actions = document.createElement('div');
+                actions.className = 'ability-actions';
+                
+                const editButton = document.createElement('button');
+                editButton.className = 'edit-btn';
+                editButton.textContent = 'Edit';
+                editButton.onclick = () => editAbility(index);
+                
+                const deleteButton = document.createElement('button');
+                deleteButton.className = 'delete-btn';
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = () => deleteAbility(index);
+                
+                actions.appendChild(editButton);
+                actions.appendChild(deleteButton);
+                
+                header.appendChild(title);
+                header.appendChild(actions);
+                
+                const details = document.createElement('div');
+                details.innerHTML = `
+                    <p><strong>Type:</strong> ${ability.type}</p>
+                    <p><strong>Condition:</strong> ${ability.conditions.requirement}</p>
+                    <p><strong>Effects:</strong> ${ability.effects.length}</p>
+                    <p><strong>Drawbacks:</strong> ${ability.drawbacks ? ability.drawbacks.length : 0}</p>
+                `;
+                
+                card.appendChild(header);
+                card.appendChild(details);
+                container.appendChild(card);
+            });
+        }
+        
+        // Edit an ability
+        function editAbility(index) {
+            const ability = abilities[index];
+            editingIndex = index;
+            
+            // Fill in basic info
+            document.getElementById('ability-name').value = ability.name;
+            document.getElementById('ability-type').value = ability.type;
+            
+            // Set condition
+            document.getElementById('condition-requirement').value = ability.conditions.requirement;
+            updateConditionFields();
+            
+            // Fill in condition fields
+            const requirement = ability.conditions.requirement;
+            switch(requirement) {
+                case 'hp_threshold':
+                    document.getElementById('hp-threshold').value = ability.conditions.threshold;
+                    break;
+                case 'biome':
+                    document.getElementById('biomes').value = ability.conditions.biomes.join(', ');
+                    break;
+                case 'weather':
+                    document.getElementById('weathers').value = ability.conditions.weathers.join(', ');
+                    break;
+                case 'daytime':
+                    document.getElementById('daytimes').value = ability.conditions.daytimes.join(', ');
+                    break;
+                case 'damage_type':
+                    document.getElementById('damage-types').value = ability.conditions.types.join(', ');
+                    break;
+                case 'on_contact':
+                    document.getElementById('contact-chance').value = ability.conditions.chance;
+                    break;
+                case 'target_hp':
+                    document.getElementById('target-hp-threshold').value = ability.conditions.threshold;
+                    document.getElementById('target-hp-comparison').value = ability.conditions.comparison;
+                    break;
+                case 'weather_change':
+                    document.getElementById('weather-change-turns').value = ability.conditions.turns;
+                    break;
+            }
+            
+            // Clear existing effects and drawbacks
+            document.getElementById('effects-container').innerHTML = '';
+            document.getElementById('drawbacks-container').innerHTML = '';
+            
+            // Add effects
+            ability.effects.forEach(effect => {
+                addEffect();
+                const effectId = document.querySelector('#effects-container .card:last-child').id.split('-')[1];
+                
+                document.getElementById(`effect-stat-${effectId}`).value = effect.stat;
+                updateEffectFields(effectId);
+                
+                if (effect.stat === 'status') {
+                    document.getElementById(`effect-status-${effectId}`).value = effect.status_effect;
+                    document.getElementById(`effect-duration-${effectId}`).value = effect.duration;
+                } else {
+                    document.getElementById(`effect-modifier-${effectId}`).value = effect.modifier;
+                    document.getElementById(`effect-type-${effectId}`).value = effect.type;
+                }
+            });
+            
+            // Add drawbacks
+            if (ability.drawbacks) {
+                ability.drawbacks.forEach(drawback => {
+                    addDrawback();
+                    const drawbackId = document.querySelector('#drawbacks-container .card:last-child').id.split('-')[1];
+                    
+                    document.getElementById(`drawback-stat-${drawbackId}`).value = drawback.stat;
+                    document.getElementById(`drawback-modifier-${drawbackId}`).value = drawback.modifier;
+                    document.getElementById(`drawback-type-${drawbackId}`).value = drawback.type;
+                    
+                    if (drawback.outside_condition) {
+                        document.getElementById(`outside-condition-${drawbackId}`).checked = true;
+                    }
+                });
+            }
+            
+            // Switch to creator tab
+            document.querySelector('.tablinks[onclick*="Creator"]').click();
+        }
+        
+        // Delete an ability
+        function deleteAbility(index) {
+            if (confirm(`Are you sure you want to delete "${abilities[index].name}"?`)) {
+                abilities.splice(index, 1);
+                renderAbilitiesList();
+            }
+        }
+        
+        // Generate JSON output
+        function generateJSON() {
+            const output = document.getElementById('output');
+            output.value = JSON.stringify(abilities, null, 2);
+        }
+        
+        // Copy JSON to clipboard
+        function copyToClipboard() {
+            const output = document.getElementById('output');
+            output.select();
+            document.execCommand('copy');
+            alert('JSON copied to clipboard!');
+        }
+        
+        // Add initial effect
+        addEffect();
+    </script>
+</body>
+</html>

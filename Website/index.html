@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creature Database</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+    :root {
+      --primary-color: #3a7ca5;
+      --secondary-color: #2f6690;
+      --accent-color: #f5f5f5;
+      --tag-color: #cacaca;
+      --text-color: #16425b;
+      --bg-color: #f5f5f5;
+      --card-radius: 10px;
+      --transition-speed: 0.3s;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Ubuntu", serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      background-color: var(--secondary-color);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--card-radius);
+      cursor: pointer;
+      transition: background-color var(--transition-speed), transform var(--transition-speed);
+    }
+
+    nav button:hover,
+    nav button.active {
+      background-color: var(--primary-color);
+      transform: scale(1.05);
+    }
+
+    .search-container {
+      padding: 1.5rem 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-container input {
+      padding: 0.6rem;
+      border: 1px solid var(--accent-color);
+      border-radius: var(--card-radius);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .container {
+      padding: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: var(--card-radius);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 1.2rem;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h3 {
+      color: var(--accent-color);
+      background-color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-color);
+      border-radius: var(--card-radius) var(--card-radius) 0 0;
+      padding: 1%;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      /* margin-bottom: 0.4rem; */
+      align-items: baseline;
+
+
+    }
+
+    .tag {
+      display: inline-block;
+      background-color: var(--tag-color);
+      color: var(--text-color);
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--card-radius);
+      margin: 0.2rem 0.25rem 0.3rem 0;
+      font-size: 0.8rem;
+    }
+
+    .legendary {
+      background: linear-gradient(135deg, gold, #FFD700);
+      color: black;
+    }
+
+    /* === Primary Types === */
+    .primary-god {
+      background: linear-gradient(135deg, #646464, #000000, #646464) !important;
+      color: white !important;
+    }
+
+    .primary-verdant {
+      background: linear-gradient(135deg, #228B22, #32CD32) !important;
+      color: white !important;
+    }
+
+    .primary-primal {
+      background: linear-gradient(135deg, #FFC300, #eac80c) !important;
+      color: black !important;
+    }
+
+    .primary-apex {
+      background: linear-gradient(135deg, #D7263D, #FF4D4D) !important;
+      color: white !important;
+    }
+
+    .primary-sapient {
+      background: linear-gradient(135deg, #800080, #9932CC) !important;
+      color: white !important;
+    }
+
+    .primary-synthetic {
+      background: linear-gradient(135deg, #0066CC, #4D94FF) !important;
+      color: white !important;
+    }
+
+    /* === Subtypes === */
+    .sub-aquatic {
+      background: linear-gradient(135deg, #1A5276, #2E86C1) !important;
+      color: white !important;
+    }
+
+    .sub-terrestrial {
+      background: linear-gradient(135deg, #996633, #C19A6B) !important;
+      color: white !important;
+    }
+
+    .sub-avian {
+      background: linear-gradient(135deg, #5D8AA8, #89CFF0) !important;
+      color: black !important;
+    }
+
+    .sub-none {
+      display: none !important;
+    }
+
+    .sub-aquatic,
+    .sub-terrestrial,
+    .sub-avian
+    {
+      display: none !important;
+    }
+
+    /* === Elements === */
+    .element-nature {
+      background: linear-gradient(135deg, #9BCF53, #7EC850) !important;
+      color: black !important;
+    }
+
+    .element-ice {
+      background: linear-gradient(135deg, #B2EBF2, #80DEEA) !important;
+      color: black !important;
+    }
+
+    .element-toxic {
+      background: linear-gradient(135deg, #CE93D8, #BA68C8) !important;
+      color: black !important;
+    }
+
+    .element-fire {
+      background: linear-gradient(135deg, #f0563b, #bd4227) !important;
+      color: black !important;
+    }
+
+    .element-water {
+      background: linear-gradient(135deg, #81D4FA, #4FC3F7) !important;
+      color: black !important;
+    }
+
+    .element-draconic {
+      background: linear-gradient(135deg, #cd3737, #5E35B1) !important;
+      color: white !important;
+    }
+
+    .element-earth {
+      background: linear-gradient(135deg, #D2B48C, #BC8F6A) !important;
+      color: black !important;
+    }
+
+    .element-dark {
+      background: linear-gradient(135deg, #444444, #212121) !important;
+      color: white !important;
+    }
+
+    .element-wind {
+      background: linear-gradient(135deg, #86dcd3, #48b2a7) !important;
+      color: black !important;
+    }
+
+    .element-psychic {
+      background: linear-gradient(135deg, #F48FB1, #F06292) !important;
+      color: black !important;
+    }
+
+    .element-light {
+      background: linear-gradient(135deg, #fff8ba, #ebe07d) !important;
+      color: black !important;
+    }
+
+    .element-demonic {
+      background: linear-gradient(135deg, #b92222, #7b1010) !important;
+      color: white !important;
+    }
+
+    .element-electric {
+      background: linear-gradient(135deg, #f6e15b, #f6dc5c) !important;
+      color: black !important;
+    }
+
+    .element-acid {
+      background: linear-gradient(135deg, #aae666, #93c65a) !important;
+      color: black !important;
+    }
+
+    .element-magnetic {
+      background: linear-gradient(135deg, silver, #90A4AE) !important;
+      color: black !important;
+    }
+
+    .element-none {
+      display: none !important;
+    }
+
+    footer {
+      background-color: var(--secondary-color);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 5% auto;
+      padding: 20px;
+      border-radius: var(--card-radius);
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: black;
+    }
+
+    .details-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stat-bar-container {
+      width: 85%;
+      height: 10px;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      overflow: hidden;
+    }
+
+    .stat-bar {
+      height: 100%;
+      background-color: var(--primary-color);
+      border-radius: 5px;
+      width: 0;
+      transition: width 0.5s ease-in-out;
+    }
+
+    @media (max-width: 600px) {
+      .card-container {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<script>
+  // Database - Replace these sample arrays with your full data
+
+  let creatures = [];
+
+  fetch('../data/creatures.json')
+  .then(res => res.json())
+  .then(data => {
+    creatures = data;
+
+    displayData();
+  })
+  .catch(error => console.error("Failed to load creatures:", error));
+
+  let abilities = [];
+
+  fetch('../data/abilities.json')
+  .then(res => res.json())
+  .then(data => {
+    abilities = data;
+  })
+  .catch(error => console.error("Failed to load abilities:", error));
+
+  let elements = [];
+
+  fetch('../data/elements.json')
+  .then(res => res.json())
+  .then(data => {
+    elements = data;
+  })
+  .catch(error => console.error("Failed to load elements:", error));
+
+  let biomes = [];
+
+  fetch('../data/biomes.json')
+  .then(res => res.json())
+  .then(data => {
+    biomes = data;
+  })
+  .catch(error => console.error("Failed to load biomes:", error));
+
+  let weather = [];
+
+  fetch('../data/weather.json')
+  .then(res => res.json())
+  .then(data => {
+    weather = data;
+  })
+  .catch(error => console.error("Failed to load weather:", error));
+
+  let daytime = [];
+
+  fetch('../data/daytime.json')
+  .then(res => res.json())
+  .then(data => {
+    daytime = data;
+  })
+  .catch(error => console.error("Failed to load daytime:", error));
+
+  let primaryTypes = [];
+
+  fetch('../data/primaryTypes.json')
+  .then(res => res.json())
+  .then(data => {
+  primaryTypes = data;
+  })
+  .catch(error => console.error("Failed to load subtypes:", error));
+
+  let subTypes = [];
+
+  fetch('../data/subtypes.json')
+  .then(res => res.json())
+  .then(data => {
+    subTypes = data;
+  })
+  .catch(error => console.error("Failed to load subtypes:", error));
+</script>
+
+<body>
+  <header>
+    <h1>Creature Database</h1>
+    <p>Your ultimate guide to creatures and game mechanics</p>
+  </header>
+
+  <nav id="categoryNav">
+    <button class="nav-btn active" data-category="creatures">Creatures</button>
+    <button class="nav-btn" data-category="abilities">Abilities</button>
+    <button class="nav-btn" data-category="elements">Elements</button>
+    <button class="nav-btn" data-category="biomes">Biomes</button>
+    <button class="nav-btn" data-category="weather">Weather</button>
+    <button class="nav-btn" data-category="daytime">Daytime</button>
+    <button class="nav-btn" data-category="types">Types</button>
+  </nav>
+
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search...">
+  </div>
+
+  <div class="container">
+    <div id="dataDisplay" class="card-container">
+      <!-- Cards will be dynamically added here -->
+    </div>
+  </div>
+
+  <div id="detailsModal" class="modal">
+    <div class="modal-content">
+      <div class="details-title">
+        <h2 id="modalTitle">Details</h2>
+        <span class="close">&times;</span>
+      </div>
+      <div id="modalContent">
+        <!-- Modal content will be inserted here -->
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Creature Database - Your Game Database</p>
+  </footer>
+
+  <script>
+
+    // Current displayed category
+    let currentCategory = 'creatures';
+    let searchText = '';
+
+    // DOM elements
+    const dataDisplay = document.getElementById('dataDisplay');
+    const searchInput = document.getElementById('searchInput');
+    const navButtons = document.querySelectorAll('.nav-btn');
+    const modal = document.getElementById('detailsModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    const closeBtn = document.querySelector('.close');
+
+    function formatClassName(prefix, name) {
+      return `${prefix}-${name.toLowerCase().replace(/\s+/g, '-')}`;
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', function () {
+      searchText = this.value.toLowerCase();
+      displayData();
+    });
+
+    navButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        currentCategory = this.dataset.category;
+        navButtons.forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        displayData();
+      });
+    });
+
+    closeBtn.addEventListener('click', function () {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function (event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Functions
+    function displayData() {
+      dataDisplay.innerHTML = '';
+
+      let dataToShow;
+      switch (currentCategory) {
+        case 'creatures':
+          dataToShow = creatures;
+          dataToShow.forEach(creature => createCreatureCard(creature));
+          break;
+        case 'abilities':
+          dataToShow = abilities;
+          dataToShow.forEach(ability => createAbilityCard(ability));
+          break;
+        case 'elements':
+          dataToShow = elements;
+          dataToShow.forEach(element => createElementCard(element));
+          break;
+        case 'biomes':
+          dataToShow = biomes;
+          dataToShow.forEach(biome => createBiomeCard(biome));
+          break;
+        case 'weather':
+          dataToShow = weather;
+          dataToShow.forEach(item => createWeatherCard(item));
+          break;
+        case 'daytime':
+          dataToShow = daytime;
+          dataToShow.forEach(item => createDaytimeCard(item));
+          break;
+        case 'types':
+          primaryTypes.forEach(type => createTypeCard(type, 'Primary'));
+          subTypes.forEach(type => createTypeCard(type, 'Sub'));
+          break;
+        default:
+          console.log("error loading the tabbles")
+          break;
+      }
+    }
+
+    function createCreatureCard(creature) {
+      if (searchText && !creature.name.toLowerCase().includes(searchText) &&
+        !creature.primary_type.toLowerCase().includes(searchText) &&
+        !creature.subtype.toLowerCase().includes(searchText) &&
+        !creature.element.toLowerCase().includes(searchText)) {
+        return;
+      }
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      if (creature.legendary) {
+        card.style.borderColor = 'gold';
+        card.style.borderWidth = '2px';
+        card.style.borderStyle = 'solid';
+      }
+
+      const maxStat = Math.max(creature.stats.hp, creature.stats.attack, creature.stats.defense, creature.stats.speed);
+
+      // Safely format class names (convert to lowercase and replace spaces if needed)
+      const primaryClass = `primary-${creature.primary_type.toLowerCase()}`;
+      const subClass = `sub-${creature.subtype.toLowerCase()}`;
+      const elementClass = `element-${creature.element.toLowerCase()}`;
+
+      card.innerHTML = `
+              <h3>${creature.name}</h3>
+              <div class="tags">
+                  <span class="tag ${primaryClass}">${creature.primary_type}</span>
+                  <span class="tag ${subClass}">${creature.subtype}</span>
+                  <span class="tag ${elementClass}">${creature.element}</span>
+                  ${creature.legendary ? '<span class="tag legendary">Legendary</span>' : ''}
+              </div>
+              <div class="stat-container">
+                  <div class="stat-row">
+                      <span>HP:</span>
+                      <div class="stat-bar-container">
+                          <div class="stat-bar" style="width: ${(creature.stats.hp / 150) * 100}%"></div>
+                      </div>
+                      <span>${creature.stats.hp}</span>
+                  </div>
+                  <div class="stat-row">
+                      <span>ATK:</span>
+                      <div class="stat-bar-container">
+                          <div class="stat-bar" style="width: ${(creature.stats.attack / 150) * 100}%"></div>
+                      </div>
+                      <span>${creature.stats.attack}</span>
+                  </div>
+                  <div class="stat-row">
+                      <span>DEF:</span>
+                      <div class="stat-bar-container">
+                          <div class="stat-bar" style="width: ${(creature.stats.defense / 150) * 100}%"></div>
+                      </div>
+                      <span>${creature.stats.defense}</span>
+                  </div>
+                  <div class="stat-row">
+                      <span>SPD:</span>
+                      <div class="stat-bar-container">
+                          <div class="stat-bar" style="width: ${(creature.stats.speed / 150) * 100}%"></div>
+                      </div>
+                      <span>${creature.stats.speed}</span>
+                  </div>
+              </div>
+              <p><strong>Ability:</strong> ${creature.ability}</p>
+          `;
+
+      card.addEventListener('click', function () {
+        showCreatureDetails(creature);
+      });
+
+      dataDisplay.appendChild(card);
+    }
+
+    function createAbilityCard(ability) {
+      if (searchText && !ability.name.toLowerCase().includes(searchText) &&
+        !ability.effect.buff.toLowerCase().includes(searchText) &&
+        !ability.trigger_condition.toLowerCase().includes(searchText)) {
+        return;
+      }
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+                <h3>${ability.name}</h3>
+                <p><strong>Trigger:</strong> ${ability.trigger_condition}</p>
+                <p><strong>Type:</strong> ${ability.duration_type}</p>
+                <p><strong>Buff:</strong> ${ability.effect.buff}</p>
+                <p><strong>Debuff:</strong> ${ability.effect.debuff}</p>
+            `;
+
+      card.addEventListener('click', function () {
+        showAbilityDetails(ability);
+      });
+
+      dataDisplay.appendChild(card);
+    }
+
+    function createElementCard(element) {
+      if (searchText && !element.name.toLowerCase().includes(searchText) &&
+        !element.status_effect.toLowerCase().includes(searchText)) {
+        return;
+      }
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      const title = document.createElement('h3');
+      title.textContent = element.name;
+      title.classList.add(formatClassName('element', element.name)); // Add the element-specific class
+
+      const content = document.createElement('div');
+      content.innerHTML = `
+              <p><strong>Status Effect:</strong> ${element.status_effect}</p>
+              <p><strong>Effect:</strong> ${element.effect_description}</p>
+              <p><strong>Strong vs:</strong> ${element.effectiveness.strong_against.join(', ')}</p>
+              <p><strong>Weak vs:</strong> ${element.effectiveness.weak_against.join(', ')}</p>
+          `;
+
+      card.appendChild(title);
+      card.appendChild(content);
+      dataDisplay.appendChild(card);
+    }
+
+    function createBiomeCard(biome) {
+      if (searchText && !biome.name.toLowerCase().includes(searchText)) {
+        return;
+      }
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+                <h3>${biome.name}</h3>
+                <p><strong>Buff:</strong> ${biome.buff.types.join(', ')} - ${biome.buff.effect}</p>
+                <p><strong>Debuff:</strong> ${biome.debuff.types.join(', ')} - ${biome.debuff.effect}</p>
+            `;
+
+      dataDisplay.appendChild(card);
+    }
+
+    function createWeatherCard(weatherItem) {
+      if (searchText && !weatherItem.name.toLowerCase().includes(searchText)) {
+        return;
+      }
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+                <h3>${weatherItem.name}</h3>
+                <p><strong>Buff:</strong> ${weatherItem.buff.types.join(', ')} - ${weatherItem.buff.effect}</p>
+                <p><strong>Debuff:</strong> ${weatherItem.debuff.types.join(', ')} - ${weatherItem.debuff.effect}</p>
+            `;
+
+      dataDisplay.appendChild(card);
+    }
+
+    function createDaytimeCard(time) {
+      if (searchText && !time.name.toLowerCase().includes(searchText)) {
+        return;
+      }
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+                <h3>${time.name}</h3>
+                <p><strong>Buff:</strong> ${time.buff.types.join(', ')} - ${time.buff.effect}</p>
+                <p><strong>Debuff:</strong> ${time.debuff.types.join(', ')} - ${time.debuff.effect}</p>
+            `;
+
+      dataDisplay.appendChild(card);
+    }
+
+    function createTypeCard(type, typeCategory) {
+      if (searchText && !type.name.toLowerCase().includes(searchText)) {
+        return;
+      }
+
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      // Generate the class based on typeCategory
+      const typeClass = typeCategory === 'Primary'
+        ? formatClassName('primary', type.name)
+        : formatClassName('sub', type.name);
+
+      // Create the title element
+      const title = document.createElement('h3');
+      title.textContent = `${type.name} (${typeCategory})`;
+      title.classList.add(typeClass); // Add the generated class
+
+      // Add the rest of the card content
+      const content = document.createElement('div');
+      if (typeCategory === 'Primary') {
+        content.innerHTML = `
+                  <p><strong>Strong vs:</strong> ${type.strong_against.join(', ')}</p>
+                  <p><strong>Weak vs:</strong> ${type.weak_against.join(', ')}</p>
+              `;
+      } else {
+        content.innerHTML = `
+                  <p><strong>Passive:</strong> ${type.passive_boost}</p>
+              `;
+      }
+
+      // Combine and append
+      card.appendChild(title);
+      card.appendChild(content);
+      dataDisplay.appendChild(card);
+    }
+
+    function showCreatureDetails(creature) {
+      modalTitle.textContent = creature.name;
+
+      modalContent.innerHTML = `
+                <div class="tags">
+                    <span class="tag primary-${creature.primary_type.toLowerCase()}">${creature.primary_type}</span>
+                    <span class="tag sub-${creature.subtype.toLowerCase()}">${creature.subtype}</span>
+                    <span class="tag element-${creature.element.toLowerCase()}">${creature.element}</span>
+                    ${creature.legendary ? '<span class="tag legendary">Legendary</span>' : ''}
+                </div>
+                <p>${creature.description}</p>
+                <h4>Stats</h4>
+                <div class="stat-container">
+                    <div class="stat-row">
+                        <span>HP:</span>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar" style="width: ${(creature.stats.hp / 150) * 100}%"></div>
+                        </div>
+                        <span>${creature.stats.hp}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>ATK:</span>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar" style="width: ${(creature.stats.attack / 150) * 100}%"></div>
+                        </div>
+                        <span>${creature.stats.attack}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>DEF:</span>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar" style="width: ${(creature.stats.defense / 150) * 100}%"></div>
+                        </div>
+                        <span>${creature.stats.defense}</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>SPD:</span>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar" style="width: ${(creature.stats.speed / 150) * 100}%"></div>
+                        </div>
+                        <span>${creature.stats.speed}</span>
+                    </div>
+                </div>
+                <h4>Ability: ${creature.ability}</h4>
+                <div id="abilityDetails" class="hidden">
+                    <!-- Ability details will be loaded here dynamically -->
+                </div>
+            `;
+
+      // Find and display ability details
+      const creatureAbility = abilities.find(a => a.name === creature.ability);
+      if (creatureAbility) {
+        const abilityDetails = document.getElementById('abilityDetails');
+        abilityDetails.innerHTML = `
+                    <p><strong>Trigger:</strong> ${creatureAbility.trigger_condition}</p>
+                    <p><strong>Type:</strong> ${creatureAbility.duration_type}</p>
+                    <p><strong>Buff:</strong> ${creatureAbility.effect.buff}</p>
+                    <p><strong>Debuff:</strong> ${creatureAbility.effect.debuff}</p>
+                `;
+        abilityDetails.classList.remove('hidden');
+      }
+
+      modal.style.display = 'block';
+    }
+
+    function showAbilityDetails(ability) {
+      modalTitle.textContent = ability.name;
+
+      modalContent.innerHTML = `
+                <p><strong>Trigger Condition:</strong> ${ability.trigger_condition}</p>
+                <p><strong>Duration Type:</strong> ${ability.duration_type}</p>
+                <h4>Effects</h4>
+                <p><strong>Buff:</strong> ${ability.effect.buff}</p>
+                <p><strong>Debuff:</strong> ${ability.effect.debuff}</p>
+                <h4>Creatures with this ability:</h4>
+                <div id="creaturesWithAbility">
+                    ${getCreaturesWithAbility(ability.name).length > 0 ?
+          getCreaturesWithAbility(ability.name).map(c =>
+            `<span class="tag" style="cursor:pointer" onclick="showCreatureFromAbility('${c.name}')">${c.name}</span>`
+          ).join('') :
+          'No creatures found with this ability.'
+        }
+                </div>
+            `;
+
+      modal.style.display = 'block';
+    }
+
+    function getCreaturesWithAbility(abilityName) {
+      return creatures.filter(creature => creature.ability === abilityName);
+    }
+
+    window.showCreatureFromAbility = function (creatureName) {
+      const creature = creatures.find(c => c.name === creatureName);
+      if (creature) {
+        showCreatureDetails(creature);
+      }
+    };
+  </script>
+</body>
+
+</html>

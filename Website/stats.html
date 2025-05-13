@@ -1,0 +1,3420 @@
+<script>
+function distributeStats(min = 40, max = 150, total = 360) {
+    let stats = {
+        hp: min,
+        attack: min,
+        defense: min,
+        speed: min
+    };
+
+    const keys = Object.keys(stats);
+    let base = min * keys.length;
+    let remaining = total - base;
+
+    // Pick a random stat to be the "focus stat"
+    const focus = keys[Math.floor(Math.random() * keys.length)];
+    const focusBonus = Math.min(15, remaining); // Can adjust max bonus here
+    stats[focus] += focusBonus;
+    remaining -= focusBonus;
+
+    // Distribute the rest in steps of 5
+    while (remaining >= 5) {
+        const stat = keys[Math.floor(Math.random() * keys.length)];
+        if (stats[stat] + 5 <= max) {
+            stats[stat] += 5;
+            remaining -= 5;
+        }
+    }
+
+    return stats;
+}
+
+
+// Example usage with your creature array
+let creatures = [
+  {
+    "id": 1,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "",
+  },
+  {
+    "id": 2,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 3,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 4,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 5,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 6,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 7,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 8,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 9,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 10,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 11,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 12,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 13,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 14,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 15,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 16,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 17,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 18,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 19,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 20,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 21,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 22,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 23,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 24,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 25,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 26,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 27,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 28,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 29,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 30,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 31,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 32,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 33,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 34,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 35,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 36,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 37,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 38,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 39,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 40,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 41,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 42,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 43,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 44,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 45,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 46,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 47,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 48,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 49,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 50,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 51,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 52,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 53,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 54,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 55,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 56,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 57,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 58,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 59,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 60,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 61,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 62,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 63,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 64,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 65,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 66,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 67,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 68,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 69,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 70,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 71,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 72,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 73,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 74,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 75,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 76,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 77,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 78,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 79,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 80,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 81,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 82,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 83,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 84,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 85,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 86,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 87,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 88,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 89,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 90,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 91,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 92,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 93,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 94,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 95,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 96,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 97,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 98,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 99,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 100,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 101,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 102,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 103,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 104,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 105,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 106,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 107,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 108,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 109,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 110,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 111,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 112,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 113,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 114,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 115,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 116,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 117,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 118,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 119,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 120,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 121,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 122,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 123,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 124,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 125,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 126,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 127,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 128,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 129,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 130,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 131,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 132,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 133,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 134,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 135,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 136,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 137,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 138,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 139,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 140,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 141,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 142,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 143,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 144,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 145,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 146,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 147,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 148,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 149,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 150,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 151,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 152,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 153,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 154,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 155,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 156,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 157,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 158,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 159,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 160,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 161,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 162,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 163,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 164,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 165,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 166,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 167,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 168,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 169,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 170,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 171,
+    "name": "Avian",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 172,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 173,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 174,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 175,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 176,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 177,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 178,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 179,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 180,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 181,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 182,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 183,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 184,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 185,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 186,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 187,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 188,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 189,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 190,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 191,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 192,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 193,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 194,
+    "name": "",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 195,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 196,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 197,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 198,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 199,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 200,
+    "name": "",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 201,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Sound",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 202,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 203,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 204,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 205,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 206,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 207,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 208,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 209,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 210,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 211,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 212,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 213,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Illusion",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 214,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 215,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 216,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 217,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 218,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Water",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 219,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 220,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 221,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 222,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 223,
+    "name": "",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 224,
+    "name": "",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Light",
+    "ability": "",
+    "description": ""
+  },
+  {
+    "id": 225,
+    "name": "",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 0,
+      "attack": 0,
+      "defense": 0,
+      "speed": 0
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": ""
+  }
+];
+
+// Assign random stats to each creature
+creatures.forEach(creature => {
+    creature.stats = distributeStats();
+});
+
+// Check result
+document.write("<pre>" + JSON.stringify(creatures, null, 2) + "</pre>");
+
+</script>

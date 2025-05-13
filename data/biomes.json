@@ -1,0 +1,178 @@
+[
+    {
+        "name": "Forest",
+        "buff": {
+        "types": ["Verdant", "Nature"],
+        "effect": "15% attack boost"
+        },
+        "debuff": {
+        "types": ["Fire", "Synthetic"],
+        "effect": "10% speed drop"
+        }
+    },
+    {
+        "name": "Desert",
+        "buff": {
+        "types": ["Fire", "Earth"],
+        "effect": "15% accuracy boost"
+        },
+        "debuff": {
+        "types": ["Water", "Nature"],
+        "effect": "12% defense drop"
+        }
+    },
+    {
+        "name": "Mountain",
+        "buff": {
+        "types": ["Primal", "Wind"],
+        "effect": "20% defense boost"
+        },
+        "debuff": {
+        "types": ["Electric", "Acid"],
+        "effect": "10% attack drop"
+        }
+    },
+    {
+        "name": "Highlands",
+        "buff": {
+        "types": ["Wind", "Avian"],
+        "effect": "15% speed boost"
+        },
+        "debuff": {
+        "types": ["Earth", "Aquatic"],
+        "effect": "10% accuracy drop"
+        }
+    },
+    {
+        "name": "Glacier",
+        "buff": {
+        "types": ["Ice", "Water"],
+        "effect": "20% defense boost"
+        },
+        "debuff": {
+        "types": ["Fire", "Acid"],
+        "effect": "15% speed drop"
+        }
+    },
+    {
+        "name": "Swamp",
+        "buff": {
+        "types": ["Toxic", "Aquatic"],
+        "effect": "15% defense boost"
+        },
+        "debuff": {
+        "types": ["Light", "Sapient"],
+        "effect": "12% speed drop"
+        }
+    },
+    {
+        "name": "Ocean",
+        "buff": {
+        "types": ["Water", "Electric"],
+        "effect": "20% attack boost"
+        },
+        "debuff": {
+        "types": ["Earth", "Terrestrial"],
+        "effect": "15% defense drop"
+        }
+    },
+    {
+        "name": "Volcano",
+        "buff": {
+        "types": ["Fire", "Earth"],
+        "effect": "25% attack boost"
+        },
+        "debuff": {
+        "types": ["Ice", "Water"],
+        "effect": "15% health drop"
+        }
+    },
+    {
+        "name": "Savanna",
+        "buff": {
+        "types": ["Primal", "Light"],
+        "effect": "15% speed boost"
+        },
+        "debuff": {
+        "types": ["Dark", "Ice"],
+        "effect": "10% accuracy drop"
+        }
+    },
+    {
+        "name": "Jungle",
+        "buff": {
+        "types": ["Nature", "Apex"],
+        "effect": "15% evasion boost"
+        },
+        "debuff": {
+        "types": ["Draconic", "Magnetic"],
+        "effect": "10% accuracy drop"
+        }
+    },
+    {
+        "name": "Tundra",
+        "buff": {
+        "types": ["Ice", "Draconic"],
+        "effect": "15% defense boost"
+        },
+        "debuff": {
+        "types": ["Fire", "Toxic"],
+        "effect": "12% attack drop"
+        }
+    },
+    {
+        "name": "Cave",
+        "buff": {
+        "types": ["Dark", "Earth"],
+        "effect": "15% defense boost"
+        },
+        "debuff": {
+        "types": ["Light", "Wind"],
+        "effect": "20% accuracy drop"
+        }
+    },
+    {
+        "name": "Ruins",
+        "buff": {
+        "types": ["Synthetic", "Psychic"],
+        "effect": "15% accuracy boost"
+        },
+        "debuff": {
+        "types": ["Nature", "Primal"],
+        "effect": "10% defense drop"
+        }
+    },
+    {
+        "name": "Marsh",
+        "buff": {
+        "types": ["Acid", "Toxic"],
+        "effect": "18% attack boost"
+        },
+        "debuff": {
+        "types": ["Synthetic", "Terrestrial"],
+        "effect": "15% defense drop"
+        }
+    },
+    {
+        "name": "Crystal Cavern",
+        "buff": {
+        "types": ["Light", "Magnetic"],
+        "effect": "20% special attack boost"
+        },
+        "debuff": {
+        "types": ["Dark", "Draconic"],
+        "effect": "15% special defense drop"
+        }
+    },
+    {
+        "name": "Wasteland",
+        "buff": {
+        "types": ["Demonic", "Sapient"],
+        "effect": "15% evasion boost"
+        },
+        "debuff": {
+        "types": ["Nature", "Psychic"],
+        "effect": "10% accuracy drop"
+        }
+    }
+]
