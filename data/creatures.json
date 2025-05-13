@@ -3614,5 +3614,21 @@
     "ability": "",
     "description": "",
     "scientific_name": "Pattje72"
+  },
+    {
+    "id": 227,
+    "name": "Drago",
+    "primary_type": "Titan",
+    "subtype": "none",
+    "stats": {
+      "hp": 120,
+      "attack": 180,
+      "defense": 150,
+      "speed": 150
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "",
+    "scientific_name": "Pattje72"
   }
 ]

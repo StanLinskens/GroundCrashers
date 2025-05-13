@@ -146,6 +146,11 @@
       color: white !important;
     }
 
+    .primary-titan {
+      background: linear-gradient(135deg,#7314b3, #e49310);
+      color: white !important;
+    }
+
     .primary-verdant {
       background: linear-gradient(135deg, #228B22, #32CD32) !important;
       color: white !important;
@@ -193,8 +198,7 @@
 
     .sub-aquatic,
     .sub-terrestrial,
-    .sub-avian
-    {
+    .sub-avian {
       display: none !important;
     }
 
@@ -270,7 +274,7 @@
     }
 
     .element-magnetic {
-      background: linear-gradient(135deg, silver, #90A4AE) !important;
+      background: linear-gradient(135deg, #c0c0c0, #90A4AE) !important;
       color: black !important;
     }
 
@@ -367,76 +371,76 @@
   let creatures = [];
 
   fetch('../data/creatures.json')
-  .then(res => res.json())
-  .then(data => {
-    creatures = data;
+    .then(res => res.json())
+    .then(data => {
+      creatures = data;
 
-    displayData();
-  })
-  .catch(error => console.error("Failed to load creatures:", error));
+      displayData();
+    })
+    .catch(error => console.error("Failed to load creatures:", error));
 
   let abilities = [];
 
   fetch('../data/abilities.json')
-  .then(res => res.json())
-  .then(data => {
-    abilities = data;
-  })
-  .catch(error => console.error("Failed to load abilities:", error));
+    .then(res => res.json())
+    .then(data => {
+      abilities = data;
+    })
+    .catch(error => console.error("Failed to load abilities:", error));
 
   let elements = [];
 
   fetch('../data/elements.json')
-  .then(res => res.json())
-  .then(data => {
-    elements = data;
-  })
-  .catch(error => console.error("Failed to load elements:", error));
+    .then(res => res.json())
+    .then(data => {
+      elements = data;
+    })
+    .catch(error => console.error("Failed to load elements:", error));
 
   let biomes = [];
 
   fetch('../data/biomes.json')
-  .then(res => res.json())
-  .then(data => {
-    biomes = data;
-  })
-  .catch(error => console.error("Failed to load biomes:", error));
+    .then(res => res.json())
+    .then(data => {
+      biomes = data;
+    })
+    .catch(error => console.error("Failed to load biomes:", error));
 
   let weather = [];
 
   fetch('../data/weather.json')
-  .then(res => res.json())
-  .then(data => {
-    weather = data;
-  })
-  .catch(error => console.error("Failed to load weather:", error));
+    .then(res => res.json())
+    .then(data => {
+      weather = data;
+    })
+    .catch(error => console.error("Failed to load weather:", error));
 
   let daytime = [];
 
   fetch('../data/daytime.json')
-  .then(res => res.json())
-  .then(data => {
-    daytime = data;
-  })
-  .catch(error => console.error("Failed to load daytime:", error));
+    .then(res => res.json())
+    .then(data => {
+      daytime = data;
+    })
+    .catch(error => console.error("Failed to load daytime:", error));
 
   let primaryTypes = [];
 
   fetch('../data/primaryTypes.json')
-  .then(res => res.json())
-  .then(data => {
-  primaryTypes = data;
-  })
-  .catch(error => console.error("Failed to load subtypes:", error));
+    .then(res => res.json())
+    .then(data => {
+      primaryTypes = data;
+    })
+    .catch(error => console.error("Failed to load subtypes:", error));
 
   let subTypes = [];
 
   fetch('../data/subtypes.json')
-  .then(res => res.json())
-  .then(data => {
-    subTypes = data;
-  })
-  .catch(error => console.error("Failed to load subtypes:", error));
+    .then(res => res.json())
+    .then(data => {
+      subTypes = data;
+    })
+    .catch(error => console.error("Failed to load subtypes:", error));
 </script>
 
 <body>
