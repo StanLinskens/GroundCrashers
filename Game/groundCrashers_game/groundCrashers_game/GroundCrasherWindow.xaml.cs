@@ -32,7 +32,8 @@ namespace groundCrashers_game
             Button clicked = sender as Button;
             string name = clicked.Content.ToString();
 
-            string jsonPath = "C:\\Users\\woutv\\Desktop\\github things\\GroundCrashersProftaak\\Game\\groundCrashers_game\\groundCrashers_game\\JsonData\\creatures.json";
+            string jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "JsonData", "creatures.json");
+            jsonPath = System.IO.Path.GetFullPath(jsonPath);
 
             if (!File.Exists(jsonPath))
             {
