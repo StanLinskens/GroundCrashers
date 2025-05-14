@@ -41,6 +41,7 @@ namespace groundCrashers_game
             // check if file exists
             if (!File.Exists(jsonPath))
             {
+                // error if not
                 MessageBox.Show("JSON file not found!");
                 return;
             }
@@ -52,6 +53,7 @@ namespace groundCrashers_game
             // selected creature
             Creature selected = creatures.FirstOrDefault(c => c.name == name);
 
+            // show the data in the window
             if (selected != null)
             {
                 GroundCrasherName.Text = selected.name;
@@ -60,10 +62,12 @@ namespace groundCrashers_game
                 GroundCrasherAttack.Text = selected.stats.attack.ToString();
                 GroundCrasherDefense.Text = selected.stats.defense.ToString();
 
+                // messagebox to show selected creature
                 MessageBox.Show($"You selected {selected.name}!");
             }
             else
             {
+                // error if creature not found
                 MessageBox.Show($"Could not find creature: {name}");
             }
         }
