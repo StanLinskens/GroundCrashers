@@ -32,17 +32,21 @@ namespace groundCrashers_game
             Button clicked = sender as Button;
             string name = clicked.Content.ToString();
 
-            string jsonPath = "C:\\Users\\woutv\\Desktop\\github things\\GroundCrashersProftaak\\Game\\groundCrashers_game\\groundCrashers_game\\JsonData\\creatures.json";
+            // path to json
+            string jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "JsonData", "creatures.json");
 
+            // check if file exists
             if (!File.Exists(jsonPath))
             {
                 MessageBox.Show("JSON file not found!");
                 return;
             }
 
+            // read json
             string json = File.ReadAllText(jsonPath);
             List<Creature> creatures = JsonConvert.DeserializeObject<List<Creature>>(json);
 
+            // selected creature
             Creature selected = creatures.FirstOrDefault(c => c.name == name);
 
             if (selected != null)
