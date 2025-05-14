@@ -22,9 +22,16 @@ namespace groundCrashers_game
     /// </summary>
     public partial class GroundCrasherWindow : Window
     {
+        private List<Creature> loadedCreatures;
+
         public GroundCrasherWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadCreatureButtons();
         }
 
         private void SelectPokemon_Click(object sender, RoutedEventArgs e)
@@ -32,28 +39,8 @@ namespace groundCrashers_game
             Button clicked = sender as Button;
             string name = clicked.Content.ToString();
 
+            Creature selected = loadedCreatures.FirstOrDefault(c => c.name == name);
 
-            // path to json
-            string jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "JsonData", "creatures.json");
-            jsonPath = System.IO.Path.GetFullPath(jsonPath);
-
-
-            // check if file exists
-            if (!File.Exists(jsonPath))
-            {
-                // error if not
-                MessageBox.Show("JSON file not found!");
-                return;
-            }
-
-            // read json
-            string json = File.ReadAllText(jsonPath);
-            List<Creature> creatures = JsonConvert.DeserializeObject<List<Creature>>(json);
-
-            // selected creature
-            Creature selected = creatures.FirstOrDefault(c => c.name == name);
-
-            // show the data in the window
             if (selected != null)
             {
                 GroundCrasherName.Text = selected.name;
@@ -62,16 +49,42 @@ namespace groundCrashers_game
                 GroundCrasherAttack.Text = selected.stats.attack.ToString();
                 GroundCrasherDefense.Text = selected.stats.defense.ToString();
 
-                // messagebox to show selected creature
                 MessageBox.Show($"You selected {selected.name}!");
             }
             else
             {
-                // error if creature not found
                 MessageBox.Show($"Could not find creature: {name}");
             }
         }
 
+        private void LoadCreatureButtons()
+        {
+            string jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "JsonData", "creatures.json");
+            jsonPath = System.IO.Path.GetFullPath(jsonPath);
+
+            if (!File.Exists(jsonPath))
+            {
+                MessageBox.Show("Creature JSON file not found!");
+                return;
+            }
+
+            string json = File.ReadAllText(jsonPath);
+            loadedCreatures = JsonConvert.DeserializeObject<List<Creature>>(json); // Store the list
+
+            foreach (Creature creature in loadedCreatures)
+            {
+                Button btn = new Button
+                {
+                    Content = creature.name,
+                    Margin = new Thickness(5),
+                    Height = 40,
+                    Background = Brushes.Lavender
+                };
+
+                btn.Click += SelectPokemon_Click;
+                CreatureButtonPanel.Children.Add(btn);
+            }
+        }
 
     }
 }
