@@ -33,7 +33,8 @@ namespace groundCrashers_game
 
         private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            GroundCrasherWindow GroundCrasherWindow = new GroundCrasherWindow();
+            GroundCrasherWindow.Show();
         }
 
         private void Run_Button_Click(object sender, RoutedEventArgs e)

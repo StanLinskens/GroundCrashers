@@ -17,7 +17,6 @@ namespace groundCrashers_game
         string Element { get; set; }
         string Ability { get; set; }
         string Description { get; set; }
-        string ScientificName { get; set; }
 
         Creature(
             int id,
@@ -38,7 +37,6 @@ namespace groundCrashers_game
             Element = element;
             Ability = ability;
             Description = description;
-            ScientificName = scientificName;
         }
     }
 }
