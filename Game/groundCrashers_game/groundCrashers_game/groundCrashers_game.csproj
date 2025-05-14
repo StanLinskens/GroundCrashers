@@ -10,6 +10,15 @@
 
   <ItemGroup>
     <None Remove="Images\battle_arena.png" />
+    <None Remove="JsonData\creatures.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="JsonData\creatures.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,317 @@
+[
+  {
+    "name": "Photosynthesis",
+    "effect": {
+      "buff": "Recovers 10% HP each turn in sunlight",
+      "debuff": "Speed reduced by 15% while recovering"
+    },
+    "trigger_condition": "Active in sunlight",
+    "duration_type": "Passive"
+  },
+  {
+    "name": "Amphibious",
+    "effect": {
+      "buff": "Defense +20% in water, Speed +20% on land",
+      "debuff": "Attack -10% outside matched environment"
+    },
+    "trigger_condition": "Based on terrain (water/land)",
+    "duration_type": "Environmental"
+  },
+  {
+    "name": "Lightweight Spores",
+    "effect": {
+      "buff": "30% chance to inflict Poison on contact",
+      "debuff": "15% less HP than similar creatures"
+    },
+    "trigger_condition": "On physical contact",
+    "duration_type": "Passive"
+  },
+  {
+    "name": "Thick Hide",
+    "effect": {
+      "buff": "Physical damage received reduced by 25%",
+      "debuff": "Elemental damage received increased by 15%"
+    },
+    "trigger_condition": "On receiving damage",
+    "duration_type": "Passive"
+  },
+  {
+    "name": "Streamlined",
+    "effect": {
+      "buff": "Speed +50% in water",
+      "debuff": "Speed -40% on land"
+    },
+    "trigger_condition": "Based on terrain (water/land)",
+    "duration_type": "Environmental"
+  },
+  {
+    "name": "Hollow Bones",
+    "effect": {
+      "buff": "Evasion +25% when above 75% HP",
+      "debuff": "Defense -20% when below 50% HP"
+    },
+    "trigger_condition": "Based on current HP percentage",
+    "duration_type": "HP-dependent"
+  },
+  {
+    "name": "Predator Instinct",
+    "effect": {
+      "buff": "Attack +30% against enemies below 40% HP",
+      "debuff": "Accuracy -15% against enemies above 75% HP"
+    },
+    "trigger_condition": "Based on target's HP percentage",
+    "duration_type": "Target-dependent"
+  },
+  {
+    "name": "Bioluminescence",
+    "effect": {
+      "buff": "20% chance to Blind opponents on attack",
+      "debuff": "Becomes visible to all enemies when attacking"
+    },
+    "trigger_condition": "On attack",
+    "duration_type": "Action-dependent"
+  },
+  {
+    "name": "Keen Eyesight",
+    "effect": {
+      "buff": "Accuracy +30% in daylight",
+      "debuff": "Accuracy -20% at night or in fog"
+    },
+    "trigger_condition": "Based on light conditions",
+    "duration_type": "Environmental"
+  },
+  {
+    "name": "Tool User",
+    "effect": {
+      "buff": "Can use items with 1.5x effectiveness",
+      "debuff": "Attack -25% when no items are available"
+    },
+    "trigger_condition": "Based on item availability",
+    "duration_type": "Item-dependent"
+  },
+  {
+    "name": "Echolocation",
+    "effect": {
+      "buff": "Can detect invisible enemies and ignore evasion boosts",
+      "debuff": "Draconic-based attacks deal 30% more damage"
+    },
+    "trigger_condition": "Always active",
+    "duration_type": "Passive"
+  },
+  {
+    "name": "Flock Mentality",
+    "effect": {
+      "buff": "Defense +25% for each ally in battle",
+      "debuff": "Attack -15% when alone"
+    },
+    "trigger_condition": "Based on number of allies",
+    "duration_type": "Team-dependent"
+  },
+  {
+    "name": "Solar Powered",
+    "effect": {
+      "buff": "Recovers 10% energy each turn in sunlight",
+      "debuff": "Loses 5% energy each turn in darkness"
+    },
+    "trigger_condition": "Based on light conditions",
+    "duration_type": "Environmental"
+  },
+  {
+    "name": "Pressure Resistant",
+    "effect": {
+      "buff": "Defense +30% in deep water",
+      "debuff": "Overheats on land, losing 5% HP per turn"
+    },
+    "trigger_condition": "Based on terrain (water depth/land)",
+    "duration_type": "Environmental"
+  },
+  {
+    "name": "Turbine Propulsion",
+    "effect": {
+      "buff": "Speed +40% in open areas",
+      "debuff": "Accuracy -25% in confined spaces"
+    },
+    "trigger_condition": "Based on arena space",
+    "duration_type": "Environmental"
+  },
+  {
+    "name": "Ancient Growth",
+    "effect": {
+      "buff": "Increases Defense by 10% each turn, up to 50%",
+      "debuff": "Cannot move for the first turn of battle"
+    },
+    "trigger_condition": "Passive, activates each turn",
+    "duration_type": "Stacking passive"
+  },
+  {
+    "name": "Prehistoric Force",
+    "effect": {
+      "buff": "Basic attacks have a 30% chance to cause Tremor (reduces enemy accuracy by 20%)",
+      "debuff": "15% chance to miss precision attacks"
+    },
+    "trigger_condition": "On Basic attack",
+    "duration_type": "Action-dependent"
+  },
+  {
+    "name": "Oceanic Pressure",
+    "effect": {
+      "buff": "Water attacks deal 40% more damage and have a 25% chance to Drown targets",
+      "debuff": "Takes 20% more damage from Electric attacks"
+    },
+    "trigger_condition": "On using water element attacks",
+    "duration_type": "Action-dependent"
+  },
+  {
+    "name": "Collective Consciousness",
+    "effect": {
+      "buff": "Immune to confusion and fear; 25% chance to predict and avoid attacks",
+      "debuff": "Takes 30% more damage from Psychic attacks"
+    },
+    "trigger_condition": "Passive, always active",
+    "duration_type": "Passive"
+  },
+  {
+    "name": "Adaptive Construction",
+    "effect": {
+      "buff": "Once per battle, can change its elemental weakness",
+      "debuff": "Must remain immobile for one turn when adapting"
+    },
+    "trigger_condition": "Activated ability, once per battle",
+    "duration_type": "Toggle ability"
+  },
+  {
+    "name": "Root Network",
+    "effect": {
+      "buff": "Absorbs 25% of damage dealt as HP recovery",
+      "debuff": "Movement speed reduced by 20%"
+    },
+    "trigger_condition": "On dealing damage",
+    "duration_type": "Action-dependent"
+  },
+  {
+    "name": "Reef Builder",
+    "effect": {
+      "buff": "Creates protective barrier that reduces incoming damage by 20%",
+      "debuff": "Cannot move while barrier is active"
+    },
+    "trigger_condition": "Activated ability",
+    "duration_type": "Toggle ability"
+  },
+  {
+    "name": "Seed Dispersal",
+    "effect": {
+      "buff": "40% chance to Blind opponents on attack",
+      "debuff": "Defense reduced by 15% in rainy conditions"
+    },
+    "trigger_condition": "On attack",
+    "duration_type": "Action-dependent"
+  },
+  {
+    "name": "Thick Fur",
+    "effect": {
+      "buff": "Immune to freeze and 50% reduction to ice damage",
+      "debuff": "Takes 20% more damage from fire attacks"
+    },
+    "trigger_condition": "Passive, always active",
+    "duration_type": "Passive"
+  },
+  {
+    "name": "Tentacle Grip",
+    "effect": {
+      "buff": "30% chance to immobilize target for 1-2 turns",
+      "debuff": "Can only grip one target at a time"
+    },
+    "trigger_condition": "On successful attack",
+    "duration_type": "Action-dependent"
+  },
+  {
+    "name": "Diving Strike",
+    "effect": {
+      "buff": "First attack in battle deals 50% more damage",
+      "debuff": "20% reduced damage on subsequent attacks"
+    },
+    "trigger_condition": "On first attack only",
+    "duration_type": "One-time trigger"
+  },
+  {
+    "name": "Ambush Hunter",
+    "effect": {
+      "buff": "Critical hit chance increased by 30% on first turn",
+      "debuff": "Critical hit chance reduced by 10% after first turn"
+    },
+    "trigger_condition": "Based on battle turn",
+    "duration_type": "Time-dependent"
+  },
+  {
+    "name": "Pressure Adaptation",
+    "effect": {
+      "buff": "Defense increases by 40% in deep water",
+      "debuff": "Attack reduced by 20% in shallow water"
+    },
+    "trigger_condition": "Based on water depth",
+    "duration_type": "Environmental"
+  },
+  {
+    "name": "Sonic Dive",
+    "effect": {
+      "buff": "Attacks from above have a 40% chance to stun target for 1 turn",
+      "debuff": "Must return to high altitude after diving"
+    },
+    "trigger_condition": "When attacking from higher elevation",
+    "duration_type": "Position-dependent"
+  },
+  {
+    "name": "Predictive Analysis",
+    "effect": {
+      "buff": "50% chance to counter attacks automatically",
+      "debuff": "Takes 25% more damage from surprise attacks"
+    },
+    "trigger_condition": "When targeted by an attack",
+    "duration_type": "Reaction-based"
+  },
+  {
+    "name": "Sonic Language",
+    "effect": {
+      "buff": "Draconic attacks penetrate defenses (ignores 30% of target's defense)",
+      "debuff": "Takes 25% more damage from Draconic attacks"
+    },
+    "trigger_condition": "When using Draconic element",
+    "duration_type": "Element-dependent"
+  },
+  {
+    "name": "Mirror Image",
+    "effect": {
+      "buff": "Creates illusory duplicates that have 30% chance to absorb attacks",
+      "debuff": "Duplicates disappear after successful attack"
+    },
+    "trigger_condition": "At start of battle",
+    "duration_type": "Persistent until triggered"
+  },
+  {
+    "name": "Terraform",
+    "effect": {
+      "buff": "Can alter battlefield to gain 25% attack or defense boost",
+      "debuff": "Cannot move during the turn when terraforming"
+    },
+    "trigger_condition": "Activated ability",
+    "duration_type": "Toggle ability"
+  },
+  {
+    "name": "Pressure Hull",
+    "effect": {
+      "buff": "Reduces all incoming damage by 30% when below 50% HP",
+      "debuff": "Speed reduced by 20% when damage reduction is active"
+    },
+    "trigger_condition": "When HP drops below 50%",
+    "duration_type": "HP-dependent"
+  },
+  {
+    "name": "Swarm Intelligence",
+    "effect": {
+      "buff": "Each turn has a 20% chance to perform an additional action",
+      "debuff": "Area-of-effect attacks deal 40% more damage to it"
+    },
+    "trigger_condition": "Chance-based each turn",
+    "duration_type": "Random proc"
+  }
+]
