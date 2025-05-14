@@ -1,0 +1,3618 @@
+[
+  {
+    "id": 1,
+    "name": "Acidosopan",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 95,
+      "defense": 70,
+      "speed": 110
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A sapient creature with corrosive secretions that can dissolve metal and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Acidosophusus aeriusens"
+  },
+  {
+    "id": 2,
+    "name": "Ampelogix",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 120,
+      "attack": 75,
+      "defense": 95,
+      "speed": 70
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A sapient creature with electricity surging through its body and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Amperologicuson natansans"
+  },
+  {
+    "id": 3,
+    "name": "Lumiregan",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 95,
+      "attack": 90,
+      "defense": 100,
+      "speed": 75
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A apex creature with bioluminescent tissues that emit powerful rays and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Luminoregalisis volucrisae"
+  },
+  {
+    "id": 4,
+    "name": "Contcybor",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 110,
+      "speed": 95
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A synthetic creature with poisonous glands throughout its form and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Contagiocybernetis volucrisius"
+  },
+  {
+    "id": 5,
+    "name": "Anemaniix",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 95,
+      "attack": 115,
+      "defense": 70,
+      "speed": 80
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A sapient creature with hollow chambers that generate powerful gusts and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Anemonanimusor caelumans"
+  },
+  {
+    "id": 6,
+    "name": "Fulmicogan",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 80,
+      "speed": 100
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A sapient creature with electricity surging through its body and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Fulminacognusis pennaeii"
+  },
+  {
+    "id": 7,
+    "name": "Crystanior",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 95,
+      "attack": 100,
+      "defense": 85,
+      "speed": 80
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A sapient creature with a body temperature well below freezing and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Crystallonanimusis terranusens"
+  },
+  {
+    "id": 8,
+    "name": "Calimenan",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 95,
+      "attack": 85,
+      "defense": 90,
+      "speed": 90
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A sapient creature with shadow matter that absorbs light and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Caligothamentison volucrisius"
+  },
+  {
+    "id": 9,
+    "name": "Photlogan",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 85,
+      "defense": 105,
+      "speed": 85
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A sapient creature with bioluminescent tissues that emit powerful rays and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Photologicusis pennaeens"
+  },
+  {
+    "id": 10,
+    "name": "Cryosopis",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 95,
+      "attack": 75,
+      "defense": 100,
+      "speed": 90
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A sapient creature with a body temperature well below freezing and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Cryosophusa volucrisans"
+  },
+  {
+    "id": 11,
+    "name": "Undupriid",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 70,
+      "defense": 75,
+      "speed": 135
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A apex creature with hydration chambers that store large quantities of water and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Undulothuprimusus fluidusans"
+  },
+  {
+    "id": 12,
+    "name": "Acidonaniid",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 60,
+      "attack": 100,
+      "defense": 100,
+      "speed": 100
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A sapient creature with corrosive secretions that can dissolve metal and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Acidonanimuson fluidusius"
+  },
+  {
+    "id": 13,
+    "name": "Umbrarbus",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 95,
+      "defense": 100,
+      "speed": 85
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A verdant creature with shadow matter that absorbs light and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Umbranarboris natansius"
+  },
+  {
+    "id": 14,
+    "name": "Cognfabor",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 105,
+      "defense": 85,
+      "speed": 80
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A synthetic creature with a highly developed brain with telepathic nodes and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Cognithifabricaa montanusium"
+  },
+  {
+    "id": 15,
+    "name": "Cognzenix",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 65,
+      "defense": 120,
+      "speed": 85
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A apex creature with a highly developed brain with telepathic nodes and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Cognithizenitha abyssalens"
+  },
+  {
+    "id": 16,
+    "name": "Wyrmarbid",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 105,
+      "attack": 95,
+      "defense": 85,
+      "speed": 75
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A verdant creature with ancient reptilian characteristics and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Wyrmotharbora volucrisens"
+  },
+  {
+    "id": 17,
+    "name": "Photcogus",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 110,
+      "attack": 85,
+      "defense": 80,
+      "speed": 85
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A sapient creature with bioluminescent tissues that emit powerful rays and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Photocognusa sylvanium"
+  },
+  {
+    "id": 18,
+    "name": "Crystasavan",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 70,
+      "speed": 110
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A primal creature with a composition partially made of living minerals and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Crystallisavagusum marinusii"
+  },
+  {
+    "id": 19,
+    "name": "Saurasanon",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 105,
+      "defense": 65,
+      "speed": 100
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A primal creature with ancient reptilian characteristics and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Saurathisanguinon ambulansius"
+  },
+  {
+    "id": 20,
+    "name": "Mentconor",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 115,
+      "attack": 75,
+      "defense": 70,
+      "speed": 100
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A synthetic creature with a highly developed brain with telepathic nodes and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Mentathaconstructis pelagicius"
+  },
+  {
+    "id": 21,
+    "name": "Mentsumis",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 80,
+      "attack": 70,
+      "defense": 115,
+      "speed": 95
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A apex creature with a highly developed brain with telepathic nodes and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Mentathusummithon cavernaae"
+  },
+  {
+    "id": 22,
+    "name": "Lodesocaror",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 125,
+      "defense": 90,
+      "speed": 55
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A verdant creature with specialized organs that manipulate magnetic fields and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Lodestonicarpusa terranusii"
+  },
+  {
+    "id": 23,
+    "name": "Botanuzenid",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 95,
+      "attack": 100,
+      "defense": 70,
+      "speed": 95
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A apex creature with symbiotic plant matter integrated into its biology and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Botanizenithus aeriusans"
+  },
+  {
+    "id": 24,
+    "name": "Caligocybis",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 90,
+      "defense": 115,
+      "speed": 70
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A synthetic creature with shadow matter that absorbs light and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Caligothicybernetis volucrisius"
+  },
+  {
+    "id": 25,
+    "name": "Combunarbon",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 65,
+      "attack": 105,
+      "defense": 75,
+      "speed": 115
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A verdant creature with internal flame sacs that generate intense heat and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Combustinarboris terranusans"
+  },
+  {
+    "id": 26,
+    "name": "Lodesilogan",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 90,
+      "defense": 90,
+      "speed": 100
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A sapient creature with specialized organs that manipulate magnetic fields and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Lodestonilogicusus natansens"
+  },
+  {
+    "id": 27,
+    "name": "Cognicaris",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 95,
+      "attack": 100,
+      "defense": 90,
+      "speed": 75
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A verdant creature with a highly developed brain with telepathic nodes and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Cognithicarpusor fluidusium"
+  },
+  {
+    "id": 28,
+    "name": "Chlovorid",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 85,
+      "defense": 110,
+      "speed": 90
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A primal creature with symbiotic plant matter integrated into its biology and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Chlorovoraxor plumaeae"
+  },
+  {
+    "id": 29,
+    "name": "Attravorid",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 100,
+      "attack": 85,
+      "defense": 90,
+      "speed": 85
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A primal creature with specialized organs that manipulate magnetic fields and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Attractuvoraxus pelagicans"
+  },
+  {
+    "id": 30,
+    "name": "Gelididoman",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 115,
+      "defense": 80,
+      "speed": 75
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A apex creature with a body temperature well below freezing and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Gelidodominoris ambulansans"
+  },
+  {
+    "id": 31,
+    "name": "Minemecid",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 85,
+      "defense": 120,
+      "speed": 70
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A synthetic creature with a composition partially made of living minerals and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Minerothomechanor aeriusans"
+  },
+  {
+    "id": 32,
+    "name": "Attrafabis",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 80,
+      "speed": 100
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A synthetic creature with specialized organs that manipulate magnetic fields and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Attractofabricais terranusans"
+  },
+  {
+    "id": 33,
+    "name": "Ferronaniis",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 95,
+      "attack": 85,
+      "defense": 105,
+      "speed": 75
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A sapient creature with specialized organs that manipulate magnetic fields and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Ferrothanimusum pennaeium"
+  },
+  {
+    "id": 34,
+    "name": "Vitrbesor",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 75,
+      "speed": 130
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A primal creature with corrosive secretions that can dissolve metal and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Vitriolabestiaum skybornans"
+  },
+  {
+    "id": 35,
+    "name": "Geotphyis",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 75,
+      "speed": 95
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A verdant creature with a composition partially made of living minerals and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Geothophyllum sylvanium"
+  },
+  {
+    "id": 36,
+    "name": "Illuzenus",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 90,
+      "speed": 85
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A apex creature with bioluminescent tissues that emit powerful rays and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Illuminthozenithum terranusans"
+  },
+  {
+    "id": 37,
+    "name": "Caloaniid",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 95,
+      "attack": 85,
+      "defense": 85,
+      "speed": 95
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A sapient creature with internal flame sacs that generate intense heat and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Calorithanimusa undosusens"
+  },
+  {
+    "id": 38,
+    "name": "Cryssuman",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 85,
+      "defense": 90,
+      "speed": 100
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A apex creature with a composition partially made of living minerals and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Crystallisummithor skybornae"
+  },
+  {
+    "id": 39,
+    "name": "Miasmimenor",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 120,
+      "defense": 100,
+      "speed": 65
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A sapient creature with poisonous glands throughout its form and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Miasmamentisis plumaeii"
+  },
+  {
+    "id": 40,
+    "name": "Virusynor",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 100,
+      "attack": 95,
+      "defense": 95,
+      "speed": 70
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A synthetic creature with poisonous glands throughout its form and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Virulenthusynthetus pedisans"
+  },
+  {
+    "id": 41,
+    "name": "Ampethaid",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 100,
+      "attack": 80,
+      "defense": 85,
+      "speed": 95
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A verdant creature with electricity surging through its body and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Amperothallusor cavernaens"
+  },
+  {
+    "id": 42,
+    "name": "Frostaferon",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 115,
+      "attack": 80,
+      "defense": 110,
+      "speed": 55
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A primal creature with a body temperature well below freezing and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Frostiferoxis caelumius"
+  },
+  {
+    "id": 43,
+    "name": "Fieldisavid",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 95,
+      "attack": 85,
+      "defense": 100,
+      "speed": 80
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A primal creature with specialized organs that manipulate magnetic fields and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Fieldothisavagusum ambulansae"
+  },
+  {
+    "id": 44,
+    "name": "Oceacogon",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 80,
+      "defense": 80,
+      "speed": 120
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A sapient creature with hydration chambers that store large quantities of water and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Oceanicognuson aeriusius"
+  },
+  {
+    "id": 45,
+    "name": "Chloartan",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 70,
+      "attack": 115,
+      "defense": 90,
+      "speed": 85
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A synthetic creature with symbiotic plant matter integrated into its biology and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Chloronartifexon pedisae"
+  },
+  {
+    "id": 46,
+    "name": "Psioregis",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 75,
+      "defense": 105,
+      "speed": 105
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A apex creature with a highly developed brain with telepathic nodes and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Psioniregalisor skybornium"
+  },
+  {
+    "id": 47,
+    "name": "Combapeix",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 110,
+      "defense": 90,
+      "speed": 75
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A apex creature with internal flame sacs that generate intense heat and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Combustinapexuson volucrisans"
+  },
+  {
+    "id": 48,
+    "name": "Terrvoron",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 95,
+      "defense": 80,
+      "speed": 100
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A primal creature with a composition partially made of living minerals and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Terrovoraxa plumaeans"
+  },
+  {
+    "id": 49,
+    "name": "Stramonor",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 85,
+      "attack": 85,
+      "defense": 80,
+      "speed": 110
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A apex creature with hollow chambers that generate powerful gusts and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Stratosomonarchaus pelagicius"
+  },
+  {
+    "id": 50,
+    "name": "Inferaniix",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 80,
+      "attack": 120,
+      "defense": 80,
+      "speed": 80
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A sapient creature with otherworldly aspects that defy conventional biology and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Infernonanimusor cavernaae"
+  },
+  {
+    "id": 51,
+    "name": "Strataconis",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 115,
+      "attack": 95,
+      "defense": 80,
+      "speed": 70
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A synthetic creature with hollow chambers that generate powerful gusts and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Stratosoconstructis sylvanae"
+  },
+  {
+    "id": 52,
+    "name": "Diaborhius",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 115,
+      "speed": 90
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A verdant creature with otherworldly aspects that defy conventional biology and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Diabolitharhizaor pedisii"
+  },
+  {
+    "id": 53,
+    "name": "Psiobesor",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 80,
+      "attack": 95,
+      "defense": 85,
+      "speed": 100
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A primal creature with a highly developed brain with telepathic nodes and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Psionibestiaon cavernaii"
+  },
+  {
+    "id": 54,
+    "name": "Miasapeis",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 110,
+      "attack": 55,
+      "defense": 105,
+      "speed": 90
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A apex creature with poisonous glands throughout its form and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Miasmanapexusa volucrisium"
+  },
+  {
+    "id": 55,
+    "name": "Pathbesus",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 80,
+      "defense": 85,
+      "speed": 115
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A primal creature with poisonous glands throughout its form and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Pathogenobestiaon volucrisius"
+  },
+  {
+    "id": 56,
+    "name": "Tenesynan",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 110,
+      "attack": 75,
+      "defense": 80,
+      "speed": 95
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A synthetic creature with shadow matter that absorbs light and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Tenebrusynthetum terranusium"
+  },
+  {
+    "id": 57,
+    "name": "Phytsopon",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 110,
+      "defense": 80,
+      "speed": 90
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A sapient creature with symbiotic plant matter integrated into its biology and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Phytosophusor natansens"
+  },
+  {
+    "id": 58,
+    "name": "Daempreix",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 105,
+      "attack": 85,
+      "defense": 85,
+      "speed": 85
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A primal creature with otherworldly aspects that defy conventional biology and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Daemonidipredaon ambulansens"
+  },
+  {
+    "id": 59,
+    "name": "Fluviratix",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 110,
+      "attack": 70,
+      "defense": 105,
+      "speed": 75
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A sapient creature with hydration chambers that store large quantities of water and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Fluviratiois terrestrisium"
+  },
+  {
+    "id": 60,
+    "name": "Acidoferid",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 75,
+      "speed": 105
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A primal creature with corrosive secretions that can dissolve metal and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Acidophoferusa sylvanium"
+  },
+  {
+    "id": 61,
+    "name": "Combconus",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 90,
+      "attack": 95,
+      "defense": 80,
+      "speed": 95
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A synthetic creature with internal flame sacs that generate intense heat and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Combusticonstructa aeriusans"
+  },
+  {
+    "id": 62,
+    "name": "Anemobesan",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 90,
+      "attack": 115,
+      "defense": 80,
+      "speed": 75
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A primal creature with hollow chambers that generate powerful gusts and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Anemobestiaa aeriusii"
+  },
+  {
+    "id": 63,
+    "name": "Petronantid",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 85,
+      "attack": 105,
+      "defense": 90,
+      "speed": 80
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A verdant creature with a composition partially made of living minerals and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Petronanthusis abyssalans"
+  },
+  {
+    "id": 64,
+    "name": "Zephantix",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 100,
+      "attack": 65,
+      "defense": 90,
+      "speed": 105
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A verdant creature with hollow chambers that generate powerful gusts and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Zephyranthusis cavernaius"
+  },
+  {
+    "id": 65,
+    "name": "Fielregis",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 95,
+      "attack": 105,
+      "defense": 85,
+      "speed": 75
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A apex creature with specialized organs that manipulate magnetic fields and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Fieldothuregalisis alatusans"
+  },
+  {
+    "id": 66,
+    "name": "Califloon",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 115,
+      "attack": 100,
+      "defense": 50,
+      "speed": 95
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A verdant creature with shadow matter that absorbs light and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Caligothoflorisis pedisius"
+  },
+  {
+    "id": 67,
+    "name": "Ignisumid",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 100,
+      "attack": 70,
+      "defense": 90,
+      "speed": 100
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A apex creature with internal flame sacs that generate intense heat and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Ignisummitha fluidusius"
+  },
+  {
+    "id": 68,
+    "name": "Daemsumus",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 105,
+      "attack": 100,
+      "defense": 85,
+      "speed": 70
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A apex creature with otherworldly aspects that defy conventional biology and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Daemonidasummithon pelagicius"
+  },
+  {
+    "id": 69,
+    "name": "Lumifloor",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 105,
+      "attack": 75,
+      "defense": 95,
+      "speed": 85
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A verdant creature with bioluminescent tissues that emit powerful rays and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Luminoflorisum pelagicens"
+  },
+  {
+    "id": 70,
+    "name": "Heliosanan",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 85,
+      "attack": 115,
+      "defense": 80,
+      "speed": 80
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A primal creature with bioluminescent tissues that emit powerful rays and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Helionasanguinor pelagicii"
+  },
+  {
+    "id": 71,
+    "name": "Toxiconon",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 100,
+      "attack": 85,
+      "defense": 100,
+      "speed": 75
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A synthetic creature with poisonous glands throughout its form and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Toxicoconstructa aquaticusium"
+  },
+  {
+    "id": 72,
+    "name": "Tartlogus",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 125,
+      "defense": 65,
+      "speed": 90
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A sapient creature with otherworldly aspects that defy conventional biology and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Tartarologicusus alatusans"
+  },
+  {
+    "id": 73,
+    "name": "Glaciferor",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 100,
+      "attack": 85,
+      "defense": 85,
+      "speed": 90
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A primal creature with a body temperature well below freezing and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Glacioferusus undosusium"
+  },
+  {
+    "id": 74,
+    "name": "Corroferan",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 95,
+      "attack": 100,
+      "defense": 80,
+      "speed": 85
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A primal creature with corrosive secretions that can dissolve metal and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Corrosiferoxum aquaticusii"
+  },
+  {
+    "id": 75,
+    "name": "Abyssarbid",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 100,
+      "attack": 85,
+      "defense": 70,
+      "speed": 105
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A verdant creature with shadow matter that absorbs light and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Abyssotharborus alatusans"
+  },
+  {
+    "id": 76,
+    "name": "Voltopriid",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 115,
+      "attack": 90,
+      "defense": 75,
+      "speed": 80
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A apex creature with electricity surging through its body and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Voltaprimusa pennaeii"
+  },
+  {
+    "id": 77,
+    "name": "Ignirhior",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 110,
+      "speed": 60
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A verdant creature with internal flame sacs that generate intense heat and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Ignirhizaa aquaticusens"
+  },
+  {
+    "id": 78,
+    "name": "Aerocarix",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 100,
+      "attack": 95,
+      "defense": 105,
+      "speed": 60
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A verdant creature with hollow chambers that generate powerful gusts and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Aerocarpuson fluidusium"
+  },
+  {
+    "id": 79,
+    "name": "Ventartor",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 130,
+      "attack": 95,
+      "defense": 65,
+      "speed": 70
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A synthetic creature with hollow chambers that generate powerful gusts and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Ventusartifexa undosusae"
+  },
+  {
+    "id": 80,
+    "name": "Unducybid",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 80,
+      "attack": 95,
+      "defense": 80,
+      "speed": 105
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A synthetic creature with hydration chambers that store large quantities of water and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Undulothacyberneta ambulansans"
+  },
+  {
+    "id": 81,
+    "name": "Dendrurhiid",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 85,
+      "speed": 95
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A verdant creature with symbiotic plant matter integrated into its biology and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Dendrorhizaon ambulansans"
+  },
+  {
+    "id": 82,
+    "name": "Cerebasopon",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 115,
+      "defense": 70,
+      "speed": 95
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A sapient creature with a highly developed brain with telepathic nodes and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Cerebrosophusis caelumius"
+  },
+  {
+    "id": 83,
+    "name": "Reptartix",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 110,
+      "defense": 60,
+      "speed": 115
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A synthetic creature with ancient reptilian characteristics and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Reptilinartificus aeriusius"
+  },
+  {
+    "id": 84,
+    "name": "Marazenid",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 90,
+      "attack": 65,
+      "defense": 115,
+      "speed": 90
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A apex creature with hydration chambers that store large quantities of water and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Marathazenithon plumaeius"
+  },
+  {
+    "id": 85,
+    "name": "Voltasanor",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 110,
+      "defense": 75,
+      "speed": 85
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A primal creature with electricity surging through its body and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Voltisanguinus pelagicii"
+  },
+  {
+    "id": 86,
+    "name": "Combuferis",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 70,
+      "attack": 90,
+      "defense": 105,
+      "speed": 95
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A primal creature with internal flame sacs that generate intense heat and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Combustiferoxon pedisii"
+  },
+  {
+    "id": 87,
+    "name": "Abyssasapon",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 80,
+      "speed": 100
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A sapient creature with shadow matter that absorbs light and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Abyssothusapiensis aquaticusii"
+  },
+  {
+    "id": 88,
+    "name": "Tenebacogix",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 100,
+      "speed": 80
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A sapient creature with shadow matter that absorbs light and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Tenebrucognusis pedisii"
+  },
+  {
+    "id": 89,
+    "name": "Tenesanid",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 105,
+      "defense": 100,
+      "speed": 70
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A primal creature with shadow matter that absorbs light and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Tenebrosanguinum aeriusius"
+  },
+  {
+    "id": 90,
+    "name": "Infesopis",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 100,
+      "speed": 80
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A sapient creature with otherworldly aspects that defy conventional biology and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Infernosophusus abyssalans"
+  },
+  {
+    "id": 91,
+    "name": "Lithonapeis",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 95,
+      "attack": 85,
+      "defense": 90,
+      "speed": 90
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A apex creature with a composition partially made of living minerals and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Lithonapexusa natansium"
+  },
+  {
+    "id": 92,
+    "name": "Venevorus",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 95,
+      "speed": 85
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A primal creature with poisonous glands throughout its form and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Venenivoraxis marinusans"
+  },
+  {
+    "id": 93,
+    "name": "Squazenid",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 80,
+      "attack": 80,
+      "defense": 85,
+      "speed": 115
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A apex creature with ancient reptilian characteristics and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Squamothozenitha ambulansius"
+  },
+  {
+    "id": 94,
+    "name": "Maratasavis",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 85,
+      "defense": 80,
+      "speed": 115
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A primal creature with hydration chambers that store large quantities of water and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Marathusavagusum aeriusans"
+  },
+  {
+    "id": 95,
+    "name": "Oxymothaus",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 110,
+      "attack": 70,
+      "defense": 90,
+      "speed": 90
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A verdant creature with corrosive secretions that can dissolve metal and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Oxymoruthallusis terrestrisii"
+  },
+  {
+    "id": 96,
+    "name": "Acidonarbus",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 110,
+      "attack": 95,
+      "defense": 85,
+      "speed": 70
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A verdant creature with corrosive secretions that can dissolve metal and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Acidonarboror alatusium"
+  },
+  {
+    "id": 97,
+    "name": "Ampesanon",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 100,
+      "attack": 75,
+      "defense": 90,
+      "speed": 95
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A primal creature with electricity surging through its body and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Amperosanguinus montanusius"
+  },
+  {
+    "id": 98,
+    "name": "Serpenartis",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 115,
+      "attack": 80,
+      "defense": 80,
+      "speed": 85
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A synthetic creature with ancient reptilian characteristics and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Serpentinartifexon terranusii"
+  },
+  {
+    "id": 99,
+    "name": "Repticarus",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 100,
+      "attack": 90,
+      "defense": 85,
+      "speed": 85
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A verdant creature with ancient reptilian characteristics and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Reptilicarpusor montanusium"
+  },
+  {
+    "id": 100,
+    "name": "Teleparban",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 65,
+      "speed": 115
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A verdant creature with a highly developed brain with telepathic nodes and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Telepathinarborus caelumium"
+  },
+  {
+    "id": 101,
+    "name": "Wyrmoferan",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 100,
+      "attack": 95,
+      "defense": 95,
+      "speed": 70
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A primal creature with ancient reptilian characteristics and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Wyrmothiferoxon aeriusens"
+  },
+  {
+    "id": 102,
+    "name": "Maledozenon",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 115,
+      "attack": 90,
+      "defense": 80,
+      "speed": 75
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A apex creature with otherworldly aspects that defy conventional biology and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Maledictozenithis pedisium"
+  },
+  {
+    "id": 103,
+    "name": "Serpsynid",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 95,
+      "attack": 105,
+      "defense": 65,
+      "speed": 95
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A synthetic creature with ancient reptilian characteristics and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Serpentisynthetum pelagicens"
+  },
+  {
+    "id": 104,
+    "name": "Frosmonix",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 70,
+      "attack": 80,
+      "defense": 115,
+      "speed": 95
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A apex creature with a body temperature well below freezing and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Frostimonarchaus skybornans"
+  },
+  {
+    "id": 105,
+    "name": "Infecarus",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 105,
+      "attack": 90,
+      "defense": 70,
+      "speed": 95
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A verdant creature with otherworldly aspects that defy conventional biology and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Infernocarpusa marinusae"
+  },
+  {
+    "id": 106,
+    "name": "Geotsanus",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 90,
+      "speed": 90
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A primal creature with a composition partially made of living minerals and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Geothusanguina cavernaii"
+  },
+  {
+    "id": 107,
+    "name": "Frosratis",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 80,
+      "defense": 100,
+      "speed": 90
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A sapient creature with a body temperature well below freezing and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Frostiratioum fluidusius"
+  },
+  {
+    "id": 108,
+    "name": "Ventferis",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 105,
+      "speed": 100
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A primal creature with hollow chambers that generate powerful gusts and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Ventusiferusa sylvanans"
+  },
+  {
+    "id": 109,
+    "name": "Frosphyor",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 75,
+      "attack": 90,
+      "defense": 100,
+      "speed": 95
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A verdant creature with a body temperature well below freezing and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Frostiphyllor marinusae"
+  },
+  {
+    "id": 110,
+    "name": "Diabmecix",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 100,
+      "attack": 75,
+      "defense": 95,
+      "speed": 90
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A synthetic creature with otherworldly aspects that defy conventional biology and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Diabolithomechanis undosusens"
+  },
+  {
+    "id": 111,
+    "name": "Anemsumix",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 100,
+      "defense": 85,
+      "speed": 95
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A apex creature with hollow chambers that generate powerful gusts and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Anemosummithon skybornens"
+  },
+  {
+    "id": 112,
+    "name": "Fieldothaus",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 85,
+      "defense": 90,
+      "speed": 95
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A verdant creature with specialized organs that manipulate magnetic fields and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Fieldothuthallusa undosusii"
+  },
+  {
+    "id": 113,
+    "name": "Marasavix",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 120,
+      "attack": 85,
+      "defense": 75,
+      "speed": 80
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A primal creature with hydration chambers that store large quantities of water and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Marathisavagusus aquaticusans"
+  },
+  {
+    "id": 114,
+    "name": "Caliguprion",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 120,
+      "attack": 55,
+      "defense": 90,
+      "speed": 95
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A apex creature with shadow matter that absorbs light and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Caligothoprimusa montanusius"
+  },
+  {
+    "id": 115,
+    "name": "Fulmferis",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 80,
+      "defense": 100,
+      "speed": 95
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A primal creature with electricity surging through its body and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Fulminaferusus caelumium"
+  },
+  {
+    "id": 116,
+    "name": "Squamusanor",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 125,
+      "attack": 80,
+      "defense": 85,
+      "speed": 70
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A primal creature with ancient reptilian characteristics and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Squamothisanguinus undosusii"
+  },
+  {
+    "id": 117,
+    "name": "Geothicogor",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 75,
+      "defense": 90,
+      "speed": 105
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A sapient creature with a composition partially made of living minerals and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Geothocognusor abyssalae"
+  },
+  {
+    "id": 118,
+    "name": "Undularbus",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 135,
+      "defense": 60,
+      "speed": 75
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A verdant creature with hydration chambers that store large quantities of water and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Undulotharboron sylvanae"
+  },
+  {
+    "id": 119,
+    "name": "Thermapeid",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 85,
+      "attack": 75,
+      "defense": 105,
+      "speed": 95
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A apex creature with internal flame sacs that generate intense heat and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Thermonapexusis montanusans"
+  },
+  {
+    "id": 120,
+    "name": "Cognbesan",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 75,
+      "attack": 75,
+      "defense": 90,
+      "speed": 120
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A primal creature with a highly developed brain with telepathic nodes and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Cognithibestiais abyssalens"
+  },
+  {
+    "id": 121,
+    "name": "Abyssimonis",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 90,
+      "defense": 80,
+      "speed": 110
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A apex creature with shadow matter that absorbs light and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Abyssothimonarchaon undosusans"
+  },
+  {
+    "id": 122,
+    "name": "Maledartis",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 100,
+      "attack": 95,
+      "defense": 65,
+      "speed": 100
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A synthetic creature with otherworldly aspects that defy conventional biology and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Maledictartifexa volucrisius"
+  },
+  {
+    "id": 123,
+    "name": "Floracybix",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 115,
+      "attack": 70,
+      "defense": 85,
+      "speed": 90
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A synthetic creature with symbiotic plant matter integrated into its biology and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Florathocybernetor volucrisae"
+  },
+  {
+    "id": 124,
+    "name": "Toxicazenan",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 95,
+      "defense": 95,
+      "speed": 80
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A apex creature with poisonous glands throughout its form and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Toxicozenithum sylvanae"
+  },
+  {
+    "id": 125,
+    "name": "Fulmmecus",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 95,
+      "speed": 85
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A synthetic creature with electricity surging through its body and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Fulminamechanus aeriusae"
+  },
+  {
+    "id": 126,
+    "name": "Maratartis",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 75,
+      "attack": 95,
+      "defense": 80,
+      "speed": 110
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A synthetic creature with hydration chambers that store large quantities of water and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Marathartificum abyssalius"
+  },
+  {
+    "id": 127,
+    "name": "Ionoarbor",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 70,
+      "speed": 110
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A verdant creature with electricity surging through its body and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Ionotharborum undosusius"
+  },
+  {
+    "id": 128,
+    "name": "Luminasapis",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 60,
+      "attack": 95,
+      "defense": 115,
+      "speed": 90
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A sapient creature with bioluminescent tissues that emit powerful rays and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Luminosapiensis aquaticusii"
+  },
+  {
+    "id": 129,
+    "name": "Abysapeus",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 100,
+      "attack": 55,
+      "defense": 85,
+      "speed": 120
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A apex creature with shadow matter that absorbs light and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Abyssothapexusum skybornae"
+  },
+  {
+    "id": 130,
+    "name": "Wyrmothais",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 95,
+      "attack": 70,
+      "defense": 100,
+      "speed": 95
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A verdant creature with ancient reptilian characteristics and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Wyrmothothallusis natansens"
+  },
+  {
+    "id": 131,
+    "name": "Polaapeus",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 100,
+      "speed": 75
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A apex creature with specialized organs that manipulate magnetic fields and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Polarinapexusis montanusae"
+  },
+  {
+    "id": 132,
+    "name": "Mycoprior",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 75,
+      "attack": 135,
+      "defense": 70,
+      "speed": 80
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A apex creature with symbiotic plant matter integrated into its biology and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Mycorthaprimuson montanusans"
+  },
+  {
+    "id": 133,
+    "name": "Acidcogis",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 70,
+      "attack": 100,
+      "defense": 90,
+      "speed": 100
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A sapient creature with corrosive secretions that can dissolve metal and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Acidophocognusus sylvanium"
+  },
+  {
+    "id": 134,
+    "name": "Ignilogor",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 70,
+      "attack": 100,
+      "defense": 90,
+      "speed": 100
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A sapient creature with internal flame sacs that generate intense heat and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Ignilogicusum cavernaium"
+  },
+  {
+    "id": 135,
+    "name": "Oceanuvorus",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 95,
+      "attack": 105,
+      "defense": 85,
+      "speed": 75
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A primal creature with hydration chambers that store large quantities of water and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Oceanivoraxum pedisium"
+  },
+  {
+    "id": 136,
+    "name": "Crysregon",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 95,
+      "attack": 95,
+      "defense": 105,
+      "speed": 65
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A apex creature with a body temperature well below freezing and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Crystalloregalisa natansans"
+  },
+  {
+    "id": 137,
+    "name": "Abysferor",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 65,
+      "attack": 85,
+      "defense": 105,
+      "speed": 105
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A primal creature with shadow matter that absorbs light and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Abyssothaferoxum ambulansans"
+  },
+  {
+    "id": 138,
+    "name": "Miaszenid",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 85,
+      "defense": 95,
+      "speed": 100
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A apex creature with poisonous glands throughout its form and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Miasmazenithon pelagicans"
+  },
+  {
+    "id": 139,
+    "name": "Mycorosopus",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 100,
+      "attack": 90,
+      "defense": 90,
+      "speed": 80
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A sapient creature with symbiotic plant matter integrated into its biology and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Mycorthasophusor terranusens"
+  },
+  {
+    "id": 140,
+    "name": "Creaferor",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 85,
+      "defense": 95,
+      "speed": 105
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A primal creature with unique biological features and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Creatureferoxa pennaeens"
+  },
+  {
+    "id": 141,
+    "name": "Noospiphyix",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 95,
+      "defense": 100,
+      "speed": 75
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A verdant creature with a highly developed brain with telepathic nodes and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Noospheraphyllon pedisius"
+  },
+  {
+    "id": 142,
+    "name": "Acidomonid",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 95,
+      "attack": 115,
+      "defense": 85,
+      "speed": 65
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A apex creature with corrosive secretions that can dissolve metal and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Acidomonarchaor sylvanii"
+  },
+  {
+    "id": 143,
+    "name": "Flammifabor",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 95,
+      "attack": 75,
+      "defense": 90,
+      "speed": 100
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A synthetic creature with internal flame sacs that generate intense heat and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Flammafabricaa pelagicae"
+  },
+  {
+    "id": 144,
+    "name": "Botanuvoris",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 120,
+      "defense": 70,
+      "speed": 80
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A primal creature with symbiotic plant matter integrated into its biology and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Botanivoraxon undosusens"
+  },
+  {
+    "id": 145,
+    "name": "Auromonid",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 95,
+      "attack": 95,
+      "defense": 85,
+      "speed": 85
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A apex creature with bioluminescent tissues that emit powerful rays and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Auroramonarchais marinusii"
+  },
+  {
+    "id": 146,
+    "name": "Caloraconan",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 120,
+      "attack": 85,
+      "defense": 65,
+      "speed": 90
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A synthetic creature with internal flame sacs that generate intense heat and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Calorithoconstructon cavernaae"
+  },
+  {
+    "id": 147,
+    "name": "Phytoconis",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 95,
+      "defense": 100,
+      "speed": 75
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A synthetic creature with symbiotic plant matter integrated into its biology and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Phytoconstructus fluidusii"
+  },
+  {
+    "id": 148,
+    "name": "Noospartix",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 90,
+      "defense": 105,
+      "speed": 90
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A synthetic creature with a highly developed brain with telepathic nodes and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Noospherartificus caelumens"
+  },
+  {
+    "id": 149,
+    "name": "Heliocybix",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 90,
+      "defense": 100,
+      "speed": 90
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A synthetic creature with bioluminescent tissues that emit powerful rays and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Helionocybernetus fluidusens"
+  },
+  {
+    "id": 150,
+    "name": "Anemocybid",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 90,
+      "attack": 80,
+      "defense": 100,
+      "speed": 90
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A synthetic creature with hollow chambers that generate powerful gusts and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Anemocybernetis alatusius"
+  },
+  {
+    "id": 151,
+    "name": "Phytoferus",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 100,
+      "attack": 85,
+      "defense": 90,
+      "speed": 85
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A primal creature with symbiotic plant matter integrated into its biology and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Phytoferoxa pedisae"
+  },
+  {
+    "id": 152,
+    "name": "Ionodomis",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 105,
+      "attack": 60,
+      "defense": 130,
+      "speed": 65
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A apex creature with electricity surging through its body and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Ionothidominoron fluidusius"
+  },
+  {
+    "id": 153,
+    "name": "Inferasavan",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 80,
+      "defense": 75,
+      "speed": 130
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A primal creature with otherworldly aspects that defy conventional biology and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Infernosavagusor aeriusius"
+  },
+  {
+    "id": 154,
+    "name": "Elecfloid",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 100,
+      "attack": 85,
+      "defense": 90,
+      "speed": 85
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A verdant creature with electricity surging through its body and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Electroflorisis aeriusans"
+  },
+  {
+    "id": 155,
+    "name": "Mentlogan",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 100,
+      "attack": 105,
+      "defense": 75,
+      "speed": 80
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A sapient creature with a highly developed brain with telepathic nodes and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Mentathalogicusa pelagicium"
+  },
+  {
+    "id": 156,
+    "name": "Polaapeis",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 100,
+      "attack": 75,
+      "defense": 95,
+      "speed": 90
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A apex creature with specialized organs that manipulate magnetic fields and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Polarinapexusa fluidusius"
+  },
+  {
+    "id": 157,
+    "name": "Florantis",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 100,
+      "defense": 75,
+      "speed": 100
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A verdant creature with symbiotic plant matter integrated into its biology and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Florathanthusus caelumium"
+  },
+  {
+    "id": 158,
+    "name": "Chloprior",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 95,
+      "attack": 80,
+      "defense": 110,
+      "speed": 75
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A apex creature with symbiotic plant matter integrated into its biology and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Chloroprimusum abyssalii"
+  },
+  {
+    "id": 159,
+    "name": "Gelidanton",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 85,
+      "attack": 85,
+      "defense": 120,
+      "speed": 70
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A verdant creature with a body temperature well below freezing and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Gelidanthusis montanusii"
+  },
+  {
+    "id": 160,
+    "name": "Fluvmenan",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 95,
+      "defense": 85,
+      "speed": 100
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A sapient creature with hydration chambers that store large quantities of water and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Fluvimentisum abyssalii"
+  },
+  {
+    "id": 161,
+    "name": "Radiavorid",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 85,
+      "attack": 80,
+      "defense": 100,
+      "speed": 95
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A primal creature with bioluminescent tissues that emit powerful rays and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Radiavoraxis cavernaens"
+  },
+  {
+    "id": 162,
+    "name": "Mycoraniix",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 140,
+      "defense": 60,
+      "speed": 80
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A sapient creature with symbiotic plant matter integrated into its biology and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Mycorthanimusa aeriusius"
+  },
+  {
+    "id": 163,
+    "name": "Fluviconan",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 100,
+      "attack": 100,
+      "defense": 70,
+      "speed": 90
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A synthetic creature with hydration chambers that store large quantities of water and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Fluviconstructis aeriusans"
+  },
+  {
+    "id": 164,
+    "name": "Cognsanix",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 105,
+      "attack": 70,
+      "defense": 85,
+      "speed": 100
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A primal creature with a highly developed brain with telepathic nodes and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Cognithisanguinis volucrisans"
+  },
+  {
+    "id": 165,
+    "name": "Terrsapus",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 90,
+      "defense": 90,
+      "speed": 105
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A sapient creature with a composition partially made of living minerals and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Terrosapienson caelumii"
+  },
+  {
+    "id": 166,
+    "name": "Venenoferis",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 115,
+      "attack": 100,
+      "defense": 60,
+      "speed": 85
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A primal creature with poisonous glands throughout its form and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Veneniferoxum sylvanius"
+  },
+  {
+    "id": 167,
+    "name": "Photonartis",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 85,
+      "speed": 90
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A synthetic creature with bioluminescent tissues that emit powerful rays and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Photonartifexor skybornii"
+  },
+  {
+    "id": 168,
+    "name": "Dendrifloon",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 100,
+      "attack": 75,
+      "defense": 105,
+      "speed": 80
+    },
+    "element": "Nature",
+    "ability": "",
+    "description": "A verdant creature with symbiotic plant matter integrated into its biology and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Dendroflorisis undosusium"
+  },
+  {
+    "id": 169,
+    "name": "Fieldubesor",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 105,
+      "attack": 80,
+      "defense": 85,
+      "speed": 90
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A primal creature with specialized organs that manipulate magnetic fields and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Fieldothibestiaum pennaeium"
+  },
+  {
+    "id": 170,
+    "name": "Serpepriid",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 105,
+      "defense": 75,
+      "speed": 90
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A apex creature with ancient reptilian characteristics and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Serpentiprimusa fluidusii"
+  },
+  {
+    "id": 171,
+    "name": "Auropreid",
+    "primary_type": "Primal",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 95,
+      "attack": 105,
+      "defense": 80,
+      "speed": 80
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A primal creature with bioluminescent tissues that emit powerful rays and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Aurorapredaus aeriusium"
+  },
+  {
+    "id": 172,
+    "name": "Daemconan",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 105,
+      "attack": 85,
+      "defense": 75,
+      "speed": 95
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A synthetic creature with otherworldly aspects that defy conventional biology and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Daemonidaconstructa sylvanium"
+  },
+  {
+    "id": 173,
+    "name": "Virulirhian",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 85,
+      "attack": 95,
+      "defense": 85,
+      "speed": 95
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A verdant creature with poisonous glands throughout its form and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Virulenthorhizaa ambulansius"
+  },
+  {
+    "id": 174,
+    "name": "Abysbesus",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 105,
+      "attack": 75,
+      "defense": 85,
+      "speed": 95
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A primal creature with shadow matter that absorbs light and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Abyssothibestiaon aquaticusii"
+  },
+  {
+    "id": 175,
+    "name": "Venenusopon",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 105,
+      "defense": 85,
+      "speed": 80
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A sapient creature with poisonous glands throughout its form and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Venenisophusis pedisii"
+  },
+  {
+    "id": 176,
+    "name": "Diaboregor",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 115,
+      "attack": 65,
+      "defense": 90,
+      "speed": 90
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A apex creature with otherworldly aspects that defy conventional biology and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Diabolithuregalison plumaeius"
+  },
+  {
+    "id": 177,
+    "name": "Vitrapeor",
+    "primary_type": "Apex",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 105,
+      "defense": 75,
+      "speed": 90
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A apex creature with corrosive secretions that can dissolve metal and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Vitriolapexusus natansae"
+  },
+  {
+    "id": 178,
+    "name": "Ventumonor",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 110,
+      "attack": 95,
+      "defense": 85,
+      "speed": 70
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A apex creature with hollow chambers that generate powerful gusts and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Ventusimonarchais cavernaium"
+  },
+  {
+    "id": 179,
+    "name": "Glaccaron",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 100,
+      "attack": 80,
+      "defense": 90,
+      "speed": 90
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A verdant creature with a body temperature well below freezing and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Glaciocarpusus skybornens"
+  },
+  {
+    "id": 180,
+    "name": "Ferrlogus",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 80,
+      "attack": 70,
+      "defense": 120,
+      "speed": 90
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A sapient creature with specialized organs that manipulate magnetic fields and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Ferrothalogicusum cavernaans"
+  },
+  {
+    "id": 181,
+    "name": "Atmologan",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 125,
+      "attack": 80,
+      "defense": 65,
+      "speed": 90
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A sapient creature with hollow chambers that generate powerful gusts and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Atmospherilogicusus marinusens"
+  },
+  {
+    "id": 182,
+    "name": "Crystobesix",
+    "primary_type": "Primal",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 110,
+      "attack": 95,
+      "defense": 70,
+      "speed": 85
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A primal creature with a body temperature well below freezing and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Crystallobestiaum sylvanius"
+  },
+  {
+    "id": 183,
+    "name": "Lithmenan",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 75,
+      "attack": 95,
+      "defense": 95,
+      "speed": 95
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A sapient creature with a composition partially made of living minerals and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Lithomentisus terrestrisens"
+  },
+  {
+    "id": 184,
+    "name": "Vitrdomix",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 60,
+      "attack": 110,
+      "defense": 95,
+      "speed": 95
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A apex creature with corrosive secretions that can dissolve metal and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Vitriolodominoror aeriusii"
+  },
+  {
+    "id": 185,
+    "name": "Contaniix",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 70,
+      "defense": 95,
+      "speed": 105
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A sapient creature with poisonous glands throughout its form and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Contagionanimuson natansius"
+  },
+  {
+    "id": 186,
+    "name": "Dracodomix",
+    "primary_type": "Apex",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 90,
+      "attack": 90,
+      "defense": 105,
+      "speed": 75
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A apex creature with ancient reptilian characteristics and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Draconidodominoron alatusans"
+  },
+  {
+    "id": 187,
+    "name": "Tartaferan",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 135,
+      "attack": 65,
+      "defense": 85,
+      "speed": 75
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A primal creature with otherworldly aspects that defy conventional biology and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Tartaroferoxa fluidusii"
+  },
+  {
+    "id": 188,
+    "name": "Litharton",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 85,
+      "attack": 95,
+      "defense": 105,
+      "speed": 75
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A synthetic creature with a composition partially made of living minerals and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Lithonartifexa montanusius"
+  },
+  {
+    "id": 189,
+    "name": "Acidphyor",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 85,
+      "attack": 105,
+      "defense": 70,
+      "speed": 100
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A verdant creature with corrosive secretions that can dissolve metal and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Acidophyllum pelagicius"
+  },
+  {
+    "id": 190,
+    "name": "Photofloor",
+    "primary_type": "Verdant",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 95,
+      "attack": 75,
+      "defense": 85,
+      "speed": 105
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A verdant creature with bioluminescent tissues that emit powerful rays and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Photoflorisis sylvanii"
+  },
+  {
+    "id": 191,
+    "name": "Hydrpriid",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 65,
+      "attack": 95,
+      "defense": 80,
+      "speed": 120
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A apex creature with hydration chambers that store large quantities of water and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Hydroprimuson pedisens"
+  },
+  {
+    "id": 192,
+    "name": "Zephyisanus",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 75,
+      "attack": 105,
+      "defense": 85,
+      "speed": 95
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A primal creature with hollow chambers that generate powerful gusts and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Zephyrasanguinis aquaticusens"
+  },
+  {
+    "id": 193,
+    "name": "Terrapeix",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 75,
+      "attack": 90,
+      "defense": 110,
+      "speed": 85
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A apex creature with a composition partially made of living minerals and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Terronapexusor terrestrisii"
+  },
+  {
+    "id": 194,
+    "name": "Galvazenus",
+    "primary_type": "Apex",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 80,
+      "attack": 115,
+      "defense": 90,
+      "speed": 75
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A apex creature with electricity surging through its body and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Galvanozenithus terrestrisii"
+  },
+  {
+    "id": 195,
+    "name": "Reptratis",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 70,
+      "attack": 110,
+      "defense": 105,
+      "speed": 75
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A sapient creature with ancient reptilian characteristics and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Reptiliratioa terrestrisium"
+  },
+  {
+    "id": 196,
+    "name": "Wyrmratid",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 90,
+      "attack": 80,
+      "defense": 105,
+      "speed": 85
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A sapient creature with ancient reptilian characteristics and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Wyrmothoratioon pennaeii"
+  },
+  {
+    "id": 197,
+    "name": "Thermosopid",
+    "primary_type": "Sapient",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 80,
+      "defense": 105,
+      "speed": 90
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A sapient creature with internal flame sacs that generate intense heat and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Thermosophuson aeriusans"
+  },
+  {
+    "id": 198,
+    "name": "Magnconor",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 90,
+      "defense": 80,
+      "speed": 110
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A synthetic creature with specialized organs that manipulate magnetic fields and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Magnetoconstructa plumaeium"
+  },
+  {
+    "id": 199,
+    "name": "Contaphyan",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 65,
+      "attack": 95,
+      "defense": 100,
+      "speed": 100
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A verdant creature with poisonous glands throughout its form and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Contagiophyllis alatusens"
+  },
+  {
+    "id": 200,
+    "name": "Ignivoron",
+    "primary_type": "Primal",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 75,
+      "attack": 50,
+      "defense": 100,
+      "speed": 135
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A primal creature with internal flame sacs that generate intense heat and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Ignivoraxis pelagicius"
+  },
+  {
+    "id": 201,
+    "name": "Sauramenix",
+    "primary_type": "Sapient",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 105,
+      "defense": 80,
+      "speed": 85
+    },
+    "element": "Draconic",
+    "ability": "",
+    "description": "A sapient creature with ancient reptilian characteristics and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Saurathimentisum fluidusium"
+  },
+  {
+    "id": 202,
+    "name": "Gelifabon",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 60,
+      "speed": 110
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A synthetic creature with a body temperature well below freezing and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Gelidofabricaa sylvanans"
+  },
+  {
+    "id": 203,
+    "name": "Cogniratan",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 110,
+      "attack": 105,
+      "defense": 80,
+      "speed": 65
+    },
+    "element": "Psychic",
+    "ability": "",
+    "description": "A sapient creature with a highly developed brain with telepathic nodes and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Cognithiratiois cavernaium"
+  },
+  {
+    "id": 204,
+    "name": "Electocogix",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 115,
+      "attack": 55,
+      "defense": 100,
+      "speed": 90
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A sapient creature with electricity surging through its body and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Electrocognusor terranusens"
+  },
+  {
+    "id": 205,
+    "name": "Lodesantus",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 75,
+      "defense": 125,
+      "speed": 85
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A verdant creature with specialized organs that manipulate magnetic fields and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Lodestoninanthusis volucrisans"
+  },
+  {
+    "id": 206,
+    "name": "Voltfaban",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 90,
+      "attack": 100,
+      "defense": 80,
+      "speed": 90
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A synthetic creature with electricity surging through its body and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Voltufabricaa pedisium"
+  },
+  {
+    "id": 207,
+    "name": "Cryssynid",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 105,
+      "attack": 55,
+      "defense": 120,
+      "speed": 80
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A synthetic creature with a body temperature well below freezing and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Crystallosyntheta pennaeans"
+  },
+  {
+    "id": 208,
+    "name": "Acidartor",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 130,
+      "attack": 95,
+      "defense": 55,
+      "speed": 80
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A synthetic creature with corrosive secretions that can dissolve metal and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Acidophartifexor pelagicii"
+  },
+  {
+    "id": 209,
+    "name": "Illumiconus",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 110,
+      "attack": 75,
+      "defense": 75,
+      "speed": 100
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A synthetic creature with bioluminescent tissues that emit powerful rays and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Illuminthoconstructon montanusium"
+  },
+  {
+    "id": 210,
+    "name": "Combuthaor",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 90,
+      "attack": 80,
+      "defense": 85,
+      "speed": 105
+    },
+    "element": "Fire",
+    "ability": "",
+    "description": "A verdant creature with internal flame sacs that generate intense heat and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Combustithallusum aeriusium"
+  },
+  {
+    "id": 211,
+    "name": "Atmosiphyan",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 85,
+      "attack": 90,
+      "defense": 80,
+      "speed": 105
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A verdant creature with hollow chambers that generate powerful gusts and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Atmospheriphyllum pennaeens"
+  },
+  {
+    "id": 212,
+    "name": "Galvanarton",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 105,
+      "attack": 75,
+      "defense": 90,
+      "speed": 90
+    },
+    "element": "Electric",
+    "ability": "",
+    "description": "A synthetic creature with electricity surging through its body and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Galvanonartifexon aquaticusius"
+  },
+  {
+    "id": 213,
+    "name": "Tartanantan",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 75,
+      "attack": 135,
+      "defense": 70,
+      "speed": 80
+    },
+    "element": "Demonic",
+    "ability": "",
+    "description": "A verdant creature with otherworldly aspects that defy conventional biology and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Tartaronanthusum plumaeium"
+  },
+  {
+    "id": 214,
+    "name": "Dissmecan",
+    "primary_type": "Synthetic",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 95,
+      "attack": 70,
+      "defense": 120,
+      "speed": 75
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A synthetic creature with corrosive secretions that can dissolve metal and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Dissolvamechanor terrestrisii"
+  },
+  {
+    "id": 215,
+    "name": "Viruliphyon",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 115,
+      "attack": 75,
+      "defense": 70,
+      "speed": 100
+    },
+    "element": "Toxic",
+    "ability": "",
+    "description": "A verdant creature with poisonous glands throughout its form and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Virulenthiphyllis undosusae"
+  },
+  {
+    "id": 216,
+    "name": "Attranarton",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 90,
+      "defense": 75,
+      "speed": 115
+    },
+    "element": "Magnetic",
+    "ability": "",
+    "description": "A synthetic creature with specialized organs that manipulate magnetic fields and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Attractartificis pelagicii"
+  },
+  {
+    "id": 217,
+    "name": "Maraphyid",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 80,
+      "attack": 85,
+      "defense": 120,
+      "speed": 75
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A verdant creature with hydration chambers that store large quantities of water and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Marathophyllor plumaeium"
+  },
+  {
+    "id": 218,
+    "name": "Unduthaus",
+    "primary_type": "Verdant",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 65,
+      "attack": 95,
+      "defense": 85,
+      "speed": 115
+    },
+    "element": "Water",
+    "ability": "",
+    "description": "A verdant creature with hydration chambers that store large quantities of water and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "scientific_name": "Undulothithallusum pelagicius"
+  },
+  {
+    "id": 219,
+    "name": "Geotharton",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 80,
+      "attack": 105,
+      "defense": 105,
+      "speed": 70
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A synthetic creature with a composition partially made of living minerals and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "scientific_name": "Geothartificor natansans"
+  },
+  {
+    "id": 220,
+    "name": "Umbrsynan",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 90,
+      "attack": 85,
+      "defense": 100,
+      "speed": 85
+    },
+    "element": "Dark",
+    "ability": "",
+    "description": "A synthetic creature with shadow matter that absorbs light and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "scientific_name": "Umbrasynthetis abyssalans"
+  },
+  {
+    "id": 221,
+    "name": "Liththais",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 110,
+      "attack": 90,
+      "defense": 85,
+      "speed": 75
+    },
+    "element": "Earth",
+    "ability": "",
+    "description": "A verdant creature with a composition partially made of living minerals and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Lithothallusus plumaeius"
+  },
+  {
+    "id": 222,
+    "name": "Nivaconor",
+    "primary_type": "Synthetic",
+    "subtype": "Aquatic",
+    "stats": {
+      "hp": 110,
+      "attack": 105,
+      "defense": 75,
+      "speed": 70
+    },
+    "element": "Ice",
+    "ability": "",
+    "description": "A synthetic creature with a body temperature well below freezing and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Nivaloconstructon natansium"
+  },
+  {
+    "id": 223,
+    "name": "Ventulogix",
+    "primary_type": "Sapient",
+    "subtype": "Terrestrial",
+    "stats": {
+      "hp": 110,
+      "attack": 95,
+      "defense": 55,
+      "speed": 100
+    },
+    "element": "Wind",
+    "ability": "",
+    "description": "A sapient creature with hollow chambers that generate powerful gusts and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Ventusologicusus ambulansens"
+  },
+  {
+    "id": 224,
+    "name": "Radianarbon",
+    "primary_type": "Verdant",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 100,
+      "attack": 75,
+      "defense": 95,
+      "speed": 90
+    },
+    "element": "Light",
+    "ability": "",
+    "description": "A verdant creature with bioluminescent tissues that emit powerful rays and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Radianarborus alatusens"
+  },
+  {
+    "id": 225,
+    "name": "Oxymosynix",
+    "primary_type": "Synthetic",
+    "subtype": "Avian",
+    "stats": {
+      "hp": 110,
+      "attack": 70,
+      "defense": 75,
+      "speed": 105
+    },
+    "element": "Acid",
+    "ability": "",
+    "description": "A synthetic creature with corrosive secretions that can dissolve metal and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "scientific_name": "Oxymorusyntheton plumaeius"
+  },
+  {
+    "id": 226,
+    "name": "Pattje72",
+    "primary_type": "God",
+    "subtype": "none",
+    "stats": {
+      "hp": 150,
+      "attack": 150,
+      "defense": 150,
+      "speed": 150
+    },
+    "element": "none",
+    "ability": "",
+    "description": "",
+    "scientific_name": "Pattje72"
+  }
+]
