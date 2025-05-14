@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using System.IO;
+
 
 namespace groundCrashers_game
 {
@@ -26,30 +29,38 @@ namespace groundCrashers_game
 
         private void SelectPokemon_Click(object sender, RoutedEventArgs e)
         {
-            // generate rondom number
-            Random rnd = new Random();
-            // get the button that has been selected
             Button clicked = sender as Button;
-            // take the name and convert it to string
             string name = clicked.Content.ToString();
-            // generate random number for stats (temporary)
-            int Type = rnd.Next(1, 100);
-            int HP = rnd.Next(1, 100);
-            int Attack = rnd.Next(1, 100);
-            int Defense = rnd.Next(1, 100);
 
+            string jsonPath = "C:\\Users\\woutv\\Desktop\\github things\\GroundCrashersProftaak\\Game\\groundCrashers_game\\groundCrashers_game\\JsonData\\creatures.json";
 
+            if (!File.Exists(jsonPath))
+            {
+                MessageBox.Show("JSON file not found!");
+                return;
+            }
 
-            // Load data based on selected name (use a dictionary or database)
-            GroundCrasherName.Text = name;
-            GroundCrasherType.Text =  Type.ToString();
-            GroundCrasherHP.Text = HP.ToString();
-            GroundCrasherAttack.Text = Attack.ToString();
-            GroundCrasherDefense.Text = Defense.ToString();
+            string json = File.ReadAllText(jsonPath);
+            List<Creature> creatures = JsonConvert.DeserializeObject<List<Creature>>(json);
 
-            // show messagebox to confirm
-            MessageBox.Show($"You selected {name}!");
+            Creature selected = creatures.FirstOrDefault(c => c.name == name);
+
+            if (selected != null)
+            {
+                GroundCrasherName.Text = selected.name;
+                GroundCrasherType.Text = selected.primary_type;
+                GroundCrasherHP.Text = selected.stats.hp.ToString();
+                GroundCrasherAttack.Text = selected.stats.attack.ToString();
+                GroundCrasherDefense.Text = selected.stats.defense.ToString();
+
+                MessageBox.Show($"You selected {selected.name}!");
+            }
+            else
+            {
+                MessageBox.Show($"Could not find creature: {name}");
+            }
         }
+
 
     }
 }
