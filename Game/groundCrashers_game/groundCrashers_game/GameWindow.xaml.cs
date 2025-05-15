@@ -1,4 +1,5 @@
 ﻿using groundCrashers_game.classes;
+using System.Numerics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +25,28 @@ namespace groundCrashers_game
 
         private void Fight_Button_Click(object sender, RoutedEventArgs e)
         {
+            //// Safety check
+            //if (Player == null || Computer == null ||
+            //    Player.Creatures.Count == 0 || Computer.Creatures.Count == 0)
+            //{
+            //    MessageBox.Show("Player or Computer is missing creatures!");
+            //    return;
+            //}
+
+            //// Get creatures
+            //var playerCreature = Player.Creatures[0]; // or selected index
+            //var computerCreature = Computer.Creatures[0];
+
+            //// Get stats
+            //int playerAttack = playerCreature.stats.attack;
+            //int computerDefense = computerCreature.stats.defense;
+
+            //// Calculate damage using Manager
+            //var battleManager = new Manager();
+            //int damageDealt = battleManager.Damage(playerAttack, computerDefense);
+
+            //// Show result
+            //MessageBox.Show($"{playerCreature.name} dealt {damageDealt} damage to {computerCreature.name}!");
 
         }
 

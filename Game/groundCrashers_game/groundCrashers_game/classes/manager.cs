@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace groundCrashers_game.classes
 {
-    class manager
+    public class Manager
     {
-        public int damage(int attack, int Defence)
+        public int Damage(int attack, int Defence)
         { 
             float damage = attack / 100f * (100f - ((100f / 600f) * Defence));
             int roundedDamage = (int)Math.Round(damage);

@@ -48,6 +48,23 @@ namespace groundCrashers_game
                 GroundCrasherHP.Text = selected.stats.hp.ToString();
                 GroundCrasherAttack.Text = selected.stats.attack.ToString();
                 GroundCrasherDefense.Text = selected.stats.defense.ToString();
+
+                var creature = new Creature
+                {
+                    id = selected.id,
+                    name = selected.name,
+                    primary_type = selected.primary_type,
+                    stats = new Stats
+                    {
+                        hp = selected.stats.hp,
+                        attack = selected.stats.attack,
+                        defense = selected.stats.defense,
+                        speed = selected.stats.speed
+                    },
+                    element = selected.element,
+                    ability = selected.ability,
+                    description = selected.description
+                };
             }
             else
             {
