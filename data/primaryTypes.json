@@ -27,6 +27,11 @@
     {
       "name": "God",
       "strong_against": ["All"], 
-      "weak_against": ["None"]
+      "weak_against": ["Titans"]
+    },
+    {
+      "name": "Titan",
+      "strong_against": ["God"], 
+      "weak_against": ["Titans"]
     }
 ]

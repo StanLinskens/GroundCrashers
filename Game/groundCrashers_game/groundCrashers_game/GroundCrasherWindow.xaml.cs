@@ -48,8 +48,6 @@ namespace groundCrashers_game
                 GroundCrasherHP.Text = selected.stats.hp.ToString();
                 GroundCrasherAttack.Text = selected.stats.attack.ToString();
                 GroundCrasherDefense.Text = selected.stats.defense.ToString();
-
-                MessageBox.Show($"You selected {selected.name}!");
             }
             else
             {
