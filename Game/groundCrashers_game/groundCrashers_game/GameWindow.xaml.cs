@@ -185,22 +185,23 @@ namespace groundCrashers_game
             actionButtonsPanel.Children.Add(runButton);
         }
 
-        public void Bag_Button_Click(object sender, RoutedEventArgs e)
+        private void Bag_Button_Click(object sender, RoutedEventArgs e)
         {
             // Implement bag functionality
             MessageBox.Show("Bag selected!");
         }
 
-        public void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
+        private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
         {
-            // Implement GroundCrashers functionality
-            MessageBox.Show("GroundCrashers selected!");
+            GroundCrasherWindow GroundCrasherWindow = new GroundCrasherWindow();
+            GroundCrasherWindow.Show();
         }
 
-        public void Run_Button_Click(object sender, RoutedEventArgs e)
+        private void Run_Button_Click(object sender, RoutedEventArgs e)
         {
-            // Implement run functionality
-            MessageBox.Show("Run selected!");
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.Show();
+            this.Close();
         }
     }
 }
