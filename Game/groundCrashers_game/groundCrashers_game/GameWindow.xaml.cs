@@ -37,29 +37,38 @@ namespace groundCrashers_game
 
         private void FindActionButtonsPanel()
         {
-            // Find the WrapPanel that contains our action buttons
-            // This assumes the structure from your XAML where buttons are in a WrapPanel
-            // inside a Grid in column 1 of the bottom row
-            Grid mainGrid = (Grid)((Viewbox)Content).Child;
-            Grid optionsGrid = (Grid)mainGrid.Children[mainGrid.Children.Count - 1]; // Bottom row grid
-
-            // Get the wrap panel from column 1 of the options grid
-            foreach (UIElement child in optionsGrid.Children)
+            try
             {
-                if (child is WrapPanel panel && Grid.GetColumn(panel) == 1)
+                Grid mainGrid = (Grid)((Viewbox)Content).Child;
+
+                // Get the options Border from the last row (Grid.Row="4")
+                Border optionsBorder = (Border)mainGrid.Children[mainGrid.RowDefinitions.Count - 1];
+
+                // Get the Grid inside the options Border
+                Grid optionsGrid = (Grid)optionsBorder.Child;
+
+                // Now look for the WrapPanel in column 1
+                foreach (UIElement child in optionsGrid.Children)
                 {
-                    actionButtonsPanel = panel;
-                    // Store references to the original buttons
-                    StoreButtonReferences();
-                    break;
+                    if (child is WrapPanel panel && Grid.GetColumn(panel) == 1)
+                    {
+                        actionButtonsPanel = panel;
+                        StoreButtonReferences();
+                        break;
+                    }
+                }
+
+                if (actionButtonsPanel == null)
+                {
+                    MessageBox.Show("Could not find action buttons panel. UI structure may have changed.");
                 }
             }
-
-            if (actionButtonsPanel == null)
+            catch (Exception ex)
             {
-                MessageBox.Show("Could not find action buttons panel. UI structure may have changed.");
+                MessageBox.Show($"Error while locating action buttons panel: {ex.Message}");
             }
         }
+
 
         private void StoreButtonReferences()
         {
@@ -77,7 +86,7 @@ namespace groundCrashers_game
                         case "BAG":
                             bagButton = button;
                             break;
-                        case "GroundCrashers":
+                        case "GROUNDCRASHERS":
                             groundCrashersButton = button;
                             break;
                         case "RUN":
@@ -106,9 +115,9 @@ namespace groundCrashers_game
             actionButtonsPanel.Children.Clear();
 
             // Create new combat option buttons
-            Button attackButton = CreateCombatButton("ATTACK", "LightCoral", "Red", Attack_Button_Click);
-            Button elementButton = CreateCombatButton("ELEMENT", "LightGreen", "DarkGreen", Element_Button_Click);
-            Button defendButton = CreateCombatButton("DEFEND", "LightBlue", "DarkBlue", Defend_Button_Click);
+            Button attackButton = CreateCombatButton("ATTACK", "#591C1C", "#7A2929", Attack_Button_Click);
+            Button elementButton = CreateCombatButton("ELEMENT", "#594C1C", "#7A6929", Element_Button_Click);
+            Button defendButton = CreateCombatButton("DEFEND", "#1C591C", "#297A29", Defend_Button_Click);
             Button backButton = CreateCombatButton("BACK", "Gray", "DarkGray", Back_Button_Click);
 
             // Add the new buttons to the panel
@@ -124,20 +133,23 @@ namespace groundCrashers_game
             {
                 Content = content,
                 Height = 60,
-                Width = 500,
+                Width = 400,
                 Margin = new Thickness(10),
+                FontSize = 20,
                 Background = (Brush)new BrushConverter().ConvertFromString(background),
-                BorderThickness = new Thickness(4),
                 BorderBrush = (Brush)new BrushConverter().ConvertFromString(border),
-                FontSize = 20
+                Style = (Style)FindResource("DarkButton"), // Apply the shared DarkButton style
             };
 
-            // Add style for rounded corners
-            Style style = new Style(typeof(Border));
-            style.Setters.Add(new Setter(Border.CornerRadiusProperty, new CornerRadius(30)));
-            button.Resources.Add(typeof(Border), style);
+            // Add DropShadowEffect
+            button.Effect = new System.Windows.Media.Effects.DropShadowEffect
+            {
+                ShadowDepth = 3,
+                BlurRadius = 5,
+                Opacity = 0.7
+            };
 
-            // Add click handler
+            // Add click event handler
             button.Click += clickHandler;
 
             return button;
@@ -175,15 +187,14 @@ namespace groundCrashers_game
 
         private void RestoreMainActionButtons()
         {
-            // Clear the current combat buttons
             actionButtonsPanel.Children.Clear();
 
-            // Restore the original action buttons
-            actionButtonsPanel.Children.Add(fightButton);
-            actionButtonsPanel.Children.Add(bagButton);
-            actionButtonsPanel.Children.Add(groundCrashersButton);
-            actionButtonsPanel.Children.Add(runButton);
+            if (fightButton != null) actionButtonsPanel.Children.Add(fightButton);
+            if (bagButton != null) actionButtonsPanel.Children.Add(bagButton);
+            if (groundCrashersButton != null) actionButtonsPanel.Children.Add(groundCrashersButton);
+            if (runButton != null) actionButtonsPanel.Children.Add(runButton);
         }
+
 
         private void Bag_Button_Click(object sender, RoutedEventArgs e)
         {
