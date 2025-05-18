@@ -11,6 +11,29 @@ namespace groundCrashers_game.classes
         public List<Creature> AllCreatures { get; private set; } = new();
         public List<Actor> CurrentActors { get; private set; } = new();
 
+        private static readonly Random _rnd = new Random();
+
+        public static Daytimes GetRandomDaytime()
+        {
+            var values = Enum.GetValues(typeof(Daytimes));
+            int index = _rnd.Next(values.Length);
+            return (Daytimes)values.GetValue(index);
+        }
+
+        public static Biomes GetRandomBiome()
+        {
+            var values = Enum.GetValues(typeof(Biomes));
+            int index = _rnd.Next(values.Length);
+            return (Biomes)values.GetValue(index);
+        }
+
+        public static Weathers GetRandomWeather()
+        {
+            var values = Enum.GetValues(typeof(Weathers));
+            int index = _rnd.Next(values.Length);
+            return (Weathers)values.GetValue(index);
+        }
+
         // Damage formula
         public int Damage(int attack, int defense)
         {

@@ -33,6 +33,76 @@ namespace groundCrashers_game
 
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
+
+            // 1) Get random enum values
+            var randomBiome = Manager.GetRandomBiome();
+            var randomTime = Manager.GetRandomDaytime();
+            var randomWeather = Manager.GetRandomWeather();
+
+            // 2) Update the TextBlocks
+            BiomeText.Text = randomBiome.ToString().ToUpper();    // e.g. "FOREST"
+            BiomeIcon.Text = GetBiomeEmoji(randomBiome);
+
+            DaytimeText.Text = randomTime.ToString().ToUpper();     // e.g. "DUSK"
+            DaytimeIcon.Text = GetDaytimeEmoji(randomTime);
+
+            WeatherText.Text = randomWeather.ToString().ToUpper();  // e.g. "FOGGY"
+            WeatherIcon.Text = GetWeatherEmoji(randomWeather);
+        }
+
+        // Helper: map each Biome to a simple emoji
+        private string GetBiomeEmoji(Biomes b)
+        {
+            switch (b)
+            {
+                case Biomes.Forest: return "🌲";
+                case Biomes.Desert: return "🏜️";
+                case Biomes.Mountain: return "⛰️";
+                case Biomes.Highlands: return "🌄";
+                case Biomes.Glacier: return "🧊";
+                case Biomes.Swamp: return "🦆";
+                case Biomes.Ocean: return "🌊";
+                case Biomes.Volcano: return "🌋";
+                case Biomes.Savanna: return "🦁";
+                case Biomes.Jungle: return "🌴";
+                case Biomes.Tundra: return "❄️";
+                case Biomes.Cave: return "🕯️";
+                case Biomes.Ruins: return "🏰";
+                case Biomes.Marsh: return "🦢";
+                case Biomes.Crystal_Cavern: return "💎";
+                case Biomes.Wasteland: return "🏜️";
+                default: return "❓";
+            }
+        }
+
+        // Helper: map each Daytime to an emoji
+        private string GetDaytimeEmoji(Daytimes d)
+        {
+            switch (d)
+            {
+                case Daytimes.Dawn: return "🌅";
+                case Daytimes.Day: return "☀️";
+                case Daytimes.Dusk: return "🌇";
+                case Daytimes.Night: return "🌙";
+                default: return "❓";
+            }
+        }
+
+        // Helper: map each Weather to an emoji
+        private string GetWeatherEmoji(Weathers w)
+        {
+            switch (w)
+            {
+                case Weathers.Sunny: return "☀️";
+                case Weathers.Rainy: return "🌧️";
+                case Weathers.Cloudy: return "☁️";
+                case Weathers.Foggy: return "🌫️";
+                case Weathers.Windy: return "🌬️";
+                case Weathers.Hail: return "🌨️";
+                case Weathers.Sandstorm: return "🏜️";
+                case Weathers.Clear: return "🆓";   // or "🔆"
+                default: return "❓";
+            }
         }
 
         private void FindActionButtonsPanel()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace groundCrashers_game
 {
-    enum Weathers
+    public enum Weathers
     {
         Sunny,
         Rainy,
