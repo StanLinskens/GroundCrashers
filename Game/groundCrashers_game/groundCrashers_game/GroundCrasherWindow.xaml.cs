@@ -34,7 +34,7 @@ namespace groundCrashers_game
             LoadCreatureButtons();
         }
 
-        private void SelectPokemon_Click(object sender, RoutedEventArgs e)
+        public void SelectPokemon_Click(object sender, RoutedEventArgs e)
         {
             Button clicked = sender as Button;
             string name = clicked.Content.ToString();
@@ -65,12 +65,16 @@ namespace groundCrashers_game
                     ability = selected.ability,
                     description = selected.description
                 };
+
+                SelectedCreature = selected;
             }
             else
             {
                 MessageBox.Show($"Could not find creature: {name}");
             }
         }
+
+        public Creature SelectedCreature { get; private set; }
 
         private void LoadCreatureButtons()
         {

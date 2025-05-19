@@ -82,7 +82,7 @@
         <Grid Width="1920" Height="1080" Name="MainGameGrid">
             <!-- Dynamic Biome Background will be set in code-behind -->
             <Grid.Background>
-                <ImageBrush x:Name="BiomeBackground" Stretch="UniformToFill" ImageSource="C:\Users\woutv\Desktop\github things\GroundCrashersProftaak\Game\groundCrashers_game\groundCrashers_game\Images\glacier.jpg"/>
+                <ImageBrush x:Name="BiomeBackground" Stretch="UniformToFill"/>
             </Grid.Background>
 
             <Grid.RowDefinitions>
@@ -142,7 +142,7 @@
                     <StackPanel Orientation="Horizontal" Margin="20,10">
                         <TextBlock Text="ENEMY" Style="{StaticResource StatusText}" FontSize="24"/>
                         <ProgressBar x:Name="EnemyHealthBar" Style="{StaticResource HealthBar}" Width="300" Value="60" Maximum="100" Margin="20,0,0,0" Foreground="#FF4D4D"/>
-                        <TextBlock x:Name="EnemyHealthText" Text="60/100" FontSize="20" Margin="20,0,0,0" Style="{StaticResource StatusText}"/>
+                        <TextBlock x:Name="EnemyHealthText" Text="60" FontSize="20" Margin="20,0,0,0" Style="{StaticResource StatusText}"/>
                     </StackPanel>
                 </Grid>
             </Border>
@@ -180,7 +180,7 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20,10">
                         <TextBlock Text="YOU" Style="{StaticResource StatusText}" FontSize="24"/>
                         <ProgressBar x:Name="PlayerHealthBar" Style="{StaticResource HealthBar}" Width="300" Value="89" Maximum="89" Margin="20,0,0,0" Foreground="#66FF66"/>
-                        <TextBlock x:Name="PlayerHealthText" Text="89/89" FontSize="20" Margin="20,0,0,0" Style="{StaticResource StatusText}"/>
+                        <TextBlock x:Name="PlayerHealthText" Text="89" FontSize="20" Margin="20,0,0,0" Style="{StaticResource StatusText}"/>
                     </StackPanel>
                 </Grid>
             </Border>
