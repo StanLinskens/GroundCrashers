@@ -13,6 +13,9 @@ namespace groundCrashers_game.classes
         public List<Creature> AllCreatures { get; private set; } = new();
         public List<Actor> CurrentActors { get; private set; } = new();
 
+        public Creature? ActivePlayerCreature { get; private set; }
+        public Creature? ActiveCpuCreature { get; private set; }
+
         private static readonly Random _rnd = new Random();
 
         public static Daytimes GetRandomDaytime()
@@ -89,6 +92,15 @@ namespace groundCrashers_game.classes
             var cpuActor = new Actor("CPU", false);
             cpuActor.Creatures.AddRange(GetRandomCreatures(3));
             CurrentActors.Add(cpuActor);
+
+            // ←─── After you have given each actor its list of 3 creatures,
+            // pick the “first” one to be the active one on‐screen:
+            ActivePlayerCreature = playerActor.Creatures.Count > 0
+                ? playerActor.Creatures[0]
+                : null;
+            ActiveCpuCreature = cpuActor.Creatures.Count > 0
+                ? cpuActor.Creatures[0]
+                : null;
         }
 
         private List<Creature> GetRandomCreatures(int count)

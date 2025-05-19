@@ -40,11 +40,9 @@ namespace groundCrashers_game
             gameManager = new Manager();
             gameManager.LoadAllCreatures();
             gameManager.LoadActorsForBattleMode();
-
             gameManager.PrintActors();
 
-            Console.ReadLine();
-
+            SetupBattleUI();
 
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
@@ -54,23 +52,28 @@ namespace groundCrashers_game
 
         private void SetupBattleUI()
         {
-            var player = gameManager.CurrentActors.FirstOrDefault(a => a.IsPlayer);
-            var cpu = gameManager.CurrentActors.FirstOrDefault(a => !a.IsPlayer);
-
-            if (player?.Creatures?.Count > 0)
+            // Instead of grabbing player.Creatures[0], we use ActivePlayerCreature
+            var playerCreature = gameManager.ActivePlayerCreature;
+            if (playerCreature != null)
             {
-                var playerCreature = player.Creatures[0];
                 PlayerCreatureName.Text = playerCreature.name;
-                PlayerCreatureBorder.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(
-                    TypeColors.GetValueOrDefault(playerCreature.primary_type, "#555555")));
+                PlayerCreatureBorder.BorderBrush =
+                    new SolidColorBrush((Color)ColorConverter.ConvertFromString(
+                        TypeColors.GetValueOrDefault(
+                            playerCreature.primary_type,
+                            "#555555")));
             }
 
-            if (cpu?.Creatures?.Count > 0)
+            // Likewise for the CPU’s active creature:
+            var cpuCreature = gameManager.ActiveCpuCreature;
+            if (cpuCreature != null)
             {
-                var enemyCreature = cpu.Creatures[0];
-                EnemyCreatureName.Text = enemyCreature.name;
-                EnemyCreatureBorder.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(
-                    TypeColors.GetValueOrDefault(enemyCreature.primary_type, "#555555")));
+                EnemyCreatureName.Text = cpuCreature.name;
+                EnemyCreatureBorder.BorderBrush =
+                    new SolidColorBrush((Color)ColorConverter.ConvertFromString(
+                        TypeColors.GetValueOrDefault(
+                            cpuCreature.primary_type,
+                            "#555555")));
             }
         }
 
