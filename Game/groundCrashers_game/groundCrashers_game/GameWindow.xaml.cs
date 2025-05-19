@@ -278,6 +278,9 @@ namespace groundCrashers_game
         {
             // Implement elemental attack logic
             MessageBox.Show("Attack selected!");
+
+            //gameManager.ProcessTurn(ActionType.Attack);
+
             // After attack, restore main action buttons
             RestoreMainActionButtons();
         }

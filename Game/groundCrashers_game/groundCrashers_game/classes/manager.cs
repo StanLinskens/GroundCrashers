@@ -18,6 +18,20 @@ namespace groundCrashers_game.classes
 
         private static readonly Random _rnd = new Random();
 
+        public enum ActionType
+        {
+            Attack,
+            ElementAttack,
+            Defend,
+            Swap
+        }
+
+        // Index into CurrentActors: 0 = player, 1 = CPU
+        private int _currentActorIndex = 0;
+
+        // Round counter (increments after both actors have taken a turn)
+        public int RoundNumber { get; private set; } = 1;
+
         public static Daytimes GetRandomDaytime()
         {
             var values = Enum.GetValues(typeof(Daytimes));
@@ -45,6 +59,122 @@ namespace groundCrashers_game.classes
             float damage = attack / 100f * (100f - ((100f / 600f) * defense));
             return (int)Math.Round(damage);
         }
+
+        /// <summary>
+        /// Processes one actor’s action.  After resolving that action, it advances to the next actor.
+        /// Once both actors have gone, it increments RoundNumber.
+        /// </summary>
+        /// <param name="action">
+        ///   Which action this actor chose (Attack, ElementAttack, Defend, or Swap).
+        /// </param>
+        /// <param name="swapIndex">
+        ///   If action == Swap, this is the index (0-based) of the creature in that actor’s list
+        ///   to swap in as the new ActiveCreature.  (Ignore otherwise.)
+        /// </param>
+        public void ProcessTurn(ActionType action, int swapIndex = -1)
+        {
+            // 1) Identify attacker and defender based on _currentActorIndex
+            Actor currentActor = CurrentActors[_currentActorIndex];
+            Actor otherActor = CurrentActors[1 - _currentActorIndex];
+
+            // Pick the right “active” creature fields:
+            Creature? attacker = (currentActor.IsPlayer)
+                ? ActivePlayerCreature
+                : ActiveCpuCreature;
+
+            Creature? defender = (otherActor.IsPlayer)
+                ? ActivePlayerCreature
+                : ActiveCpuCreature;
+
+            if (attacker == null || defender == null)
+            {
+                throw new InvalidOperationException("One of the active creatures is null.");
+            }
+
+            // 2) Resolve the chosen action
+            switch (action)
+            {
+                case ActionType.Attack:
+                    {
+                        // Simple physical attack
+                        int damageDealt = Damage(attacker.attack, defender.defense);
+                        defender.health -= damageDealt;
+                        if (defender.stats.health < 0) defender.health = 0;
+
+                        // (You can replace MessageBox.Show with your own UI‐update calls later)
+                        MessageBox.Show(
+                            $"{attacker.name} attacks {defender.name} for {damageDealt} damage.\n" +
+                            $"{defender.name} now has {defender.health} HP."
+                        );
+                        break;
+                    }
+
+                case ActionType.ElementAttack:
+                    {
+                        // Placeholder: insert your elemental damage formula here
+                        // e.g. int elementDamage = CalculateElementDamage(attacker, defender);
+                        // defender.health -= elementDamage; etc.
+
+                        MessageBox.Show("ElementAttack chosen! (Implement your elemental logic here.)");
+                        break;
+                    }
+
+                case ActionType.Defend:
+                    {
+                        // Placeholder: grant a “defense buff” or status in your Creature class
+                        // e.g. attacker.IsDefending = true;
+
+                        MessageBox.Show($"{attacker.name} is defending this turn!");
+                        break;
+                    }
+
+                case ActionType.Swap:
+                    {
+                        // Make sure swapIndex is valid
+                        if (swapIndex < 0 || swapIndex >= currentActor.Creatures.Count)
+                        {
+                            MessageBox.Show("Invalid swap index.");
+                            break;
+                        }
+
+                        // Swap-in the chosen creature
+                        Creature chosen = currentActor.Creatures[swapIndex];
+                        if (currentActor.IsPlayer)
+                        {
+                            ActivePlayerCreature = chosen;
+                            MessageBox.Show($"Player swapped to {chosen.name}!");
+                        }
+                        else
+                        {
+                            ActiveCpuCreature = chosen;
+                            MessageBox.Show($"CPU swapped to {chosen.name}!");
+                        }
+
+                        break;
+                    }
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(action), "Unknown action type.");
+            }
+
+            // 3) Check if the defender (or attacker) fainted, etc.
+            //    You can put win/lose logic here:
+            //
+            //    if (ActivePlayerCreature.health <= 0) { /* player loses or auto‐switch */ }
+            //    if (ActiveCpuCreature.health <= 0)    { /* CPU loses or auto‐switch */ }
+
+            // 4) Advance to the next actor’s turn
+            _currentActorIndex = 1 - _currentActorIndex;
+
+            // 5) If we’ve just returned to actor 0, that means both have acted → increment round
+            if (_currentActorIndex == 0)
+            {
+                RoundNumber++;
+                // (Optional) Notify UI that a new round has started:
+                // e.g. OnRoundAdvanced?.Invoke(RoundNumber);
+            }
+        }
+
 
         // Load all creatures once (e.g., when game starts)
         public void LoadAllCreatures()
