@@ -195,8 +195,8 @@ namespace groundCrashers_game
 
             // Create new combat option buttons
             Button attackButton = CreateCombatButton("ATTACK", "#591C1C", "#7A2929", Attack_Button_Click);
-            Button elementButton = CreateCombatButton("ELEMENT", "#594C1C", "#7A6929", Element_Button_Click);
-            Button defendButton = CreateCombatButton("DEFEND", "#1C591C", "#297A29", Defend_Button_Click);
+            Button elementButton = CreateCombatButton("ELEMENT", "#802828", "#7A2929", Element_Button_Click);
+            Button defendButton = CreateCombatButton("DEFEND", "#1C3959", "#295D7A", Defend_Button_Click);
             Button backButton = CreateCombatButton("BACK", "Gray", "DarkGray", Back_Button_Click);
 
             // Add the new buttons to the panel

@@ -45,6 +45,7 @@ namespace groundCrashers_game
             {
                 GroundCrasherName.Text = selected.name;
                 GroundCrasherType.Text = selected.primary_type;
+                GroundCrasherElement.Text = selected.element;
                 GroundCrasherHP.Text = selected.stats.hp.ToString();
                 GroundCrasherAttack.Text = selected.stats.attack.ToString();
                 GroundCrasherDefense.Text = selected.stats.defense.ToString();
@@ -97,7 +98,7 @@ namespace groundCrashers_game
                     Content = creature.name,
                     Margin = new Thickness(5),
                     Height = 40,
-                    Background = Brushes.Lavender
+                    Style = (Style)FindResource("DarkButton"),
                 };
 
                 btn.Click += SelectPokemon_Click;

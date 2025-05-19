@@ -40,7 +40,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\crystal_cavern.jpg" />
+    <Resource Include="Images\crystalcavern.jpg" />
     <Resource Include="Images\crystal_cavern_gif.gif" />
     <Resource Include="Images\desert.jpg" />
     <Resource Include="Images\highlands.jpg" />

@@ -1,5 +1,5 @@
 ﻿<Window x:Class="groundCrashers_game.GroundCrasherWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,34 +8,92 @@
         Title="Choose Your GroundCrasher" Height="450" Width="800"
         Loaded="Window_Loaded">
 
-    <Grid Background="MediumPurple">
+    <Window.Resources>
+        <Style x:Key="DarkButton" TargetType="Button">
+            <Setter Property="Background" Value="#1E1E1E"/>
+            <Setter Property="Foreground" Value="#E0E0E0"/>
+            <Setter Property="BorderBrush" Value="#444444"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#333333"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="DarkLabel" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#E0E0E0"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="0,2"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#000000">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
         <!-- Left Panel: Selected Pokémon -->
-        <Border Grid.Column="0" Margin="20,10,20,10" Background="BlueViolet" CornerRadius="10" BorderBrush="DarkMagenta" BorderThickness="4">
+        <Border Grid.Column="0" Margin="20,10,20,10" Background="#323232" CornerRadius="10" BorderBrush="#666666" BorderThickness="4">
             <StackPanel Margin="10">
                 <TextBlock Text="Selected GroundCrasher" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
 
-                <Rectangle Height="100" Fill="LightGray" Margin="0,0,0,10"/>
                 <!-- Placeholder for image -->
-                <TextBlock  Text="Name: " FontSize="16" Foreground="White" HorizontalAlignment="Left"/>
-                <TextBlock Name="GroundCrasherName"  Text="N/A" FontSize="16" Foreground="White"/>
-                <TextBlock Text="Type:" FontSize="16" Foreground="White"/>
-                <TextBlock Name="GroundCrasherType"  Text="N/A" FontSize="16" Foreground="White"/>
-                <TextBlock Text="HP: " FontSize="16" Foreground="White"/>
-                <TextBlock Name="GroundCrasherHP"  Text="N/A" FontSize="16" Foreground="White"/>
-                <TextBlock Text="Attack: " FontSize="16" Foreground="White"/>
-                <TextBlock Name="GroundCrasherAttack"  Text="N/A" FontSize="16" Foreground="White"/>
-                <TextBlock Text="Defense: " FontSize="16" Foreground="White"/>
-                <TextBlock Name="GroundCrasherDefense"  Text="N/A" FontSize="16" Foreground="White"/>
+                <Rectangle Height="100" Fill="LightGray" Margin="0,0,0,10"/>
+
+                <!-- Details in two columns -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Text="Name:" Grid.Row="0" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherName" Text="N/A" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+                    
+                    <TextBlock Text="Type:" Grid.Row="1" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherType" Text="N/A" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                    <TextBlock Text="Element:" Grid.Row="2" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherElement" Text="N/A" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                    <TextBlock Text="HP:" Grid.Row="3" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherHP" Text="N/A" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                    <TextBlock Text="Attack:" Grid.Row="4" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherAttack" Text="N/A" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                    <TextBlock Text="Defense:" Grid.Row="5" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherDefense" Text="N/A" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+                </Grid>
+
+                <Button Name="ConfirmButton" Style="{StaticResource DarkButton}" Content="Confirm" Width="200" Height="40" Margin="0,20,0,0" HorizontalAlignment="Center"  />
             </StackPanel>
         </Border>
 
         <!-- Right Panel: Pokémon List -->
-        <Border Grid.Column="1" Margin="20,10,20,10" Background="BlueViolet" CornerRadius="10" BorderBrush="DarkMagenta" BorderThickness="4">
+        <Border Grid.Column="1" Margin="20,10,20,10" Background="#323232" CornerRadius="10" BorderBrush="#666666" BorderThickness="4">
             <ScrollViewer>
                 <StackPanel x:Name="CreatureButtonPanel" Margin="10">
                     <TextBlock Text="Choose Your GroundCrasher" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
