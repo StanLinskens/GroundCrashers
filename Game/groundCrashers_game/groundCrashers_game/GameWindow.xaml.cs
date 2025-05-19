@@ -23,6 +23,15 @@ namespace groundCrashers_game
         private Button runButton;
         private WrapPanel actionButtonsPanel;
 
+        private Dictionary<string, string> TypeColors = new()
+        {
+            { "Verdant", "#228B22" },
+            { "Primal", "#FFC300" },
+            { "Apex", "#D7263D" },
+            { "Sapient", "#800080" },
+            { "Synthetic", "#0066CC" }
+        };
+
         public GameWindow()
         {
             InitializeComponent();
@@ -31,16 +40,41 @@ namespace groundCrashers_game
             gameManager = new Manager();
             gameManager.LoadAllCreatures();
             gameManager.LoadActorsForBattleMode();
-
             gameManager.PrintActors();
 
-            Console.ReadLine();
-
+            SetupBattleUI();
 
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
 
             RandomScenarioGenerator();
+        }
+
+        private void SetupBattleUI()
+        {
+            // Instead of grabbing player.Creatures[0], we use ActivePlayerCreature
+            var playerCreature = gameManager.ActivePlayerCreature;
+            if (playerCreature != null)
+            {
+                PlayerCreatureName.Text = playerCreature.name;
+                PlayerCreatureBorder.BorderBrush =
+                    new SolidColorBrush((Color)ColorConverter.ConvertFromString(
+                        TypeColors.GetValueOrDefault(
+                            playerCreature.primary_type,
+                            "#555555")));
+            }
+
+            // Likewise for the CPU’s active creature:
+            var cpuCreature = gameManager.ActiveCpuCreature;
+            if (cpuCreature != null)
+            {
+                EnemyCreatureName.Text = cpuCreature.name;
+                EnemyCreatureBorder.BorderBrush =
+                    new SolidColorBrush((Color)ColorConverter.ConvertFromString(
+                        TypeColors.GetValueOrDefault(
+                            cpuCreature.primary_type,
+                            "#555555")));
+            }
         }
 
         // Event handler for when the window is loaded
