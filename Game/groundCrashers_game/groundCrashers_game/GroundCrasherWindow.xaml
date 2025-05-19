@@ -19,18 +19,43 @@
             <StackPanel Margin="10">
                 <TextBlock Text="Selected GroundCrasher" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
 
-                <Rectangle Height="100" Fill="LightGray" Margin="0,0,0,10"/>
                 <!-- Placeholder for image -->
-                <TextBlock  Text="Name: " FontSize="16" Foreground="White" HorizontalAlignment="Left"/>
-                <TextBlock Name="GroundCrasherName"  Text="N/A" FontSize="16" Foreground="White"/>
-                <TextBlock Text="Type:" FontSize="16" Foreground="White"/>
-                <TextBlock Name="GroundCrasherType"  Text="N/A" FontSize="16" Foreground="White"/>
-                <TextBlock Text="HP: " FontSize="16" Foreground="White"/>
-                <TextBlock Name="GroundCrasherHP"  Text="N/A" FontSize="16" Foreground="White"/>
-                <TextBlock Text="Attack: " FontSize="16" Foreground="White"/>
-                <TextBlock Name="GroundCrasherAttack"  Text="N/A" FontSize="16" Foreground="White"/>
-                <TextBlock Text="Defense: " FontSize="16" Foreground="White"/>
-                <TextBlock Name="GroundCrasherDefense"  Text="N/A" FontSize="16" Foreground="White"/>
+                <Rectangle Height="100" Fill="LightGray" Margin="0,0,0,10"/>
+
+                <!-- Details in two columns -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Name:" Grid.Row="0" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherName" Text="N/A" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                    <TextBlock Text="Type:" Grid.Row="1" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherType" Text="N/A" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                    <TextBlock Text="Element:" Grid.Row="2" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherElement" Text="N/A" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                    <TextBlock Text="HP:" Grid.Row="3" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherHP" Text="N/A" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                    <TextBlock Text="Attack:" Grid.Row="4" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherAttack" Text="N/A" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                    <TextBlock Text="Defense:" Grid.Row="5" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherDefense" Text="N/A" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+                </Grid>
             </StackPanel>
         </Border>
 
