@@ -34,6 +34,12 @@ namespace groundCrashers_game
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
 
+            RandomScenarioGenerator();
+        }
+
+        // Event handler for when the window is loaded
+        private void RandomScenarioGenerator()
+        {
             // 1) Get random enum values
             var randomBiome = Manager.GetRandomBiome();
             var randomTime = Manager.GetRandomDaytime();
