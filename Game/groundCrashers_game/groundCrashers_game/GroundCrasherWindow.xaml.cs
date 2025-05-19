@@ -94,7 +94,7 @@ namespace groundCrashers_game
                     Content = creature.name,
                     Margin = new Thickness(5),
                     Height = 40,
-                    Background = Brushes.Lavender
+                    Style = (Style)FindResource("DarkButton"),
                 };
 
                 btn.Click += SelectPokemon_Click;
