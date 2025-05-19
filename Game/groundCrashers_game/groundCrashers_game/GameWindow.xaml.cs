@@ -30,6 +30,12 @@ namespace groundCrashers_game
             // Initialize the game manager
             gameManager = new Manager();
             gameManager.LoadAllCreatures();
+            gameManager.LoadActorsForBattleMode();
+
+            gameManager.PrintActors();
+
+            Console.ReadLine();
+
 
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
@@ -162,7 +168,7 @@ namespace groundCrashers_game
                         case "FIGHT":
                             fightButton = button;
                             break;
-                        case "BAG":
+                        case "SWAP":
                             bagButton = button;
                             break;
                         case "GROUNDCRASHERS":
@@ -275,10 +281,10 @@ namespace groundCrashers_game
         }
 
 
-        private void Bag_Button_Click(object sender, RoutedEventArgs e)
+        private void Swap_Button_Click(object sender, RoutedEventArgs e)
         {
             // Implement bag functionality
-            MessageBox.Show("Bag selected!");
+            MessageBox.Show("SWAP selected!");
         }
 
         private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
