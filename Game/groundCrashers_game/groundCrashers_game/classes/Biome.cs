@@ -22,7 +22,7 @@ namespace groundCrashers_game
         Cave,
         Ruins,
         Marsh,
-        Crystal_Cavern,
+        CrystalCavern,
         Wasteland
     }
 

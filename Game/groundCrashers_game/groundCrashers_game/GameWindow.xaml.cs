@@ -29,7 +29,7 @@ namespace groundCrashers_game
 
             // Initialize the game manager
             gameManager = new Manager();
-            //gameManager.LoadAllCreatures();
+            gameManager.LoadAllCreatures();
 
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
@@ -40,13 +40,13 @@ namespace groundCrashers_game
             var randomWeather = Manager.GetRandomWeather();
 
             // 2) Update the TextBlocks
-            BiomeText.Text = randomBiome.ToString().ToUpper();    // e.g. "FOREST"
+            BiomeText.Text = randomBiome.ToString().ToUpper();  
             BiomeIcon.Text = GetBiomeEmoji(randomBiome);
 
-            DaytimeText.Text = randomTime.ToString().ToUpper();     // e.g. "DUSK"
+            DaytimeText.Text = randomTime.ToString().ToUpper();
             DaytimeIcon.Text = GetDaytimeEmoji(randomTime);
 
-            WeatherText.Text = randomWeather.ToString().ToUpper();  // e.g. "FOGGY"
+            WeatherText.Text = randomWeather.ToString().ToUpper();
             WeatherIcon.Text = GetWeatherEmoji(randomWeather);
         }
 
@@ -69,7 +69,7 @@ namespace groundCrashers_game
                 case Biomes.Cave: return "🕯️";
                 case Biomes.Ruins: return "🏰";
                 case Biomes.Marsh: return "🦢";
-                case Biomes.Crystal_Cavern: return "💎";
+                case Biomes.CrystalCavern: return "💎";
                 case Biomes.Wasteland: return "🏜️";
                 default: return "❓";
             }
@@ -100,7 +100,7 @@ namespace groundCrashers_game
                 case Weathers.Windy: return "🌬️";
                 case Weathers.Hail: return "🌨️";
                 case Weathers.Sandstorm: return "🏜️";
-                case Weathers.Clear: return "🆓";   // or "🔆"
+                case Weathers.Clear: return "🆓";
                 default: return "❓";
             }
         }
