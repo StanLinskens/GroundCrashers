@@ -22,7 +22,6 @@ namespace groundCrashers_game
     /// </summary>
     public partial class GroundCrasherWindow : Window
     {
-        // list of loaded creatures
         private List<Creature> loadedCreatures;
 
         public GroundCrasherWindow()
@@ -30,75 +29,100 @@ namespace groundCrashers_game
             InitializeComponent();
         }
 
-        // when the window is loaded, load the creature buttons
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadCreatureButtons();
         }
 
-        // select pokemon when clicked on button
-        private void SelectPokemon_Click(object sender, RoutedEventArgs e)
+        public void SelectPokemon_Click(object sender, RoutedEventArgs e)
         {
             Button clicked = sender as Button;
             string name = clicked.Content.ToString();
 
-            // get selected creature from the list
             Creature selected = loadedCreatures.FirstOrDefault(c => c.name == name);
 
-            // check if the creature was found
             if (selected != null)
             {
-                // set the text of the labels to the selected creature's stats
                 GroundCrasherName.Text = selected.name;
                 GroundCrasherType.Text = selected.primary_type;
+                GroundCrasherElement.Text = selected.element;
                 GroundCrasherHP.Text = selected.stats.hp.ToString();
                 GroundCrasherAttack.Text = selected.stats.attack.ToString();
                 GroundCrasherDefense.Text = selected.stats.defense.ToString();
 
-                // show message box with the selected creature's name
-                MessageBox.Show($"You selected {selected.name}!");
+                var creature = new Creature
+                {
+                    id = selected.id,
+                    name = selected.name,
+                    primary_type = selected.primary_type,
+                    stats = new Stats
+                    {
+                        hp = selected.stats.hp,
+                        attack = selected.stats.attack,
+                        defense = selected.stats.defense,
+                        speed = selected.stats.speed
+                    },
+                    element = selected.element,
+                    ability = selected.ability,
+                    description = selected.description
+                };
+
+                SelectedCreature = selected;
             }
             else
             {
-                // creature not found
                 MessageBox.Show($"Could not find creature: {name}");
             }
         }
 
-        // load the creature buttons from the json file
+        public Creature SelectedCreature { get; private set; }
+
         private void LoadCreatureButtons()
         {
-            // path to the json file
             string jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "JsonData", "creatures.json");
             jsonPath = System.IO.Path.GetFullPath(jsonPath);
 
-            // check if the file exists
             if (!File.Exists(jsonPath))
             {
-                // show error message
                 MessageBox.Show("Creature JSON file not found!");
                 return;
             }
 
-            // path to the json
             string json = File.ReadAllText(jsonPath);
             loadedCreatures = JsonConvert.DeserializeObject<List<Creature>>(json); // Store the list
 
-            // for each loop for the buttons
             foreach (Creature creature in loadedCreatures)
             {
-                //make new button
                 Button btn = new Button
                 {
                     Content = creature.name,
                     Margin = new Thickness(5),
                     Height = 40,
-                    Background = Brushes.Lavender
+                    Style = (Style)FindResource("DarkButton"),
                 };
 
-                // set the button's name to the creature's name
                 btn.Click += SelectPokemon_Click;
                 CreatureButtonPanel.Children.Add(btn);
+            }
+        }
+
+        private void ConfirmGroundCrasher_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedCreature != null)
+            {
+                string statsMessage = $"You have selected {SelectedCreature.name}!\n\n" +
+                                      $"Element: {SelectedCreature.element}\n" +
+                                      $"Type: {SelectedCreature.primary_type}\n" +
+                                      $"HP: {SelectedCreature.stats.hp}\n" +
+                                      $"Attack: {SelectedCreature.stats.attack}\n" +
+                                      $"Defense: {SelectedCreature.stats.defense}\n" +
+                                      $"Speed: {SelectedCreature.stats.speed}";
+
+                MessageBox.Show(statsMessage, "GroundCrasher Selected");
+            }
+            else
+            {
+                MessageBox.Show("No creature selected!");
             }
         }
 

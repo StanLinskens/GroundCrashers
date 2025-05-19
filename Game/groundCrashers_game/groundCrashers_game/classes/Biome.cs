@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace groundCrashers_game
 {
-    enum Biomes
+    public enum Biomes
     {
         Forest,
         Desert,
@@ -22,7 +22,7 @@ namespace groundCrashers_game
         Cave,
         Ruins,
         Marsh,
-        Crystal_Cavern,
+        CrystalCavern,
         Wasteland
     }
 
