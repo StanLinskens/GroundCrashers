@@ -97,14 +97,14 @@ namespace groundCrashers_game.classes
                 case ActionType.Attack:
                     {
                         // Simple physical attack
-                        int damageDealt = Damage(attacker.attack, defender.defense);
-                        defender.health -= damageDealt;
-                        if (defender.stats.health < 0) defender.health = 0;
+                        int damageDealt = Damage(attacker.stats.attack, defender.stats.defense);
+                        defender.stats.hp -= damageDealt;
+                        if (defender.stats.hp < 0) defender.stats.hp = 0;
 
                         // (You can replace MessageBox.Show with your own UI‐update calls later)
                         MessageBox.Show(
                             $"{attacker.name} attacks {defender.name} for {damageDealt} damage.\n" +
-                            $"{defender.name} now has {defender.health} HP."
+                            $"{defender.name} now has {defender.stats.hp} HP."
                         );
                         break;
                     }
