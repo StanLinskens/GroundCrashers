@@ -48,6 +48,9 @@ namespace groundCrashers_game
 
             WeatherText.Text = randomWeather.ToString().ToUpper();  // e.g. "FOGGY"
             WeatherIcon.Text = GetWeatherEmoji(randomWeather);
+
+            // 3) Set the background image based on the random biome
+            BiomeBackground.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/images/{randomBiome.ToString().ToLower()}.jpg", UriKind.Absolute));
         }
 
         // Helper: map each Biome to a simple emoji
