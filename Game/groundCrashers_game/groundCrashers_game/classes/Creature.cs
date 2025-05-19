@@ -11,7 +11,6 @@ namespace groundCrashers_game
     {
         public int id { get; set; }
         public string name { get; set; }
-        public object Name { get; internal set; }
         public string primary_type { get; set; }
         public string subtype { get; set; }
         public Stats stats { get; set; }

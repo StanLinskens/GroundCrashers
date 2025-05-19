@@ -23,6 +23,15 @@ namespace groundCrashers_game
         private Button runButton;
         private WrapPanel actionButtonsPanel;
 
+        private Dictionary<string, string> TypeColors = new()
+        {
+            { "Verdant", "#228B22" },
+            { "Primal", "#FFC300" },
+            { "Apex", "#D7263D" },
+            { "Sapient", "#800080" },
+            { "Synthetic", "#0066CC" }
+        };
+
         public GameWindow()
         {
             InitializeComponent();

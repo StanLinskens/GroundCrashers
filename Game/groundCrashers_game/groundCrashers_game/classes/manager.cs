@@ -122,7 +122,7 @@ namespace groundCrashers_game.classes
                     for (int i = 0; i < actor.Creatures.Count; i++)
                     {
                         var creature = actor.Creatures[i];
-                        message.AppendLine($"  {i + 1}. {creature.Name} (ID: {creature.id})");
+                        message.AppendLine($"  {i + 1}. {creature.name} (ID: {creature.id})");
                     }
                 }
 
