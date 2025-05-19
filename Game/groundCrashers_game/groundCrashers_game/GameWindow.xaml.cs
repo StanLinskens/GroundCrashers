@@ -34,6 +34,12 @@ namespace groundCrashers_game
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
 
+            RandomScenarioGenerator();
+        }
+
+        // Event handler for when the window is loaded
+        private void RandomScenarioGenerator()
+        {
             // 1) Get random enum values
             var randomBiome = Manager.GetRandomBiome();
             var randomTime = Manager.GetRandomDaytime();
@@ -48,6 +54,9 @@ namespace groundCrashers_game
 
             WeatherText.Text = randomWeather.ToString().ToUpper();
             WeatherIcon.Text = GetWeatherEmoji(randomWeather);
+
+            // 3) Set the background image based on the random biome
+            BiomeBackground.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/images/{randomBiome.ToString().ToLower()}.jpg", UriKind.Absolute));
         }
 
         // Helper: map each Biome to a simple emoji

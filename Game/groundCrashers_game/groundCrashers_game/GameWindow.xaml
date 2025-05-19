@@ -82,7 +82,7 @@
         <Grid Width="1920" Height="1080" Name="MainGameGrid">
             <!-- Dynamic Biome Background will be set in code-behind -->
             <Grid.Background>
-                <ImageBrush x:Name="BiomeBackground" Stretch="UniformToFill" ImageSource="Images\battle_arena.png"/>
+                <ImageBrush x:Name="BiomeBackground" Stretch="UniformToFill" ImageSource="C:\Users\woutv\Desktop\github things\GroundCrashersProftaak\Game\groundCrashers_game\groundCrashers_game\Images\glacier.jpg"/>
             </Grid.Background>
 
             <Grid.RowDefinitions>
@@ -137,7 +137,7 @@
             </Border>
 
             <!-- Enemy Info -->
-            <Border Grid.Row="1" Background="#1A1A1A80" BorderBrush="#333333" BorderThickness="0,0,0,1" Padding="20">
+            <Border Grid.Row="1" Padding="20">
                 <Grid>
                     <StackPanel Orientation="Horizontal" Margin="20,10">
                         <TextBlock Text="ENEMY" Style="{StaticResource StatusText}" FontSize="24"/>
@@ -151,7 +151,6 @@
             <Grid Grid.Row="2">
                 <Canvas>
                     <!-- Player Platform - Shadow Effect -->
-                    <Ellipse Width="320" Height="25" Fill="#0A0A0A" Canvas.Left="195" Canvas.Top="515"/>
                     <Ellipse Width="300" Height="60" Fill="#333333" Stroke="#555555" StrokeThickness="2" Canvas.Left="200" Canvas.Top="500">
                         <Ellipse.Effect>
                             <DropShadowEffect BlurRadius="15" ShadowDepth="5" Opacity="0.6"/>
@@ -159,7 +158,6 @@
                     </Ellipse>
 
                     <!-- Enemy Platform - Shadow Effect -->
-                    <Ellipse Width="320" Height="25" Fill="#0A0A0A" Canvas.Left="1295" Canvas.Top="115"/>
                     <Ellipse Width="300" Height="60" Fill="#333333" Stroke="#555555" StrokeThickness="2" Canvas.Left="1300" Canvas.Top="100">
                         <Ellipse.Effect>
                             <DropShadowEffect BlurRadius="15" ShadowDepth="5" Opacity="0.6"/>
@@ -177,7 +175,7 @@
             </Grid>
 
             <!-- Player Info -->
-            <Border Grid.Row="3" Background="#1A1A1A80" BorderBrush="#333333" BorderThickness="0,1,0,0" Padding="20">
+            <Border Grid.Row="3" Padding="20">
                 <Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20,10">
                         <TextBlock Text="YOU" Style="{StaticResource StatusText}" FontSize="24"/>
@@ -199,7 +197,7 @@
                         <TextBlock Text="CHOOSE ACTION" HorizontalAlignment="Center" FontSize="28" VerticalAlignment="Center" Foreground="#CCCCCC"/>
                     </Border>
 
-                    <WrapPanel Grid.Column="1" HorizontalAlignment="Right" Margin="40,15" VerticalAlignment="Center">
+                    <WrapPanel Grid.Column="1" Width="850" HorizontalAlignment="Right" Margin="40,15" VerticalAlignment="Center">
                         <Button Content="FIGHT" Height="60" Width="400" Margin="10" Style="{StaticResource DarkButton}" Background="#591C1C" BorderBrush="#7A2929" FontSize="20" Click="Fight_Button_Click">
                             <Button.Effect>
                                 <DropShadowEffect ShadowDepth="3" BlurRadius="5" Opacity="0.7"/>

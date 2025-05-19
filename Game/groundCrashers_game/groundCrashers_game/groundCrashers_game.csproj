@@ -9,11 +9,29 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\battle_arena.png" />
+    <None Remove="Images\cave.jpg" />
+    <None Remove="Images\cave.png" />
+    <None Remove="Images\crystal_cavern_gif.gif" />
+    <None Remove="Images\desert.jpg" />
+    <None Remove="Images\forest.jpg" />
+    <None Remove="Images\glacier.jpg" />
+    <None Remove="Images\highlands.jpg" />
+    <None Remove="Images\jungle.jpg" />
+    <None Remove="Images\marsh.jpg" />
+    <None Remove="Images\ocean.jpg" />
+    <None Remove="Images\ruins.jpg" />
+    <None Remove="Images\savanna.jpg" />
+    <None Remove="Images\swamp.jpg" />
+    <None Remove="Images\swamp.png" />
+    <None Remove="Images\tundra.jpg" />
+    <None Remove="Images\wasteland.jpg" />
     <None Remove="JsonData\creatures.json" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\cave.jpg" />
+    <Resource Include="Images\forest.jpg" />
+    <Resource Include="Images\glacier.jpg" />
     <Content Include="JsonData\creatures.json" />
   </ItemGroup>
 
@@ -22,7 +40,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\battle_arena.png" />
+    <Resource Include="Images\crystal_cavern.jpg" />
+    <Resource Include="Images\crystal_cavern_gif.gif" />
+    <Resource Include="Images\desert.jpg" />
+    <Resource Include="Images\highlands.jpg" />
+    <Resource Include="Images\jungle.jpg" />
+    <Resource Include="Images\marsh.jpg" />
+    <Resource Include="Images\mountain.jpg" />
+    <Resource Include="Images\ocean.jpg" />
+    <Resource Include="Images\ruins.jpg" />
+    <Resource Include="Images\savanna.jpg" />
+    <Resource Include="Images\swamp.jpg" />
+    <Resource Include="Images\tundra.jpg" />
+    <Resource Include="Images\volcano.jpg" />
+    <Resource Include="Images\wasteland.jpg" />
   </ItemGroup>
 
 </Project>
