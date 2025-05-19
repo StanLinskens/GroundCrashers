@@ -165,12 +165,17 @@
                     </Ellipse>
 
                     <!-- Labels -->
-                    <Border Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="1350" Canvas.Top="60" Padding="5">
-                        <TextBlock Text="ENEMY" FontSize="24" Foreground="#FF4D4D"/>
+                    <Border Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="1300" Canvas.Top="50" Padding="5">
+                        <TextBlock Text="ENEMY" FontSize="24" Foreground="#FF4D4D">
+
+                        </TextBlock>
                     </Border>
-                    <Border Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="250" Canvas.Top="460" Padding="5">
-                        <TextBlock Text="PLAYER" FontSize="24" Foreground="#66FF66"/>
+
+                    <Border Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="20" Canvas.Top="450" Padding="5">
+                        <TextBlock Text="PLAYER" FontSize="24" Foreground="#66FF66">
+                        </TextBlock>
                     </Border>
+
                 </Canvas>
             </Grid>
 

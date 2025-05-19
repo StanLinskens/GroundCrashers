@@ -52,6 +52,28 @@ namespace groundCrashers_game
             RandomScenarioGenerator();
         }
 
+        private void SetupBattleUI()
+        {
+            var player = gameManager.CurrentActors.FirstOrDefault(a => a.IsPlayer);
+            var cpu = gameManager.CurrentActors.FirstOrDefault(a => !a.IsPlayer);
+
+            if (player?.Creatures?.Count > 0)
+            {
+                var playerCreature = player.Creatures[0];
+                PlayerCreatureName.Text = playerCreature.name;
+                PlayerCreatureBorder.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(
+                    TypeColors.GetValueOrDefault(playerCreature.primary_type, "#555555")));
+            }
+
+            if (cpu?.Creatures?.Count > 0)
+            {
+                var enemyCreature = cpu.Creatures[0];
+                EnemyCreatureName.Text = enemyCreature.name;
+                EnemyCreatureBorder.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString(
+                    TypeColors.GetValueOrDefault(enemyCreature.primary_type, "#555555")));
+            }
+        }
+
         // Event handler for when the window is loaded
         private void RandomScenarioGenerator()
         {
