@@ -106,5 +106,25 @@ namespace groundCrashers_game
             }
         }
 
+        private void ConfirmGroundCrasher_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedCreature != null)
+            {
+                string statsMessage = $"You have selected {SelectedCreature.name}!\n\n" +
+                                      $"Element: {SelectedCreature.element}\n" +
+                                      $"Type: {SelectedCreature.primary_type}\n" +
+                                      $"HP: {SelectedCreature.stats.hp}\n" +
+                                      $"Attack: {SelectedCreature.stats.attack}\n" +
+                                      $"Defense: {SelectedCreature.stats.defense}\n" +
+                                      $"Speed: {SelectedCreature.stats.speed}";
+
+                MessageBox.Show(statsMessage, "GroundCrasher Selected");
+            }
+            else
+            {
+                MessageBox.Show("No creature selected!");
+            }
+        }
+
     }
 }
