@@ -82,7 +82,7 @@
         <Grid Width="1920" Height="1080" Name="MainGameGrid">
             <!-- Dynamic Biome Background will be set in code-behind -->
             <Grid.Background>
-                <ImageBrush x:Name="BiomeBackground" Stretch="UniformToFill" ImageSource="C:\Users\woutv\Desktop\github things\GroundCrashersProftaak\Game\groundCrashers_game\groundCrashers_game\Images\glacier.jpg"/>
+                <ImageBrush x:Name="BiomeBackground" Stretch="UniformToFill" ImageSource="\Images\glacier.jpg"/>
             </Grid.Background>
 
             <Grid.RowDefinitions>

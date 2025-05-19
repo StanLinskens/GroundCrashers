@@ -34,7 +34,7 @@ namespace groundCrashers_game
             LoadCreatureButtons();
         }
 
-        private void SelectPokemon_Click(object sender, RoutedEventArgs e)
+        public void SelectPokemon_Click(object sender, RoutedEventArgs e)
         {
             Button clicked = sender as Button;
             string name = clicked.Content.ToString();
