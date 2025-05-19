@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using groundCrashers_game;
+using System.Text;
+using System.Windows;
 
 namespace groundCrashers_game.classes
 {
@@ -72,6 +74,62 @@ namespace groundCrashers_game.classes
                 }
                 CurrentActors.Add(actor);
             }
+        }
+
+        public void LoadActorsForBattleMode()
+        {
+            CurrentActors.Clear();
+
+            // Create Player Actor
+            var playerActor = new Actor("Player", true);
+            playerActor.Creatures.AddRange(GetRandomCreatures(3));
+            CurrentActors.Add(playerActor);
+
+            // Create CPU Actor
+            var cpuActor = new Actor("CPU", false);
+            cpuActor.Creatures.AddRange(GetRandomCreatures(3));
+            CurrentActors.Add(cpuActor);
+        }
+
+        private List<Creature> GetRandomCreatures(int count)
+        {
+            var randomCreatures = new List<Creature>();
+            var available = new List<Creature>(AllCreatures); // Make a copy so we can remove
+
+            for (int i = 0; i < count && available.Count > 0; i++)
+            {
+                int index = _rnd.Next(available.Count);
+                randomCreatures.Add(available[index]);
+                available.RemoveAt(index); // Avoid duplicates
+            }
+
+            return randomCreatures;
+        }
+        public void PrintActors()
+        {
+            StringBuilder message = new StringBuilder();
+
+            foreach (var actor in CurrentActors)
+            {
+                message.AppendLine($"=== {actor.Name} === (IsPlayer: {actor.IsPlayer})");
+
+                if (actor.Creatures.Count == 0)
+                {
+                    message.AppendLine("  No creatures assigned.");
+                }
+                else
+                {
+                    for (int i = 0; i < actor.Creatures.Count; i++)
+                    {
+                        var creature = actor.Creatures[i];
+                        message.AppendLine($"  {i + 1}. {creature.Name} (ID: {creature.id})");
+                    }
+                }
+
+                message.AppendLine(); // Empty line between actors
+            }
+
+            MessageBox.Show(message.ToString(), "Actor Info");
         }
 
         public Actor GetPlayerActor() => CurrentActors.Find(a => a.IsPlayer);
