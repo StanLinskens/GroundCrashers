@@ -411,7 +411,7 @@ namespace groundCrashers_game
             else
             {
                 gameManager.CurrentPlayerCreatureSet(name);
-                SetupBattleUI();
+                UpdateBattleUI();
             }
 
             // After attack, restore main action buttons
