@@ -51,8 +51,12 @@
                 <TextBlock Text="Selected GroundCrasher" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
 
                 <!-- Placeholder for image -->
-                <Rectangle Height="100" Fill="LightGray" Margin="0,0,0,10"/>
-
+                <Image x:Name="creatureImageBox"
+                       Height="100"
+                       Canvas.Left="200" Canvas.Top="250"
+                       Source="/Images/other/questionmark.png"
+                       Opacity="100"
+                       Stretch="Uniform"/>
                 <!-- Details in two columns -->
                 <Grid>
                     <Grid.ColumnDefinitions>

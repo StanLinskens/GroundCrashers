@@ -54,6 +54,13 @@ namespace groundCrashers_game
                 GroundCrasherHP.Text = selected.stats.hp.ToString();
                 GroundCrasherAttack.Text = selected.stats.attack.ToString();
                 GroundCrasherDefense.Text = selected.stats.defense.ToString();
+                try {
+                    creatureImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{selected.name}.png", UriKind.Absolute));
+                    } catch
+                {
+                    MessageBox.Show($"Image not found for {selected.name}. Please check the image path.");
+                    creatureImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
+                }
 
                 var creature = new Creature
                 {
