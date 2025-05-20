@@ -50,7 +50,7 @@ namespace groundCrashers_game
             RandomScenarioGenerator();
         }
 
-        private void SetupBattleUI()
+        public void SetupBattleUI()
         {
             // Instead of grabbing player.Creatures[0], we use ActivePlayerCreature
             var playerCreature = gameManager.ActivePlayerCreature;
@@ -96,7 +96,15 @@ namespace groundCrashers_game
             WeatherIcon.Text = GetWeatherEmoji(randomWeather);
 
             // 3) Set the background image based on the random biome
-            BiomeBackground.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/images/{randomBiome.ToString().ToLower()}.jpg", UriKind.Absolute));
+            BiomeBackground.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/images/battleGrounds/{randomBiome.ToString().ToLower()}.jpg", UriKind.Absolute));
+            try { 
+                  EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{gameManager.ActiveCpuCreature.name}.png", UriKind.Absolute));
+                  PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{gameManager.ActivePlayerCreature.name}.png", UriKind.Absolute));
+
+            } catch
+            {
+                MessageBox.Show("Could not find the image for the enemy creature. Please check the image path.");
+            }
         }
 
         // Helper: map each Biome to a simple emoji

@@ -9,12 +9,74 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\battleGrounds\cave.jpg" />
+    <None Remove="Images\battleGrounds\crystalcavern.jpg" />
+    <None Remove="Images\battleGrounds\crystal_cavern_gif.gif" />
+    <None Remove="Images\battleGrounds\desert.jpg" />
+    <None Remove="Images\battleGrounds\forest.jpg" />
+    <None Remove="Images\battleGrounds\glacier.jpg" />
+    <None Remove="Images\battleGrounds\highlands.jpg" />
+    <None Remove="Images\battleGrounds\jungle.jpg" />
+    <None Remove="Images\battleGrounds\marsh.jpg" />
+    <None Remove="Images\battleGrounds\mountain.jpg" />
+    <None Remove="Images\battleGrounds\ocean.jpg" />
+    <None Remove="Images\battleGrounds\ruins.jpg" />
+    <None Remove="Images\battleGrounds\savanna.jpg" />
+    <None Remove="Images\battleGrounds\swamp.jpg" />
+    <None Remove="Images\battleGrounds\tundra.jpg" />
+    <None Remove="Images\battleGrounds\volcano.jpg" />
+    <None Remove="Images\battleGrounds\wasteland.jpg" />
     <None Remove="Images\cave.jpg" />
     <None Remove="Images\cave.png" />
     <None Remove="Images\crystal_cavern_gif.gif" />
     <None Remove="Images\desert.jpg" />
     <None Remove="Images\forest.jpg" />
     <None Remove="Images\glacier.jpg" />
+    <None Remove="Images\GroundCrasherSprites\Abyssarbid.png" />
+    <None Remove="Images\GroundCrasherSprites\Acidonarbus.png" />
+    <None Remove="Images\GroundCrasherSprites\Acidphyor.png" />
+    <None Remove="Images\GroundCrasherSprites\Aerocarix.png" />
+    <None Remove="Images\GroundCrasherSprites\Ampethaid.png" />
+    <None Remove="Images\GroundCrasherSprites\Atmosiphyan.png" />
+    <None Remove="Images\GroundCrasherSprites\Califloon.png" />
+    <None Remove="Images\GroundCrasherSprites\Cognicaris.png" />
+    <None Remove="Images\GroundCrasherSprites\Combunarbon.png" />
+    <None Remove="Images\GroundCrasherSprites\Combuthaor.png" />
+    <None Remove="Images\GroundCrasherSprites\Contaphyan.png" />
+    <None Remove="Images\GroundCrasherSprites\Dendrifloon.png" />
+    <None Remove="Images\GroundCrasherSprites\Dendrurhiid.png" />
+    <None Remove="Images\GroundCrasherSprites\Diaborhius.png" />
+    <None Remove="Images\GroundCrasherSprites\Elecfloid.png" />
+    <None Remove="Images\GroundCrasherSprites\Fieldothaus.png" />
+    <None Remove="Images\GroundCrasherSprites\Florantis.png" />
+    <None Remove="Images\GroundCrasherSprites\Frosphyor.png" />
+    <None Remove="Images\GroundCrasherSprites\Gelidanton.png" />
+    <None Remove="Images\GroundCrasherSprites\Geotphyis.png" />
+    <None Remove="Images\GroundCrasherSprites\Glaccaron.png" />
+    <None Remove="Images\GroundCrasherSprites\Ignirhior.png" />
+    <None Remove="Images\GroundCrasherSprites\Infecarus.png" />
+    <None Remove="Images\GroundCrasherSprites\Ionoarbor.png" />
+    <None Remove="Images\GroundCrasherSprites\Liththais.png" />
+    <None Remove="Images\GroundCrasherSprites\Lodesantus.png" />
+    <None Remove="Images\GroundCrasherSprites\Lodesocaror.png" />
+    <None Remove="Images\GroundCrasherSprites\Lumifloor.png" />
+    <None Remove="Images\GroundCrasherSprites\Maraphyid.png" />
+    <None Remove="Images\GroundCrasherSprites\Noospiphyix.png" />
+    <None Remove="Images\GroundCrasherSprites\Oxymothaus.png" />
+    <None Remove="Images\GroundCrasherSprites\Petronantid.png" />
+    <None Remove="Images\GroundCrasherSprites\Photofloor.png" />
+    <None Remove="Images\GroundCrasherSprites\Radianarbon.png" />
+    <None Remove="Images\GroundCrasherSprites\Repticarus.png" />
+    <None Remove="Images\GroundCrasherSprites\Tartanantan.png" />
+    <None Remove="Images\GroundCrasherSprites\Teleparban.png" />
+    <None Remove="Images\GroundCrasherSprites\Umbrarbus.png" />
+    <None Remove="Images\GroundCrasherSprites\Undularbus.png" />
+    <None Remove="Images\GroundCrasherSprites\Unduthaus.png" />
+    <None Remove="Images\GroundCrasherSprites\Viruliphyon.png" />
+    <None Remove="Images\GroundCrasherSprites\Virulirhian.png" />
+    <None Remove="Images\GroundCrasherSprites\Wyrmarbid.png" />
+    <None Remove="Images\GroundCrasherSprites\Wyrmothais.png" />
+    <None Remove="Images\GroundCrasherSprites\Zephantix.png" />
     <None Remove="Images\highlands.jpg" />
     <None Remove="Images\jungle.jpg" />
     <None Remove="Images\marsh.jpg" />
@@ -29,9 +91,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\cave.jpg" />
-    <Resource Include="Images\forest.jpg" />
-    <Resource Include="Images\glacier.jpg" />
     <Content Include="JsonData\creatures.json" />
   </ItemGroup>
 
@@ -40,20 +99,68 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\crystalcavern.jpg" />
-    <Resource Include="Images\crystal_cavern_gif.gif" />
-    <Resource Include="Images\desert.jpg" />
-    <Resource Include="Images\highlands.jpg" />
-    <Resource Include="Images\jungle.jpg" />
-    <Resource Include="Images\marsh.jpg" />
-    <Resource Include="Images\mountain.jpg" />
-    <Resource Include="Images\ocean.jpg" />
-    <Resource Include="Images\ruins.jpg" />
-    <Resource Include="Images\savanna.jpg" />
-    <Resource Include="Images\swamp.jpg" />
-    <Resource Include="Images\tundra.jpg" />
-    <Resource Include="Images\volcano.jpg" />
-    <Resource Include="Images\wasteland.jpg" />
+    <Resource Include="Images\battleGrounds\cave.jpg" />
+    <Resource Include="Images\battleGrounds\crystalcavern.jpg" />
+    <Resource Include="Images\battleGrounds\crystal_cavern_gif.gif" />
+    <Resource Include="Images\battleGrounds\desert.jpg" />
+    <Resource Include="Images\battleGrounds\forest.jpg" />
+    <Resource Include="Images\battleGrounds\glacier.jpg" />
+    <Resource Include="Images\battleGrounds\highlands.jpg" />
+    <Resource Include="Images\battleGrounds\jungle.jpg" />
+    <Resource Include="Images\battleGrounds\marsh.jpg" />
+    <Resource Include="Images\battleGrounds\mountain.jpg" />
+    <Resource Include="Images\battleGrounds\ocean.jpg" />
+    <Resource Include="Images\battleGrounds\ruins.jpg" />
+    <Resource Include="Images\battleGrounds\savanna.jpg" />
+    <Resource Include="Images\battleGrounds\swamp.jpg" />
+    <Resource Include="Images\battleGrounds\tundra.jpg" />
+    <Resource Include="Images\battleGrounds\volcano.jpg" />
+    <Resource Include="Images\battleGrounds\wasteland.jpg" />
+    <Resource Include="Images\GroundCrasherSprites\Abyssarbid.png" />
+    <Resource Include="Images\GroundCrasherSprites\Acidonarbus.png" />
+    <Resource Include="Images\GroundCrasherSprites\Acidphyor.png" />
+    <Resource Include="Images\GroundCrasherSprites\Aerocarix.png" />
+    <Resource Include="Images\GroundCrasherSprites\Ampethaid.png" />
+    <Resource Include="Images\GroundCrasherSprites\Atmosiphyan.png" />
+    <Resource Include="Images\GroundCrasherSprites\Califloon.png" />
+    <Resource Include="Images\GroundCrasherSprites\Cognicaris.png" />
+    <Resource Include="Images\GroundCrasherSprites\Combunarbon.png" />
+    <Resource Include="Images\GroundCrasherSprites\Combuthaor.png" />
+    <Resource Include="Images\GroundCrasherSprites\Contaphyan.png" />
+    <Resource Include="Images\GroundCrasherSprites\Dendrifloon.png" />
+    <Resource Include="Images\GroundCrasherSprites\Dendrurhiid.png" />
+    <Resource Include="Images\GroundCrasherSprites\Diaborhius.png" />
+    <Resource Include="Images\GroundCrasherSprites\Elecfloid.png" />
+    <Resource Include="Images\GroundCrasherSprites\Fieldothaus.png" />
+    <Resource Include="Images\GroundCrasherSprites\Florantis.png" />
+    <Resource Include="Images\GroundCrasherSprites\Frosphyor.png" />
+    <Resource Include="Images\GroundCrasherSprites\Gelidanton.png" />
+    <Resource Include="Images\GroundCrasherSprites\Geotphyis.png" />
+    <Resource Include="Images\GroundCrasherSprites\Glaccaron.png" />
+    <Resource Include="Images\GroundCrasherSprites\Ignirhior.png" />
+    <Resource Include="Images\GroundCrasherSprites\Infecarus.png" />
+    <Resource Include="Images\GroundCrasherSprites\Ionoarbor.png" />
+    <Resource Include="Images\GroundCrasherSprites\Liththais.png" />
+    <Resource Include="Images\GroundCrasherSprites\Lodesantus.png" />
+    <Resource Include="Images\GroundCrasherSprites\Lodesocaror.png" />
+    <Resource Include="Images\GroundCrasherSprites\Lumifloor.png" />
+    <Resource Include="Images\GroundCrasherSprites\Maraphyid.png" />
+    <Resource Include="Images\GroundCrasherSprites\Noospiphyix.png" />
+    <Resource Include="Images\GroundCrasherSprites\Oxymothaus.png" />
+    <Resource Include="Images\GroundCrasherSprites\Petronantid.png" />
+    <Resource Include="Images\GroundCrasherSprites\Photofloor.png" />
+    <Resource Include="Images\GroundCrasherSprites\Radianarbon.png" />
+    <Resource Include="Images\GroundCrasherSprites\Repticarus.png" />
+    <Resource Include="Images\GroundCrasherSprites\Tartanantan.png" />
+    <Resource Include="Images\GroundCrasherSprites\Teleparban.png" />
+    <Resource Include="Images\GroundCrasherSprites\Umbrarbus.png" />
+    <Resource Include="Images\GroundCrasherSprites\Undularbus.png" />
+    <Resource Include="Images\GroundCrasherSprites\Unduthaus.png" />
+    <Resource Include="Images\GroundCrasherSprites\Viruliphyon.png" />
+    <Resource Include="Images\GroundCrasherSprites\Virulirhian.png" />
+    <Resource Include="Images\GroundCrasherSprites\Wyrmarbid.png" />
+    <Resource Include="Images\GroundCrasherSprites\Wyrmothais.png" />
+    <Resource Include="Images\GroundCrasherSprites\Zephantix.png" />
   </ItemGroup>
 
 </Project>
