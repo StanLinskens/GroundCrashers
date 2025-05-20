@@ -151,7 +151,7 @@
             <Grid Grid.Row="2">
                 <Canvas>
                     <!-- Player Platform - Shadow Effect -->
-                    <Ellipse Width="300" Height="60" Fill="#333333" Stroke="#555555" StrokeThickness="2" Canvas.Left="200" Canvas.Top="500">
+                    <Ellipse Width="300" Height="60" Fill="#222" Stroke="#555555" StrokeThickness="2" Opacity="0.7" Canvas.Left="200" Canvas.Top="500">
                         <Ellipse.Effect>
                             <DropShadowEffect BlurRadius="15" ShadowDepth="5" Opacity="0.6"/>
                         </Ellipse.Effect>
@@ -161,12 +161,12 @@
                     <Image x:Name="PlayerImageBox"
                        Width="300" Height="300"
                        Canvas.Left="200" Canvas.Top="250"
-                       Source="\Images\GroundCrasherSprites\Abyssarbid.png"
+                       Source="/Images/other/questionmark.png"
                        Opacity="100"
                        Stretch="Uniform"/>
 
                     <!-- Enemy Platform - Shadow Effect -->
-                    <Ellipse Width="300" Height="60" Fill="#333333" Stroke="#555555" StrokeThickness="2" Canvas.Left="1300" Canvas.Top="100">
+                    <Ellipse Width="300" Height="60" Fill="#222" Stroke="#555555" StrokeThickness="2" Opacity="0.7" Canvas.Left="1300" Canvas.Top="100">
                         <Ellipse.Effect>
                             <DropShadowEffect BlurRadius="15" ShadowDepth="5" Opacity="0.6"/>
                         </Ellipse.Effect>
@@ -176,16 +176,16 @@
                     <Image x:Name="EnemyImageBox"
                        Width="300" Height="300"
                        Canvas.Left="1300" Canvas.Top="-150"
-                       Source="\Images\GroundCrasherSprites\Acidonarbus.png"
+                       Source="/Images/other/questionmark.png"
                        Opacity="100"
                        Stretch="Uniform"/>
 
                     <!-- Labels -->
-                    <Border x:Name="EnemyCreatureBorder" Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="1300" Canvas.Top="50" Padding="5">
+                    <Border x:Name="EnemyCreatureBorder" Background="#111" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="1280" Canvas.Top="60" Padding="5">
                         <TextBlock x:Name="EnemyCreatureName" Text="ENEMY" FontSize="24" Foreground="#FF4D4D"/>
                     </Border>
 
-                    <Border x:Name="PlayerCreatureBorder" Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="20" Canvas.Top="450" Padding="5">
+                    <Border x:Name="PlayerCreatureBorder" Background="#111" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="180" Canvas.Top="460" Padding="5">
                         <TextBlock x:Name="PlayerCreatureName" Text="PLAYER" FontSize="24" Foreground="#66FF66"/>
                     </Border>
                 </Canvas>
