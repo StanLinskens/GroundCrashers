@@ -161,7 +161,7 @@
                     <Image x:Name="PlayerImageBox"
                        Width="300" Height="300"
                        Canvas.Left="200" Canvas.Top="250"
-                       Source="\Images\GroundCrasherSprites\Abyssarbid.png"
+                       Source="/Images/other/questionmark.png"
                        Opacity="100"
                        Stretch="Uniform"/>
 
@@ -176,7 +176,7 @@
                     <Image x:Name="EnemyImageBox"
                        Width="300" Height="300"
                        Canvas.Left="1300" Canvas.Top="-150"
-                       Source="\Images\GroundCrasherSprites\Acidonarbus.png"
+                       Source="/Images/other/questionmark.png"
                        Opacity="100"
                        Stretch="Uniform"/>
 
