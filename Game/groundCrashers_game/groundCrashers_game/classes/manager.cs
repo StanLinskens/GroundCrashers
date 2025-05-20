@@ -144,7 +144,7 @@ namespace groundCrashers_game.classes
                 ActivePlayerCreature = null;
             }
 
-            else if (ActiveCpuCreature.stats.hp <= 0)
+            if (ActiveCpuCreature.stats.hp <= 0)
             {
                 // Create CPU Actor
                 Actor cpuActor = GetCpuActor();
