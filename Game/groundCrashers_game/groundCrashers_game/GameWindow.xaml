@@ -82,7 +82,7 @@
         <Grid Width="1920" Height="1080" Name="MainGameGrid">
             <!-- Dynamic Biome Background will be set in code-behind -->
             <Grid.Background>
-                <ImageBrush x:Name="BiomeBackground" Stretch="UniformToFill" ImageSource="/Images/cave.jpg"/>
+                <ImageBrush x:Name="BiomeBackground" Stretch="UniformToFill" ImageSource="/Images/battleGrounds/cave.jpg"/>
             </Grid.Background>
 
             <Grid.RowDefinitions>
@@ -157,6 +157,14 @@
                         </Ellipse.Effect>
                     </Ellipse>
 
+                    <!-- ✅ Transparent Image Above Player -->
+                    <Image x:Name="PlayerImageBox"
+                       Width="300" Height="300"
+                       Canvas.Left="200" Canvas.Top="250"
+                       Source="\Images\GroundCrasherSprites\Abyssarbid.png"
+                       Opacity="100"
+                       Stretch="Uniform"/>
+
                     <!-- Enemy Platform - Shadow Effect -->
                     <Ellipse Width="300" Height="60" Fill="#333333" Stroke="#555555" StrokeThickness="2" Canvas.Left="1300" Canvas.Top="100">
                         <Ellipse.Effect>
@@ -164,18 +172,22 @@
                         </Ellipse.Effect>
                     </Ellipse>
 
+                    <!-- ✅ Transparent Image Above Enemy -->
+                    <Image x:Name="EnemyImageBox"
+                       Width="300" Height="300"
+                       Canvas.Left="1300" Canvas.Top="-150"
+                       Source="\Images\GroundCrasherSprites\Acidonarbus.png"
+                       Opacity="100"
+                       Stretch="Uniform"/>
+
                     <!-- Labels -->
                     <Border x:Name="EnemyCreatureBorder" Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="1300" Canvas.Top="50" Padding="5">
-                        <TextBlock x:Name="EnemyCreatureName" Text="ENEMY" FontSize="24" Foreground="#FF4D4D">
-
-                        </TextBlock>
+                        <TextBlock x:Name="EnemyCreatureName" Text="ENEMY" FontSize="24" Foreground="#FF4D4D"/>
                     </Border>
 
-                    <Border x:Name="PlayerCreatureBorder" Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="200" Canvas.Top="450" Padding="5">
-                        <TextBlock x:Name="PlayerCreatureName" Text="PLAYER" FontSize="24" Foreground="#66FF66">
-                        </TextBlock>
+                    <Border x:Name="PlayerCreatureBorder" Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="20" Canvas.Top="450" Padding="5">
+                        <TextBlock x:Name="PlayerCreatureName" Text="PLAYER" FontSize="24" Foreground="#66FF66"/>
                     </Border>
-
                 </Canvas>
             </Grid>
 
