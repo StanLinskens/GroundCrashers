@@ -1,13 +1,9 @@
-﻿using System;
+﻿using groundCrashers_game.classes;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Shapes;
 using System.Windows.Media.Imaging;
-using System.Windows.Input;
-using groundCrashers_game.classes;
-using Newtonsoft.Json;
-using System.IO;
+using static groundCrashers_game.classes.Manager;
 
 namespace groundCrashers_game
 {
@@ -23,13 +19,29 @@ namespace groundCrashers_game
         private Button runButton;
         private WrapPanel actionButtonsPanel;
 
-        private Dictionary<string, string> TypeColors = new()
+        private Dictionary<string, string> CreatureColor = new()
         {
             { "Verdant", "#228B22" },
             { "Primal", "#FFC300" },
             { "Apex", "#D7263D" },
             { "Sapient", "#800080" },
-            { "Synthetic", "#0066CC" }
+            { "Synthetic", "#0066CC" },
+            { "Nature", "#9BCF53" },
+            { "Ice", "#B2EBF2" },
+            { "Toxic", "#CE93D8" },
+            { "Fire", "#f0563b" },
+            { "Water", "#81D4FA" },
+            { "Draconic", "#cd3737" },
+            { "Earth", "#D2B48C" },
+            { "Dark", "#444444" },
+            { "Wind", "#86dcd3" },
+            { "Psychic", "#F48FB1" },
+            { "Light", "#fff8ba" },
+            { "Demonic", "#b92222" },
+            { "Electric", "#f6e15b" },
+            { "Acid", "#aae666" },
+            { "Magnetic", "#c0c0c0" }
+
         };
 
         public GameWindow()
@@ -40,7 +52,7 @@ namespace groundCrashers_game
             gameManager = new Manager();
             gameManager.LoadAllCreatures();
             gameManager.LoadActorsForBattleMode();
-            gameManager.PrintActors();
+            //gameManager.PrintActors();
 
             SetupBattleUI();
 
@@ -57,10 +69,15 @@ namespace groundCrashers_game
             if (playerCreature != null)
             {
                 PlayerCreatureName.Text = playerCreature.name;
+                PlayerCreatureName.Foreground =
+                    new SolidColorBrush((Color)ColorConverter.ConvertFromString(
+                        CreatureColor.GetValueOrDefault(
+                            playerCreature.primary_type,
+                            "#555555")));
                 PlayerCreatureBorder.BorderBrush =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
-                        TypeColors.GetValueOrDefault(
-                            playerCreature.primary_type,
+                        CreatureColor.GetValueOrDefault(
+                            playerCreature.element,
                             "#555555")));
             }
 
@@ -69,10 +86,15 @@ namespace groundCrashers_game
             if (cpuCreature != null)
             {
                 EnemyCreatureName.Text = cpuCreature.name;
+                EnemyCreatureName.Foreground =
+                    new SolidColorBrush((Color)ColorConverter.ConvertFromString(
+                        CreatureColor.GetValueOrDefault( 
+                            cpuCreature.primary_type,
+                            "#555555")));
                 EnemyCreatureBorder.BorderBrush =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
-                        TypeColors.GetValueOrDefault(
-                            cpuCreature.primary_type,
+                        CreatureColor.GetValueOrDefault(
+                            cpuCreature.element,
                             "#555555")));
             }
         }
@@ -86,7 +108,7 @@ namespace groundCrashers_game
             var randomWeather = Manager.GetRandomWeather();
 
             // 2) Update the TextBlocks
-            BiomeText.Text = randomBiome.ToString().ToUpper();  
+            BiomeText.Text = randomBiome.ToString().ToUpper();
             BiomeIcon.Text = GetBiomeEmoji(randomBiome);
 
             DaytimeText.Text = randomTime.ToString().ToUpper();
@@ -279,7 +301,7 @@ namespace groundCrashers_game
             // Implement elemental attack logic
             MessageBox.Show("Attack selected!");
 
-            //gameManager.ProcessTurn(ActionType.Attack);
+            gameManager.ProcessTurn(ActionType.Attack);
 
             // After attack, restore main action buttons
             RestoreMainActionButtons();

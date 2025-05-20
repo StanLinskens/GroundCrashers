@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace groundCrashers_game.classes
+﻿namespace groundCrashers_game.classes
 {
     internal class Actor
     {
