@@ -54,7 +54,7 @@ namespace groundCrashers_game
             gameManager.LoadActorsForBattleMode();
             //gameManager.PrintActors();
 
-            SetupBattleUI();
+            UpdateBattleUI();
 
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
@@ -62,7 +62,7 @@ namespace groundCrashers_game
             RandomScenarioGenerator();
         }
 
-        public void SetupBattleUI()
+        public void UpdateBattleUI()
         {
             // Instead of grabbing player.Creatures[0], we use ActivePlayerCreature
             var playerCreature = gameManager.ActivePlayerCreature;
@@ -79,11 +79,6 @@ namespace groundCrashers_game
                         CreatureColor.GetValueOrDefault(
                             playerCreature.element,
                             "#555555")));
-            }
-
-            if(playerCreature == null)
-            {
-
             }
 
             // Likewise for the CPU’s active creature:
@@ -126,7 +121,7 @@ namespace groundCrashers_game
             BiomeBackground.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/images/battleGrounds/{randomBiome.ToString().ToLower()}.jpg", UriKind.Absolute));
             try { 
                   EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{gameManager.ActiveCpuCreature.name}.png", UriKind.Absolute));
-                  PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{gameManager.ActivePlayerCreature.name}.png", UriKind.Absolute));
+                  //PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{gameManager.ActivePlayerCreature.name}.png", UriKind.Absolute));
 
             } catch
             {
