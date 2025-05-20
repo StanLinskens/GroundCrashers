@@ -81,6 +81,7 @@
     <None Remove="Images\jungle.jpg" />
     <None Remove="Images\marsh.jpg" />
     <None Remove="Images\ocean.jpg" />
+    <None Remove="Images\other\questionmark.png" />
     <None Remove="Images\ruins.jpg" />
     <None Remove="Images\savanna.jpg" />
     <None Remove="Images\swamp.jpg" />
@@ -161,6 +162,7 @@
     <Resource Include="Images\GroundCrasherSprites\Wyrmarbid.png" />
     <Resource Include="Images\GroundCrasherSprites\Wyrmothais.png" />
     <Resource Include="Images\GroundCrasherSprites\Zephantix.png" />
+    <Resource Include="Images\other\questionmark.png" />
   </ItemGroup>
 
 </Project>
