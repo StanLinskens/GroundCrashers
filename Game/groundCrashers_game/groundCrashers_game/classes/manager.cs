@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace groundCrashers_game.classes
 {
@@ -68,42 +69,32 @@ namespace groundCrashers_game.classes
         ///   If action == Swap, this is the index (0-based) of the creature in that actor’s list
         ///   to swap in as the new ActiveCreature.  (Ignore otherwise.)
         /// </param>
-        public void ProcessTurn(ActionType action, int swapIndex = -1)
+        public bool ProcessTurn(ActionType action, int swapIndex = -1)
         {
-            // 1) Identify attacker and defender based on _currentActorIndex
-            Actor currentActor = CurrentActors[_currentActorIndex];
-            Actor otherActor = CurrentActors[1 - _currentActorIndex];
-
-            // Pick the right “active” creature fields:
-            Creature? attacker = (currentActor.IsPlayer)
-                ? ActivePlayerCreature
-                : ActiveCpuCreature;
-
-            Creature? defender = (otherActor.IsPlayer)
-                ? ActivePlayerCreature
-                : ActiveCpuCreature;
-
-            if (attacker == null || defender == null)
-            {
-                throw new InvalidOperationException("One of the active creatures is null.");
-            }
-
             // 2) Resolve the chosen action
             switch (action)
             {
                 case ActionType.Attack:
                     {
-                        // Simple physical attack
-                        int damageDealt = Damage(attacker.stats.attack, defender.stats.defense);
-                        defender.stats.hp -= damageDealt;
-                        if (defender.stats.hp < 0) defender.stats.hp = 0;
+                        if(ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
+                        {
+                            int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                            ActivePlayerCreature.stats.hp -= DamageDealt;
 
-                        // (You can replace MessageBox.Show with your own UI‐update calls later)
-                        MessageBox.Show(
-                            $"{attacker.name} attacks {defender.name} for {damageDealt} damage.\n" +
-                            $"{defender.name} now has {defender.stats.hp} HP."
-                        );
-                        break;
+                            DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                            ActiveCpuCreature.stats.hp -= DamageDealt;
+
+                        }
+                        else
+                        {
+                            int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                            ActiveCpuCreature.stats.hp -= DamageDealt;
+
+                            DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                            ActivePlayerCreature.stats.hp -= DamageDealt;
+
+                        }
+                            break;
                     }
 
                 case ActionType.ElementAttack:
@@ -118,35 +109,11 @@ namespace groundCrashers_game.classes
 
                 case ActionType.Defend:
                     {
-                        // Placeholder: grant a “defense buff” or status in your Creature class
-                        // e.g. attacker.IsDefending = true;
-
-                        MessageBox.Show($"{attacker.name} is defending this turn!");
+                        MessageBox.Show("block chosen! (Implement your elemental logic here.)");
                         break;
                     }
-
                 case ActionType.Swap:
                     {
-                        // Make sure swapIndex is valid
-                        if (swapIndex < 0 || swapIndex >= currentActor.Creatures.Count)
-                        {
-                            MessageBox.Show("Invalid swap index.");
-                            break;
-                        }
-
-                        // Swap-in the chosen creature
-                        Creature chosen = currentActor.Creatures[swapIndex];
-                        if (currentActor.IsPlayer)
-                        {
-                            ActivePlayerCreature = chosen;
-                            MessageBox.Show($"Player swapped to {chosen.name}!");
-                        }
-                        else
-                        {
-                            ActiveCpuCreature = chosen;
-                            MessageBox.Show($"CPU swapped to {chosen.name}!");
-                        }
-
                         break;
                     }
 
@@ -157,7 +124,39 @@ namespace groundCrashers_game.classes
             // 3) Check if the defender (or attacker) fainted, etc.
             //    You can put win/lose logic here:
             //
-            //    if (ActivePlayerCreature.health <= 0) { /* player loses or auto‐switch */ }
+            bool IsAlive = true;
+
+            if (ActivePlayerCreature.stats.hp <= 0) 
+            { 
+                // Create Player Actor
+                Actor playerActor = GetPlayerActor();
+
+                foreach (Creature c in playerActor.Creatures)
+                {
+                    if(c.name == ActivePlayerCreature.name)
+                    {
+                        c.alive = false;
+
+                        IsAlive = false;
+                    }
+                }
+
+                ActivePlayerCreature = null;
+            }
+
+            else if (ActiveCpuCreature.stats.hp <= 0)
+            {
+                // Create CPU Actor
+                Actor cpuActor = GetCpuActor();
+                foreach (Creature c in cpuActor.Creatures)
+                {
+                    if (c.name == ActiveCpuCreature.name)
+                    {
+                        c.alive = false;
+                    }
+                }
+                ActiveCpuCreature = cpuActor.Creatures.FirstOrDefault(c => c.alive == true);
+            }
             //    if (ActiveCpuCreature.health <= 0)    { /* CPU loses or auto‐switch */ }
 
             // 4) Advance to the next actor’s turn
@@ -170,6 +169,13 @@ namespace groundCrashers_game.classes
                 // (Optional) Notify UI that a new round has started:
                 // e.g. OnRoundAdvanced?.Invoke(RoundNumber);
             }
+
+            if(ActiveCpuCreature == null)
+            {
+                MessageBox.Show("You win!");
+            }
+
+            return IsAlive;
         }
 
 

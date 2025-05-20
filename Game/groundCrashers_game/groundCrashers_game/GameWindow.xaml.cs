@@ -70,6 +70,10 @@ namespace groundCrashers_game
             if (playerCreature != null)
             {
                 PlayerCreatureName.Text = playerCreature.name;
+                PlayerHealthText.Text = playerCreature.stats.hp.ToString() + "/" + playerCreature.stats.hp.ToString();
+                PlayerHealthBar.Value = playerCreature.stats.hp;
+                PlayerHealthBar.Maximum = playerCreature.stats.hp;
+
                 PlayerCreatureName.Foreground =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
                         CreatureColor.GetValueOrDefault(
@@ -96,6 +100,10 @@ namespace groundCrashers_game
             if (cpuCreature != null)
             {
                 EnemyCreatureName.Text = cpuCreature.name;
+                EnemyHealthText.Text = cpuCreature.stats.hp.ToString() + "/" + cpuCreature.stats.hp.ToString();
+                EnemyHealthBar.Value = cpuCreature.stats.hp;
+                EnemyHealthBar.Maximum = cpuCreature.stats.hp;
+
                 EnemyCreatureName.Foreground =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
                         CreatureColor.GetValueOrDefault( 
@@ -258,8 +266,16 @@ namespace groundCrashers_game
 
         private void Fight_Button_Click(object sender, RoutedEventArgs e)
         {
-            // Replace the current buttons with combat options
-            ShowCombatOptions();
+            if (gameManager.ActivePlayerCreature != null)
+            {
+                // Replace the current buttons with combat options
+                ShowCombatOptions();
+            }
+            else
+            {
+                MessageBox.Show("You need to select a creature first.");
+            }
+
         }
 
         private void ShowCombatOptions()
@@ -316,11 +332,15 @@ namespace groundCrashers_game
 
         private void Attack_Button_Click(object sender, RoutedEventArgs e)
         {
-            // Implement elemental attack logic
-            MessageBox.Show("Attack selected!");
 
-            gameManager.ProcessTurn(ActionType.Attack);
+            bool IsAlive = gameManager.ProcessTurn(ActionType.Attack);
 
+            if (IsAlive == false)
+            {
+                PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
+            }
+
+            UIChange();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
         }
@@ -329,6 +349,8 @@ namespace groundCrashers_game
         {
             // Implement elemental attack logic
             MessageBox.Show("Element attack selected!");
+
+            UIChange();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
         }
@@ -337,6 +359,8 @@ namespace groundCrashers_game
         {
             // Implement defense logic
             MessageBox.Show("Defense selected!");
+
+            UIChange();
             // After defense, restore main action buttons
             RestoreMainActionButtons();
         }
@@ -386,16 +410,19 @@ namespace groundCrashers_game
 
             Actor playerActor = gameManager.GetPlayerActor();
 
-            // Create new combat option buttons
-            Button Creature = CreateButton(playerActor.Creatures[0].name.ToString() ?? "Not Found", CreatureColor.GetValueOrDefault(playerActor.Creatures[0].primary_type) ?? "#555555", CreatureColor.GetValueOrDefault(playerActor.Creatures[0].element) ?? "#555555", Creature_Button_Click);
-            Button Creature1 = CreateButton(playerActor.Creatures[1].name.ToString() ?? "Not Found", CreatureColor.GetValueOrDefault(playerActor.Creatures[1].primary_type) ?? "#555555", CreatureColor.GetValueOrDefault(playerActor.Creatures[1].element) ?? "#555555", Creature_Button_Click);
-            Button Creature2 = CreateButton(playerActor.Creatures[2].name.ToString() ?? "Not Found", CreatureColor.GetValueOrDefault(playerActor.Creatures[2].primary_type) ?? "#555555", CreatureColor.GetValueOrDefault(playerActor.Creatures[2].element) ?? "#555555", Creature_Button_Click);
+            foreach (Creature c in playerActor.Creatures)
+            {
+                if(c.alive)
+                {
+                    Button Creature = CreateButton(c.name.ToString() ?? "Not Found", CreatureColor.GetValueOrDefault(c.primary_type) ?? "#555555", CreatureColor.GetValueOrDefault(c.element) ?? "#555555", Creature_Button_Click);
+                    actionButtonsPanel.Children.Add(Creature);
+                }
+            }
+           
             Button back_S_Button = CreateButton("BACK", "Gray", "DarkGray", Back_S_Button_Click);
 
             // Add the new buttons to the panel
-            actionButtonsPanel.Children.Add(Creature);
-            actionButtonsPanel.Children.Add(Creature1);
-            actionButtonsPanel.Children.Add(Creature2);
+
             actionButtonsPanel.Children.Add(back_S_Button);
         }
         private void Creature_Button_Click(object sender, RoutedEventArgs e)
@@ -404,33 +431,27 @@ namespace groundCrashers_game
             Button clicked = sender as Button;
             string name = clicked.Content.ToString() ?? "default";
 
-            if (gameManager.ActivePlayerCreature != null)
+            Actor playerActor = gameManager.GetPlayerActor();
+
+            bool IsAlive = playerActor.Creatures.FirstOrDefault(c => c.name == name)?.alive ?? false;
+
+            if (gameManager.ActivePlayerCreature != null && IsAlive)
             {
+                gameManager.CurrentPlayerCreatureSet(name);
                 gameManager.ProcessTurn(ActionType.Swap);
             }
-            else
+            else if (gameManager.ActivePlayerCreature == null && IsAlive)
             {
                 gameManager.CurrentPlayerCreatureSet(name);
                 UpdateBattleUI();
             }
+            else
+            {
+                MessageBox.Show("This creature is not alive.");
+            }
 
+            UIChange();
             // After attack, restore main action buttons
-            RestoreMainActionButtons();
-        }
-
-        private void Creature2_Button_Click(object sender, RoutedEventArgs e)
-        {
-            // Implement elemental attack logic
-            MessageBox.Show("creature 2 selected");
-            // After attack, restore main action buttons
-            RestoreMainActionButtons();
-        }
-
-        private void Creature3_Button_Click(object sender, RoutedEventArgs e)
-        {
-            // Implement defense logic
-            MessageBox.Show("creature 3 selected");
-            // After defense, restore main action buttons
             RestoreMainActionButtons();
         }
 
@@ -451,6 +472,30 @@ namespace groundCrashers_game
             MainWindow MainWindow = new MainWindow();
             MainWindow.Show();
             this.Close();
+        }
+
+        private void UIChange()
+        {
+            int EnemyMaxHealth = gameManager.AllCreatures.FirstOrDefault(c => c.name == gameManager.ActiveCpuCreature.name).stats.hp;
+
+            int EnemyHealth = gameManager.ActiveCpuCreature.stats.hp;
+            EnemyHealthText.Text = EnemyHealth.ToString() + "/" + EnemyMaxHealth;
+            EnemyHealthBar.Value = EnemyHealth;
+            EnemyHealthBar.Maximum = EnemyMaxHealth;
+
+            if (gameManager.ActivePlayerCreature != null)
+            {
+                string PlayerHealthT = PlayerHealthText.Text.ToString();
+                string[] PlayerHealthT_split = PlayerHealthT.Split('/');
+
+                int PlayerMaxHealth = gameManager.AllCreatures.FirstOrDefault(c => c.name == gameManager.ActivePlayerCreature.name).stats.hp;
+
+                PlayerHealthT_split[1] = PlayerMaxHealth.ToString();
+                int PlayerHealth = gameManager.ActivePlayerCreature.stats.hp;
+                PlayerHealthText.Text = PlayerHealth.ToString() + "/" + PlayerHealthT_split[1];
+                PlayerHealthBar.Value = PlayerHealth;
+                PlayerHealthBar.Maximum = PlayerMaxHealth;
+            }
         }
     }
 }
