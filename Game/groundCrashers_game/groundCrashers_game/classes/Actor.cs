@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace groundCrashers_game.classes
 {
-    internal class Actor
+    public class Actor
     {
         public string Name { get; set; }
         public Guid Id { get; set; }

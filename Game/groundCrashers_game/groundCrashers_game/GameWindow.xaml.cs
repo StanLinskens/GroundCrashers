@@ -16,7 +16,7 @@ namespace groundCrashers_game
     /// </summary>
     public partial class GameWindow : Window
     {
-        private Manager gameManager;
+        Manager gameManager;
         private Button fightButton;
         private Button bagButton;
         private Button groundCrashersButton;
@@ -62,6 +62,11 @@ namespace groundCrashers_game
                         TypeColors.GetValueOrDefault(
                             playerCreature.primary_type,
                             "#555555")));
+            }
+
+            if(playerCreature == null)
+            {
+
             }
 
             // Likewise for the CPU’s active creature:
@@ -326,8 +331,8 @@ namespace groundCrashers_game
 
         private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
         {
-            GroundCrasherWindow GroundCrasherWindow = new GroundCrasherWindow();
-            GroundCrasherWindow.Show();
+            var creaturePickerWindow = new GroundCrasherWindow(gameManager);
+            creaturePickerWindow.Show();
         }
 
         private void Run_Button_Click(object sender, RoutedEventArgs e)

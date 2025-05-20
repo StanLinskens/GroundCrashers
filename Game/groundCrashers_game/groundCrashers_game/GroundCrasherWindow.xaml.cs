@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
 using System.IO;
+using groundCrashers_game.classes;
 
 
 namespace groundCrashers_game
@@ -24,9 +25,13 @@ namespace groundCrashers_game
     {
         private List<Creature> loadedCreatures;
 
-        public GroundCrasherWindow()
+        private Manager _Manager;
+
+        public GroundCrasherWindow(Manager manager)
         {
             InitializeComponent();
+
+            _Manager = manager;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -119,6 +124,13 @@ namespace groundCrashers_game
                                       $"Speed: {SelectedCreature.stats.speed}";
 
                 MessageBox.Show(statsMessage, "GroundCrasher Selected");
+
+                string name = SelectedCreature.name;
+
+                Creature selected = loadedCreatures.FirstOrDefault(c => c.name == name);
+
+                _Manager.AddPlayerCreatures(selected);
+                _Manager.PrintActors();
             }
             else
             {

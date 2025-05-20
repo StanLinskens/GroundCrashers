@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace groundCrashers_game.classes
 {
-    class Manager
+    public class Manager
     {
         public List<Creature> AllCreatures { get; private set; } = new();
         public List<Actor> CurrentActors { get; private set; } = new();
@@ -209,25 +209,36 @@ namespace groundCrashers_game.classes
             }
         }
 
+        public void AddPlayerCreatures(Creature newCreature)
+        {
+
+            // Create Player Actor
+            Actor playerActor = GetPlayerActor();
+            if(playerActor == null)
+            {
+                MessageBox.Show("fuck this shit");
+            }
+            else
+            {
+                playerActor.Creatures.Add(newCreature);
+            }
+        }
+
         public void LoadActorsForBattleMode()
         {
             CurrentActors.Clear();
-
-            // Create Player Actor
-            var playerActor = new Actor("Player", true);
-            playerActor.Creatures.AddRange(GetRandomCreatures(3));
-            CurrentActors.Add(playerActor);
 
             // Create CPU Actor
             var cpuActor = new Actor("CPU", false);
             cpuActor.Creatures.AddRange(GetRandomCreatures(3));
             CurrentActors.Add(cpuActor);
 
+            var playerActor = new Actor("Player", true);
+            CurrentActors.Add(playerActor);
+
+
             // ←─── After you have given each actor its list of 3 creatures,
             // pick the “first” one to be the active one on‐screen:
-            ActivePlayerCreature = playerActor.Creatures.Count > 0
-                ? playerActor.Creatures[0]
-                : null;
             ActiveCpuCreature = cpuActor.Creatures.Count > 0
                 ? cpuActor.Creatures[0]
                 : null;
