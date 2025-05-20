@@ -18,6 +18,7 @@
         <Line X1="1300" Y1="650" X2="900" Y2="750" Stroke="Black" StrokeThickness="3" StrokeDashArray="4 2"/>
         <Line X1="900" Y1="750" X2="500" Y2="700" Stroke="Black" StrokeThickness="3" StrokeDashArray="4 2"/>
         <Line X1="500" Y1="700" X2="250" Y2="500" Stroke="Black" StrokeThickness="3" StrokeDashArray="4 2"/>
+        <Line X1="200" Y1="800" X2="550" Y2="700" Stroke="Black" StrokeThickness="3" StrokeDashArray="4 2"/>
 
 
         <!-- Forest Biome -->
@@ -70,6 +71,16 @@
                 <TextBlock Text="❄️ Glacier" FontSize="18" FontWeight="Bold" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
                 <TextBlock Text="Buff: Ice, Water - 20% defense boost" FontSize="14" HorizontalAlignment="Center"/>
                 <TextBlock Text="Debuff: Fire, Acid - 15% speed drop" FontSize="14" HorizontalAlignment="Center"/>
+                <Button Content="Level 1" Width="100" Margin="5" />
+                <Button Content="Level 2" Width="100" Margin="5" />
+            </StackPanel>
+        </Border>
+
+        <Border Canvas.Left="150" Canvas.Top="732" Width="150" Height="130" Background="SandyBrown" CornerRadius="10" BorderBrush="SteelBlue" BorderThickness="2">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="♻ Wasteland" FontSize="18" FontWeight="Bold" Foreground="SaddleBrown" HorizontalAlignment="Center"/>
+                <TextBlock Text="Buff: ??" FontSize="14" HorizontalAlignment="Center"/>
+                <TextBlock Text="Debuff: ??" FontSize="14" HorizontalAlignment="Center"/>
                 <Button Content="Level 1" Width="100" Margin="5" />
                 <Button Content="Level 2" Width="100" Margin="5" />
             </StackPanel>
@@ -134,6 +145,16 @@
         <Border Canvas.Left="829" Canvas.Top="691" Width="150" Height="130" Background="#B4E1F9" CornerRadius="10" BorderBrush="RoyalBlue" BorderThickness="2">
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="❄️ Tundra" FontSize="18" FontWeight="Bold" Foreground="MidnightBlue" HorizontalAlignment="Center"/>
+                <TextBlock Text="Buff: Ice, Draconic - 15% defense boost" FontSize="14" HorizontalAlignment="Center"/>
+                <TextBlock Text="Debuff: Fire, Toxic - 12% attack drop" FontSize="14" HorizontalAlignment="Center"/>
+                <Button Content="Level 1" Width="100" Margin="5"/>
+                <Button Content="Level 2" Width="100" Margin="5" />
+            </StackPanel>
+        </Border>
+
+        <Border Canvas.Left="829" Canvas.Top="691" Width="150" Height="130" Background="#B4E1F9" CornerRadius="10" BorderBrush="RoyalBlue" BorderThickness="2">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="❄️ marsh" FontSize="18" FontWeight="Bold" Foreground="MidnightBlue" HorizontalAlignment="Center"/>
                 <TextBlock Text="Buff: Ice, Draconic - 15% defense boost" FontSize="14" HorizontalAlignment="Center"/>
                 <TextBlock Text="Debuff: Fire, Toxic - 12% attack drop" FontSize="14" HorizontalAlignment="Center"/>
                 <Button Content="Level 1" Width="100" Margin="5"/>
