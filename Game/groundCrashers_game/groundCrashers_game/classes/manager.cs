@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Newtonsoft.Json;
 using System.IO;
-using Newtonsoft.Json;
-using groundCrashers_game;
 using System.Text;
 using System.Windows;
 
@@ -258,6 +255,7 @@ namespace groundCrashers_game.classes
 
             return randomCreatures;
         }
+
         public void PrintActors()
         {
             StringBuilder message = new StringBuilder();

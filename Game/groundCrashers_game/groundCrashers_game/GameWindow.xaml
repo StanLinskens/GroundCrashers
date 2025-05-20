@@ -171,7 +171,7 @@
                         </TextBlock>
                     </Border>
 
-                    <Border x:Name="PlayerCreatureBorder" Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="20" Canvas.Top="450" Padding="5">
+                    <Border x:Name="PlayerCreatureBorder" Background="#2A2A2A" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="200" Canvas.Top="450" Padding="5">
                         <TextBlock x:Name="PlayerCreatureName" Text="PLAYER" FontSize="24" Foreground="#66FF66">
                         </TextBlock>
                     </Border>
