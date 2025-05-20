@@ -11,6 +11,7 @@
         public string element { get; set; }
         public string ability { get; set; }
         public string description { get; set; }
+        public bool alive { get; set; } = true;
     }
 
     public class Stats
