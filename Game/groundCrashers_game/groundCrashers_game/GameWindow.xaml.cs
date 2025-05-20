@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Xml.Linq;
 using static groundCrashers_game.classes.Manager;
 
 namespace groundCrashers_game
@@ -79,6 +80,15 @@ namespace groundCrashers_game
                         CreatureColor.GetValueOrDefault(
                             playerCreature.element,
                             "#555555")));
+                try
+                {
+                    PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{playerCreature.name}.png", UriKind.Absolute));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading image: {ex.Message}");
+                }
+
             }
 
             if(playerCreature == null)
@@ -269,10 +279,10 @@ namespace groundCrashers_game
             actionButtonsPanel.Children.Clear();
 
             // Create new combat option buttons
-            Button attackButton = CreateCombatButton("ATTACK", "#591C1C", "#7A2929", Attack_Button_Click);
-            Button elementButton = CreateCombatButton("ELEMENT", "#802828", "#7A2929", Element_Button_Click);
-            Button defendButton = CreateCombatButton("DEFEND", "#1C3959", "#295D7A", Defend_Button_Click);
-            Button backButton = CreateCombatButton("BACK", "Gray", "DarkGray", Back_Button_Click);
+            Button attackButton = CreateButton("ATTACK", "#591C1C", "#7A2929", Attack_Button_Click);
+            Button elementButton = CreateButton("ELEMENT", "#802828", "#7A2929", Element_Button_Click);
+            Button defendButton = CreateButton("DEFEND", "#1C3959", "#295D7A", Defend_Button_Click);
+            Button backButton = CreateButton("BACK", "Gray", "DarkGray", Back_Button_Click);
 
             // Add the new buttons to the panel
             actionButtonsPanel.Children.Add(attackButton);
@@ -281,7 +291,7 @@ namespace groundCrashers_game
             actionButtonsPanel.Children.Add(backButton);
         }
 
-        private Button CreateCombatButton(string content, string background, string border, RoutedEventHandler clickHandler)
+        private Button CreateButton(string content, string background, string border, RoutedEventHandler clickHandler)
         {
             Button button = new Button
             {
@@ -355,8 +365,84 @@ namespace groundCrashers_game
 
         private void Swap_Button_Click(object sender, RoutedEventArgs e)
         {
-            // Implement bag functionality
-            MessageBox.Show("SWAP selected!");
+            Actor playerActor = gameManager.GetPlayerActor();
+            if (playerActor.Creatures.Count < 3)
+            {
+                MessageBox.Show("You need at least 3 creatures to swap.");
+            }
+            else
+            {
+                //Replace the current buttons with combat options
+                ShowSwapOptions();
+            }
+
+        }
+
+        private void ShowSwapOptions()
+        {
+            // Save original buttons if not already saved
+            if (fightButton == null)
+            {
+                StoreButtonReferences();
+            }
+
+            // Clear the current buttons from the panel
+            actionButtonsPanel.Children.Clear();
+
+            Actor playerActor = gameManager.GetPlayerActor();
+
+            // Create new combat option buttons
+            Button Creature = CreateButton(playerActor.Creatures[0].name.ToString() ?? "Not Found", CreatureColor.GetValueOrDefault(playerActor.Creatures[0].primary_type) ?? "#555555", CreatureColor.GetValueOrDefault(playerActor.Creatures[0].element) ?? "#555555", Creature_Button_Click);
+            Button Creature1 = CreateButton(playerActor.Creatures[1].name.ToString() ?? "Not Found", CreatureColor.GetValueOrDefault(playerActor.Creatures[1].primary_type) ?? "#555555", CreatureColor.GetValueOrDefault(playerActor.Creatures[1].element) ?? "#555555", Creature_Button_Click);
+            Button Creature2 = CreateButton(playerActor.Creatures[2].name.ToString() ?? "Not Found", CreatureColor.GetValueOrDefault(playerActor.Creatures[2].primary_type) ?? "#555555", CreatureColor.GetValueOrDefault(playerActor.Creatures[2].element) ?? "#555555", Creature_Button_Click);
+            Button back_S_Button = CreateButton("BACK", "Gray", "DarkGray", Back_S_Button_Click);
+
+            // Add the new buttons to the panel
+            actionButtonsPanel.Children.Add(Creature);
+            actionButtonsPanel.Children.Add(Creature1);
+            actionButtonsPanel.Children.Add(Creature2);
+            actionButtonsPanel.Children.Add(back_S_Button);
+        }
+        private void Creature_Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            Button clicked = sender as Button;
+            string name = clicked.Content.ToString() ?? "default";
+
+            if (gameManager.ActivePlayerCreature != null)
+            {
+                gameManager.ProcessTurn(ActionType.Swap);
+            }
+            else
+            {
+                gameManager.CurrentPlayerCreatureSet(name);
+                SetupBattleUI();
+            }
+
+            // After attack, restore main action buttons
+            RestoreMainActionButtons();
+        }
+
+        private void Creature2_Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Implement elemental attack logic
+            MessageBox.Show("creature 2 selected");
+            // After attack, restore main action buttons
+            RestoreMainActionButtons();
+        }
+
+        private void Creature3_Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Implement defense logic
+            MessageBox.Show("creature 3 selected");
+            // After defense, restore main action buttons
+            RestoreMainActionButtons();
+        }
+
+        private void Back_S_Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Go back to main action buttons
+            RestoreMainActionButtons();
         }
 
         private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)

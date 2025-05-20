@@ -213,11 +213,27 @@ namespace groundCrashers_game.classes
             Actor playerActor = GetPlayerActor();
             if(playerActor == null)
             {
-                MessageBox.Show("fuck this shit");
+                MessageBox.Show("could not find that GroundCrasher");
             }
             else
             {
-                playerActor.Creatures.Add(newCreature);
+                if(playerActor.Creatures.Count < 3)
+                {
+                    foreach (var creature in playerActor.Creatures)
+                    {
+                        if (creature.id == newCreature.id)
+                        {
+                            MessageBox.Show("You already have that GroundCrasher");
+                            return;
+                        }
+                    }
+                    playerActor.Creatures.Add(newCreature);
+                }
+                else
+                {
+                    MessageBox.Show("You can only have 3 GroundCrashers");
+                }
+
             }
         }
 
@@ -281,6 +297,17 @@ namespace groundCrashers_game.classes
             }
 
             MessageBox.Show(message.ToString(), "Actor Info");
+        }
+
+        public void CurrentPlayerCreatureSet(string name)
+        {
+            foreach(Creature c in AllCreatures)
+            {
+                if(c.name.ToString() == name)
+                {
+                    ActivePlayerCreature = c;
+                }
+            }         
         }
 
         public Actor GetPlayerActor() => CurrentActors.Find(a => a.IsPlayer);
