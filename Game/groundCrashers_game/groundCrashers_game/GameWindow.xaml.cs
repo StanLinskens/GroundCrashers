@@ -53,8 +53,7 @@ namespace groundCrashers_game
             gameManager = new Manager();
             gameManager.LoadAllCreatures();
             gameManager.LoadActorsForBattleMode();
-            gameManager.CreaturesMaxHp();
-            //gameManager.PrintActors();
+            gameManager.PrintActors();
 
             UpdateBattleUI();
 
@@ -71,9 +70,9 @@ namespace groundCrashers_game
             if (playerCreature != null)
             {
                 PlayerCreatureName.Text = playerCreature.name;
-                PlayerHealthText.Text = playerCreature.stats.hp.ToString() + "/" + playerCreature.stats.hp.ToString();
+                PlayerHealthText.Text = playerCreature.stats.hp.ToString() + "/" + playerCreature.stats.max_hp.ToString();
                 PlayerHealthBar.Value = playerCreature.stats.hp;
-                PlayerHealthBar.Maximum = playerCreature.stats.hp;
+                PlayerHealthBar.Maximum = playerCreature.stats.max_hp;
 
                 PlayerCreatureName.Foreground =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
@@ -91,19 +90,32 @@ namespace groundCrashers_game
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error loading image: {ex.Message}");
+                    //MessageBox.Show($"Error loading image: {ex.Message}");
+                    EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
                 }
 
             }
+            else
+            {
+                PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
+
+                string PlayerHealthT = PlayerHealthText.Text.ToString();
+                string[] PlayerHealth_split = PlayerHealthT.Split('/');
+
+                PlayerHealthBar.Value = 0;
+                PlayerHealthText.Text = "0/" + PlayerHealth_split[1];
+
+            }
+
 
             // Likewise for the CPU’s active creature:
             var cpuCreature = gameManager.ActiveCpuCreature;
             if (cpuCreature != null)
             {
                 EnemyCreatureName.Text = cpuCreature.name;
-                EnemyHealthText.Text = cpuCreature.stats.hp.ToString() + "/" + cpuCreature.stats.hp.ToString();
+                EnemyHealthText.Text = cpuCreature.stats.hp.ToString() + "/" + cpuCreature.stats.max_hp.ToString();
                 EnemyHealthBar.Value = cpuCreature.stats.hp;
-                EnemyHealthBar.Maximum = cpuCreature.stats.hp;
+                EnemyHealthBar.Maximum = cpuCreature.stats.max_hp;
 
                 EnemyCreatureName.Foreground =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
@@ -115,6 +127,25 @@ namespace groundCrashers_game
                         CreatureColor.GetValueOrDefault(
                             cpuCreature.element,
                             "#555555")));
+                try
+                {
+                    EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{cpuCreature.name}.png", UriKind.Absolute));
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show($"Error loading image: {ex.Message}");
+                    EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
+                }
+            }
+            else
+            {
+                EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
+
+                string EnemyHealthT = EnemyHealthText.Text.ToString();
+                string[] EnemyHealt_split = EnemyHealthT.Split('/');
+
+                EnemyHealthBar.Value = 0;
+                EnemyHealthText.Text = "0/" + EnemyHealt_split[1];
             }
         }
 
@@ -144,7 +175,7 @@ namespace groundCrashers_game
 
             } catch
             {
-                MessageBox.Show("Could not find the image for the enemy creature. Please check the image path.");
+                //MessageBox.Show("Could not find the image for the enemy creature. Please check the image path.");
             }
         }
 
@@ -336,7 +367,7 @@ namespace groundCrashers_game
 
             gameManager.ProcessTurn(ActionType.Attack);
 
-            UIChange();
+            UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
         }
@@ -346,7 +377,7 @@ namespace groundCrashers_game
             // Implement elemental attack logic
             MessageBox.Show("Element attack selected!");
 
-            UIChange();
+            UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
         }
@@ -356,7 +387,7 @@ namespace groundCrashers_game
             // Implement defense logic
             MessageBox.Show("Defense selected!");
 
-            UIChange();
+            UpdateBattleUI();
             // After defense, restore main action buttons
             RestoreMainActionButtons();
         }
@@ -439,14 +470,13 @@ namespace groundCrashers_game
             else if (gameManager.ActivePlayerCreature == null && IsAlive)
             {
                 gameManager.CurrentPlayerCreatureSet(name);
-                UpdateBattleUI();
             }
             else
             {
                 MessageBox.Show("This creature is not alive.");
             }
 
-            UIChange();
+            UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
         }
@@ -468,52 +498,6 @@ namespace groundCrashers_game
             MainWindow MainWindow = new MainWindow();
             MainWindow.Show();
             this.Close();
-        }
-
-        private void UIChange()
-        {
-            if(gameManager.ActiveCpuCreature != null)
-            {
-                int EnemyMaxHealth = gameManager.AllCreatures.FirstOrDefault(c => c.name == gameManager.ActiveCpuCreature.name).stats.max_hp;
-
-                int EnemyHealth = gameManager.ActiveCpuCreature.stats.hp;
-                EnemyHealthText.Text = EnemyHealth.ToString() + "/" + EnemyMaxHealth;
-                EnemyHealthBar.Value = EnemyHealth;
-                EnemyHealthBar.Maximum = EnemyMaxHealth;
-            }
-            else
-            {
-                EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
-
-                string EnemyHealthT = EnemyHealthText.Text.ToString();
-                string[] EnemyHealt_split = EnemyHealthT.Split('/');
-
-                EnemyHealthBar.Value = 0;
-                EnemyHealthText.Text = "0/" + EnemyHealt_split[1];
-            }
-
-            if (gameManager.ActivePlayerCreature != null)
-            {
-               
-
-                int PlayerMaxHealth = gameManager.AllCreatures.FirstOrDefault(c => c.name == gameManager.ActivePlayerCreature.name).stats.max_hp;
-
-                int PlayerHealth = gameManager.ActivePlayerCreature.stats.hp;
-                PlayerHealthText.Text = PlayerHealth.ToString() + "/" + PlayerMaxHealth;
-                PlayerHealthBar.Value = PlayerHealth;
-                PlayerHealthBar.Maximum = PlayerMaxHealth;
-            }
-            else
-            {
-                PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
-
-                string PlayerHealthT = PlayerHealthText.Text.ToString();
-                string[] PlayerHealth_split = PlayerHealthT.Split('/');
-
-                PlayerHealthBar.Value = 0;
-                PlayerHealthText.Text = "0/" + PlayerHealth_split[1];
-
-            }
         }
     }
 }

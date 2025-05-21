@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 
 namespace groundCrashers_game.classes
@@ -121,6 +122,7 @@ namespace groundCrashers_game.classes
                             }
 
                         }
+                        CpuAction();
                         break;
                     }
 
@@ -171,6 +173,77 @@ namespace groundCrashers_game.classes
             }
         }
 
+        private string CpuAction()
+        {
+
+            int randomNumber = _rnd.Next(100);
+
+            int cpuHp = ActiveCpuCreature.stats.hp; 
+            int cpuMaxHp = ActiveCpuCreature.stats.max_hp;
+            int cpuPercentage = (int)Math.Round((float)cpuHp / cpuMaxHp * 100);
+
+            int playerHp = ActivePlayerCreature.stats.hp;
+            int playerMaxHp = ActivePlayerCreature.stats.max_hp;
+            int playerPercentage = (int)Math.Round((float)playerHp / playerMaxHp * 100);
+
+            if (ActiveCpuCreature.cursed == true)
+            {
+                if (cpuPercentage > 35)
+                {
+                    return "Block";
+                }
+                else if (playerPercentage > 35)
+                {
+                    if (randomNumber < 20) return "block";
+                    else if (randomNumber < 55) return "attack"; // 35% window (20–54)
+                    else return "ElementAttack"; // 45%
+                }
+                else
+                {
+                    return randomNumber < 25 ? "Block" : "Attack";
+                }
+            }
+            if (cpuPercentage > 85)
+            {
+                if(playerPercentage > 55)
+                {
+                    return randomNumber < 25 ? "attack" : "elementattack"; // 25/75
+                }
+                else
+                {
+                    return randomNumber < 15 ? "elementattack" : "attack"; // 15/85
+                }
+            }
+            if (cpuPercentage > 45)
+            {
+                if (playerPercentage > 40)
+                {
+                    if (randomNumber < 10) return "block";
+                    else if (randomNumber < 35) return "attack"; // 25% window (10–34)
+                    else return "ElementAttack"; // 65%
+                }
+                else
+                {
+                    if (randomNumber < 10) return "block";
+                    else if (randomNumber < 35) return "elementattack"; // 25% window (10–34)
+                    else return "attack"; // 65%
+                }
+            }
+            else
+            {
+                if (playerPercentage > 55)
+                {
+                    return randomNumber < 25 ? "Attack" : "ElementAttack";
+                }
+                else
+                {
+                    if (randomNumber < 10) return "block";
+                    else if (randomNumber < 35) return "elementattack"; // 25% window (10–34)
+                    else return "attack"; // 65%
+                }
+            }
+        }
+
         private bool DeadCheck()
         {
             if (ActivePlayerCreature.stats.hp <= 0)
@@ -199,9 +272,11 @@ namespace groundCrashers_game.classes
                     if (c.name == ActiveCpuCreature.name)
                     {
                         c.alive = false;
+                        
                         cpuDied = true;
                     }
                 }
+                ActiveCpuCreature = null;
             }
 
             return cpuDied;
@@ -235,7 +310,7 @@ namespace groundCrashers_game.classes
                 {
                     var creature = AllCreatures.Find(c => c.id == creatureId);
                     if (creature != null)
-                        actor.Creatures.Add(creature);
+                        actor.Creatures.Add(creature.Clone());
                 }
                 CurrentActors.Add(actor);
             }
@@ -262,7 +337,7 @@ namespace groundCrashers_game.classes
                             return;
                         }
                     }
-                    playerActor.Creatures.Add(newCreature);
+                    playerActor.Creatures.Add(newCreature.Clone());
                 }
                 else
                 {
@@ -300,19 +375,12 @@ namespace groundCrashers_game.classes
             for (int i = 0; i < count && available.Count > 0; i++)
             {
                 int index = _rnd.Next(available.Count);
-                randomCreatures.Add(available[index]);
+                var clonedCreature = available[index].Clone();
+                randomCreatures.Add(clonedCreature);
                 available.RemoveAt(index); // Avoid duplicates
             }
 
             return randomCreatures;
-        }
-
-        public void CreaturesMaxHp()
-        {
-            foreach(Creature c in AllCreatures)
-            {
-                c.stats.max_hp = c.stats.hp;
-            }
         }
 
         public void PrintActors()
@@ -344,13 +412,11 @@ namespace groundCrashers_game.classes
 
         public void CurrentPlayerCreatureSet(string name)
         {
-            foreach(Creature c in AllCreatures)
+            var playerActor = GetPlayerActor();
+            if (playerActor != null)
             {
-                if(c.name.ToString() == name)
-                {
-                    ActivePlayerCreature = c;
-                }
-            }         
+                ActivePlayerCreature = playerActor.Creatures.FirstOrDefault(c => c.name == name);
+            }
         }
 
         public Actor GetPlayerActor() => CurrentActors.Find(a => a.IsPlayer);

@@ -11,7 +11,26 @@
         public string element { get; set; }
         public string ability { get; set; }
         public string description { get; set; }
+        public bool cursed { get; set; } = false;
         public bool alive { get; set; } = true;
+        
+
+        public Creature Clone()
+        {
+            return new Creature
+            {
+                id = this.id,
+                name = this.name,
+                primary_type = this.primary_type,
+                subtype = this.subtype,
+                stats = this.stats?.Clone(),
+                element = this.element,
+                ability = this.ability,
+                description = this.description,
+                cursed = this.cursed,
+                alive = this.alive
+            };
+        }
     }
 
     public class Stats
@@ -21,6 +40,20 @@
         public int defense { get; set; }
         public int speed { get; set; }
         public int max_hp { get; set; }
+
+        public Stats Clone()
+        {
+            int tripledHp = this.hp * 3;
+
+            return new Stats
+            {
+                hp = tripledHp,
+                attack = this.attack,
+                defense = this.defense,
+                speed = this.speed,
+                max_hp = this.max_hp == 0 ? tripledHp : this.max_hp
+            };
+        }
     }
 
 }

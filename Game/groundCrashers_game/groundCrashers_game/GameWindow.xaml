@@ -196,8 +196,8 @@
                 <Grid>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="20,10">
                         <TextBlock Text="YOU" Style="{StaticResource StatusText}" FontSize="24"/>
-                        <ProgressBar x:Name="PlayerHealthBar" Style="{StaticResource HealthBar}" Width="300" Value="89" Maximum="89" Margin="20,0,0,0" Foreground="#66FF66"/>
-                        <TextBlock x:Name="PlayerHealthText" Text="89/89" FontSize="20" Margin="20,0,0,0" Style="{StaticResource StatusText}"/>
+                        <ProgressBar x:Name="PlayerHealthBar" Style="{StaticResource HealthBar}" Width="300" Value="150" Maximum="150" Margin="20,0,0,0" Foreground="#66FF66"/>
+                        <TextBlock x:Name="PlayerHealthText" Text="?/?" FontSize="20" Margin="20,0,0,0" Style="{StaticResource StatusText}"/>
                     </StackPanel>
                 </Grid>
             </Border>
