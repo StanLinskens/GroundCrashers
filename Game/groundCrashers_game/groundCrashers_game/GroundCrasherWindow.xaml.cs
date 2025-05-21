@@ -92,7 +92,7 @@ namespace groundCrashers_game
 
         private void LoadCreatureButtons()
         {
-            string jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "JsonData", "creatures.json");
+            string jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "creatures.json");
             jsonPath = System.IO.Path.GetFullPath(jsonPath);
 
             if (!File.Exists(jsonPath))

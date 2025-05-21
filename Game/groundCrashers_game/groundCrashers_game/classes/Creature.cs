@@ -11,7 +11,7 @@
         public string element { get; set; }
         public string ability { get; set; }
         public string description { get; set; }
-        public bool cursed { get; set; } = false;
+        public string curse { get; set; } = "none";
         public bool alive { get; set; } = true;
         
 
@@ -27,7 +27,7 @@
                 element = this.element,
                 ability = this.ability,
                 description = this.description,
-                cursed = this.cursed,
+                curse = this.curse,
                 alive = this.alive
             };
         }

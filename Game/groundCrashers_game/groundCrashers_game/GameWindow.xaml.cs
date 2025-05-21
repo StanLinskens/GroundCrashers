@@ -375,7 +375,7 @@ namespace groundCrashers_game
         private void Element_Button_Click(object sender, RoutedEventArgs e)
         {
             // Implement elemental attack logic
-            MessageBox.Show("Element attack selected!");
+            gameManager.ProcessTurn(ActionType.ElementAttack);
 
             UpdateBattleUI();
             // After attack, restore main action buttons
@@ -385,7 +385,7 @@ namespace groundCrashers_game
         private void Defend_Button_Click(object sender, RoutedEventArgs e)
         {
             // Implement defense logic
-            MessageBox.Show("Defense selected!");
+            gameManager.ProcessTurn(ActionType.Defend);
 
             UpdateBattleUI();
             // After defense, restore main action buttons

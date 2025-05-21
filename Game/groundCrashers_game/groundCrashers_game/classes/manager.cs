@@ -73,72 +73,27 @@ namespace groundCrashers_game.classes
         public void ProcessTurn(ActionType action, int swapIndex = -1)
         {
             bool cpuDied = false;
+            string cpuAction = CpuAction();
+            MessageBox.Show($"CPU Action: {cpuAction}");
             // 2) Resolve the chosen action
             switch (action)
             {
                 case ActionType.Attack:
                     {
-                        if (ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
-                        {
-                            int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
-                            ActivePlayerCreature.stats.hp -= DamageDealt;
-
-                            MessageBox.Show(
-                            $"{ActiveCpuCreature.name} attacks {ActivePlayerCreature.name} for {DamageDealt} damage.\n" +
-                            $"{ActivePlayerCreature.name} now has {ActivePlayerCreature.stats.hp} HP.");
-                            cpuDied = DeadCheck();
-
-                            if(ActivePlayerCreature != null && ActiveCpuCreature != null)
-                            {
-                                DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
-                                ActiveCpuCreature.stats.hp -= DamageDealt;
-
-                                MessageBox.Show(
-                                $"{ActivePlayerCreature.name} attacks {ActiveCpuCreature.name} for {DamageDealt} damage.\n" +
-                                $"{ActiveCpuCreature.name} now has {ActiveCpuCreature.stats.hp} HP.");
-                                cpuDied = DeadCheck();
-                            }
-                        }
-                        else
-                        {
-                            int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
-                            ActiveCpuCreature.stats.hp -= DamageDealt;
-
-                            MessageBox.Show(
-                            $"{ActivePlayerCreature.name} attacks {ActiveCpuCreature.name} for {DamageDealt} damage.\n" +
-                            $"{ActiveCpuCreature.name} now has {ActiveCpuCreature.stats.hp} HP.");
-
-                            cpuDied = DeadCheck();
-
-                            if (ActivePlayerCreature != null && ActiveCpuCreature != null)
-                            {
-                                DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
-                                ActivePlayerCreature.stats.hp -= DamageDealt;
-
-                                MessageBox.Show(
-                                $"{ActiveCpuCreature.name} attacks {ActivePlayerCreature.name} for {DamageDealt} damage.\n" +
-                                $"{ActivePlayerCreature.name} now has {ActivePlayerCreature.stats.hp} HP.");
-                                cpuDied = DeadCheck();
-                            }
-
-                        }
-                        CpuAction();
+                        cpuDied = ActionType_Attack(cpuDied, cpuAction);
                         break;
                     }
 
                 case ActionType.ElementAttack:
                     {
-                        // Placeholder: insert your elemental damage formula here
-                        // e.g. int elementDamage = CalculateElementDamage(attacker, defender);
-                        // defender.health -= elementDamage; etc.
+                        cpuDied = ActionType_ElementAttack(cpuDied, cpuAction);
 
-                        MessageBox.Show("ElementAttack chosen! (Implement your elemental logic here.)");
                         break;
                     }
 
                 case ActionType.Defend:
                     {
-                        MessageBox.Show("block chosen! (Implement your elemental logic here.)");
+                        cpuDied = ActionType_Defend(cpuDied, cpuAction);
                         break;
                     }
                 case ActionType.Swap:
@@ -173,6 +128,208 @@ namespace groundCrashers_game.classes
             }
         }
 
+        private bool ActionType_Defend(bool cpuDied, string cpuAction)
+        {
+            if (cpuAction == "Attack")
+            {
+                int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because block
+                ActivePlayerCreature.stats.hp -= DamageDealt;
+                cpuDied = DeadCheck();
+            }
+            else if (cpuAction == "ElementAttack")
+            {
+                int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because block
+                ActivePlayerCreature.stats.hp -= DamageDealt;
+                ActivePlayerCreature.curse = ActiveCpuCreature.element;
+                cpuDied = DeadCheck();
+                ActivePlayerCreature.curse = "none";
+            }
+            else if (cpuAction == "Block")
+            {
+                ActivePlayerCreature.curse = "none";
+                ActiveCpuCreature.curse = "none";
+            }
+            else if (cpuAction == "Swap")
+            {
+
+            }
+
+            return cpuDied;
+        }
+
+        private bool ActionType_ElementAttack(bool cpuDied, string cpuAction)
+        {
+            if (cpuAction == "Attack")
+            {
+                if (ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
+                {
+                    int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                    ActivePlayerCreature.stats.hp -= DamageDealt;
+                    cpuDied = DeadCheck();
+
+                    if (ActivePlayerCreature != null && ActiveCpuCreature != null)
+                    {
+                        DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                        DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                        ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                        cpuDied = DeadCheck();
+                    }
+                }
+                else
+                {
+                    int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                    DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+                    ActiveCpuCreature.stats.hp -= DamageDealt;
+                    ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                    cpuDied = DeadCheck();
+
+                    if (ActivePlayerCreature != null && ActiveCpuCreature != null)
+                    {
+                        DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                        cpuDied = DeadCheck();
+                    }
+                }
+            }
+            else if (cpuAction == "ElementAttack")
+            {
+                if (ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
+                {
+                    int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                    DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+                    ActivePlayerCreature.stats.hp -= DamageDealt;
+                    ActivePlayerCreature.curse = ActiveCpuCreature.element;
+                    cpuDied = DeadCheck();
+
+                    if (ActivePlayerCreature != null && ActiveCpuCreature != null)
+                    {
+                        DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                        DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                        ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                        cpuDied = DeadCheck();
+                    }
+                }
+                else
+                {
+                    int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                    DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+                    ActiveCpuCreature.stats.hp -= DamageDealt;
+                    ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                    cpuDied = DeadCheck();
+
+                    if (ActivePlayerCreature != null && ActiveCpuCreature != null)
+                    {
+                        DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                        DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                        ActivePlayerCreature.curse = ActiveCpuCreature.element;
+                        cpuDied = DeadCheck();
+                    }
+                }
+            }
+            else if (cpuAction == "Block")
+            {
+                int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because block
+                ActiveCpuCreature.stats.hp -= DamageDealt;
+                ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                cpuDied = DeadCheck();
+                ActiveCpuCreature.curse = "none";
+            }
+            else if (cpuAction == "Swap")
+            {
+
+            }
+
+            return cpuDied;
+        }
+
+        private bool ActionType_Attack(bool cpuDied, string cpuAction)
+        {
+            if (cpuAction == "Attack")
+            {
+                if (ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
+                {
+                    int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                    ActivePlayerCreature.stats.hp -= DamageDealt;
+                    cpuDied = DeadCheck();
+
+                    if (ActivePlayerCreature != null && ActiveCpuCreature != null)
+                    {
+                        DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                        cpuDied = DeadCheck();
+                    }
+                }
+                else
+                {
+                    int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                    ActiveCpuCreature.stats.hp -= DamageDealt;
+                    cpuDied = DeadCheck();
+
+                    if (ActivePlayerCreature != null && ActiveCpuCreature != null)
+                    {
+                        DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                        cpuDied = DeadCheck();
+                    }
+                }
+            }
+            else if (cpuAction == "ElementAttack")
+            {
+                if (ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
+                {
+                    int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                    DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+                    ActivePlayerCreature.stats.hp -= DamageDealt;
+                    ActivePlayerCreature.curse = ActiveCpuCreature.element;
+                    cpuDied = DeadCheck();
+
+                    if (ActivePlayerCreature != null && ActiveCpuCreature != null)
+                    {
+                        DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                        cpuDied = DeadCheck();
+                    }
+                }
+                else
+                {
+                    int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                    ActiveCpuCreature.stats.hp -= DamageDealt;
+                    cpuDied = DeadCheck();
+
+                    if (ActivePlayerCreature != null && ActiveCpuCreature != null)
+                    {
+                        DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                        DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                        ActivePlayerCreature.curse = ActiveCpuCreature.element;
+                        cpuDied = DeadCheck();
+                    }
+                }
+            }
+            else if (cpuAction == "Block")
+            {
+                int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because Block
+                ActiveCpuCreature.stats.hp -= DamageDealt;
+                ActiveCpuCreature.curse = "none";
+                cpuDied = DeadCheck();
+            }
+            else if (cpuAction == "Swap")
+            {
+
+            }
+
+            return cpuDied;
+        }
+
         private string CpuAction()
         {
 
@@ -186,7 +343,7 @@ namespace groundCrashers_game.classes
             int playerMaxHp = ActivePlayerCreature.stats.max_hp;
             int playerPercentage = (int)Math.Round((float)playerHp / playerMaxHp * 100);
 
-            if (ActiveCpuCreature.cursed == true)
+            if (ActiveCpuCreature.curse != "none")
             {
                 if (cpuPercentage > 35)
                 {
@@ -194,8 +351,8 @@ namespace groundCrashers_game.classes
                 }
                 else if (playerPercentage > 35)
                 {
-                    if (randomNumber < 20) return "block";
-                    else if (randomNumber < 55) return "attack"; // 35% window (20–54)
+                    if (randomNumber < 20) return "Block";
+                    else if (randomNumber < 55) return "Attack"; // 35% window (20–54)
                     else return "ElementAttack"; // 45%
                 }
                 else
@@ -203,45 +360,53 @@ namespace groundCrashers_game.classes
                     return randomNumber < 25 ? "Block" : "Attack";
                 }
             }
-            if (cpuPercentage > 85)
+            if (ActivePlayerCreature.curse != "none")
             {
-                if(playerPercentage > 55)
+                return "Attack";
+            }
+            if (ActivePlayerCreature.curse == "none")
+            {
+                if (cpuPercentage > 85)
                 {
-                    return randomNumber < 25 ? "attack" : "elementattack"; // 25/75
+                    if (playerPercentage > 65)
+                    {
+                        return randomNumber < 33 ? "Attack" : "ElementAttack"; // 33/66
+                    }
+                    else
+                    {
+                        return randomNumber < 15 ? "ElementAttack" : "Attack"; // 15/85
+                    }
+                }
+                if (cpuPercentage > 45)
+                {
+                    if (playerPercentage > 55)
+                    {
+                        if (randomNumber < 10) return "Block";
+                        else if (randomNumber < 45) return "Attack"; // 35% window (10–44)
+                        else return "ElementAttack"; // 55%
+                    }
+                    else
+                    {
+                        if (randomNumber < 10) return "Block";
+                        else if (randomNumber < 25) return "ElementAttack"; // 15% window (10–24)
+                        else return "Attack"; // 75%
+                    }
                 }
                 else
                 {
-                    return randomNumber < 15 ? "elementattack" : "attack"; // 15/85
+                    if (playerPercentage > 55)
+                    {
+                        return randomNumber < 25 ? "Attack" : "ElementAttack";
+                    }
+                    else
+                    {
+                        if (randomNumber < 10) return "Block";
+                        else if (randomNumber < 35) return "ElementAttack"; // 25% window (10–34)
+                        else return "Attack"; // 65%
+                    }
                 }
             }
-            if (cpuPercentage > 45)
-            {
-                if (playerPercentage > 40)
-                {
-                    if (randomNumber < 10) return "block";
-                    else if (randomNumber < 35) return "attack"; // 25% window (10–34)
-                    else return "ElementAttack"; // 65%
-                }
-                else
-                {
-                    if (randomNumber < 10) return "block";
-                    else if (randomNumber < 35) return "elementattack"; // 25% window (10–34)
-                    else return "attack"; // 65%
-                }
-            }
-            else
-            {
-                if (playerPercentage > 55)
-                {
-                    return randomNumber < 25 ? "Attack" : "ElementAttack";
-                }
-                else
-                {
-                    if (randomNumber < 10) return "block";
-                    else if (randomNumber < 35) return "elementattack"; // 25% window (10–34)
-                    else return "attack"; // 65%
-                }
-            }
+            return "Attack"; // Default action
         }
 
         private bool DeadCheck()
@@ -286,7 +451,7 @@ namespace groundCrashers_game.classes
         // Load all creatures once (e.g., when game starts)
         public void LoadAllCreatures()
         {
-            string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "JsonData", "creatures.json");
+            string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "creatures.json");
             if (!File.Exists(path)) throw new FileNotFoundException("Creatures JSON not found.");
 
             var text = File.ReadAllText(path);
@@ -296,7 +461,7 @@ namespace groundCrashers_game.classes
         // Load actors from a level file (player and CPU)
         public void LoadActorsForLevel(string levelFileName)
         {
-            string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "JsonData", "Levels", levelFileName);
+            string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "Levels", levelFileName);
             if (!File.Exists(path)) throw new FileNotFoundException("Level JSON not found.");
 
             var text = File.ReadAllText(path);
