@@ -69,32 +69,59 @@ namespace groundCrashers_game.classes
         ///   If action == Swap, this is the index (0-based) of the creature in that actor’s list
         ///   to swap in as the new ActiveCreature.  (Ignore otherwise.)
         /// </param>
-        public bool ProcessTurn(ActionType action, int swapIndex = -1)
+        public void ProcessTurn(ActionType action, int swapIndex = -1)
         {
+            bool cpuDied = false;
             // 2) Resolve the chosen action
             switch (action)
             {
                 case ActionType.Attack:
                     {
-                        if(ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
+                        if (ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
                         {
                             int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
                             ActivePlayerCreature.stats.hp -= DamageDealt;
 
-                            DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
-                            ActiveCpuCreature.stats.hp -= DamageDealt;
+                            MessageBox.Show(
+                            $"{ActiveCpuCreature.name} attacks {ActivePlayerCreature.name} for {DamageDealt} damage.\n" +
+                            $"{ActivePlayerCreature.name} now has {ActivePlayerCreature.stats.hp} HP.");
+                            cpuDied = DeadCheck();
 
+                            if(ActivePlayerCreature != null && ActiveCpuCreature != null)
+                            {
+                                DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                                ActiveCpuCreature.stats.hp -= DamageDealt;
+
+                                MessageBox.Show(
+                                $"{ActivePlayerCreature.name} attacks {ActiveCpuCreature.name} for {DamageDealt} damage.\n" +
+                                $"{ActiveCpuCreature.name} now has {ActiveCpuCreature.stats.hp} HP.");
+                                cpuDied = DeadCheck();
+                            }
                         }
                         else
                         {
                             int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
                             ActiveCpuCreature.stats.hp -= DamageDealt;
 
-                            DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
-                            ActivePlayerCreature.stats.hp -= DamageDealt;
+                            MessageBox.Show(
+                            $"{ActivePlayerCreature.name} attacks {ActiveCpuCreature.name} for {DamageDealt} damage.\n" +
+                            $"{ActiveCpuCreature.name} now has {ActiveCpuCreature.stats.hp} HP.");
+
+                            cpuDied = DeadCheck();
+
+                            if (ActivePlayerCreature != null && ActiveCpuCreature != null)
+                            {
+                                DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
+                                ActivePlayerCreature.stats.hp -= DamageDealt;
+
+                                MessageBox.Show(
+                                $"{ActiveCpuCreature.name} attacks {ActivePlayerCreature.name} for {DamageDealt} damage.\n" +
+                                $"{ActivePlayerCreature.name} now has {ActivePlayerCreature.stats.hp} HP.");
+                                cpuDied = DeadCheck();
+                            }
 
                         }
-                            break;
+                        break;
                     }
 
                 case ActionType.ElementAttack:
@@ -121,43 +148,6 @@ namespace groundCrashers_game.classes
                     throw new ArgumentOutOfRangeException(nameof(action), "Unknown action type.");
             }
 
-            // 3) Check if the defender (or attacker) fainted, etc.
-            //    You can put win/lose logic here:
-            //
-            bool IsAlive = true;
-
-            if (ActivePlayerCreature.stats.hp <= 0) 
-            { 
-                // Create Player Actor
-                Actor playerActor = GetPlayerActor();
-
-                foreach (Creature c in playerActor.Creatures)
-                {
-                    if(c.name == ActivePlayerCreature.name)
-                    {
-                        c.alive = false;
-
-                        IsAlive = false;
-                    }
-                }
-
-                ActivePlayerCreature = null;
-            }
-
-            if (ActiveCpuCreature.stats.hp <= 0)
-            {
-                // Create CPU Actor
-                Actor cpuActor = GetCpuActor();
-                foreach (Creature c in cpuActor.Creatures)
-                {
-                    if (c.name == ActiveCpuCreature.name)
-                    {
-                        c.alive = false;
-                    }
-                }
-                ActiveCpuCreature = cpuActor.Creatures.FirstOrDefault(c => c.alive == true);
-            }
-            //    if (ActiveCpuCreature.health <= 0)    { /* CPU loses or auto‐switch */ }
 
             // 4) Advance to the next actor’s turn
             _currentActorIndex = 1 - _currentActorIndex;
@@ -169,13 +159,52 @@ namespace groundCrashers_game.classes
                 // (Optional) Notify UI that a new round has started:
                 // e.g. OnRoundAdvanced?.Invoke(RoundNumber);
             }
+            if (cpuDied == true)
+            {
+                Actor cpuActor = GetCpuActor();
+                ActiveCpuCreature = cpuActor.Creatures.FirstOrDefault(c => c.alive == true);
+            }
 
-            if(ActiveCpuCreature == null)
+            if (ActiveCpuCreature == null)
             {
                 MessageBox.Show("You win!");
             }
+        }
 
-            return IsAlive;
+        private bool DeadCheck()
+        {
+            if (ActivePlayerCreature.stats.hp <= 0)
+            {
+                // Create Player Actor
+                Actor playerActor = GetPlayerActor();
+
+                foreach (Creature c in playerActor.Creatures)
+                {
+                    if (c.name == ActivePlayerCreature.name)
+                    {
+                        c.alive = false;
+                    }
+                }
+
+                ActivePlayerCreature = null;
+            }
+
+            bool cpuDied = true;
+            if (ActiveCpuCreature.stats.hp <= 0)
+            {
+                // Create CPU Actor
+                Actor cpuActor = GetCpuActor();
+                foreach (Creature c in cpuActor.Creatures)
+                {
+                    if (c.name == ActiveCpuCreature.name)
+                    {
+                        c.alive = false;
+                        cpuDied = true;
+                    }
+                }
+            }
+
+            return cpuDied;
         }
 
 
@@ -276,6 +305,14 @@ namespace groundCrashers_game.classes
             }
 
             return randomCreatures;
+        }
+
+        public void CreaturesMaxHp()
+        {
+            foreach(Creature c in AllCreatures)
+            {
+                c.stats.max_hp = c.stats.hp;
+            }
         }
 
         public void PrintActors()

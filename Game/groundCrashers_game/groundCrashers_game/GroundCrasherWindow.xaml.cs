@@ -58,7 +58,7 @@ namespace groundCrashers_game
                     creatureImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{selected.name}.png", UriKind.Absolute));
                     } catch
                 {
-                    MessageBox.Show($"Image not found for {selected.name}. Please check the image path.");
+                    //MessageBox.Show($"Image not found for {selected.name}. Please check the image path.");
                     creatureImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
                 }
 
@@ -122,22 +122,24 @@ namespace groundCrashers_game
         {
             if (SelectedCreature != null)
             {
-                string statsMessage = $"You have selected {SelectedCreature.name}!\n\n" +
-                                      $"Element: {SelectedCreature.element}\n" +
-                                      $"Type: {SelectedCreature.primary_type}\n" +
-                                      $"HP: {SelectedCreature.stats.hp}\n" +
-                                      $"Attack: {SelectedCreature.stats.attack}\n" +
-                                      $"Defense: {SelectedCreature.stats.defense}\n" +
-                                      $"Speed: {SelectedCreature.stats.speed}";
+                //string statsMessage = $"You have selected {SelectedCreature.name}!\n\n" +
+                //                      $"Element: {SelectedCreature.element}\n" +
+                //                      $"Type: {SelectedCreature.primary_type}\n" +
+                //                      $"HP: {SelectedCreature.stats.hp}\n" +
+                //                      $"Attack: {SelectedCreature.stats.attack}\n" +
+                //                      $"Defense: {SelectedCreature.stats.defense}\n" +
+                //                      $"Defense: {SelectedCreature.stats.max_hp}\n" +
+                //                      $"Speed: {SelectedCreature.stats.speed}";
 
-                MessageBox.Show(statsMessage, "GroundCrasher Selected");
+                //MessageBox.Show(statsMessage, "GroundCrasher Selected");
 
                 string name = SelectedCreature.name;
 
                 Creature selected = loadedCreatures.FirstOrDefault(c => c.name == name);
 
                 _Manager.AddPlayerCreatures(selected);
-                _Manager.PrintActors();
+                //_Manager.PrintActors();
+                MessageBox.Show(SelectedCreature.name + " added to team");
             }
             else
             {

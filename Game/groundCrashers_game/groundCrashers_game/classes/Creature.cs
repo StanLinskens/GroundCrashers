@@ -20,6 +20,7 @@
         public int attack { get; set; }
         public int defense { get; set; }
         public int speed { get; set; }
+        public int max_hp { get; set; }
     }
 
 }
