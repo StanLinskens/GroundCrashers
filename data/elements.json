@@ -20,7 +20,7 @@
   {
     "name": "Toxic",
     "status_effect": "Poison",
-    "effect_description": "Deals increasing damage each turn (3%, 6%, 9%, etc.)",
+    "effect_description": "Deals 10% max HP damage per turn",
     "effectiveness": {
       "strong_against": ["Nature", "Sapient"],
       "weak_against": ["Earth", "Synthetic"]
@@ -29,7 +29,7 @@
   {
     "name": "Fire",
     "status_effect": "Burn",
-    "effect_description": "Deals 8% max HP damage per turn",
+    "effect_description": "Deals 10% max HP damage per turn",
     "effectiveness": {
       "strong_against": ["Nature", "Ice"],
       "weak_against": ["Water", "Earth"]
@@ -38,7 +38,7 @@
   {
     "name": "Water",
     "status_effect": "Drown",
-    "effect_description": "Reduces attack and speed by 15% each",
+    "effect_description": "Reduces attack and speed by 15%",
     "effectiveness": {
       "strong_against": ["Fire", "Earth"],
       "weak_against": ["Nature", "Electric"]
@@ -65,7 +65,7 @@
   {
     "name": "Dark",
     "status_effect": "Blind",
-    "effect_description": "Reduces accuracy by 40%",
+    "effect_description": "Reduces accuracy by 30%",
     "effectiveness": {
       "strong_against": ["Light", "Psychic"],
       "weak_against": ["Light", "Demonic"]
@@ -83,7 +83,7 @@
   {
     "name": "Psychic",
     "status_effect": "Fear",
-    "effect_description": "15% chance to skip turn",
+    "effect_description": "20% chance to skip turn",
     "effectiveness": {
       "strong_against": ["Sapient", "Primal"],
       "weak_against": ["Dark", "Demonic"]
@@ -92,7 +92,7 @@
   {
     "name": "Light",
     "status_effect": "Blind",
-    "effect_description": "Reduces accuracy by 40%",
+    "effect_description": "Reduces accuracy by 30%",
     "effectiveness": {
       "strong_against": ["Dark", "Demonic"],
       "weak_against": ["Dark", "Magnetic"]
@@ -110,7 +110,7 @@
   {
     "name": "Electric",
     "status_effect": "Paralyze",
-    "effect_description": "Reduces speed by 40%, 10% chance to skip turn",
+    "effect_description": "Reduces speed by 30%, 10% chance to skip turn",
     "effectiveness": {
       "strong_against": ["Water", "Magnetic"],
       "weak_against": ["Earth", "Wind"]
@@ -128,7 +128,7 @@
   {
     "name": "Magnetic",
     "status_effect": "Disrupt",
-    "effect_description": "Randomizes stat changes (+/-15%)",
+    "effect_description": "25% chance to recieve dubble damage",
     "effectiveness": {
       "strong_against": ["Electric", "Synthetic"],
       "weak_against": ["Acid", "Earth"]

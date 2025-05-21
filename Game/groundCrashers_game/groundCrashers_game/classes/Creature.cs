@@ -40,6 +40,9 @@
         public int defense { get; set; }
         public int speed { get; set; }
         public int max_hp { get; set; }
+        public int max_attack { get; set; }
+        public int max_defence { get; set; }
+        public int max_speed { get; set; }
 
         public Stats Clone()
         {
@@ -51,7 +54,10 @@
                 attack = this.attack,
                 defense = this.defense,
                 speed = this.speed,
-                max_hp = this.max_hp == 0 ? tripledHp : this.max_hp
+                max_hp = this.max_hp == 0 ? tripledHp : this.max_hp,
+                max_attack = this.attack == 0 ? this.attack : this.max_attack,
+                max_defence = this.defense == 0 ? this.defense : this.max_defence,
+                max_speed = this.speed == 0 ? this.speed : this.max_speed
             };
         }
     }
