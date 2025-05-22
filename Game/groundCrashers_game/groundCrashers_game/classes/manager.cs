@@ -143,7 +143,7 @@ namespace groundCrashers_game.classes
                 ActiveCpuCreature.stats.speed = ActiveCpuCreature.stats.max_speed;
             }
 
-            if (ActivePlayerCreature.curse == "ALL")
+            if ((ActivePlayerCreature != null) && ActivePlayerCreature.curse == "ALL")
             {
                 RandomCurse(ActivePlayerCreature);
             }
