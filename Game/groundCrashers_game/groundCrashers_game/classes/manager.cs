@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Text;
 using System.Windows;
@@ -72,28 +73,33 @@ namespace groundCrashers_game.classes
         /// </param>
         public void ProcessTurn(ActionType action, int swapIndex = -1)
         {
+            // 1) get Enemy action
             bool cpuDied = false;
             string cpuAction = CpuAction();
-            MessageBox.Show($"CPU Action: {cpuAction}");
-            // 2) Resolve the chosen action
+            //MessageBox.Show($"CPU Action: {cpuAction}");
+
+            string cpuCurse = CurseEffect(ActiveCpuCreature);
+            string playerCurse = CurseEffect(ActivePlayerCreature);
+
+            // 3) Resolve the chosen action
             switch (action)
             {
                 case ActionType.Attack:
                     {
-                        cpuDied = ActionType_Attack(cpuDied, cpuAction);
+                        cpuDied = ActionType_Attack(cpuDied, cpuAction, cpuCurse, playerCurse);
                         break;
                     }
 
                 case ActionType.ElementAttack:
                     {
-                        cpuDied = ActionType_ElementAttack(cpuDied, cpuAction);
+                        cpuDied = ActionType_ElementAttack(cpuDied, cpuAction, cpuCurse, playerCurse);
 
                         break;
                     }
 
                 case ActionType.Defend:
                     {
-                        cpuDied = ActionType_Defend(cpuDied, cpuAction);
+                        cpuDied = ActionType_Defend(cpuDied, cpuAction, cpuCurse, playerCurse);
                         break;
                     }
                 case ActionType.Swap:
@@ -116,10 +122,35 @@ namespace groundCrashers_game.classes
                 // (Optional) Notify UI that a new round has started:
                 // e.g. OnRoundAdvanced?.Invoke(RoundNumber);
             }
+
             if (cpuDied == true)
             {
                 Actor cpuActor = GetCpuActor();
                 ActiveCpuCreature = cpuActor.Creatures.FirstOrDefault(c => c.alive == true);
+            }
+
+            if ((ActivePlayerCreature != null) && ActivePlayerCreature.curse == "none")
+            {
+                ActivePlayerCreature.stats.attack = ActivePlayerCreature.stats.max_attack;
+                ActivePlayerCreature.stats.defense = ActivePlayerCreature.stats.max_defense;
+                ActivePlayerCreature.stats.speed = ActivePlayerCreature.stats.max_speed;
+            }
+
+            if (ActiveCpuCreature.curse == "none")
+            {
+                ActiveCpuCreature.stats.attack = ActiveCpuCreature.stats.max_attack;
+                ActiveCpuCreature.stats.defense = ActiveCpuCreature.stats.max_defense;
+                ActiveCpuCreature.stats.speed = ActiveCpuCreature.stats.max_speed;
+            }
+
+            if (ActivePlayerCreature.curse == "ALL")
+            {
+                RandomCurse(ActivePlayerCreature);
+            }
+
+            if(ActiveCpuCreature.curse == "ALL")
+            {
+                RandomCurse(ActiveCpuCreature);
             }
 
             if (ActiveCpuCreature == null)
@@ -128,54 +159,225 @@ namespace groundCrashers_game.classes
             }
         }
 
-        private bool ActionType_Defend(bool cpuDied, string cpuAction)
+        private void RandomCurse(Creature ActiveCreature)
+        {
+            int randomnumber = _rnd.Next(1, 16);
+
+            if (randomnumber == 1) { ActiveCreature.curse = "Nature"; }
+            if (randomnumber == 2) { ActiveCreature.curse = "Ice"; }
+            if (randomnumber == 3) { ActiveCreature.curse = "Toxic"; }
+            if (randomnumber == 4) { ActiveCreature.curse = "Fire"; }
+            if (randomnumber == 5) { ActiveCreature.curse = "Water"; }
+            if (randomnumber == 6) { ActiveCreature.curse = "Draconic"; }
+            if (randomnumber == 7) { ActiveCreature.curse = "Earth"; }
+            if (randomnumber == 8) { ActiveCreature.curse = "Dark"; }
+            if (randomnumber == 9) { ActiveCreature.curse = "Wind"; }
+            if (randomnumber == 10) { ActiveCreature.curse = "Psychic"; }
+            if (randomnumber == 11) { ActiveCreature.curse = "Light"; }
+            if (randomnumber == 12) { ActiveCreature.curse = "Electric"; }
+            if (randomnumber == 13) { ActiveCreature.curse = "Acid"; }
+            if (randomnumber == 14) { ActiveCreature.curse = "Magnetic"; }
+            if (randomnumber == 15) { ActiveCreature.curse = "Demonic"; }
+        }
+
+        private string CurseEffect(Creature activeCreature)
+        {
+            int randomNumber = _rnd.Next(100);
+            if (activeCreature.curse != "none")
+            {
+                activeCreature.stats.attack = activeCreature.stats.max_attack;
+                activeCreature.stats.speed = activeCreature.stats.speed;
+
+                if (activeCreature.curse == "Nature")
+                {
+                    activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.65f); // 35% speed reduction 
+                }
+                else if (activeCreature.curse == "Ice")
+                {
+                    activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.05f); // 5% max hp damage
+                    activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.9f); // 10% attack reduction
+                }
+                else if (activeCreature.curse == "Toxic" || activeCreature.curse == "Fire")
+                {
+                    activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.1f); // 5% max hp damage
+                }
+                else if (activeCreature.curse == "Water")
+                {
+                    activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.85f); // 15% attack reduction
+                    activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.85f); // 15% speed reduction 
+                }
+                else if (activeCreature.curse == "Draconic" || activeCreature.curse == "Light" || activeCreature.curse == "Dark")
+                {
+                    return randomNumber < 20 ? "missed" : "none";
+                }
+                else if (activeCreature.curse == "Earth")
+                {
+                    activeCreature.stats.defense = activeCreature.stats.max_defense;
+                    activeCreature.stats.defense = (int)Math.Round(activeCreature.stats.max_defense * 0.70f); // 30% defense reduction
+                }
+                else if (activeCreature.curse == "Wind" || activeCreature.curse == "Demonic")
+                {
+                    return randomNumber < 25 ? "SelfHit" : "none";
+                }
+                else if (activeCreature.curse == "Psychic")
+                {
+                    return randomNumber < 20 ? "SkipTurn" : "none";
+                }
+                else if (activeCreature.curse == "Electric")
+                {
+                    activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.75f); // 25% speed reduction
+                    return randomNumber < 10 ? "SkipTurn" : "none";
+                }
+                else if (activeCreature.curse == "Acid")
+                {
+                    activeCreature.stats.defense -= (int)Math.Round(activeCreature.stats.defense * 0.1f); // 10% defence reduction each turn
+                }
+                else if (activeCreature.curse == "Magnetic")
+                {
+                    if (randomNumber < 33) 
+                    {
+                        int save = activeCreature.stats.max_speed;
+                        activeCreature.stats.speed = activeCreature.stats.max_defense;
+                        activeCreature.stats.defense = activeCreature.stats.max_attack;
+                        activeCreature.stats.attack = save;
+
+                    }
+                    else if (randomNumber < 66) 
+                    {
+                        int save = activeCreature.stats.max_attack;
+                        activeCreature.stats.attack = activeCreature.stats.max_speed;
+                        activeCreature.stats.speed = activeCreature.stats.max_defense;
+                        activeCreature.stats.defense = save;
+                    }
+                    else 
+                    {
+                        int save = activeCreature.stats.defense;
+                        activeCreature.stats.defense = activeCreature.stats.max_attack;
+                        activeCreature.stats.attack = activeCreature.stats.max_speed;
+                        activeCreature.stats.speed = save;
+                    }
+                }
+
+
+            }
+
+
+            return "none";
+        }
+
+        private bool ActionType_Defend(bool cpuDied, string cpuAction, string cpuCurse, string playerCurse)
         {
             if (cpuAction == "Attack")
             {
+
                 int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
-                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because block
-                ActivePlayerCreature.stats.hp -= DamageDealt;
+
+                if (playerCurse != "SkipTurn")
+                {
+                    DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because block
+                    ActivePlayerCreature.curse = "none";
+                }
+
+                if (cpuCurse == "SelfHit")
+                {
+                    ActiveCpuCreature.stats.hp -= DamageDealt;
+                }
+                else if (cpuCurse != "missed" || cpuCurse != "SkipTurn")
+                { 
+                    ActivePlayerCreature.stats.hp -= DamageDealt;
+                }
+
                 cpuDied = DeadCheck();
             }
             else if (cpuAction == "ElementAttack")
             {
                 int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
                 DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
-                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because block
-                ActivePlayerCreature.stats.hp -= DamageDealt;
-                ActivePlayerCreature.curse = ActiveCpuCreature.element;
+                if (playerCurse != "SkipTurn")
+                {
+                    DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because block
+                }
+
+                if (cpuCurse == "SelfHit")
+                {
+                    ActiveCpuCreature.stats.hp -= DamageDealt;
+                    ActiveCpuCreature.curse = ActiveCpuCreature.element;
+                }
+                else if (cpuCurse != "missed" || cpuCurse != "SkipTurn")
+                {
+                    ActivePlayerCreature.stats.hp -= DamageDealt;
+                    ActivePlayerCreature.curse = ActiveCpuCreature.element;
+                }
+
                 cpuDied = DeadCheck();
-                ActivePlayerCreature.curse = "none";
+
+                if (playerCurse != "SkipTurn")
+                {
+                    ActivePlayerCreature.curse = "none";
+                }
+
             }
             else if (cpuAction == "Block")
             {
-                ActivePlayerCreature.curse = "none";
-                ActiveCpuCreature.curse = "none";
+                if (playerCurse != "SkipTurn")
+                {
+                    ActivePlayerCreature.curse = "none";
+                }
+                if (cpuCurse != "SkipTurn")
+                {
+                    ActiveCpuCreature.curse = "none";
+                }
             }
             else if (cpuAction == "Swap")
             {
-
+                if (playerCurse != "SkipTurn")
+                {
+                    ActivePlayerCreature.curse = "none";
+                }
+                if (cpuCurse != "SkipTurn")
+                {
+                    // fix swap for cpu creature
+                }
             }
 
             return cpuDied;
         }
 
-        private bool ActionType_ElementAttack(bool cpuDied, string cpuAction)
+        private bool ActionType_ElementAttack(bool cpuDied, string cpuAction, string cpuCurse, string playerCurse)
         {
             if (cpuAction == "Attack")
             {
                 if (ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
                 {
                     int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
-                    ActivePlayerCreature.stats.hp -= DamageDealt;
+
+                    if (cpuCurse == "SelfHit")
+                    {
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                    }
+                    else if (cpuCurse != "missed" || cpuCurse != "SkipTurn")
+                    {
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                    }
+
                     cpuDied = DeadCheck();
 
                     if (ActivePlayerCreature != null && ActiveCpuCreature != null)
                     {
                         DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
                         DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
-                        ActiveCpuCreature.stats.hp -= DamageDealt;
-                        ActiveCpuCreature.curse = ActivePlayerCreature.element;
+
+                        if (playerCurse == "SelfHit")
+                        {
+                            ActivePlayerCreature.stats.hp -= DamageDealt;
+                            ActivePlayerCreature.curse = ActivePlayerCreature.element;
+                        }
+                        else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                        {
+                            ActiveCpuCreature.stats.hp -= DamageDealt;
+                            ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                        }
+
                         cpuDied = DeadCheck();
                     }
                 }
@@ -183,14 +385,33 @@ namespace groundCrashers_game.classes
                 {
                     int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
                     DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
-                    ActiveCpuCreature.stats.hp -= DamageDealt;
-                    ActiveCpuCreature.curse = ActivePlayerCreature.element;
+
+                    if (playerCurse == "SelfHit")
+                    {
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                        ActivePlayerCreature.curse = ActivePlayerCreature.element;
+                    }
+                    else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                    {
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                        ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                    }
+
                     cpuDied = DeadCheck();
 
                     if (ActivePlayerCreature != null && ActiveCpuCreature != null)
                     {
                         DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
-                        ActivePlayerCreature.stats.hp -= DamageDealt;
+
+                        if (cpuCurse == "SelfHit")
+                        {
+                            ActiveCpuCreature.stats.hp -= DamageDealt;
+                        }
+                        else if (cpuCurse != "missed" || cpuCurse != "SkipTurn")
+                        {
+                            ActivePlayerCreature.stats.hp -= DamageDealt;
+                        }
+
                         cpuDied = DeadCheck();
                     }
                 }
@@ -201,16 +422,36 @@ namespace groundCrashers_game.classes
                 {
                     int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
                     DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
-                    ActivePlayerCreature.stats.hp -= DamageDealt;
-                    ActivePlayerCreature.curse = ActiveCpuCreature.element;
+
+                    if (cpuCurse == "SelfHit")
+                    {
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                        ActiveCpuCreature.curse = ActiveCpuCreature.element;
+                    }
+                    else if (cpuCurse != "missed" || cpuCurse != "SkipTurn")
+                    {
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                        ActivePlayerCreature.curse = ActivePlayerCreature.element;
+                    }
+
                     cpuDied = DeadCheck();
 
                     if (ActivePlayerCreature != null && ActiveCpuCreature != null)
                     {
                         DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
                         DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
-                        ActiveCpuCreature.stats.hp -= DamageDealt;
-                        ActiveCpuCreature.curse = ActivePlayerCreature.element;
+
+                        if (playerCurse == "SelfHit")
+                        {
+                            ActivePlayerCreature.stats.hp -= DamageDealt;
+                            ActivePlayerCreature.curse = ActivePlayerCreature.element;
+                        }
+                        else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                        {
+                            ActiveCpuCreature.stats.hp -= DamageDealt;
+                            ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                        }
+
                         cpuDied = DeadCheck();
                     }
                 }
@@ -218,16 +459,36 @@ namespace groundCrashers_game.classes
                 {
                     int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
                     DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
-                    ActiveCpuCreature.stats.hp -= DamageDealt;
-                    ActiveCpuCreature.curse = ActivePlayerCreature.element;
+
+                    if (playerCurse == "SelfHit")
+                    {
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                        ActivePlayerCreature.curse = ActivePlayerCreature.element;
+                    }
+                    else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                    {
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                        ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                    }
+
                     cpuDied = DeadCheck();
 
                     if (ActivePlayerCreature != null && ActiveCpuCreature != null)
                     {
                         DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
                         DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
-                        ActivePlayerCreature.stats.hp -= DamageDealt;
-                        ActivePlayerCreature.curse = ActiveCpuCreature.element;
+
+                        if (cpuCurse == "SelfHit")
+                        {
+                            ActiveCpuCreature.stats.hp -= DamageDealt;
+                            ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                        }
+                        else if (cpuCurse != "missed" || cpuCurse != "SkipTurn")
+                        {
+                            ActivePlayerCreature.stats.hp -= DamageDealt;
+                            ActivePlayerCreature.curse = ActivePlayerCreature.element;
+                        }
+
                         cpuDied = DeadCheck();
                     }
                 }
@@ -236,47 +497,120 @@ namespace groundCrashers_game.classes
             {
                 int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
                 DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
-                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because block
-                ActiveCpuCreature.stats.hp -= DamageDealt;
-                ActiveCpuCreature.curse = ActivePlayerCreature.element;
+
+                if (cpuCurse != "SkipTurn")
+                {
+                    DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because block
+                }
+
+                if (playerCurse == "SelfHit")
+                {
+                    ActivePlayerCreature.stats.hp -= DamageDealt;
+                    ActivePlayerCreature.curse = ActivePlayerCreature.element;
+                }
+                else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                {
+                    ActiveCpuCreature.stats.hp -= DamageDealt;
+                    ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                }
+
+                if (cpuCurse != "SkipTurn")
+                {
+                    ActiveCpuCreature.curse = "none";
+                }
+
+
                 cpuDied = DeadCheck();
-                ActiveCpuCreature.curse = "none";
+
             }
             else if (cpuAction == "Swap")
             {
+                if (cpuCurse != "SkipTurn")
+                {
+                    // fix swap for cpu creature
+                }
 
+                int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
+
+                if (playerCurse == "SelfHit")
+                {
+                    ActivePlayerCreature.stats.hp -= DamageDealt;
+                    ActivePlayerCreature.curse = ActivePlayerCreature.element;
+                }
+                else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                {
+                    ActiveCpuCreature.stats.hp -= DamageDealt;
+                    ActiveCpuCreature.curse = ActivePlayerCreature.element;
+                }
             }
 
             return cpuDied;
         }
 
-        private bool ActionType_Attack(bool cpuDied, string cpuAction)
+        private bool ActionType_Attack(bool cpuDied, string cpuAction, string cpuCurse, string playerCurse)
         {
             if (cpuAction == "Attack")
             {
                 if (ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
                 {
                     int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
-                    ActivePlayerCreature.stats.hp -= DamageDealt;
+
+                    if (cpuCurse == "SelfHit")
+                    {
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                    }
+                    else if (cpuCurse != "missed" || cpuCurse != "SkipTurn")
+                    {
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                    }
+
                     cpuDied = DeadCheck();
 
                     if (ActivePlayerCreature != null && ActiveCpuCreature != null)
                     {
                         DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
-                        ActiveCpuCreature.stats.hp -= DamageDealt;
+
+                        if (playerCurse == "SelfHit")
+                        {
+                            ActivePlayerCreature.stats.hp -= DamageDealt;
+                        }
+                        else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                        {
+                            ActiveCpuCreature.stats.hp -= DamageDealt;
+                        }
+
                         cpuDied = DeadCheck();
                     }
                 }
                 else
                 {
                     int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
-                    ActiveCpuCreature.stats.hp -= DamageDealt;
+
+                    if (playerCurse == "SelfHit")
+                    {
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                    }
+                    else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                    {
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                    }
+
                     cpuDied = DeadCheck();
 
                     if (ActivePlayerCreature != null && ActiveCpuCreature != null)
                     {
                         DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
-                        ActivePlayerCreature.stats.hp -= DamageDealt;
+
+                        if (cpuCurse == "SelfHit")
+                        {
+                            ActiveCpuCreature.stats.hp -= DamageDealt;
+                        }
+                        else if (cpuCurse != "missed" || cpuCurse != "SkipTurn")
+                        {
+                            ActivePlayerCreature.stats.hp -= DamageDealt;
+                        }
+
                         cpuDied = DeadCheck();
                     }
                 }
@@ -287,29 +621,68 @@ namespace groundCrashers_game.classes
                 {
                     int DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
                     DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
-                    ActivePlayerCreature.stats.hp -= DamageDealt;
-                    ActivePlayerCreature.curse = ActiveCpuCreature.element;
+
+                    if (cpuCurse == "SelfHit")
+                    {
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                        ActiveCpuCreature.curse = ActiveCpuCreature.element;
+                    }
+                    else if (cpuCurse != "missed" || cpuCurse != "SkipTurn")
+                    {
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                        ActivePlayerCreature.curse = ActiveCpuCreature.element;
+                    }
+
                     cpuDied = DeadCheck();
 
                     if (ActivePlayerCreature != null && ActiveCpuCreature != null)
                     {
                         DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
-                        ActiveCpuCreature.stats.hp -= DamageDealt;
+
+                        if (playerCurse == "SelfHit")
+                        {
+                            ActivePlayerCreature.stats.hp -= DamageDealt;
+                        }
+                        else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                        {
+                            ActiveCpuCreature.stats.hp -= DamageDealt;
+                        }
+
                         cpuDied = DeadCheck();
+
                     }
                 }
                 else
                 {
                     int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
-                    ActiveCpuCreature.stats.hp -= DamageDealt;
+
+                    if (playerCurse == "SelfHit")
+                    {
+                        ActivePlayerCreature.stats.hp -= DamageDealt;
+                    }
+                    else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                    {
+                        ActiveCpuCreature.stats.hp -= DamageDealt;
+                    }
+
                     cpuDied = DeadCheck();
 
                     if (ActivePlayerCreature != null && ActiveCpuCreature != null)
                     {
                         DamageDealt = Damage(ActiveCpuCreature.stats.attack, ActivePlayerCreature.stats.defense);
                         DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because elemental
-                        ActivePlayerCreature.stats.hp -= DamageDealt;
-                        ActivePlayerCreature.curse = ActiveCpuCreature.element;
+
+                        if (cpuCurse == "SelfHit")
+                        {
+                            ActiveCpuCreature.stats.hp -= DamageDealt;
+                            ActiveCpuCreature.curse = ActiveCpuCreature.element;
+                        }
+                        else if (cpuCurse != "missed" || cpuCurse != "SkipTurn")
+                        {
+                            ActivePlayerCreature.stats.hp -= DamageDealt;
+                            ActivePlayerCreature.curse = ActiveCpuCreature.element;
+                        }
+
                         cpuDied = DeadCheck();
                     }
                 }
@@ -317,14 +690,40 @@ namespace groundCrashers_game.classes
             else if (cpuAction == "Block")
             {
                 int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
-                DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because Block
-                ActiveCpuCreature.stats.hp -= DamageDealt;
-                ActiveCpuCreature.curse = "none";
+
+                if (cpuCurse != "SkipTurn")
+                {
+                    DamageDealt = (int)Math.Round(DamageDealt * 0.2f); //less damage because Block
+                    ActiveCpuCreature.curse = "none";
+                }
+
+                if (playerCurse == "SelfHit")
+                {
+                    ActivePlayerCreature.stats.hp -= DamageDealt;
+                }
+                else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                {
+                    ActiveCpuCreature.stats.hp -= DamageDealt;
+                }
+
                 cpuDied = DeadCheck();
             }
             else if (cpuAction == "Swap")
             {
+                int DamageDealt = Damage(ActivePlayerCreature.stats.attack, ActiveCpuCreature.stats.defense);
+                if (cpuCurse != "SkipTurn")
+                {
 
+                }
+
+                if (playerCurse == "SelfHit")
+                {
+                    ActivePlayerCreature.stats.hp -= DamageDealt;
+                }
+                else if (playerCurse != "missed" || playerCurse != "SkipTurn")
+                {
+                    ActiveCpuCreature.stats.hp -= DamageDealt;
+                }
             }
 
             return cpuDied;
@@ -427,7 +826,7 @@ namespace groundCrashers_game.classes
                 ActivePlayerCreature = null;
             }
 
-            bool cpuDied = true;
+            bool cpuDied = false;
             if (ActiveCpuCreature.stats.hp <= 0)
             {
                 // Create CPU Actor

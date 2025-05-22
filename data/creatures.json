@@ -3610,7 +3610,7 @@
       "defense": 150,
       "speed": 150
     },
-    "element": "none",
+    "element": "ALL",
     "ability": "",
     "description": "",
     "scientific_name": "Pattje72"

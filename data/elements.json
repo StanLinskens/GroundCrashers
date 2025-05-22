@@ -2,7 +2,7 @@
   {
     "name": "Nature",
     "status_effect": "Entangle",
-    "effect_description": "Reduces speed by 30%",
+    "effect_description": "Reduces speed by 35%",
     "effectiveness": {
       "strong_against": ["Water", "Earth"],
       "weak_against": ["Fire", "Toxic"]
@@ -11,7 +11,7 @@
   {
     "name": "Ice",
     "status_effect": "Frostbite",
-    "effect_description": "Deals 5% max HP damage per turn and reduces attack by 20%",
+    "effect_description": "Deals 5% max HP damage per turn and reduces attack by 10%",
     "effectiveness": {
       "strong_against": ["Nature", "Wind", "Water"],
       "weak_against": ["Fire", "Earth"]
@@ -47,7 +47,7 @@
   {
     "name": "Draconic",
     "status_effect": "Deafen",
-    "effect_description": "Reduces accuracy by 25%",
+    "effect_description": "Reduces accuracy by 20%",
     "effectiveness": {
       "strong_against": ["Psychic", "Light"],
       "weak_against": ["Earth", "Wind"]
@@ -65,7 +65,7 @@
   {
     "name": "Dark",
     "status_effect": "Blind",
-    "effect_description": "Reduces accuracy by 30%",
+    "effect_description": "Reduces accuracy by 20%",
     "effectiveness": {
       "strong_against": ["Light", "Psychic"],
       "weak_against": ["Light", "Demonic"]
@@ -92,7 +92,7 @@
   {
     "name": "Light",
     "status_effect": "Blind",
-    "effect_description": "Reduces accuracy by 30%",
+    "effect_description": "Reduces accuracy by 20%",
     "effectiveness": {
       "strong_against": ["Dark", "Demonic"],
       "weak_against": ["Dark", "Magnetic"]
@@ -110,7 +110,7 @@
   {
     "name": "Electric",
     "status_effect": "Paralyze",
-    "effect_description": "Reduces speed by 30%, 10% chance to skip turn",
+    "effect_description": "Reduces speed by 25%, 10% chance to skip turn",
     "effectiveness": {
       "strong_against": ["Water", "Magnetic"],
       "weak_against": ["Earth", "Wind"]
@@ -128,7 +128,7 @@
   {
     "name": "Magnetic",
     "status_effect": "Disrupt",
-    "effect_description": "25% chance to recieve dubble damage",
+    "effect_description": "switch stats (exept health) arround",
     "effectiveness": {
       "strong_against": ["Electric", "Synthetic"],
       "weak_against": ["Acid", "Earth"]
