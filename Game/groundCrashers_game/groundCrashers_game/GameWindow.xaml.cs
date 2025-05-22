@@ -53,7 +53,6 @@ namespace groundCrashers_game
             gameManager = new Manager();
             gameManager.LoadAllCreatures();
             gameManager.LoadActorsForBattleMode();
-            gameManager.PrintActors();
 
             UpdateBattleUI();
 
@@ -305,9 +304,10 @@ namespace groundCrashers_game
             }
             else
             {
-                MessageBox.Show("You need to select a creature first.");
+                gameManager.logs.Add("You need to select a creature first.");
             }
-
+            gameManager.ControlLogs();
+            logbox.Text = string.Join("\n", gameManager.logs);
         }
 
         private void ShowCombatOptions()
@@ -364,12 +364,13 @@ namespace groundCrashers_game
 
         private void Attack_Button_Click(object sender, RoutedEventArgs e)
         {
-
             gameManager.ProcessTurn(ActionType.Attack);
 
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
+            gameManager.ControlLogs();
+            logbox.Text = string.Join("\n", gameManager.logs);
         }
 
         private void Element_Button_Click(object sender, RoutedEventArgs e)
@@ -380,6 +381,8 @@ namespace groundCrashers_game
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
+            gameManager.ControlLogs();
+            logbox.Text = string.Join("\n", gameManager.logs);
         }
 
         private void Defend_Button_Click(object sender, RoutedEventArgs e)
@@ -390,12 +393,16 @@ namespace groundCrashers_game
             UpdateBattleUI();
             // After defense, restore main action buttons
             RestoreMainActionButtons();
+            gameManager.ControlLogs();
+            logbox.Text = string.Join("\n", gameManager.logs);
         }
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
             // Go back to main action buttons
             RestoreMainActionButtons();
+            gameManager.ControlLogs();
+            logbox.Text = string.Join("\n", gameManager.logs);
         }
 
         private void RestoreMainActionButtons()
@@ -421,7 +428,8 @@ namespace groundCrashers_game
                 //Replace the current buttons with combat options
                 ShowSwapOptions();
             }
-
+            gameManager.ControlLogs();
+            logbox.Text = string.Join("\n", gameManager.logs);
         }
 
         private void ShowSwapOptions()
@@ -454,7 +462,6 @@ namespace groundCrashers_game
         }
         private void Creature_Button_Click(object sender, RoutedEventArgs e)
         {
-
             Button clicked = sender as Button;
             string name = clicked.Content.ToString() ?? "default";
 
@@ -479,6 +486,8 @@ namespace groundCrashers_game
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
+            gameManager.ControlLogs();
+            logbox.Text = string.Join("\n", gameManager.logs);
         }
 
         private void Back_S_Button_Click(object sender, RoutedEventArgs e)
@@ -491,6 +500,8 @@ namespace groundCrashers_game
         {
             var creaturePickerWindow = new GroundCrasherWindow(gameManager);
             creaturePickerWindow.Show();
+            gameManager.ControlLogs();
+            logbox.Text = string.Join("\n", gameManager.logs);
         }
 
         private void Run_Button_Click(object sender, RoutedEventArgs e)

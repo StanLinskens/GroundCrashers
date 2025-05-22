@@ -214,6 +214,8 @@
                         <TextBlock Text="CHOOSE ACTION" HorizontalAlignment="Center" FontSize="28" VerticalAlignment="Center" Foreground="#CCCCCC"/>
                     </Border>
 
+                    <TextBlock x:Name="logbox" HorizontalAlignment="Left" FontSize="22" VerticalAlignment="Center" Foreground="#CCCCCC" Grid.Column="1" Margin="10,0,0,0" Height="187" Width="535"><Run/><LineBreak/><Run/></TextBlock>
+
                     <WrapPanel Grid.Column="1" Width="850" HorizontalAlignment="Right" Margin="40,15" VerticalAlignment="Center">
                         <Button Content="FIGHT" Height="60" Width="400" Margin="10" Style="{StaticResource DarkButton}" Background="#591C1C" BorderBrush="#7A2929" FontSize="20" Click="Fight_Button_Click">
                             <Button.Effect>

@@ -140,7 +140,7 @@ namespace groundCrashers_game
 
                 _Manager.AddPlayerCreatures(selected);
                 //_Manager.PrintActors();
-                MessageBox.Show(SelectedCreature.name + " added to team");
+                _Manager.logs.Add("SelectedCreature.name + \" added to team\"");
             }
             else
             {

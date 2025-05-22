@@ -17,6 +17,8 @@ namespace groundCrashers_game.classes
         public Creature? ActivePlayerCreature { get; private set; }
         public Creature? ActiveCpuCreature { get; private set; }
 
+        public List<string> logs { get; set; } = new List<string>();
+
         private static readonly Random _rnd = new Random();
 
         public enum ActionType
@@ -112,6 +114,11 @@ namespace groundCrashers_game.classes
                 if (_currentActorIndex == 0)
                 {
                     action = CpuAction();
+                    logs.Add("Choice cpu " + action.ToString().ToLower());
+                }
+                else
+                {
+                    logs.Add("Choice player " + action.ToString().ToLower());
                 }
                 // find out curse effect
                 string curse = CurseEffect(attacker);
@@ -376,7 +383,13 @@ namespace groundCrashers_game.classes
             }
             return ActionType.Attack; // Default action
         }
-
+        public void ControlLogs()
+        {
+            while (logs.Count > 6)
+            {
+                logs.RemoveAt(0); // Remove oldest log
+            }
+        }
         private bool DeadCheck(bool cpuDied)
         {
             if ((ActivePlayerCreature != null) && ActivePlayerCreature.stats.hp <= 0)
