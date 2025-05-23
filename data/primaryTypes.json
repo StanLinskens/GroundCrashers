@@ -2,36 +2,50 @@
     {
       "name": "Verdant",
       "strong_against": ["Synthetic"],
+      "better_against": ["Sapient"],
+      "weaker_against": ["Apex"],
       "weak_against": ["Primal"]
     },
     {
       "name": "Primal",
       "strong_against": ["Verdant"],
+      "better_against": ["Synthetic"],
+      "weaker_against": ["Sapient"],
       "weak_against": ["Apex"]
     },
     {
       "name": "Apex",
       "strong_against": ["Primal"],
+      "better_against": ["Verdant"],
+      "weaker_against": ["Synthetic"],
       "weak_against": ["Sapient"]
     },
     {
       "name": "Sapient",
-      "strong_against": ["Apex"],
+      "strong_against": ["Apex"],      
+      "better_against": ["Primal"],
+      "weaker_against": ["Verdant"],
       "weak_against": ["Synthetic"]
     },
     {
       "name": "Synthetic",
       "strong_against": ["Sapient"],
+      "better_against": ["Apex"],
+      "weaker_against": ["Primal"],
       "weak_against": ["Verdant"]
     },
     {
       "name": "God",
-      "strong_against": ["All"], 
-      "weak_against": ["Titans"]
+      "strong_against": ["Titan"],       
+      "better_against": ["Verdant", "Primal", "Apex", "Sapient", "Synthetic"],
+      "weaker_against": ["God"],
+      "weak_against": ["Titan"]
     },
     {
       "name": "Titan",
-      "strong_against": ["God"], 
-      "weak_against": ["Titans"]
+      "strong_against": ["God"],       
+      "better_against": ["Sapient"],
+      "weaker_against": ["God"],
+      "weak_against": ["Titan"]
     }
 ]

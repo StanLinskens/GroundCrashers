@@ -17,8 +17,6 @@ namespace groundCrashers_game
             GameWindow gameWindow = new GameWindow();
             gameWindow.Show();
             this.Close();
-
-            var player = new Actor("test_Player", true);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

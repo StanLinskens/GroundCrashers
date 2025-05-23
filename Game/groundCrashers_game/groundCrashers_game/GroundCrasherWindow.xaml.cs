@@ -27,11 +27,13 @@ namespace groundCrashers_game
 
         private Manager _Manager;
 
-        public GroundCrasherWindow(Manager manager)
+        private GameWindow _gameWindow;
+
+        public GroundCrasherWindow(Manager manager, GameWindow gameWindow)
         {
             InitializeComponent();
-
             _Manager = manager;
+            _gameWindow = gameWindow;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -49,8 +51,8 @@ namespace groundCrashers_game
             if (selected != null)
             {
                 GroundCrasherName.Text = selected.name;
-                GroundCrasherType.Text = selected.primary_type;
-                GroundCrasherElement.Text = selected.element;
+                GroundCrasherType.Text = selected.primary_type.ToString();
+                GroundCrasherElement.Text = selected.element.ToString();
                 GroundCrasherHP.Text = selected.stats.hp.ToString();
                 GroundCrasherAttack.Text = selected.stats.attack.ToString();
                 GroundCrasherDefense.Text = selected.stats.defense.ToString();
@@ -123,28 +125,20 @@ namespace groundCrashers_game
         {
             if (SelectedCreature != null)
             {
-                //string statsMessage = $"You have selected {SelectedCreature.name}!\n\n" +
-                //                      $"Element: {SelectedCreature.element}\n" +
-                //                      $"Type: {SelectedCreature.primary_type}\n" +
-                //                      $"HP: {SelectedCreature.stats.hp}\n" +
-                //                      $"Attack: {SelectedCreature.stats.attack}\n" +
-                //                      $"Defense: {SelectedCreature.stats.defense}\n" +
-                //                      $"Defense: {SelectedCreature.stats.max_hp}\n" +
-                //                      $"Speed: {SelectedCreature.stats.speed}";
-
-                //MessageBox.Show(statsMessage, "GroundCrasher Selected");
-
                 string name = SelectedCreature.name;
 
                 Creature selected = loadedCreatures.FirstOrDefault(c => c.name == name);
 
-                _Manager.AddPlayerCreatures(selected);
                 //_Manager.PrintActors();
-                _Manager.logs.Add("SelectedCreature.name + \" added to team\"");
+                _Manager.AddPlayerCreatures(selected);
+                _Manager.logs.Add(SelectedCreature.name + " added to team");
+
+                // Tell GameWindow to update the logbox
+                _gameWindow.RefreshLogBox();
             }
             else
             {
-                MessageBox.Show("No creature selected!");
+                _Manager.logs.Add("no creature selected added to team");
             }
         }
 

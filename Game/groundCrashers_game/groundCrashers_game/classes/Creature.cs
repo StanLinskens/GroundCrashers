@@ -5,13 +5,13 @@
     {
         public int id { get; set; }
         public string name { get; set; }
-        public string primary_type { get; set; }
+        public Primaries primary_type { get; set; }
         public string subtype { get; set; }
         public Stats stats { get; set; }
-        public string element { get; set; }
+        public Elements element { get; set; }
         public string ability { get; set; }
         public string description { get; set; }
-        public string curse { get; set; } = "none";
+        public Elements curse { get; set; } = Elements.none;
         public bool alive { get; set; } = true;
         
 
