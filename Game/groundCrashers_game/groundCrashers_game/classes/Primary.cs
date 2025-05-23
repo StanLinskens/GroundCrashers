@@ -1,5 +1,4 @@
-﻿using groundCrashers_game.classes;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 
 namespace groundCrashers_game
 {
@@ -91,7 +90,7 @@ namespace groundCrashers_game
             }
         };
 
-        public static float GetEffectiveness(Primaries attacker, Primaries defender)
+        public static float GetPrimaryEffectiveness(Primaries attacker, Primaries defender)
         {
             if (Chart[attacker].StrongAgainst.Contains(defender)) return 1.5f;
             else if (Chart[attacker].BetterAgainst.Contains(defender)) return 1.25f;
@@ -101,3 +100,4 @@ namespace groundCrashers_game
         }
     }
 }
+

@@ -1,4 +1,5 @@
 ﻿using groundCrashers_game.classes;
+using System.Diagnostics.Eventing.Reader;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -436,7 +437,7 @@ namespace groundCrashers_game
             Actor playerActor = gameManager.GetPlayerActor();
             if (playerActor.Creatures.Count < 3)
             {
-                MessageBox.Show("You need at least 3 creatures to swap.");
+                gameManager.logs.Add("You need at least 3 creatures to swap.");
             }
             else
             {
@@ -487,6 +488,7 @@ namespace groundCrashers_game
             {
                 gameManager.CurrentPlayerCreatureSet(name);
                 gameManager.ProcessTurn(ActionType.Swap);
+                gameManager.logs.Add("player swapped to " + name);
             }
             else if (gameManager.ActivePlayerCreature == null && IsAlive)
             {

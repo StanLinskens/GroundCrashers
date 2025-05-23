@@ -22,8 +22,8 @@
     "status_effect": "Poison",
     "effect_description": "Deals 10% max HP damage per turn",
     "effectiveness": {
-      "strong_against": ["Nature", "Sapient"],
-      "weak_against": ["Earth", "Synthetic"]
+      "strong_against": ["Nature", "Psychic"],
+      "weak_against": ["Earth", "wind"]
     }
   },
   {
@@ -85,7 +85,7 @@
     "status_effect": "Fear",
     "effect_description": "20% chance to skip turn",
     "effectiveness": {
-      "strong_against": ["Sapient", "Primal"],
+      "strong_against": [ "Earth" ],
       "weak_against": ["Dark", "Demonic"]
     }
   },
@@ -121,7 +121,7 @@
     "status_effect": "Corrode",
     "effect_description": "Reduces defense by 10% each turn",
     "effectiveness": {
-      "strong_against": ["Earth", "Synthetic"],
+      "strong_against": ["Earth"],
       "weak_against": ["Water", "Psychic"]
     }
   },
@@ -130,7 +130,7 @@
     "status_effect": "Disrupt",
     "effect_description": "switch stats (exept health) arround",
     "effectiveness": {
-      "strong_against": ["Electric", "Synthetic"],
+      "strong_against": ["Electric"],
       "weak_against": ["Acid", "Earth"]
     }
   }

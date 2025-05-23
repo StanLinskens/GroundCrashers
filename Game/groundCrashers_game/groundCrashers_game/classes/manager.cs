@@ -91,7 +91,13 @@ namespace groundCrashers_game.classes
 
             if (ActiveCpuCreature == null)
             {
-                MessageBox.Show("You win!");
+                logs.Add("you win");
+                MessageBox.Show("you win");
+                GameWindow gameWindow = new GameWindow();
+                gameWindow.Close();
+
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
             }
         }
 
@@ -131,10 +137,10 @@ namespace groundCrashers_game.classes
                     case ActionType.Attack:
                         {
                             int DamageDealt = Damage(attacker.stats.attack, defender.stats.defense);
-                            float multiplier = PrimaryChart.GetEffectiveness(attacker.primary_type, defender.primary_type);
+                            float multiplier = PrimaryChart.GetPrimaryEffectiveness(attacker.primary_type, defender.primary_type);
                             if (curse == "SelfHit")
                             {
-                                multiplier = PrimaryChart.GetEffectiveness(attacker.primary_type, attacker.primary_type);
+                                multiplier = PrimaryChart.GetPrimaryEffectiveness(attacker.primary_type, attacker.primary_type);
                                 DamageDealt = (int)Math.Round(DamageDealt * multiplier);
                                 attacker.stats.hp -= DamageDealt;
                                 logs.Add(attacker.name + " hit himself");
@@ -162,17 +168,24 @@ namespace groundCrashers_game.classes
                         {
                             int DamageDealt = Damage(attacker.stats.attack, defender.stats.defense);
                             DamageDealt = (int)Math.Round(DamageDealt * 0.4f); //less damage because elemental
-
+                            float multiplier = ElementChart.GetElementEffectiveness(attacker.element, defender.element);
                             if (curse == "SelfHit")
                             {
+                                multiplier = ElementChart.GetElementEffectiveness(attacker.element, attacker.element);
+                                DamageDealt = (int)Math.Round(DamageDealt * multiplier);
                                 attacker.stats.hp -= DamageDealt;
                                 attacker.curse = attacker.element;
                                 logs.Add(attacker.name + " hit himself");
+                                logs.Add(attacker.name + " did " + multiplier + "x the normal damage");
+                                logs.Add(attacker.name + " curse is " + attacker.element.ToString().ToLower());
                             }
                             else if (curse != "missed" || curse != "SkipTurn")
                             {
+                                DamageDealt = (int)Math.Round(DamageDealt * multiplier);
                                 defender.stats.hp -= DamageDealt;
                                 defender.curse = attacker.element;
+                                logs.Add(attacker.name + " did " + multiplier + "x the normal damage");
+                                logs.Add(defender.name + " curse is " + attacker.element.ToString().ToLower());
                             }
                             else if (curse == "missed")
                             {
@@ -430,7 +443,7 @@ namespace groundCrashers_game.classes
         }
         public void ControlLogs()
         {
-            while (logs.Count > 6)
+            while (logs.Count > 10)
             {
                 logs.RemoveAt(0); // Remove oldest log
             }
