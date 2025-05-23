@@ -66,6 +66,7 @@ namespace groundCrashers_game.classes
         public void ProcessTurn(ActionType action, int swapIndex = -1)
         {
             // 1) get Enemy action
+            ActionType actionCpu = CpuAction();
             bool cpuDied = false;
 
             if (ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
@@ -77,9 +78,9 @@ namespace groundCrashers_game.classes
                 _currentActorIndex = 1;
             }
 
-            ActionChoice(action);
+            ActionChoice(action, actionCpu);
             cpuDied = DeadCheck(cpuDied);
-            ActionChoice(action);
+            ActionChoice(action, actionCpu);
             cpuDied = DeadCheck(cpuDied);
 
             if (cpuDied == true)
@@ -94,7 +95,7 @@ namespace groundCrashers_game.classes
             }
         }
 
-        private void ActionChoice(ActionType action)
+        private void ActionChoice(ActionType action, ActionType actionCpu)
         {
             // 2) Identify attacker and defender based on _currentActorIndex
             Actor currentActor = CurrentActors[_currentActorIndex];
@@ -111,17 +112,19 @@ namespace groundCrashers_game.classes
 
             if(attacker != null && defender != null)
             {
+                // find out curse effect
+                string curse = CurseEffect(attacker);
+
+                // display action in logs
                 if (_currentActorIndex == 0)
                 {
-                    action = CpuAction();
-                    logs.Add("Choice cpu " + action.ToString().ToLower());
+                    action = actionCpu;
+                    logs.Add("Choice " + attacker.name + " (cpu) " + action.ToString().ToLower());
                 }
                 else
                 {
-                    logs.Add("Choice player " + action.ToString().ToLower());
+                    logs.Add("Choice " + attacker.name + " (player) " + action.ToString().ToLower());
                 }
-                // find out curse effect
-                string curse = CurseEffect(attacker);
 
                 switch (action)
                 {
@@ -132,12 +135,22 @@ namespace groundCrashers_game.classes
                             if (curse == "SelfHit")
                             {
                                 attacker.stats.hp -= DamageDealt;
+                                logs.Add(attacker.name + " hit himself");
                             }
                             else if (curse != "missed" || curse != "SkipTurn")
                             {
                                 defender.stats.hp -= DamageDealt;
+                                
                             }
-                            break;
+                            else if (curse == "missed")
+                            {
+                                logs.Add(attacker.name + " missed");
+                            }
+                            else if (curse == "SkipTurn")
+                            {
+                                logs.Add(attacker.name + " skipped turn");
+                            }
+                                break;
                         }
 
                     case ActionType.ElementAttack:
@@ -149,11 +162,20 @@ namespace groundCrashers_game.classes
                             {
                                 attacker.stats.hp -= DamageDealt;
                                 attacker.curse = attacker.element;
+                                logs.Add(attacker.name + " hit himself");
                             }
                             else if (curse != "missed" || curse != "SkipTurn")
                             {
                                 defender.stats.hp -= DamageDealt;
                                 defender.curse = attacker.element;
+                            }
+                            else if (curse == "missed")
+                            {
+                                logs.Add(attacker.name + " missed");
+                            }
+                            else if (curse == "SkipTurn")
+                            {
+                                logs.Add(attacker.name + " skipped turn");
                             }
 
                             break;
@@ -161,9 +183,17 @@ namespace groundCrashers_game.classes
 
                     case ActionType.Defend:
                         {
-                            attacker.stats.hp += attacker.stats.max_hp / 25; // 25% heal
-                            attacker.curse = "none";
-                            break;
+                            if (curse != "SkipTurn")
+                            {
+                                attacker.stats.hp += attacker.stats.max_hp / 25; // 25% heal
+                                attacker.curse = "none";
+                            }
+                            else if (curse == "SkipTurn")
+                            {
+                                logs.Add(attacker.name + " skipped turn");
+                            }
+
+                                break;
                         }
                     case ActionType.Swap:
                         {
@@ -233,20 +263,28 @@ namespace groundCrashers_game.classes
                 if (activeCreature.curse == "Nature")
                 {
                     activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.65f); // 35% speed reduction 
+                    logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
                 }
                 else if (activeCreature.curse == "Ice")
                 {
+                    int save = activeCreature.stats.hp;
                     activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.05f); // 5% max hp damage
+                    logs.Add(activeCreature.name + " hp went from " + save + " to " + activeCreature.stats.hp);
                     activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.9f); // 10% attack reduction
+                    logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
                 }
                 else if (activeCreature.curse == "Toxic" || activeCreature.curse == "Fire")
                 {
-                    activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.1f); // 5% max hp damage
+                    int save = activeCreature.stats.hp;
+                    activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.1f); // 10% max hp damage
+                    logs.Add(activeCreature.name + " hp went from " + save + " to " + activeCreature.stats.hp);
                 }
                 else if (activeCreature.curse == "Water")
                 {
                     activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.85f); // 15% attack reduction
+                    logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
                     activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.85f); // 15% speed reduction 
+                    logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
                 }
                 else if (activeCreature.curse == "Draconic" || activeCreature.curse == "Light" || activeCreature.curse == "Dark")
                 {
@@ -256,6 +294,7 @@ namespace groundCrashers_game.classes
                 {
                     activeCreature.stats.defense = activeCreature.stats.max_defense;
                     activeCreature.stats.defense = (int)Math.Round(activeCreature.stats.max_defense * 0.70f); // 30% defense reduction
+                    logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
                 }
                 else if (activeCreature.curse == "Wind" || activeCreature.curse == "Demonic")
                 {
@@ -268,34 +307,35 @@ namespace groundCrashers_game.classes
                 else if (activeCreature.curse == "Electric")
                 {
                     activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.75f); // 25% speed reduction
+                    logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
                     return randomNumber < 10 ? "SkipTurn" : "none";
                 }
                 else if (activeCreature.curse == "Acid")
                 {
                     activeCreature.stats.defense -= (int)Math.Round(activeCreature.stats.defense * 0.1f); // 10% defence reduction each turn
+                    logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
                 }
                 else if (activeCreature.curse == "Magnetic")
                 {
-                    if (randomNumber < 33) 
+                    if (randomNumber < 50) 
                     {
                         int save = activeCreature.stats.max_speed;
+                        logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.speed + " to " + activeCreature.stats.max_defense);
                         activeCreature.stats.speed = activeCreature.stats.max_defense;
+                        logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.defense + " to " + activeCreature.stats.max_attack);
                         activeCreature.stats.defense = activeCreature.stats.max_attack;
+                        logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.attack + " to " + activeCreature.stats.max_speed);
                         activeCreature.stats.attack = save;
 
                     }
-                    else if (randomNumber < 66) 
+                    else if (randomNumber < 100) 
                     {
                         int save = activeCreature.stats.max_attack;
-                        activeCreature.stats.attack = activeCreature.stats.max_speed;
-                        activeCreature.stats.speed = activeCreature.stats.max_defense;
-                        activeCreature.stats.defense = save;
-                    }
-                    else 
-                    {
-                        int save = activeCreature.stats.defense;
-                        activeCreature.stats.defense = activeCreature.stats.max_attack;
-                        activeCreature.stats.attack = activeCreature.stats.max_speed;
+                        logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.attack + " to " + activeCreature.stats.max_defense);
+                        activeCreature.stats.attack = activeCreature.stats.max_defense;
+                        logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.defense + " to " + activeCreature.stats.max_speed);
+                        activeCreature.stats.defense = activeCreature.stats.max_speed;
+                        logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.speed + " to " + activeCreature.stats.max_attack);
                         activeCreature.stats.speed = save;
                     }
                 }
@@ -402,6 +442,7 @@ namespace groundCrashers_game.classes
                     if (c.name == ActivePlayerCreature.name)
                     {
                         c.alive = false;
+                        logs.Add(c.name + " (Player Groundcrasher) fainted");
                     }
                 }
 
@@ -417,7 +458,7 @@ namespace groundCrashers_game.classes
                     if (c.name == ActiveCpuCreature.name)
                     {
                         c.alive = false;
-                        
+                        logs.Add(c.name + " (Cpu Groundcrasher) fainted");
                         cpuDied = true;
                     }
                 }
@@ -468,7 +509,7 @@ namespace groundCrashers_game.classes
             Actor playerActor = GetPlayerActor();
             if(playerActor == null)
             {
-                MessageBox.Show("could not find that GroundCrasher");
+                logs.Add("could not find that groundcrasher");
             }
             else
             {
@@ -478,7 +519,7 @@ namespace groundCrashers_game.classes
                     {
                         if (creature.id == newCreature.id)
                         {
-                            MessageBox.Show("You already have that GroundCrasher");
+                            logs.Add("you already have that groundcrasher");
                             return;
                         }
                     }
@@ -486,7 +527,7 @@ namespace groundCrashers_game.classes
                 }
                 else
                 {
-                    MessageBox.Show("You can only have 3 GroundCrashers");
+                    logs.Add("you can only have 3 groundcrashers");
                 }
 
             }

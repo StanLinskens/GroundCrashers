@@ -62,6 +62,12 @@ namespace groundCrashers_game
             RandomScenarioGenerator();
         }
 
+        public void RefreshLogBox()
+        {
+            gameManager.ControlLogs();
+            logbox.Text = string.Join("\n", gameManager.logs);
+        }
+
         public void UpdateBattleUI()
         {
             // Instead of grabbing player.Creatures[0], we use ActivePlayerCreature
@@ -83,6 +89,12 @@ namespace groundCrashers_game
                         CreatureColor.GetValueOrDefault(
                             playerCreature.element,
                             "#555555")));
+
+                PlayerEllipse.Fill =
+                    new SolidColorBrush((Color)ColorConverter.ConvertFromString(
+                        CreatureColor.GetValueOrDefault(
+                            playerCreature.curse,
+                            "#222")));
                 try
                 {
                     PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{playerCreature.name}.png", UriKind.Absolute));
@@ -126,6 +138,11 @@ namespace groundCrashers_game
                         CreatureColor.GetValueOrDefault(
                             cpuCreature.element,
                             "#555555")));
+                EnemyEllipse.Fill =
+                    new SolidColorBrush((Color)ColorConverter.ConvertFromString(
+                        CreatureColor.GetValueOrDefault(
+                            cpuCreature.curse,
+                                "#222")));
                 try
                 {
                     EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{cpuCreature.name}.png", UriKind.Absolute));
@@ -306,8 +323,7 @@ namespace groundCrashers_game
             {
                 gameManager.logs.Add("You need to select a creature first.");
             }
-            gameManager.ControlLogs();
-            logbox.Text = string.Join("\n", gameManager.logs);
+            RefreshLogBox();
         }
 
         private void ShowCombatOptions()
@@ -369,8 +385,7 @@ namespace groundCrashers_game
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
-            gameManager.ControlLogs();
-            logbox.Text = string.Join("\n", gameManager.logs);
+            RefreshLogBox();
         }
 
         private void Element_Button_Click(object sender, RoutedEventArgs e)
@@ -381,8 +396,7 @@ namespace groundCrashers_game
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
-            gameManager.ControlLogs();
-            logbox.Text = string.Join("\n", gameManager.logs);
+            RefreshLogBox();
         }
 
         private void Defend_Button_Click(object sender, RoutedEventArgs e)
@@ -393,16 +407,14 @@ namespace groundCrashers_game
             UpdateBattleUI();
             // After defense, restore main action buttons
             RestoreMainActionButtons();
-            gameManager.ControlLogs();
-            logbox.Text = string.Join("\n", gameManager.logs);
+            RefreshLogBox();
         }
 
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
             // Go back to main action buttons
             RestoreMainActionButtons();
-            gameManager.ControlLogs();
-            logbox.Text = string.Join("\n", gameManager.logs);
+            RefreshLogBox();
         }
 
         private void RestoreMainActionButtons()
@@ -428,8 +440,7 @@ namespace groundCrashers_game
                 //Replace the current buttons with combat options
                 ShowSwapOptions();
             }
-            gameManager.ControlLogs();
-            logbox.Text = string.Join("\n", gameManager.logs);
+            RefreshLogBox();
         }
 
         private void ShowSwapOptions()
@@ -480,34 +491,34 @@ namespace groundCrashers_game
             }
             else
             {
-                MessageBox.Show("This creature is not alive.");
+                gameManager.logs.Add("this creature is not alive");
             }
 
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
-            gameManager.ControlLogs();
-            logbox.Text = string.Join("\n", gameManager.logs);
+            RefreshLogBox();
         }
 
         private void Back_S_Button_Click(object sender, RoutedEventArgs e)
         {
             // Go back to main action buttons
             RestoreMainActionButtons();
+            RefreshLogBox();
         }
 
         private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
         {
-            var creaturePickerWindow = new GroundCrasherWindow(gameManager);
-            creaturePickerWindow.Show();
-            gameManager.ControlLogs();
-            logbox.Text = string.Join("\n", gameManager.logs);
+            GroundCrasherWindow crasherWindow = new GroundCrasherWindow(gameManager, this);
+            crasherWindow.Show();
+            RefreshLogBox();
         }
 
         private void Run_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow MainWindow = new MainWindow();
             MainWindow.Show();
+            RefreshLogBox();
             this.Close();
         }
     }
