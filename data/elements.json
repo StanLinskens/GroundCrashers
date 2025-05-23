@@ -13,7 +13,7 @@
     "status_effect": "Frostbite",
     "effect_description": "Deals 5% max HP damage per turn and reduces attack by 10%",
     "effectiveness": {
-      "strong_against": ["Nature", "Wind", "Water"],
+      "strong_against": ["Nature", "Water"],
       "weak_against": ["Fire", "Earth"]
     }
   },

@@ -131,16 +131,21 @@ namespace groundCrashers_game.classes
                     case ActionType.Attack:
                         {
                             int DamageDealt = Damage(attacker.stats.attack, defender.stats.defense);
-
+                            float multiplier = PrimaryChart.GetEffectiveness(attacker.primary_type, defender.primary_type);
                             if (curse == "SelfHit")
                             {
+                                multiplier = PrimaryChart.GetEffectiveness(attacker.primary_type, attacker.primary_type);
+                                DamageDealt = (int)Math.Round(DamageDealt * multiplier);
                                 attacker.stats.hp -= DamageDealt;
                                 logs.Add(attacker.name + " hit himself");
+                                logs.Add(attacker.name + "did " + multiplier + "x the normal damage");
                             }
                             else if (curse != "missed" || curse != "SkipTurn")
                             {
+                                DamageDealt = (int)Math.Round(DamageDealt * multiplier);
                                 defender.stats.hp -= DamageDealt;
-                                
+                                logs.Add(attacker.name + "did " + multiplier + "x the normal damage");
+
                             }
                             else if (curse == "missed")
                             {
@@ -186,7 +191,7 @@ namespace groundCrashers_game.classes
                             if (curse != "SkipTurn")
                             {
                                 attacker.stats.hp += attacker.stats.max_hp / 25; // 25% heal
-                                attacker.curse = "none";
+                                attacker.curse = Elements.none;
                             }
                             else if (curse == "SkipTurn")
                             {
@@ -217,14 +222,14 @@ namespace groundCrashers_game.classes
                     // e.g. OnRoundAdvanced?.Invoke(RoundNumber);
                 }
 
-                if ((attacker != null) && attacker.curse == "none")
+                if ((attacker != null) && attacker.curse == Elements.none)
                 {
                     attacker.stats.attack = attacker.stats.max_attack;
                     attacker.stats.defense = attacker.stats.max_defense;
                     attacker.stats.speed = attacker.stats.max_speed;
                 }
 
-                if ((attacker != null) && attacker.curse == "ALL")
+                if ((attacker != null) && attacker.curse == Elements.ALL)
                 {
                     RandomCurse(attacker);
                 }
@@ -235,37 +240,37 @@ namespace groundCrashers_game.classes
         {
             int randomnumber = _rnd.Next(1, 16);
 
-            if (randomnumber == 1) { ActiveCreature.curse = "Nature"; }
-            if (randomnumber == 2) { ActiveCreature.curse = "Ice"; }
-            if (randomnumber == 3) { ActiveCreature.curse = "Toxic"; }
-            if (randomnumber == 4) { ActiveCreature.curse = "Fire"; }
-            if (randomnumber == 5) { ActiveCreature.curse = "Water"; }
-            if (randomnumber == 6) { ActiveCreature.curse = "Draconic"; }
-            if (randomnumber == 7) { ActiveCreature.curse = "Earth"; }
-            if (randomnumber == 8) { ActiveCreature.curse = "Dark"; }
-            if (randomnumber == 9) { ActiveCreature.curse = "Wind"; }
-            if (randomnumber == 10) { ActiveCreature.curse = "Psychic"; }
-            if (randomnumber == 11) { ActiveCreature.curse = "Light"; }
-            if (randomnumber == 12) { ActiveCreature.curse = "Electric"; }
-            if (randomnumber == 13) { ActiveCreature.curse = "Acid"; }
-            if (randomnumber == 14) { ActiveCreature.curse = "Magnetic"; }
-            if (randomnumber == 15) { ActiveCreature.curse = "Demonic"; }
+            if (randomnumber == 1) { ActiveCreature.curse = Elements.Nature; }
+            if (randomnumber == 2) { ActiveCreature.curse = Elements.Ice; }
+            if (randomnumber == 3) { ActiveCreature.curse = Elements.Toxic; }
+            if (randomnumber == 4) { ActiveCreature.curse = Elements.Fire; }
+            if (randomnumber == 5) { ActiveCreature.curse = Elements.Water; }
+            if (randomnumber == 6) { ActiveCreature.curse = Elements.Draconic; }
+            if (randomnumber == 7) { ActiveCreature.curse = Elements.Earth; }
+            if (randomnumber == 8) { ActiveCreature.curse = Elements.Dark; }
+            if (randomnumber == 9) { ActiveCreature.curse = Elements.Wind; }
+            if (randomnumber == 10) { ActiveCreature.curse = Elements.Psychic; }
+            if (randomnumber == 11) { ActiveCreature.curse = Elements.Light; }
+            if (randomnumber == 12) { ActiveCreature.curse = Elements.Electric; }
+            if (randomnumber == 13) { ActiveCreature.curse = Elements.Acid; }
+            if (randomnumber == 14) { ActiveCreature.curse = Elements.Magnetic; }
+            if (randomnumber == 15) { ActiveCreature.curse = Elements.Demonic; }
         }
 
         private string CurseEffect(Creature activeCreature)
         {
             int randomNumber = _rnd.Next(100);
-            if (activeCreature.curse != "none")
+            if (activeCreature.curse != Elements.none)
             {
                 activeCreature.stats.attack = activeCreature.stats.max_attack;
                 activeCreature.stats.speed = activeCreature.stats.speed;
 
-                if (activeCreature.curse == "Nature")
+                if (activeCreature.curse == Elements.Nature)
                 {
                     activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.65f); // 35% speed reduction 
                     logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
                 }
-                else if (activeCreature.curse == "Ice")
+                else if (activeCreature.curse == Elements.Ice)
                 {
                     int save = activeCreature.stats.hp;
                     activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.05f); // 5% max hp damage
@@ -273,49 +278,49 @@ namespace groundCrashers_game.classes
                     activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.9f); // 10% attack reduction
                     logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
                 }
-                else if (activeCreature.curse == "Toxic" || activeCreature.curse == "Fire")
+                else if (activeCreature.curse == Elements.Toxic || activeCreature.curse == Elements.Fire)
                 {
                     int save = activeCreature.stats.hp;
                     activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.1f); // 10% max hp damage
                     logs.Add(activeCreature.name + " hp went from " + save + " to " + activeCreature.stats.hp);
                 }
-                else if (activeCreature.curse == "Water")
+                else if (activeCreature.curse == Elements.Water)
                 {
                     activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.85f); // 15% attack reduction
                     logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
                     activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.85f); // 15% speed reduction 
                     logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
                 }
-                else if (activeCreature.curse == "Draconic" || activeCreature.curse == "Light" || activeCreature.curse == "Dark")
+                else if (activeCreature.curse == Elements.Draconic || activeCreature.curse == Elements.Light || activeCreature.curse == Elements.Dark)
                 {
                     return randomNumber < 20 ? "missed" : "none";
                 }
-                else if (activeCreature.curse == "Earth")
+                else if (activeCreature.curse == Elements.Earth)
                 {
                     activeCreature.stats.defense = activeCreature.stats.max_defense;
                     activeCreature.stats.defense = (int)Math.Round(activeCreature.stats.max_defense * 0.70f); // 30% defense reduction
                     logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
                 }
-                else if (activeCreature.curse == "Wind" || activeCreature.curse == "Demonic")
+                else if (activeCreature.curse == Elements.Wind || activeCreature.curse == Elements.Demonic)
                 {
                     return randomNumber < 25 ? "SelfHit" : "none";
                 }
-                else if (activeCreature.curse == "Psychic")
+                else if (activeCreature.curse == Elements.Psychic)
                 {
                     return randomNumber < 20 ? "SkipTurn" : "none";
                 }
-                else if (activeCreature.curse == "Electric")
+                else if (activeCreature.curse == Elements.Electric)
                 {
                     activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.75f); // 25% speed reduction
                     logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
                     return randomNumber < 10 ? "SkipTurn" : "none";
                 }
-                else if (activeCreature.curse == "Acid")
+                else if (activeCreature.curse == Elements.Acid)
                 {
                     activeCreature.stats.defense -= (int)Math.Round(activeCreature.stats.defense * 0.1f); // 10% defence reduction each turn
                     logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
                 }
-                else if (activeCreature.curse == "Magnetic")
+                else if (activeCreature.curse == Elements.Magnetic)
                 {
                     if (randomNumber < 50) 
                     {
@@ -358,7 +363,7 @@ namespace groundCrashers_game.classes
             int playerMaxHp = ActivePlayerCreature.stats.max_hp;
             int playerPercentage = (int)Math.Round((float)playerHp / playerMaxHp * 100);
 
-            if (ActiveCpuCreature.curse != "none")
+            if (ActiveCpuCreature.curse != Elements.none)
             {
                 if (cpuPercentage > 35)
                 {
@@ -375,11 +380,11 @@ namespace groundCrashers_game.classes
                     return randomNumber < 25 ? ActionType.Defend : ActionType.Attack;
                 }
             }
-            if (ActivePlayerCreature.curse != "none")
+            if (ActivePlayerCreature.curse != Elements.none)
             {
                 return ActionType.Attack;
             }
-            if (ActivePlayerCreature.curse == "none")
+            if (ActivePlayerCreature.curse == Elements.none)
             {
                 if (cpuPercentage > 85)
                 {
@@ -476,7 +481,12 @@ namespace groundCrashers_game.classes
             if (!File.Exists(path)) throw new FileNotFoundException("Creatures JSON not found.");
 
             var text = File.ReadAllText(path);
-            AllCreatures = JsonConvert.DeserializeObject<List<Creature>>(text) ?? new List<Creature>();
+            AllCreatures = JsonConvert.DeserializeObject<List<Creature>>(
+                text,
+                new JsonSerializerSettings
+                {
+                    Converters = { new Newtonsoft.Json.Converters.StringEnumConverter() }
+                }) ?? new List<Creature>();
         }
 
         // Load actors from a level file (player and CPU)

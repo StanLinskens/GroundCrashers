@@ -51,8 +51,8 @@ namespace groundCrashers_game
             if (selected != null)
             {
                 GroundCrasherName.Text = selected.name;
-                GroundCrasherType.Text = selected.primary_type;
-                GroundCrasherElement.Text = selected.element;
+                GroundCrasherType.Text = selected.primary_type.ToString();
+                GroundCrasherElement.Text = selected.element.ToString();
                 GroundCrasherHP.Text = selected.stats.hp.ToString();
                 GroundCrasherAttack.Text = selected.stats.attack.ToString();
                 GroundCrasherDefense.Text = selected.stats.defense.ToString();

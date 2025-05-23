@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Xml.Linq;
 using static groundCrashers_game.classes.Manager;
 
@@ -20,29 +21,32 @@ namespace groundCrashers_game
         private Button runButton;
         private WrapPanel actionButtonsPanel;
 
-        private Dictionary<string, string> CreatureColor = new()
+        private Dictionary<Elements, string> CreatureElementColor = new()
         {
-            { "Verdant", "#228B22" },
-            { "Primal", "#FFC300" },
-            { "Apex", "#D7263D" },
-            { "Sapient", "#800080" },
-            { "Synthetic", "#0066CC" },
-            { "Nature", "#9BCF53" },
-            { "Ice", "#B2EBF2" },
-            { "Toxic", "#CE93D8" },
-            { "Fire", "#f0563b" },
-            { "Water", "#81D4FA" },
-            { "Draconic", "#cd3737" },
-            { "Earth", "#D2B48C" },
-            { "Dark", "#444444" },
-            { "Wind", "#86dcd3" },
-            { "Psychic", "#F48FB1" },
-            { "Light", "#fff8ba" },
-            { "Demonic", "#b92222" },
-            { "Electric", "#f6e15b" },
-            { "Acid", "#aae666" },
-            { "Magnetic", "#c0c0c0" }
+            { Elements.Nature, "#9BCF53" },
+            { Elements.Ice, "#B2EBF2" },
+            { Elements.Toxic, "#CE93D8" },
+            { Elements.Fire, "#f0563b" },
+            { Elements.Water, "#81D4FA" },
+            { Elements.Draconic, "#cd3737" },
+            { Elements.Earth, "#D2B48C" },
+            { Elements.Dark, "#444444" },
+            { Elements.Wind, "#86dcd3" },
+            { Elements.Psychic, "#F48FB1" },
+            { Elements.Light, "#fff8ba" },
+            { Elements.Demonic, "#b92222" },
+            { Elements.Electric, "#f6e15b" },
+            { Elements.Acid, "#aae666" },
+            { Elements.Magnetic, "#c0c0c0" }
+        };
 
+        private Dictionary<Primaries, string> CreaturePrimaryColor = new()
+        {
+            { Primaries.Verdant, "#228B22" },
+            { Primaries.Primal, "#FFC300" },
+            { Primaries.Apex, "#D7263D" },
+            { Primaries.Sapient, "#800080" },
+            { Primaries.Synthetic, "#0066CC" },
         };
 
         public GameWindow()
@@ -78,21 +82,20 @@ namespace groundCrashers_game
                 PlayerHealthText.Text = playerCreature.stats.hp.ToString() + "/" + playerCreature.stats.max_hp.ToString();
                 PlayerHealthBar.Value = playerCreature.stats.hp;
                 PlayerHealthBar.Maximum = playerCreature.stats.max_hp;
-
-                PlayerCreatureName.Foreground =
-                    new SolidColorBrush((Color)ColorConverter.ConvertFromString(
-                        CreatureColor.GetValueOrDefault(
-                            playerCreature.primary_type,
+                PlayerCreatureName.Foreground = new SolidColorBrush(
+                    (Color)ColorConverter.ConvertFromString(
+                        CreaturePrimaryColor.GetValueOrDefault(
+                            playerCreature.primary_type, 
                             "#555555")));
                 PlayerCreatureBorder.BorderBrush =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
-                        CreatureColor.GetValueOrDefault(
+                        CreatureElementColor.GetValueOrDefault(
                             playerCreature.element,
                             "#555555")));
 
                 PlayerEllipse.Fill =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
-                        CreatureColor.GetValueOrDefault(
+                        CreatureElementColor.GetValueOrDefault(
                             playerCreature.curse,
                             "#222")));
                 try
@@ -130,17 +133,17 @@ namespace groundCrashers_game
 
                 EnemyCreatureName.Foreground =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
-                        CreatureColor.GetValueOrDefault( 
+                        CreaturePrimaryColor.GetValueOrDefault( 
                             cpuCreature.primary_type,
                             "#555555")));
                 EnemyCreatureBorder.BorderBrush =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
-                        CreatureColor.GetValueOrDefault(
+                        CreatureElementColor.GetValueOrDefault(
                             cpuCreature.element,
                             "#555555")));
                 EnemyEllipse.Fill =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
-                        CreatureColor.GetValueOrDefault(
+                        CreatureElementColor.GetValueOrDefault(
                             cpuCreature.curse,
                                 "#222")));
                 try
@@ -460,7 +463,7 @@ namespace groundCrashers_game
             {
                 if(c.alive)
                 {
-                    Button Creature = CreateButton(c.name.ToString() ?? "Not Found", CreatureColor.GetValueOrDefault(c.primary_type) ?? "#555555", CreatureColor.GetValueOrDefault(c.element) ?? "#555555", Creature_Button_Click);
+                    Button Creature = CreateButton(c.name.ToString() ?? "Not Found", CreaturePrimaryColor.GetValueOrDefault(c.primary_type) ?? "#555555", CreatureElementColor.GetValueOrDefault(c.element) ?? "#555555", Creature_Button_Click);
                     actionButtonsPanel.Children.Add(Creature);
                 }
             }
