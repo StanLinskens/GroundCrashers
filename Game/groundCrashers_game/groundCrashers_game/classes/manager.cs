@@ -56,6 +56,26 @@ namespace groundCrashers_game.classes
             return (Weathers)values.GetValue(index);
         }
 
+        public void LoadGameData()
+        {
+            try
+            {
+                // Load creatures
+                LoadAllCreatures();
+
+                // Load elements
+                ElementChart.LoadElementsFromJson();
+
+                logs.Add("Game data loaded successfully");
+            }
+            catch (Exception ex)
+            {
+                logs.Add($"Error loading game data: {ex.Message}");
+                MessageBox.Show($"Error loading game data: {ex.Message}", "Loading Error");
+                throw;
+            }
+        }
+
         // Damage formula
         public int Damage(int attack, int defense)
         {
@@ -364,6 +384,7 @@ namespace groundCrashers_game.classes
 
             return "none";
         }
+
         private ActionType CpuAction()
         {
             int randomNumber = _rnd.Next(100);
@@ -448,6 +469,7 @@ namespace groundCrashers_game.classes
                 logs.RemoveAt(0); // Remove oldest log
             }
         }
+
         private bool DeadCheck(bool cpuDied)
         {
             if ((ActivePlayerCreature != null) && ActivePlayerCreature.stats.hp <= 0)
@@ -485,7 +507,6 @@ namespace groundCrashers_game.classes
 
             return cpuDied;
         }
-
 
         // Load all creatures once (e.g., when game starts)
         public void LoadAllCreatures()

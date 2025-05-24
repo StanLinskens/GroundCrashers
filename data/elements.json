@@ -1,137 +1,89 @@
-[
-  {
-    "name": "Nature",
-    "status_effect": "Entangle",
-    "effect_description": "Reduces speed by 35%",
-    "effectiveness": {
-      "strong_against": ["Water", "Earth"],
-      "weak_against": ["Fire", "Toxic"]
+{
+  "elements": [
+    {
+      "name": "Nature",
+      "strongAgainst": ["Water", "Earth"],
+      "weakAgainst": ["Fire", "Toxic"]
+    },
+    {
+      "name": "Ice",
+      "strongAgainst": ["Nature", "Water"],
+      "weakAgainst": ["Fire", "Earth"]
+    },
+    {
+      "name": "Toxic",
+      "strongAgainst": ["Nature"],
+      "weakAgainst": ["Earth", "Wind"]
+    },
+    {
+      "name": "Fire",
+      "strongAgainst": ["Nature", "Ice"],
+      "weakAgainst": ["Water", "Earth"]
+    },
+    {
+      "name": "Water",
+      "strongAgainst": ["Fire", "Earth"],
+      "weakAgainst": ["Nature", "Electric"]
+    },
+    {
+      "name": "Draconic",
+      "strongAgainst": ["Psychic", "Light"],
+      "weakAgainst": ["Earth", "Wind"]
+    },
+    {
+      "name": "Earth",
+      "strongAgainst": ["Electric", "Fire"],
+      "weakAgainst": ["Water", "Nature"]
+    },
+    {
+      "name": "Dark",
+      "strongAgainst": ["Light", "Psychic"],
+      "weakAgainst": ["Light", "Demonic"]
+    },
+    {
+      "name": "Wind",
+      "strongAgainst": ["Toxic", "Electric"],
+      "weakAgainst": ["Ice", "Earth"]
+    },
+    {
+      "name": "Psychic",
+      "strongAgainst": ["Earth"],
+      "weakAgainst": ["Ice", "Psychic"]
+    },
+    {
+      "name": "Light",
+      "strongAgainst": ["Dark", "Demonic"],
+      "weakAgainst": ["Dark", "Magnetic"]
+    },
+    {
+      "name": "Demonic",
+      "strongAgainst": ["Psychic", "Draconic"],
+      "weakAgainst": ["Light", "Electric"]
+    },
+    {
+      "name": "Electric",
+      "strongAgainst": ["Water", "Magnetic"],
+      "weakAgainst": ["Earth", "Wind"]
+    },
+    {
+      "name": "Acid",
+      "strongAgainst": ["Earth"],
+      "weakAgainst": ["Water", "Psychic"]
+    },
+    {
+      "name": "Magnetic",
+      "strongAgainst": ["Electric"],
+      "weakAgainst": ["Acid", "Earth"]
+    },
+    {
+      "name": "ALL",
+      "strongAgainst": [],
+      "weakAgainst": []
+    },
+    {
+      "name": "none",
+      "strongAgainst": [],
+      "weakAgainst": []
     }
-  },
-  {
-    "name": "Ice",
-    "status_effect": "Frostbite",
-    "effect_description": "Deals 5% max HP damage per turn and reduces attack by 10%",
-    "effectiveness": {
-      "strong_against": ["Nature", "Water"],
-      "weak_against": ["Fire", "Earth"]
-    }
-  },
-  {
-    "name": "Toxic",
-    "status_effect": "Poison",
-    "effect_description": "Deals 10% max HP damage per turn",
-    "effectiveness": {
-      "strong_against": ["Nature", "Psychic"],
-      "weak_against": ["Earth", "wind"]
-    }
-  },
-  {
-    "name": "Fire",
-    "status_effect": "Burn",
-    "effect_description": "Deals 10% max HP damage per turn",
-    "effectiveness": {
-      "strong_against": ["Nature", "Ice"],
-      "weak_against": ["Water", "Earth"]
-    }
-  },
-  {
-    "name": "Water",
-    "status_effect": "Drown",
-    "effect_description": "Reduces attack and speed by 15%",
-    "effectiveness": {
-      "strong_against": ["Fire", "Earth"],
-      "weak_against": ["Nature", "Electric"]
-    }
-  },
-  {
-    "name": "Draconic",
-    "status_effect": "Deafen",
-    "effect_description": "Reduces accuracy by 20%",
-    "effectiveness": {
-      "strong_against": ["Psychic", "Light"],
-      "weak_against": ["Earth", "Wind"]
-    }
-  },
-  {
-    "name": "Earth",
-    "status_effect": "Crush",
-    "effect_description": "Reduces defense by 30%",
-    "effectiveness": {
-      "strong_against": ["Electric", "Fire"],
-      "weak_against": ["Water", "Nature"]
-    }
-  },
-  {
-    "name": "Dark",
-    "status_effect": "Blind",
-    "effect_description": "Reduces accuracy by 20%",
-    "effectiveness": {
-      "strong_against": ["Light", "Psychic"],
-      "weak_against": ["Light", "Demonic"]
-    }
-  },
-  {
-    "name": "Wind",
-    "status_effect": "Confusion",
-    "effect_description": "25% chance to hit self when attacking",
-    "effectiveness": {
-      "strong_against": ["Toxic", "Electric"],
-      "weak_against": ["Ice", "Earth"]
-    }
-  },
-  {
-    "name": "Psychic",
-    "status_effect": "Fear",
-    "effect_description": "20% chance to skip turn",
-    "effectiveness": {
-      "strong_against": [ "Earth" ],
-      "weak_against": ["Dark", "Demonic"]
-    }
-  },
-  {
-    "name": "Light",
-    "status_effect": "Blind",
-    "effect_description": "Reduces accuracy by 20%",
-    "effectiveness": {
-      "strong_against": ["Dark", "Demonic"],
-      "weak_against": ["Dark", "Magnetic"]
-    }
-  },
-  {
-    "name": "Demonic",
-    "status_effect": "Confusion",
-    "effect_description": "25% chance to hit self when attacking",
-    "effectiveness": {
-      "strong_against": ["Psychic", "Draconic"],
-      "weak_against": ["Light", "Electric"]
-    }
-  },
-  {
-    "name": "Electric",
-    "status_effect": "Paralyze",
-    "effect_description": "Reduces speed by 25%, 10% chance to skip turn",
-    "effectiveness": {
-      "strong_against": ["Water", "Magnetic"],
-      "weak_against": ["Earth", "Wind"]
-    }
-  },
-  {
-    "name": "Acid",
-    "status_effect": "Corrode",
-    "effect_description": "Reduces defense by 10% each turn",
-    "effectiveness": {
-      "strong_against": ["Earth"],
-      "weak_against": ["Water", "Psychic"]
-    }
-  },
-  {
-    "name": "Magnetic",
-    "status_effect": "Disrupt",
-    "effect_description": "switch stats (exept health) arround",
-    "effectiveness": {
-      "strong_against": ["Electric"],
-      "weak_against": ["Acid", "Earth"]
-    }
-  }
-]
+  ]
+}

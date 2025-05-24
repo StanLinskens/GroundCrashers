@@ -56,7 +56,8 @@ namespace groundCrashers_game
 
             // Initialize the game manager
             gameManager = new Manager();
-            gameManager.LoadAllCreatures();
+            //gameManager.LoadAllCreatures();
+            gameManager.LoadGameData();
             gameManager.LoadActorsForBattleMode();
 
             UpdateBattleUI();
