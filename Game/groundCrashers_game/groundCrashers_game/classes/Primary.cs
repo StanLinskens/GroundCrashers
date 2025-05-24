@@ -1,4 +1,8 @@
-﻿using System.Xml.Linq;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace groundCrashers_game
 {
@@ -22,82 +26,157 @@ namespace groundCrashers_game
         public List<Primaries> WeakAgainst { get; set; } = new();
     }
 
+    // JSON structure classes for deserialization
+    public class PrimaryData
+    {
+        public string Name { get; set; }
+        public List<string> StrongAgainst { get; set; } = new();
+        public List<string> BetterAgainst { get; set; } = new();
+        public List<string> WeakerAgainst { get; set; } = new();
+        public List<string> WeakAgainst { get; set; } = new();
+    }
+
+    public class PrimariesConfig
+    {
+        public List<PrimaryData> Primaries { get; set; } = new();
+    }
+
     public static class PrimaryChart
     {
-        public static readonly Dictionary<Primaries, Primary> Chart = new()
+        private static Dictionary<Primaries, Primary> _chart = new();
+        private static bool _isLoaded = false;
+
+        public static Dictionary<Primaries, Primary> Chart
         {
-            [Primaries.Verdant] = new Primary
+            get
             {
-                Name = Primaries.Verdant,
-                StrongAgainst = new List<Primaries> { Primaries.Synthetic },
-                BetterAgainst = new List<Primaries> { Primaries.Sapient },
-                WeakerAgainst = new List<Primaries> { Primaries.Apex },
-                WeakAgainst = new List<Primaries> { Primaries.Primal }
-            },
-
-            [Primaries.Primal] = new Primary
-            {
-                Name = Primaries.Primal,
-                StrongAgainst = new List<Primaries> { Primaries.Verdant },
-                BetterAgainst = new List<Primaries> { Primaries.Synthetic },
-                WeakerAgainst = new List<Primaries> { Primaries.Sapient },
-                WeakAgainst = new List<Primaries> { Primaries.Apex }
-            },
-
-            [Primaries.Apex] = new Primary
-            {
-                Name = Primaries.Apex,
-                StrongAgainst = new List<Primaries> { Primaries.Primal },
-                BetterAgainst = new List<Primaries> { Primaries.Verdant },
-                WeakerAgainst = new List<Primaries> { Primaries.Synthetic },
-                WeakAgainst = new List<Primaries> { Primaries.Sapient }
-            },
-
-            [Primaries.Sapient] = new Primary
-            {
-                Name = Primaries.Sapient,
-                StrongAgainst = new List<Primaries> { Primaries.Apex },
-                BetterAgainst = new List<Primaries> { Primaries.Primal },
-                WeakerAgainst = new List<Primaries> { Primaries.Verdant },
-                WeakAgainst = new List<Primaries> { Primaries.Synthetic }
-            },
-
-            [Primaries.Synthetic] = new Primary
-            {
-                Name = Primaries.Synthetic,
-                StrongAgainst = new List<Primaries> { Primaries.Sapient },
-                BetterAgainst = new List<Primaries> { Primaries.Apex },
-                WeakerAgainst = new List<Primaries> { Primaries.Primal },
-                WeakAgainst = new List<Primaries> { Primaries.Verdant }
-            },
-
-            [Primaries.God] = new Primary
-            {
-                Name = Primaries.God,
-                StrongAgainst = new List<Primaries> { Primaries.Titan },
-                BetterAgainst = new List<Primaries> { Primaries.Verdant, Primaries.Primal, Primaries.Apex, Primaries.Sapient, Primaries.Synthetic },
-                WeakerAgainst = new List<Primaries> { Primaries.God },
-                WeakAgainst = new List<Primaries> { Primaries.Titan }
-            },
-
-            [Primaries.Titan] = new Primary
-            {
-                Name = Primaries.Titan,
-                StrongAgainst = new List<Primaries> { Primaries.God },
-                BetterAgainst = new List<Primaries> { Primaries.Sapient },
-                WeakerAgainst = new List<Primaries> { Primaries.God },
-                WeakAgainst = new List<Primaries> { Primaries.Titan }
+                if (!_isLoaded)
+                {
+                    LoadPrimariesFromJson();
+                }
+                return _chart;
             }
-        };
+        }
+
+        public static void LoadPrimariesFromJson()
+        {
+            try
+            {
+                string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "primaries.json");
+
+                if (!File.Exists(path))
+                {
+                    throw new FileNotFoundException($"Primaries JSON not found at path: {path}");
+                }
+
+                var text = File.ReadAllText(path);
+                var primariesConfig = JsonConvert.DeserializeObject<PrimariesConfig>(text);
+
+                if (primariesConfig == null || primariesConfig.Primaries == null)
+                {
+                    throw new Exception("Invalid primaries configuration");
+                }
+
+                _chart.Clear();
+
+                foreach (var primaryData in primariesConfig.Primaries)
+                {
+                    // Parse the primary name to enum
+                    if (Enum.TryParse<Primaries>(primaryData.Name, out Primaries primaryEnum))
+                    {
+                        var primary = new Primary
+                        {
+                            Name = primaryEnum,
+                            StrongAgainst = new List<Primaries>(),
+                            BetterAgainst = new List<Primaries>(),
+                            WeakerAgainst = new List<Primaries>(),
+                            WeakAgainst = new List<Primaries>()
+                        };
+
+                        // Parse StrongAgainst primaries
+                        foreach (var strongName in primaryData.StrongAgainst)
+                        {
+                            if (Enum.TryParse<Primaries>(strongName, out Primaries strongEnum))
+                            {
+                                primary.StrongAgainst.Add(strongEnum);
+                            }
+                        }
+
+                        // Parse BetterAgainst primaries
+                        foreach (var betterName in primaryData.BetterAgainst)
+                        {
+                            if (Enum.TryParse<Primaries>(betterName, out Primaries betterEnum))
+                            {
+                                primary.BetterAgainst.Add(betterEnum);
+                            }
+                        }
+
+                        // Parse WeakerAgainst primaries
+                        foreach (var weakerName in primaryData.WeakerAgainst)
+                        {
+                            if (Enum.TryParse<Primaries>(weakerName, out Primaries weakerEnum))
+                            {
+                                primary.WeakerAgainst.Add(weakerEnum);
+                            }
+                        }
+
+                        // Parse WeakAgainst primaries
+                        foreach (var weakName in primaryData.WeakAgainst)
+                        {
+                            if (Enum.TryParse<Primaries>(weakName, out Primaries weakEnum))
+                            {
+                                primary.WeakAgainst.Add(weakEnum);
+                            }
+                        }
+
+                        _chart[primaryEnum] = primary;
+                    }
+                }
+
+                _isLoaded = true;
+            }
+            catch (Exception ex)
+            {
+                // If loading fails, fall back to hardcoded values or throw
+                throw new Exception($"Failed to load primaries from JSON: {ex.Message}", ex);
+            }
+        }
+
+        public static void ReloadPrimaries()
+        {
+            _isLoaded = false;
+            LoadPrimariesFromJson();
+        }
 
         public static float GetPrimaryEffectiveness(Primaries attacker, Primaries defender)
         {
-            if (Chart[attacker].StrongAgainst.Contains(defender)) return 1.5f;
-            else if (Chart[attacker].BetterAgainst.Contains(defender)) return 1.25f;
-            else if (Chart[attacker].WeakerAgainst.Contains(defender)) return 0.75f;
-            else if (Chart[attacker].WeakAgainst.Contains(defender)) return 0.5f;
+            if (!_isLoaded)
+            {
+                LoadPrimariesFromJson();
+            }
+
+            if (_chart.ContainsKey(attacker))
+            {
+                if (_chart[attacker].StrongAgainst.Contains(defender)) return 1.5f;
+                else if (_chart[attacker].BetterAgainst.Contains(defender)) return 1.25f;
+                else if (_chart[attacker].WeakerAgainst.Contains(defender)) return 0.75f;
+                else if (_chart[attacker].WeakAgainst.Contains(defender)) return 0.5f;
+            }
+
             return 1.0f;
         }
+
+        // Helper method to get all loaded primaries (useful for debugging)
+        public static List<Primaries> GetAllPrimaries()
+        {
+            if (!_isLoaded)
+            {
+                LoadPrimariesFromJson();
+            }
+            return _chart.Keys.ToList();
+        }
+
+        // Helper method to check if primaries are loaded
+        public static bool IsLoaded => _isLoaded;
     }
 }
-

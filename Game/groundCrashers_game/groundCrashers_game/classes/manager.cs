@@ -67,6 +67,9 @@ namespace groundCrashers_game.classes
                 // Load elements
                 ElementChart.LoadElementsFromJson();
 
+                // Load primaries
+                PrimaryChart.LoadPrimariesFromJson();
+
                 logs.Add("Game data loaded successfully");
             }
             catch (Exception ex)
