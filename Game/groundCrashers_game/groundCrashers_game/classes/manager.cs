@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Text;
@@ -89,7 +90,11 @@ namespace groundCrashers_game.classes
             ActionType actionCpu = CpuAction();
             bool cpuDied = false;
 
-            if (ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
+            if(action == ActionType.Swap)
+            {
+                _currentActorIndex = 1;
+            }
+            else if ((actionCpu == ActionType.Swap) || ActiveCpuCreature.stats.speed >= ActivePlayerCreature.stats.speed)
             {
                 _currentActorIndex = 0;
             }
@@ -112,10 +117,7 @@ namespace groundCrashers_game.classes
             if (ActiveCpuCreature == null)
             {
                 logs.Add("you win");
-                MessageBox.Show("you win");
-                GameWindow gameWindow = new GameWindow();
-                gameWindow.Close();
-
+                MessageBox.Show("You win!");
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
             }
@@ -389,6 +391,8 @@ namespace groundCrashers_game.classes
         {
             int randomNumber = _rnd.Next(100);
 
+            float multiplier = PrimaryChart.GetPrimaryEffectiveness(ActiveCpuCreature.primary_type, ActivePlayerCreature.primary_type);
+
             int cpuHp = ActiveCpuCreature.stats.hp; 
             int cpuMaxHp = ActiveCpuCreature.stats.max_hp;
             int cpuPercentage = (int)Math.Round((float)cpuHp / cpuMaxHp * 100);
@@ -397,6 +401,25 @@ namespace groundCrashers_game.classes
             int playerMaxHp = ActivePlayerCreature.stats.max_hp;
             int playerPercentage = (int)Math.Round((float)playerHp / playerMaxHp * 100);
 
+            if ((randomNumber < 33) && multiplier < 1)
+            {
+                Actor cpuActor = GetCpuActor();
+                float currentEffectiveness = PrimaryChart.GetPrimaryEffectiveness(ActiveCpuCreature.primary_type, ActivePlayerCreature.primary_type);
+
+                Creature activeCpuCreatureSave = ActiveCpuCreature; // Save current CPU creature
+
+                // Filter to only those team members that are not weak to opponent
+                Creature candidate = cpuActor.Creatures
+                    .Where(p => PrimaryChart.GetPrimaryEffectiveness(p.primary_type, ActivePlayerCreature.primary_type) >= 1.0f)
+                    .OrderByDescending(p => PrimaryChart.GetPrimaryEffectiveness(p.primary_type, ActivePlayerCreature.primary_type))
+                    .FirstOrDefault();
+
+                ActiveCpuCreature = candidate ?? ActiveCpuCreature; // Fallback to current if no better candidate found
+                if (ActiveCpuCreature != activeCpuCreatureSave)
+                {
+                    return ActionType.Swap;
+                }
+            }
             if (ActiveCpuCreature.curse != Elements.none)
             {
                 if (cpuPercentage > 35)
@@ -414,11 +437,11 @@ namespace groundCrashers_game.classes
                     return randomNumber < 25 ? ActionType.Defend : ActionType.Attack;
                 }
             }
-            if (ActivePlayerCreature.curse != Elements.none)
+            else if (ActivePlayerCreature.curse != Elements.none)
             {
                 return ActionType.Attack;
             }
-            if (ActivePlayerCreature.curse == Elements.none)
+            else if (ActivePlayerCreature.curse == Elements.none)
             {
                 if (cpuPercentage > 85)
                 {

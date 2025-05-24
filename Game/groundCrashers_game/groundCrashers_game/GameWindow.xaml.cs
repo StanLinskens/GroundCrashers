@@ -167,6 +167,7 @@ namespace groundCrashers_game
 
                 EnemyHealthBar.Value = 0;
                 EnemyHealthText.Text = "0/" + EnemyHealt_split[1];
+                this.Close();
             }
         }
 
