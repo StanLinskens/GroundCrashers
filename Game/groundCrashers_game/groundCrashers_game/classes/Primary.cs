@@ -62,7 +62,7 @@ namespace groundCrashers_game
         {
             try
             {
-                string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "primaries.json");
+                string path = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "primaryTypes.json");
 
                 if (!File.Exists(path))
                 {
