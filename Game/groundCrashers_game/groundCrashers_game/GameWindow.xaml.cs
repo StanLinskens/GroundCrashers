@@ -488,8 +488,7 @@ namespace groundCrashers_game
 
             if (gameManager.ActivePlayerCreature != null && IsAlive)
             {
-                gameManager.CurrentPlayerCreatureSet(name);
-                gameManager.ProcessTurn(ActionType.Swap);
+                gameManager.ProcessTurn(ActionType.Swap, name);
                 gameManager.logs.Add("player swapped to " + name);
             }
             else if (gameManager.ActivePlayerCreature == null && IsAlive)

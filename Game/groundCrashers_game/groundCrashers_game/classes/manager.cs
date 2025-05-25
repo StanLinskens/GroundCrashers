@@ -87,7 +87,7 @@ namespace groundCrashers_game.classes
             return (int)Math.Round(damage);
         }
 
-        public void ProcessTurn(ActionType action, int swapIndex = -1)
+        public void ProcessTurn(ActionType action, string name = "default")
         {
             // 1) get Enemy action
             ActionType actionCpu = CpuAction();
@@ -106,9 +106,9 @@ namespace groundCrashers_game.classes
                 _currentActorIndex = 1;
             }
 
-            ActionChoice(action, actionCpu);
+            ActionChoice(action, actionCpu, name);
             cpuDied = DeadCheck(cpuDied);
-            ActionChoice(action, actionCpu);
+            ActionChoice(action, actionCpu, name);
             cpuDied = DeadCheck(cpuDied);
 
             if (cpuDied == true)
@@ -126,7 +126,7 @@ namespace groundCrashers_game.classes
             }
         }
 
-        private void ActionChoice(ActionType action, ActionType actionCpu)
+        private void ActionChoice(ActionType action, ActionType actionCpu, string name)
         {
             // 2) Identify attacker and defender based on _currentActorIndex
             Actor currentActor = CurrentActors[_currentActorIndex];
@@ -240,6 +240,34 @@ namespace groundCrashers_game.classes
                         }
                     case ActionType.Swap:
                         {
+                            // if cpu turn
+                            if(_currentActorIndex == 0)
+                            {
+                                Actor cpuActor = GetCpuActor();
+
+                                Creature candidate = cpuActor.Creatures
+                                    .Where(p => PrimaryChart.GetPrimaryEffectiveness(p.primary_type, ActivePlayerCreature.primary_type) >= 1.0f)
+                                    .OrderByDescending(p => PrimaryChart.GetPrimaryEffectiveness(p.primary_type, ActivePlayerCreature.primary_type))
+                                    .FirstOrDefault();
+
+                                ActiveCpuCreature = candidate;
+                                break;
+                            }
+                            // if player turn
+                            else if (_currentActorIndex == 1)
+                            {
+                                Actor playerActor = GetPlayerActor();
+                                if (name != "default")
+                                {
+                                    CurrentPlayerCreatureSet(name);
+                                    logs.Add("Swapped to " + ActivePlayerCreature.name);
+                                }
+                                else
+                                {
+                                    logs.Add("Invalid swap index");
+                                }
+                                break;
+                            }
                             break;
                         }
 
@@ -417,8 +445,7 @@ namespace groundCrashers_game.classes
                     .OrderByDescending(p => PrimaryChart.GetPrimaryEffectiveness(p.primary_type, ActivePlayerCreature.primary_type))
                     .FirstOrDefault();
 
-                ActiveCpuCreature = candidate ?? ActiveCpuCreature; // Fallback to current if no better candidate found
-                if (ActiveCpuCreature != activeCpuCreatureSave)
+                if (ActiveCpuCreature != candidate)
                 {
                     return ActionType.Swap;
                 }
