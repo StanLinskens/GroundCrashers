@@ -486,7 +486,7 @@ namespace groundCrashers_game
 
             bool IsAlive = playerActor.Creatures.FirstOrDefault(c => c.name == name)?.alive ?? false;
 
-            if (gameManager.ActivePlayerCreature != null && IsAlive && gameManager.ActivePlayerCreature.ToString() != name)
+            if (gameManager.ActivePlayerCreature != null && IsAlive && gameManager.ActivePlayerCreature.name.ToString() != name)
             {
                 gameManager.ProcessTurn(ActionType.Swap, name);
                 gameManager.logs.Add("player swapped to " + name);
