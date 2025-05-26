@@ -1,178 +1,82 @@
 [
-    {
-        "name": "Forest",
-        "buff": {
-        "types": ["Verdant", "Nature"],
-        "effect": "15% attack boost"
-        },
-        "debuff": {
-        "types": ["Fire", "Synthetic"],
-        "effect": "10% speed drop"
-        }
-    },
-    {
-        "name": "Desert",
-        "buff": {
-        "types": ["Fire", "Earth"],
-        "effect": "15% accuracy boost"
-        },
-        "debuff": {
-        "types": ["Water", "Nature"],
-        "effect": "12% defense drop"
-        }
-    },
-    {
-        "name": "Mountain",
-        "buff": {
-        "types": ["Primal", "Wind"],
-        "effect": "20% defense boost"
-        },
-        "debuff": {
-        "types": ["Electric", "Acid"],
-        "effect": "10% attack drop"
-        }
-    },
-    {
-        "name": "Highlands",
-        "buff": {
-        "types": ["Wind"],
-        "effect": "15% speed boost"
-        },
-        "debuff": {
-        "types": ["Earth"],
-        "effect": "10% accuracy drop"
-        }
-    },
-    {
-        "name": "Glacier",
-        "buff": {
-        "types": ["Ice", "Water"],
-        "effect": "20% defense boost"
-        },
-        "debuff": {
-        "types": ["Fire", "Acid"],
-        "effect": "15% speed drop"
-        }
-    },
-    {
-        "name": "Swamp",
-        "buff": {
-        "types": ["Toxic"],
-        "effect": "15% defense boost"
-        },
-        "debuff": {
-        "types": ["Light", "Sapient"],
-        "effect": "12% speed drop"
-        }
-    },
-    {
-        "name": "Ocean",
-        "buff": {
-        "types": ["Water", "Electric"],
-        "effect": "20% attack boost"
-        },
-        "debuff": {
-        "types": ["Earth"],
-        "effect": "15% defense drop"
-        }
-    },
-    {
-        "name": "Volcano",
-        "buff": {
-        "types": ["Fire", "Earth"],
-        "effect": "25% attack boost"
-        },
-        "debuff": {
-        "types": ["Ice", "Water"],
-        "effect": "15% health drop"
-        }
-    },
-    {
-        "name": "Savanna",
-        "buff": {
-        "types": ["Primal", "Light"],
-        "effect": "15% speed boost"
-        },
-        "debuff": {
-        "types": ["Dark", "Ice"],
-        "effect": "10% accuracy drop"
-        }
-    },
-    {
-        "name": "Jungle",
-        "buff": {
-        "types": ["Nature", "Apex"],
-        "effect": "15% evasion boost"
-        },
-        "debuff": {
-        "types": ["Draconic", "Magnetic"],
-        "effect": "10% accuracy drop"
-        }
-    },
-    {
-        "name": "Tundra",
-        "buff": {
-        "types": ["Ice", "Draconic"],
-        "effect": "15% defense boost"
-        },
-        "debuff": {
-        "types": ["Fire", "Toxic"],
-        "effect": "12% attack drop"
-        }
-    },
-    {
-        "name": "Cave",
-        "buff": {
-        "types": ["Dark", "Earth"],
-        "effect": "15% defense boost"
-        },
-        "debuff": {
-        "types": ["Light", "Wind"],
-        "effect": "20% accuracy drop"
-        }
-    },
-    {
-        "name": "Ruins",
-        "buff": {
-        "types": ["Synthetic", "Psychic"],
-        "effect": "15% accuracy boost"
-        },
-        "debuff": {
-        "types": ["Nature", "Primal"],
-        "effect": "10% defense drop"
-        }
-    },
-    {
-        "name": "Marsh",
-        "buff": {
-        "types": ["Acid", "Toxic"],
-        "effect": "18% attack boost"
-        },
-        "debuff": {
-        "types": ["Synthetic"],
-        "effect": "15% defense drop"
-        }
-    },
-    {
-        "name": "Crystal Cavern",
-        "buff": {
-        "types": ["Light", "Magnetic"],
-        "effect": "20% special attack boost"
-        },
-        "debuff": {
-        "types": ["Dark", "Draconic"],
-        "effect": "15% special defense drop"
-        }
-    },
-    {
-        "name": "Wasteland",
-        "buff": {
-        "types": ["Demonic", "Sapient"],
-        "effect": "15% evasion boost"
-        },
-        "debuff": {
-        "types": ["Nature", "Psychic"],
-        "effect": "10% accuracy drop"
-        }
-    }
+  {
+    "name": "Forest",
+    "buff": { "types": ["Nature", "Light"], "effect": "15% attack boost" },
+    "debuff": { "types": ["Fire", "Acid"], "effect": "10% speed drop" }
+  },
+  {
+    "name": "Desert",
+    "buff": { "types": ["Earth", "Electric"], "effect": "15% health boost" },
+    "debuff": { "types": ["Water", "Psychic"], "effect": "12% defense drop" }
+  },
+  {
+    "name": "Mountain",
+    "buff": { "types": ["Draconic", "Dark"], "effect": "20% defense boost" },
+    "debuff": { "types": ["Magnetic", "Fire"], "effect": "10% attack drop" }
+  },
+  {
+    "name": "Highlands",
+    "buff": { "types": ["Wind", "Nature"], "effect": "15% speed boost" },
+    "debuff": { "types": ["Dark", "Ice"], "effect": "10% health drop" }
+  },
+  {
+    "name": "Glacier",
+    "buff": { "types": ["Ice", "Toxic"], "effect": "20% attack boost" },
+    "debuff": { "types": ["Electric", "Draconic"], "effect": "15% speed drop" }
+  },
+  {
+    "name": "Swamp",
+    "buff": { "types": ["Toxic", "Water"], "effect": "15% defense boost" },
+    "debuff": { "types": ["Light", "Wind"], "effect": "12% speed drop" }
+  },
+  {
+    "name": "Ocean",
+    "buff": { "types": ["Water", "Psychic"], "effect": "20% attack boost" },
+    "debuff": { "types": ["Demonic", "Nature"], "effect": "15% defense drop" }
+  },
+  {
+    "name": "Volcano",
+    "buff": { "types": ["Fire", "Acid"], "effect": "25% attack boost" },
+    "debuff": { "types": ["Earth", "Ice"], "effect": "15% health drop" }
+  },
+  {
+    "name": "Savanna",
+    "buff": { "types": ["Electric", "Wind"], "effect": "15% speed boost" },
+    "debuff": { "types": ["Psychic", "Demonic"], "effect": "10% health drop" }
+  },
+  {
+    "name": "Jungle",
+    "buff": { "types": ["Light", "Dark"], "effect": "15% speed boost" },
+    "debuff": { "types": ["Draconic", "Earth"], "effect": "10% health drop" }
+  },
+  {
+    "name": "Tundra",
+    "buff": { "types": ["Ice", "Magnetic"], "effect": "15% defense boost" },
+    "debuff": { "types": ["Toxic", "Fire"], "effect": "12% attack drop" }
+  },
+  {
+    "name": "Cave",
+    "buff": { "types": ["Dark", "Acid"], "effect": "15% defense boost" },
+    "debuff": { "types": ["Electric", "Nature"], "effect": "20% health drop" }
+  },
+  {
+    "name": "Ruins",
+    "buff": { "types": ["Psychic", "Magnetic"], "effect": "15% health boost" },
+    "debuff": { "types": ["Water", "Light"], "effect": "10% defense drop" }
+  },
+  {
+    "name": "Marsh",
+    "buff": { "types": ["Demonic", "Earth"], "effect": "18% attack boost" },
+    "debuff": { "types": ["Ice", "Wind"], "effect": "15% defense drop" }
+  },
+  {
+    "name": "Crystal Cavern",
+    "buff": { "types": ["Psychic", "Magnetic"], "effect": "20% speed boost" },
+    "debuff": { "types": ["Acid", "Toxic"], "effect": "15% attack boost" }
+  },
+  {
+    "name": "Wasteland",
+    "buff": { "types": ["Demonic", "Draconic"], "effect": "15% speed boost" },
+    "debuff": { "types": ["Magnetic", "Water"], "effect": "10% health drop" }
+  }
 ]
