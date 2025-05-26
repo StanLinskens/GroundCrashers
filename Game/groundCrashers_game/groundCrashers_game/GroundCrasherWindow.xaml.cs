@@ -132,7 +132,6 @@ namespace groundCrashers_game
 
                 //_Manager.PrintActors();
                 _Manager.AddPlayerCreatures(selected);
-                _Manager.logs.Add(SelectedCreature.name + " added to team");
 
                 // Tell GameWindow to update the logbox
                 _gameWindow.RefreshLogBox();

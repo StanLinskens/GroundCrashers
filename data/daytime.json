@@ -1,46 +1,46 @@
 [
-    {
-      "name": "Dawn",
-      "buff": {
-        "types": ["Verdant", "Apex", "Synthetic"],
-        "effect": "Attack"
-      },
-      "debuff": {
-        "types": ["Sapient", "Primal"],
-        "effect": "Speed"
-      }
+  {
+    "name": "Dawn",
+    "buff": {
+      "types": ["Verdant", "Apex", "Synthetic"],
+      "effect": "Attack"
     },
-    {
-      "name": "Day",
-      "buff": {
-        "types": ["Primal", "Verdant", "Synthetic"],
-        "effect": "Defense"
-      },
-      "debuff": {
-        "types": ["Apex", "Sapient"],
-        "effect": "Attack"
-      }
-    },
-    {
-      "name": "Dusk",
-      "buff": {
-        "types": ["Primal", "Sapient"],
-        "effect": "Speed"
-      },
-      "debuff": {
-        "types": ["Verdant", "Apex", "Synthetic"],
-        "effect": "Health"
-      }
-    },
-    {
-      "name": "Night",
-      "buff": {
-        "types": ["Apex", "Primal"],
-        "effect": "Health"
-      },
-      "debuff": {
-        "types": ["Verdant", "Sapient", "Synthetic"],
-        "effect": "Defense"
-      }
+    "debuff": {
+      "types": ["Sapient", "Primal"],
+      "effect": "Speed"
     }
+  },
+  {
+    "name": "Day",
+    "buff": {
+      "types": ["Primal", "Verdant", "Synthetic"],
+      "effect": "Defense"
+    },
+    "debuff": {
+      "types": ["Apex", "Sapient"],
+      "effect": "Attack"
+    }
+  },
+  {
+    "name": "Dusk",
+    "buff": {
+      "types": ["Primal", "Sapient"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Verdant", "Apex", "Synthetic"],
+      "effect": "Health"
+    }
+  },
+  {
+    "name": "Night",
+    "buff": {
+      "types": ["Apex", "Primal"],
+      "effect": "Health"
+    },
+    "debuff": {
+      "types": ["Verdant", "Sapient", "Synthetic"],
+      "effect": "Defense"
+    }
+  }
 ]
