@@ -445,7 +445,7 @@ namespace groundCrashers_game.classes
                     .OrderByDescending(p => PrimaryChart.GetPrimaryEffectiveness(p.primary_type, ActivePlayerCreature.primary_type))
                     .FirstOrDefault();
 
-                if (ActiveCpuCreature != candidate)
+                if (ActiveCpuCreature != candidate && candidate.alive == true)
                 {
                     return ActionType.Swap;
                 }
