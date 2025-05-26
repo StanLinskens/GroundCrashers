@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:groundCrashers_game"
         mc:Ignorable="d"
-        Title="Choose Your GroundCrasher" Height="450" Width="800"
+        Title="Choose Your GroundCrasher" Height="460" Width="800"
         Loaded="Window_Loaded">
 
     <Window.Resources>
@@ -71,6 +71,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     
                     <TextBlock Text="Name:" Grid.Row="0" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
@@ -90,6 +91,9 @@
 
                     <TextBlock Text="Defense:" Grid.Row="5" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
                     <TextBlock Name="GroundCrasherDefense" Text="N/A" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                    <TextBlock Text="Speed:" Grid.Row="6" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                    <TextBlock Name="GroundCrasherSpeed" Text="N/A" HorizontalAlignment="Right" Grid.Row="6" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
                 </Grid>
 
                 <Button Name="ConfirmButton" Style="{StaticResource DarkButton}" Content="Confirm" Width="200" Height="40" Margin="0,20,0,0" HorizontalAlignment="Center" Click="ConfirmGroundCrasher_Click" />
