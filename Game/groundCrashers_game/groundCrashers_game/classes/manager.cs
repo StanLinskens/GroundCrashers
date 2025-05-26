@@ -624,7 +624,43 @@ namespace groundCrashers_game.classes
                 {
                     logs.Add("you can only have 3 groundcrashers");
                 }
+                WeatherBuff();
+                BiomeBuff();
+                DaytimeBuff();
+            }
+        }
 
+        private void WeatherBuff()
+        {
+            Actor playerActor = GetPlayerActor();
+            if (playerActor != null)
+            {
+                foreach (Creature creature in playerActor.Creatures)
+                {
+
+                }
+            }
+        }
+        private void BiomeBuff()
+        {
+            Actor playerActor = GetPlayerActor();
+            if (playerActor != null)
+            {
+                foreach (Creature creature in playerActor.Creatures)
+                {
+
+                }
+            }
+        }
+        private void DaytimeBuff()
+        {
+            Actor playerActor = GetPlayerActor();
+            if (playerActor != null)
+            {
+                foreach (Creature creature in playerActor.Creatures)
+                {
+
+                }
             }
         }
 

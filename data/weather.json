@@ -4,88 +4,88 @@
     "name": "Sunny",
     "buff": {
       "types": ["Fire", "Light"],
-      "effect": "15% attack boost"
+      "effect": "Attack"
     },
     "debuff": {
       "types": ["Dark", "Ice"],
-      "effect": "10% defense drop"
+      "effect": "Defense"
     }
   },
   {
     "name": "Rainy",
     "buff": {
       "types": ["Water", "Electric"],
-      "effect": "10% defense boost"
+      "effect": "Defense"
     },
     "debuff": {
       "types": ["Acid", "Fire"],
-      "effect": "10% accuracy drop"
+      "effect": "Attack"
     }
   },
   {
     "name": "Cloudy",
     "buff": {
       "types": ["Dark", "Psychic"],
-      "effect": "5% speed boost"
+      "effect": "Speed"
     },
     "debuff": {
       "types": ["Nature", "Magnetic"],
-      "effect": "5% attack drop"
+      "effect": "Attack"
     }
   },
   {
     "name": "Foggy",
     "buff": {
       "types": ["Demonic", "Draconic"],
-      "effect": "10% evasion boost"
+      "effect": "Health"
     },
     "debuff": {
       "types": ["Earth", "Toxic"],
-      "effect": "15% accuracy drop"
+      "effect": "Health"
     }
   },
   {
     "name": "Windy",
     "buff": {
       "types": ["Wind", "Ice"],
-      "effect": "15% speed boost"
+      "effect": "Speed"
     },
     "debuff": {
       "types": ["Psychic", "Fire"],
-      "effect": "10% accuracy drop"
+      "effect": "Health"
     }
   },
   {
     "name": "Hail",
     "buff": {
       "types": ["Magnetic", "Acid"],
-      "effect": "10% defense boost"
+      "effect": "Defense"
     },
     "debuff": {
       "types": ["Water", "Draconic"],
-      "effect": "10% speed drop"
+      "effect": "Speed"
     }
   },
   {
     "name": "Sandstorm",
     "buff": {
       "types": ["Earth", "Nature"],
-      "effect": "15% defense boost"
+      "effect": "Attack"
     },
     "debuff": {
       "types": ["Electric", "Light"],
-      "effect": "10% accuracy drop"
+      "effect": "Speed"
     }
   },
   {
     "name": "Clear",
     "buff": {
       "types": ["Psychic"],
-      "effect": "5% to all stats"
+      "effect": "Health"
     },
     "debuff": {
       "types": ["Demonic"],
-      "effect": "No debuff"
+      "effect": "Defense"
     }
   }
 ]

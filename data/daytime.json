@@ -3,44 +3,44 @@
       "name": "Dawn",
       "buff": {
         "types": ["Verdant", "Apex", "Synthetic"],
-        "effect": "10% attack boost"
+        "effect": "Attack"
       },
       "debuff": {
         "types": ["Sapient", "Primal"],
-        "effect": "10% speed drop"
+        "effect": "Speed"
       }
     },
     {
       "name": "Day",
       "buff": {
         "types": ["Primal", "Verdant", "Synthetic"],
-        "effect": "15% defense boost"
+        "effect": "Defense"
       },
       "debuff": {
         "types": ["Apex", "Sapient"],
-        "effect": "10% attack drop"
+        "effect": "Attack"
       }
     },
     {
       "name": "Dusk",
       "buff": {
         "types": ["Primal", "Sapient"],
-        "effect": "10% speed boost"
+        "effect": "Speed"
       },
       "debuff": {
         "types": ["Verdant", "Apex", "Synthetic"],
-        "effect": "10% accuracy drop"
+        "effect": "Health"
       }
     },
     {
       "name": "Night",
       "buff": {
         "types": ["Apex", "Primal"],
-        "effect": "10% accuracy boost"
+        "effect": "Health"
       },
       "debuff": {
         "types": ["Verdant", "Sapient", "Synthetic"],
-        "effect": "10% defense drop"
+        "effect": "Defense"
       }
     }
 ]
