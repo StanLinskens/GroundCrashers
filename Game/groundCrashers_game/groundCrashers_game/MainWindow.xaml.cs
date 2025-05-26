@@ -30,6 +30,12 @@ namespace groundCrashers_game
             LevelMapWindow.Show();
             this.Close();
         }
+
+        private void esp_Click(object sender, RoutedEventArgs e)
+        {
+            espConnectionWindow espConnectionWindow = new espConnectionWindow();
+            espConnectionWindow.Show();
+        }
     }
 }
 

@@ -1,0 +1,13 @@
+﻿<Window x:Class="groundCrashers_game.espConnectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ground Crashers"
+        WindowStartupLocation="CenterScreen"
+        Background="Black">
+    <Grid Margin="10">
+        <StackPanel>
+            <Button Name="BtnGetUid" Content="Ophalen UID" Click="BtnGetUid_Click" Height="40"/>
+            <TextBox Name="TxtResult" Margin="0,10,0,0" Height="80" TextWrapping="Wrap" IsReadOnly="True"/>
+        </StackPanel>
+    </Grid>
+</Window>
