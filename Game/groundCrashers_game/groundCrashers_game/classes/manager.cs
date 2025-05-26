@@ -81,9 +81,23 @@ namespace groundCrashers_game.classes
         }
 
         // Damage formula
-        public int Damage(int attack, int defense)
+        public int Damage(Creature attacker, Creature defender)
         {
-            float damage = attack / 100f * (100f - ((100f / 600f) * defense));
+            float damage = attacker.stats.attack / 100f * (100f - ((100f / 600f) * defender.stats.defense));
+            float multiplier = PrimaryChart.GetPrimaryEffectiveness(attacker.primary_type, defender.primary_type);
+            damage *= multiplier;
+            logs.Add($"{attacker.name} did {multiplier}x the normal damage");
+            return (int)Math.Round(damage);
+        }
+
+        public int DamageElemental(Creature attacker, Creature defender)
+        {
+            float damage = attacker.stats.attack / 100f * (100f - ((100f / 600f) * defender.stats.defense));
+            float multiplier = ElementChart.GetElementEffectiveness(attacker.element, defender.element);
+            damage *= multiplier;
+            damage *= 0.4f; // Elemental attacks do less damage
+            defender.curse = attacker.element; // Apply curse based on attacker's element
+            logs.Add($"{attacker.name} did {multiplier}x the normal damage");
             return (int)Math.Round(damage);
         }
 
@@ -161,22 +175,17 @@ namespace groundCrashers_game.classes
                 {
                     case ActionType.Attack:
                         {
-                            int DamageDealt = Damage(attacker.stats.attack, defender.stats.defense);
-                            float multiplier = PrimaryChart.GetPrimaryEffectiveness(attacker.primary_type, defender.primary_type);
+                           
                             if (curse == "SelfHit")
                             {
-                                multiplier = PrimaryChart.GetPrimaryEffectiveness(attacker.primary_type, attacker.primary_type);
-                                DamageDealt = (int)Math.Round(DamageDealt * multiplier);
+                                int DamageDealt = Damage(attacker, attacker);
                                 attacker.stats.hp -= DamageDealt;
                                 logs.Add(attacker.name + " hit himself");
-                                logs.Add(attacker.name + "did " + multiplier + "x the normal damage");
                             }
                             else if (curse != "missed" || curse != "SkipTurn")
                             {
-                                DamageDealt = (int)Math.Round(DamageDealt * multiplier);
+                                int DamageDealt = Damage(attacker, defender);
                                 defender.stats.hp -= DamageDealt;
-                                logs.Add(attacker.name + "did " + multiplier + "x the normal damage");
-
                             }
                             else if (curse == "missed")
                             {
@@ -191,25 +200,17 @@ namespace groundCrashers_game.classes
 
                     case ActionType.ElementAttack:
                         {
-                            int DamageDealt = Damage(attacker.stats.attack, defender.stats.defense);
-                            DamageDealt = (int)Math.Round(DamageDealt * 0.4f); //less damage because elemental
-                            float multiplier = ElementChart.GetElementEffectiveness(attacker.element, defender.element);
                             if (curse == "SelfHit")
                             {
-                                multiplier = ElementChart.GetElementEffectiveness(attacker.element, attacker.element);
-                                DamageDealt = (int)Math.Round(DamageDealt * multiplier);
+                                int DamageDealt = DamageElemental(attacker, attacker);
                                 attacker.stats.hp -= DamageDealt;
-                                attacker.curse = attacker.element;
                                 logs.Add(attacker.name + " hit himself");
-                                logs.Add(attacker.name + " did " + multiplier + "x the normal damage");
                                 logs.Add(attacker.name + " curse is " + attacker.element.ToString().ToLower());
                             }
                             else if (curse != "missed" || curse != "SkipTurn")
                             {
-                                DamageDealt = (int)Math.Round(DamageDealt * multiplier);
+                                int DamageDealt = DamageElemental(attacker, defender);
                                 defender.stats.hp -= DamageDealt;
-                                defender.curse = attacker.element;
-                                logs.Add(attacker.name + " did " + multiplier + "x the normal damage");
                                 logs.Add(defender.name + " curse is " + attacker.element.ToString().ToLower());
                             }
                             else if (curse == "missed")
@@ -220,7 +221,6 @@ namespace groundCrashers_game.classes
                             {
                                 logs.Add(attacker.name + " skipped turn");
                             }
-
                             break;
                         }
 
@@ -331,84 +331,82 @@ namespace groundCrashers_game.classes
                 activeCreature.stats.attack = activeCreature.stats.max_attack;
                 activeCreature.stats.speed = activeCreature.stats.speed;
 
-                if (activeCreature.curse == Elements.Nature)
+                switch (activeCreature.curse)
                 {
-                    activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.65f); // 35% speed reduction 
-                    logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
-                }
-                else if (activeCreature.curse == Elements.Ice)
-                {
-                    int save = activeCreature.stats.hp;
-                    activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.05f); // 5% max hp damage
-                    logs.Add(activeCreature.name + " hp went from " + save + " to " + activeCreature.stats.hp);
-                    activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.9f); // 10% attack reduction
-                    logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
-                }
-                else if (activeCreature.curse == Elements.Toxic || activeCreature.curse == Elements.Fire)
-                {
-                    int save = activeCreature.stats.hp;
-                    activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.1f); // 10% max hp damage
-                    logs.Add(activeCreature.name + " hp went from " + save + " to " + activeCreature.stats.hp);
-                }
-                else if (activeCreature.curse == Elements.Water)
-                {
-                    activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.85f); // 15% attack reduction
-                    logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
-                    activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.85f); // 15% speed reduction 
-                    logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
-                }
-                else if (activeCreature.curse == Elements.Draconic || activeCreature.curse == Elements.Light || activeCreature.curse == Elements.Dark)
-                {
-                    return randomNumber < 20 ? "missed" : "none";
-                }
-                else if (activeCreature.curse == Elements.Earth)
-                {
-                    activeCreature.stats.defense = activeCreature.stats.max_defense;
-                    activeCreature.stats.defense = (int)Math.Round(activeCreature.stats.max_defense * 0.70f); // 30% defense reduction
-                    logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
-                }
-                else if (activeCreature.curse == Elements.Wind || activeCreature.curse == Elements.Demonic)
-                {
-                    return randomNumber < 25 ? "SelfHit" : "none";
-                }
-                else if (activeCreature.curse == Elements.Psychic)
-                {
-                    return randomNumber < 20 ? "SkipTurn" : "none";
-                }
-                else if (activeCreature.curse == Elements.Electric)
-                {
-                    activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.75f); // 25% speed reduction
-                    logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
-                    return randomNumber < 10 ? "SkipTurn" : "none";
-                }
-                else if (activeCreature.curse == Elements.Acid)
-                {
-                    activeCreature.stats.defense -= (int)Math.Round(activeCreature.stats.defense * 0.1f); // 10% defence reduction each turn
-                    logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
-                }
-                else if (activeCreature.curse == Elements.Magnetic)
-                {
-                    if (randomNumber < 50) 
-                    {
-                        int save = activeCreature.stats.max_speed;
-                        logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.speed + " to " + activeCreature.stats.max_defense);
-                        activeCreature.stats.speed = activeCreature.stats.max_defense;
-                        logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.defense + " to " + activeCreature.stats.max_attack);
-                        activeCreature.stats.defense = activeCreature.stats.max_attack;
-                        logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.attack + " to " + activeCreature.stats.max_speed);
-                        activeCreature.stats.attack = save;
+                    case Elements.Nature:
+                        activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.60f); // 40% speed reduction 
+                        logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
+                        break;
+                    case Elements.Ice:
+                        {
+                            int save = activeCreature.stats.hp;
+                            activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.08f); // 8% max hp damage
+                            logs.Add(activeCreature.name + " hp went from " + save + " to " + activeCreature.stats.hp);
+                            activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.85f); // 15% attack reduction
+                            logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
+                            break;
+                        }
 
-                    }
-                    else if (randomNumber < 100) 
-                    {
-                        int save = activeCreature.stats.max_attack;
-                        logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.attack + " to " + activeCreature.stats.max_defense);
-                        activeCreature.stats.attack = activeCreature.stats.max_defense;
-                        logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.defense + " to " + activeCreature.stats.max_speed);
-                        activeCreature.stats.defense = activeCreature.stats.max_speed;
-                        logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.speed + " to " + activeCreature.stats.max_attack);
-                        activeCreature.stats.speed = save;
-                    }
+                    case Elements.Toxic:
+                    case Elements.Fire:
+                        {
+                            int save = activeCreature.stats.hp;
+                            activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.15f); // 15% max hp damage
+                            logs.Add(activeCreature.name + " hp went from " + save + " to " + activeCreature.stats.hp);
+                            break;
+                        }
+
+                    case Elements.Water:
+                        activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.80f); // 20% attack reduction
+                        logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
+                        activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.80f); // 20% speed reduction 
+                        logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
+                        break;
+                    case Elements.Draconic:
+                    case Elements.Light:
+                    case Elements.Dark:
+                        return randomNumber < 30 ? "missed" : "none";
+                    case Elements.Earth:
+                        activeCreature.stats.defense = activeCreature.stats.max_defense;
+                        activeCreature.stats.defense = (int)Math.Round(activeCreature.stats.max_defense * 0.70f); // 30% defense reduction
+                        logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
+                        break;
+                    case Elements.Wind:
+                    case Elements.Demonic:
+                        return randomNumber < 32 ? "SelfHit" : "none";
+                    case Elements.Psychic:
+                        return randomNumber < 30 ? "SkipTurn" : "none";
+                    case Elements.Electric:
+                        activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.70f); // 30% speed reduction
+                        logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
+                        return randomNumber < 20 ? "SkipTurn" : "none";
+                    case Elements.Acid:
+                        activeCreature.stats.defense -= (int)Math.Round(activeCreature.stats.defense * 0.13f); // 13% defence reduction each turn
+                        logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
+                        break;
+                    case Elements.Magnetic:
+                        {
+                            int RandomValue = _rnd.Next(1, 201); // 1 to 200
+                            if (randomNumber < 33)
+                            {
+                                activeCreature.stats.defense = activeCreature.stats.max_defense;
+                                activeCreature.stats.speed = RandomValue; // Set speed to a random value between 1 and 200
+                                logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + RandomValue);
+                            }
+                            else if (randomNumber < 66)
+                            {
+                                activeCreature.stats.defense = activeCreature.stats.max_defense;
+                                activeCreature.stats.attack = RandomValue; // Set attack to a random value between 1 and 200
+                                logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + RandomValue);
+                            }
+                            else
+                            {
+                                activeCreature.stats.defense = RandomValue; // Set defense to a random value between 1 and 200
+                                logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + RandomValue);
+                            }
+
+                            break;
+                        }
                 }
 
 
@@ -445,7 +443,7 @@ namespace groundCrashers_game.classes
                     .OrderByDescending(p => PrimaryChart.GetPrimaryEffectiveness(p.primary_type, ActivePlayerCreature.primary_type))
                     .FirstOrDefault();
 
-                if (ActiveCpuCreature != candidate)
+                if ((candidate != null) && ActiveCpuCreature != candidate && candidate.alive == true)
                 {
                     return ActionType.Swap;
                 }
@@ -454,7 +452,7 @@ namespace groundCrashers_game.classes
             {
                 if (cpuPercentage > 35)
                 {
-                    return randomNumber < 33 ? ActionType.Attack : ActionType.Defend; // 33/66
+                    return randomNumber < 50 ? ActionType.Attack : ActionType.Defend; // 50/50
                 }
                 else if (playerPercentage > 35)
                 {
