@@ -70,10 +70,10 @@
                     Click="Map_Click"
                     Foreground="Black"/>
 
-            <Button Content="esp"
+            <Button Content="Portal"
                 Style="{StaticResource RoundedButtonStyle}"
                 Background="#1ba491"
-                Click="esp_Click"
+                Click="Portal_Click"
                 Foreground="Black"/>
 
             <Button Content="Exit"

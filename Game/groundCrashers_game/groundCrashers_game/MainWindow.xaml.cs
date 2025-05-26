@@ -31,7 +31,7 @@ namespace groundCrashers_game
             this.Close();
         }
 
-        private void esp_Click(object sender, RoutedEventArgs e)
+        private void Portal_Click(object sender, RoutedEventArgs e)
         {
             espConnectionWindow espConnectionWindow = new espConnectionWindow();
             espConnectionWindow.Show();
