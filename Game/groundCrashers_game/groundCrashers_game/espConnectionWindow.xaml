@@ -1,0 +1,22 @@
+﻿<Window x:Class="groundCrashers_game.espConnectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RFID Verbinding"
+        Height="200" Width="400"
+        WindowStartupLocation="CenterScreen"
+        Background="Black">
+    <Grid Margin="10">
+        <StackPanel>
+            <Button Name="BtnGetUid"
+                    Content="Ophalen UID"
+                    Click="BtnGetUid_Click"
+                    Height="40" Margin="0,0,0,10"
+                    Background="LightGray"/>
+            <TextBox Name="TxtResult"
+                     Height="80"
+                     TextWrapping="Wrap"
+                     IsReadOnly="True"
+                     FontSize="16"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -64,12 +64,22 @@
                     Background="#FF4CAF50"
                     Click="StartGame_Click"/>
 
+
+            <Button Content="esp"
+                Style="{StaticResource RoundedButtonStyle}"
+                Background="Aquamarine"
+                Click="esp_Click"
+                Foreground="Black"/>
+            
+            
             <Button Content="Map"
                     Style="{StaticResource RoundedButtonStyle}"
                     Background="#3be9ff"
                     Click="Map_Click"
                     Foreground="Black"/>
+
             
+
             <Button Content="Exit"
                 Style="{StaticResource RoundedButtonStyle}"
                 Background="#FFF44336"
