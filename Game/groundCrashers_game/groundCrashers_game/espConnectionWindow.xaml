@@ -1,13 +1,28 @@
 ﻿<Window x:Class="groundCrashers_game.espConnectionWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Ground Crashers"
+        Title="Ground Crashers - Verbinding"
         WindowStartupLocation="CenterScreen"
+        Width="400"
+        Height="366"
         Background="Black">
-    <Grid Margin="10">
-        <StackPanel>
-            <Button Name="BtnGetUid" Content="Ophalen UID" Click="BtnGetUid_Click" Height="40"/>
-            <TextBox Name="TxtResult" Margin="0,10,0,0" Height="80" TextWrapping="Wrap" IsReadOnly="True"/>
+    <Grid Margin="20">
+        <StackPanel VerticalAlignment="Center" Height="Auto">
+
+            <TextBlock Text="SSID:" Foreground="White" FontSize="16"/>
+            <TextBox Name="txtSSID" Height="40" TextWrapping="Wrap" IsReadOnly="False"/>
+
+            <TextBlock Text="PASSWORD:" Foreground="White" FontSize="16"/>
+            <TextBox Name="txtPASSWORD" Height="40" TextWrapping="Wrap" IsReadOnly="False"/>
+
+            <UniformGrid Columns="2" HorizontalAlignment="Stretch">
+                <Button Name="btnSendcredentials" Content="Verstuur gegevens" Click="BtnSendcredentials_Click" Height="40"/>
+                <Button Name="BtnGetUid" Content="Ophalen UID" Click="BtnGetUid_Click" Height="40"/>
+            </UniformGrid>
+
+            <TextBlock Text="UID:" Foreground="White" FontSize="16"/>
+            <TextBox Name="TxtResult" Height="80" TextWrapping="Wrap" IsReadOnly="True"/>
+
         </StackPanel>
     </Grid>
 </Window>

@@ -22,6 +22,8 @@ namespace groundCrashers_game.classes
 
         private static readonly Random _rnd = new Random();
 
+        private int _maxCreatures = 5;
+
         public enum ActionType
         {
             Attack,
@@ -608,7 +610,7 @@ namespace groundCrashers_game.classes
             }
             else
             {
-                if(playerActor.Creatures.Count < 3)
+                if(playerActor.Creatures.Count < _maxCreatures)
                 {
                     foreach (var creature in playerActor.Creatures)
                     {
@@ -622,7 +624,7 @@ namespace groundCrashers_game.classes
                 }
                 else
                 {
-                    logs.Add("you can only have 3 groundcrashers");
+                    logs.Add($"you have the maximum GroundCrashers 0f {_maxCreatures}");
                 }
                 WeatherBuff();
                 BiomeBuff();
@@ -670,7 +672,7 @@ namespace groundCrashers_game.classes
 
             // Create CPU Actor
             var cpuActor = new Actor("CPU", false);
-            cpuActor.Creatures.AddRange(GetRandomCreatures(3));
+            cpuActor.Creatures.AddRange(GetRandomCreatures(_maxCreatures));
             CurrentActors.Add(cpuActor);
 
             var playerActor = new Actor("Player", true);
