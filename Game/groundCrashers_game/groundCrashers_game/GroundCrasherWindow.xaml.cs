@@ -56,6 +56,7 @@ namespace groundCrashers_game
                 GroundCrasherHP.Text = selected.stats.hp.ToString();
                 GroundCrasherAttack.Text = selected.stats.attack.ToString();
                 GroundCrasherDefense.Text = selected.stats.defense.ToString();
+                GroundCrasherSpeed.Text = selected.stats.speed.ToString();
                 try {
                     creatureImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{selected.name}.png", UriKind.Absolute));
                     } 
