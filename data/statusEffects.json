@@ -1,0 +1,157 @@
+{
+  "statusEffects": [
+    {
+      "element": "Nature",
+      "statusName": "Entangled",
+      "description": "Vines and roots wrap around the target, restricting movement",
+      "effect": {
+        "stat": "speed",
+        "modifier": -25
+      }
+    },
+    {
+      "element": "Ice",
+      "statusName": "Frostbite",
+      "description": "Extreme cold slows reactions and causes tissue damage",
+      "effect": {
+        "stat": "speed",
+        "modifier": -30
+      }
+    },
+    {
+      "element": "Toxic",
+      "statusName": "Poisoned",
+      "description": "Deadly toxins course through the bloodstream",
+      "effect": {
+        "stat": "hp",
+        "modifier": -8
+      }
+    },
+    {
+      "element": "Fire",
+      "statusName": "Burned",
+      "description": "Flames sear flesh and equipment, causing ongoing damage",
+      "effect": {
+        "stat": "hp",
+        "modifier": -6
+      }
+    },
+    {
+      "element": "Water",
+      "statusName": "Soaked",
+      "description": "Waterlogged equipment becomes heavy and cumbersome",
+      "effect": {
+        "stat": "speed",
+        "modifier": -20
+      }
+    },
+    {
+      "element": "Draconic",
+      "statusName": "Intimidated",
+      "description": "Overwhelming draconic presence weakens resolve and strength",
+      "effect": {
+        "stat": "attack",
+        "modifier": -35
+      }
+    },
+    {
+      "element": "Earth",
+      "statusName": "Weighted",
+      "description": "Dense earth magic makes the target feel incredibly heavy",
+      "effect": {
+        "stat": "speed",
+        "modifier": -40
+      }
+    },
+    {
+      "element": "Dark",
+      "statusName": "Cursed",
+      "description": "Dark energy saps life force and weakens defenses",
+      "effect": {
+        "stat": "defence",
+        "modifier": -30
+      }
+    },
+    {
+      "element": "Wind",
+      "statusName": "Disoriented",
+      "description": "Swirling winds confuse and disorient the target",
+      "effect": {
+        "stat": "attack",
+        "modifier": -25
+      }
+    },
+    {
+      "element": "Psychic",
+      "statusName": "Mind Shattered",
+      "description": "Psychic assault fragments thoughts and reactions",
+      "effect": {
+        "stat": "speed",
+        "modifier": -35
+      }
+    },
+    {
+      "element": "Light",
+      "statusName": "Blinded",
+      "description": "Intense light burns the eyes and impairs vision",
+      "effect": {
+        "stat": "attack",
+        "modifier": -30
+      }
+    },
+    {
+      "element": "Demonic",
+      "statusName": "Soul Drained",
+      "description": "Demonic energy feeds on the target's life essence",
+      "effect": {
+        "stat": "attack",
+        "modifier": -20
+      }
+    },
+    {
+      "element": "Electric",
+      "statusName": "Paralyzed",
+      "description": "Electrical current disrupts nervous system",
+      "effect": {
+        "stat": "speed",
+        "modifier": -50
+      }
+    },
+    {
+      "element": "Acid",
+      "statusName": "Corroded",
+      "description": "Acid eats away at armor and natural defenses",
+      "effect": {
+        "stat": "defence",
+        "modifier": -40
+      }
+    },
+    {
+      "element": "Magnetic",
+      "statusName": "Magnetized",
+      "description": "Magnetic forces interfere with movement and metal equipment",
+      "effect": {
+        "stat": "speed",
+        "modifier": -15
+      }
+    },
+    {
+      "element": "ALL",
+      "statusName": "Overwhelmed",
+      "description": "Bombardment by all elements creates complete system shock",
+      "effect": {
+        "stat": "all",
+        "modifier": -20
+      }
+    },
+    {
+      "element": "none",
+      "statusName": "Neutral",
+      "description": "No elemental influence affects the target",
+      "effect": {
+        "stat": "none",
+        "modifier": 0
+      }
+	}
+  ]
+}
