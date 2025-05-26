@@ -2,84 +2,84 @@
     {
         "name": "Sunny",
         "buff": {
-        "types": ["Fire", "Avian"],
+        "types": ["Fire", "Light"],
         "effect": "15% attack boost"
         },
         "debuff": {
-        "types": ["Water", "Aquatic"],
+        "types": ["Dark", "Ice"],
         "effect": "10% defense drop"
         }
     },
     {
         "name": "Rainy",
         "buff": {
-        "types": ["Water", "Aquatic"],
+        "types": ["Water", "Electric"],
         "effect": "10% defense boost"
         },
         "debuff": {
-        "types": ["Fire", "Terrestrial"],
+        "types": ["Acid", "Toxic"],
         "effect": "10% accuracy drop"
         }
     },
     {
         "name": "Cloudy",
         "buff": {
-        "types": ["Electric", "Avian"],
+        "types": ["Dark", "Psychic"],
         "effect": "5% speed boost"
         },
         "debuff": {
-        "types": ["Terrestrial", "Fire"],
+        "types": ["Light", "Nature"],
         "effect": "5% attack drop"
         }
     },
     {
         "name": "Foggy",
         "buff": {
-        "types": ["Water", "Aquatic"],
+        "types": ["Demonic", "Draconic"],
         "effect": "10% evasion boost"
         },
         "debuff": {
-        "types": ["Avian", "Electric"],
+        "types": ["Toxic", "Earth"],
         "effect": "15% accuracy drop"
         }
     },
     {
         "name": "Windy",
         "buff": {
-        "types": ["Avian", "Electric"],
+        "types": ["Wind", ""],
         "effect": "15% speed boost"
         },
         "debuff": {
-        "types": ["Fire", "Earth"],
+        "types": ["", ""],
         "effect": "10% accuracy drop"
         }
     },
     {
         "name": "Hail",
         "buff": {
-        "types": ["Ice", "Water"],
+        "types": ["", ""],
         "effect": "10% defense boost"
         },
         "debuff": {
-        "types": ["Avian", "Fire"],
+        "types": [""],
         "effect": "10% speed drop"
         }
     },
     {
         "name": "Sandstorm",
         "buff": {
-        "types": ["Earth", "Terrestrial"],
+        "types": [""],
         "effect": "15% defense boost"
         },
         "debuff": {
-        "types": ["Electric", "Avian"],
+        "types": [""],
         "effect": "10% accuracy drop"
         }
     },
     {
         "name": "Clear",
         "buff": {
-        "types": ["Avian", "Electric"],
+        "types": [""],
         "effect": "5% to all stats"
         },
         "debuff": {
