@@ -2,44 +2,44 @@
     {
       "name": "Dawn",
       "buff": {
-        "types": ["Primal", "Avian"],
+        "types": ["Verdant", "Apex", "Synthetic"],
         "effect": "10% attack boost"
       },
       "debuff": {
-        "types": ["Synthetic", "Apex"],
+        "types": ["Sapient", "Primal"],
         "effect": "10% speed drop"
       }
     },
     {
       "name": "Day",
       "buff": {
-        "types": ["Verdant", "Terrestrial"],
+        "types": ["Primal", "Verdant", "Synthetic"],
         "effect": "15% defense boost"
       },
       "debuff": {
-        "types": ["Synthetic", "Aquatic"],
+        "types": ["Apex", "Sapient"],
         "effect": "10% attack drop"
       }
     },
     {
       "name": "Dusk",
       "buff": {
-        "types": ["Apex", "Aquatic"],
+        "types": ["Primal", "Sapient"],
         "effect": "10% speed boost"
       },
       "debuff": {
-        "types": ["Verdant", "Avian"],
+        "types": ["Verdant", "Apex", "Synthetic"],
         "effect": "10% accuracy drop"
       }
     },
     {
       "name": "Night",
       "buff": {
-        "types": ["Synthetic", "Sapient"],
+        "types": ["Apex", "Primal"],
         "effect": "10% accuracy boost"
       },
       "debuff": {
-        "types": ["Primal", "Terrestrial"],
+        "types": ["Verdant", "Sapient", "Synthetic"],
         "effect": "10% defense drop"
       }
     }

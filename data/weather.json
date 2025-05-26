@@ -1,90 +1,91 @@
+  
 [
-    {
-        "name": "Sunny",
-        "buff": {
-        "types": ["Fire", "Light"],
-        "effect": "15% attack boost"
-        },
-        "debuff": {
-        "types": ["Dark", "Ice"],
-        "effect": "10% defense drop"
-        }
+  {
+    "name": "Sunny",
+    "buff": {
+      "types": ["Fire", "Light"],
+      "effect": "15% attack boost"
     },
-    {
-        "name": "Rainy",
-        "buff": {
-        "types": ["Water", "Electric"],
-        "effect": "10% defense boost"
-        },
-        "debuff": {
-        "types": ["Acid", "Toxic"],
-        "effect": "10% accuracy drop"
-        }
-    },
-    {
-        "name": "Cloudy",
-        "buff": {
-        "types": ["Dark", "Psychic"],
-        "effect": "5% speed boost"
-        },
-        "debuff": {
-        "types": ["Light", "Nature"],
-        "effect": "5% attack drop"
-        }
-    },
-    {
-        "name": "Foggy",
-        "buff": {
-        "types": ["Demonic", "Draconic"],
-        "effect": "10% evasion boost"
-        },
-        "debuff": {
-        "types": ["Toxic", "Earth"],
-        "effect": "15% accuracy drop"
-        }
-    },
-    {
-        "name": "Windy",
-        "buff": {
-        "types": ["Wind", ""],
-        "effect": "15% speed boost"
-        },
-        "debuff": {
-        "types": ["", ""],
-        "effect": "10% accuracy drop"
-        }
-    },
-    {
-        "name": "Hail",
-        "buff": {
-        "types": ["", ""],
-        "effect": "10% defense boost"
-        },
-        "debuff": {
-        "types": [""],
-        "effect": "10% speed drop"
-        }
-    },
-    {
-        "name": "Sandstorm",
-        "buff": {
-        "types": [""],
-        "effect": "15% defense boost"
-        },
-        "debuff": {
-        "types": [""],
-        "effect": "10% accuracy drop"
-        }
-    },
-    {
-        "name": "Clear",
-        "buff": {
-        "types": [""],
-        "effect": "5% to all stats"
-        },
-        "debuff": {
-        "types": [],
-        "effect": "No debuff"
-        }
+    "debuff": {
+      "types": ["Dark", "Ice"],
+      "effect": "10% defense drop"
     }
+  },
+  {
+    "name": "Rainy",
+    "buff": {
+      "types": ["Water", "Electric"],
+      "effect": "10% defense boost"
+    },
+    "debuff": {
+      "types": ["Acid", "Fire"],
+      "effect": "10% accuracy drop"
+    }
+  },
+  {
+    "name": "Cloudy",
+    "buff": {
+      "types": ["Dark", "Psychic"],
+      "effect": "5% speed boost"
+    },
+    "debuff": {
+      "types": ["Nature", "Magnetic"],
+      "effect": "5% attack drop"
+    }
+  },
+  {
+    "name": "Foggy",
+    "buff": {
+      "types": ["Demonic", "Draconic"],
+      "effect": "10% evasion boost"
+    },
+    "debuff": {
+      "types": ["Earth", "Toxic"],
+      "effect": "15% accuracy drop"
+    }
+  },
+  {
+    "name": "Windy",
+    "buff": {
+      "types": ["Wind", "Ice"],
+      "effect": "15% speed boost"
+    },
+    "debuff": {
+      "types": ["Psychic", "Fire"],
+      "effect": "10% accuracy drop"
+    }
+  },
+  {
+    "name": "Hail",
+    "buff": {
+      "types": ["Magnetic", "Acid"],
+      "effect": "10% defense boost"
+    },
+    "debuff": {
+      "types": ["Water", "Draconic"],
+      "effect": "10% speed drop"
+    }
+  },
+  {
+    "name": "Sandstorm",
+    "buff": {
+      "types": ["Earth", "Nature"],
+      "effect": "15% defense boost"
+    },
+    "debuff": {
+      "types": ["Electric", "Light"],
+      "effect": "10% accuracy drop"
+    }
+  },
+  {
+    "name": "Clear",
+    "buff": {
+      "types": ["Psychic"],
+      "effect": "5% to all stats"
+    },
+    "debuff": {
+      "types": ["Demonic"],
+      "effect": "No debuff"
+    }
+  }
 ]
