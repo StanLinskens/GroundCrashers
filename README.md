@@ -1,62 +1,46 @@
+GroundCrashers
 
-```markdown
-# 🎮 GroundCrashers
+GroundCrashers is a WPF (.NET) game developed in Visual Studio Community. It features player interaction using RFID communication over a network.
+Features
 
-**GroundCrashers** is an interactive wpf.net combined with RFID technology, developed as a school project. It uses HTML, CSS, and JavaScript for the game, and C++ (Arduino) to handle RFID scanning.
+    Built with WPF and .NET
 
----
+    Game logic connected to RFID tag input
 
-## 🔧 Features
+    Communicates with RFID reader over network
 
-- 🕹️ wpf.net arcade-style game
-- 📡 RFID tag integration using Arduino
-- 📁 Organized project structure for easy development
+    Designed for interactive installations
 
----
+Requirements
 
-## 🗂️ Project Structure
+    Windows 10 or 11
 
-```
+    Visual Studio Community (2022 or later)
 
-📁 GroundCrashers/
-├── 🎮 Game/groundCrashers\_game/    → Web game files
-├── 🌐 Website/                     → Supporting website pages
-├── 📊 data/                        → Extra game data
-├── 🔌 rfid-reader/                 → RFID reader code
-├── 🧠 rfid-reader.ino              → Main Arduino sketch
-└── ⚙️ .vscode/                     → Dev environment settings
+    .NET Framework (check project settings for exact version)
 
-```
+    RFID reader with network capability
 
----
+Getting Started
 
-## 🚀 How It Works
+    Clone the repository:
+    https://github.com/StanLinskens/GroundCrashers
 
-1. Start the game.
-2. Scan RFID tags using the Arduino setup.
-3. The tag interacts with the game (e.g. player login, item unlocks, etc).
+    Open the solution file (.sln) in Visual Studio.
 
----
+    Restore NuGet packages if prompted.
 
-## 🛠️ Tech Stack
+    Build and run the project.
 
-| Part         | Tech         |
-|--------------|--------------|
-| Game         | HTML, CSS, JavaScript, c# |
-| Hardware     | Arduino, RFID RC522    |
-| Editor       | VS Code       |
+RFID Setup
 
----
+    Make sure the RFID reader is connected to the same network as your PC.
 
-## 👨‍💻 Developed By
+    Check the source code for IP address and port configuration.
 
-[Wout Vereijken]
-[Stan Linskens]
-[Sven]
-Made for a school project
+    The game reacts to RFID scans over TCP/UDP depending on your reader setup.
 
----
+Wiki
 
-
-```
-
+For more info like game rules, RFID configuration, or network setup, visit the GroundCrashers Wiki:
+[https://github.com/StanLinskens/GroundCrashers/wiki](https://stan.1pc.nl/)
