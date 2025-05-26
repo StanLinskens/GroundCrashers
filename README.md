@@ -1,54 +1,62 @@
-GroundCrashers
 
-GroundCrashers is a school project that combines a web-based game with RFID hardware integration. The game is developed using HTML, CSS, and JavaScript, while the RFID reader is programmed in C++.
-Features
+```markdown
+# 🎮 GroundCrashers
 
-    Web Game: An interactive game accessible through a web browser.
+**GroundCrashers** is an interactive wpf.net combined with RFID technology, developed as a school project. It uses HTML, CSS, and JavaScript for the game, and C++ (Arduino) to handle RFID scanning.
 
-    RFID Integration: Uses an RFID reader to interact with the game, allowing players to scan RFID tags as part of the gameplay.
+---
 
-    Modular Design: The project is organized into separate components for easy maintenance and scalability.
+## 🔧 Features
 
-Project Structure
+- 🕹️ wpf.net arcade-style game
+- 📡 RFID tag integration using Arduino
+- 📁 Organized project structure for easy development
 
-GroundCrashers/
-├── Game/
-│   └── groundCrashers_game/   # Web game source code
-├── Website/                   # Website files
-├── data/                      # Data files used by the game
-├── rfid-reader/               # RFID reader code
-├── rfid-reader.ino            # Arduino sketch for RFID reader
-├── .vscode/                   # VS Code configuration
-├── .gitignore
-└── README.md
+---
 
-Getting Started
-Prerequisites
+## 🗂️ Project Structure
 
-    A web browser to run the game.
+```
 
-    An RFID reader compatible with Arduino.
+📁 GroundCrashers/
+├── 🎮 Game/groundCrashers\_game/    → Web game files
+├── 🌐 Website/                     → Supporting website pages
+├── 📊 data/                        → Extra game data
+├── 🔌 rfid-reader/                 → RFID reader code
+├── 🧠 rfid-reader.ino              → Main Arduino sketch
+└── ⚙️ .vscode/                     → Dev environment settings
 
-    Arduino IDE to upload the RFID reader code.
+```
 
-Running the Game
+---
 
-    Clone the repository:
+## 🚀 How It Works
 
-    git clone https://github.com/StanLinskens/GroundCrashers.git
+1. Start the game.
+2. Scan RFID tags using the Arduino setup.
+3. The tag interacts with the game (e.g. player login, item unlocks, etc).
 
-    Navigate to the game directory:
+---
 
-    cd GroundCrashers/Game/groundCrashers_game
+## 🛠️ Tech Stack
 
-    Open index.html in your web browser to start the game.
+| Part         | Tech         |
+|--------------|--------------|
+| Game         | HTML, CSS, JavaScript, c# |
+| Hardware     | Arduino, RFID RC522    |
+| Editor       | VS Code       |
 
-Setting Up the RFID Reader
+---
 
-    Connect your RFID reader to the Arduino board.
+## 👨‍💻 Developed By
 
-    Open rfid-reader.ino in the Arduino IDE.
+[Wout Vereijken]
+[Stan Linskens]
+[Sven]
+Made for a school project
 
-    Upload the sketch to your Arduino board.
+---
 
-    Ensure the Arduino is communicating with the game as intended.
+
+```
+
