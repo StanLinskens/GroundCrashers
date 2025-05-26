@@ -1,8 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using DocumentFormat.OpenXml.ExtendedProperties;
+using Newtonsoft.Json;
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
+using System.Linq.Expressions;
 using System.Text;
 using System.Windows;
 using System.Windows.Documents;
@@ -22,7 +25,7 @@ namespace groundCrashers_game.classes
 
         private static readonly Random _rnd = new Random();
 
-        private int _maxCreatures = 5;
+        private int _maxCreatures = 3;
 
         public enum ActionType
         {
@@ -56,7 +59,9 @@ namespace groundCrashers_game.classes
         {
             var values = Enum.GetValues(typeof(Weathers));
             int index = _rnd.Next(values.Length);
-            return (Weathers)values.GetValue(index);
+            var selected = (Weathers)values.GetValue(index);
+            WeatherChart.currentWeather = selected;
+            return selected;
         }
 
         public void LoadGameData()
@@ -71,6 +76,15 @@ namespace groundCrashers_game.classes
 
                 // Load primaries
                 PrimaryChart.LoadPrimariesFromJson();
+
+                // Load weather
+                WeatherChart.LoadWeathersFromJson();
+
+                // Load daytime
+                DaytimeChart.LoadDaytimesFromJson();
+
+                // load biomes
+                BiomeChart.LoadBiomesFromJson();
 
                 logs.Add("Game data loaded successfully");
             }
@@ -230,15 +244,19 @@ namespace groundCrashers_game.classes
                         {
                             if (curse != "SkipTurn")
                             {
-                                attacker.stats.hp += attacker.stats.max_hp / 25; // 25% heal
+                                int healing = (int)Math.Round(attacker.stats.max_hp * 0.20f); // 20% heal
+                                attacker.stats.hp += healing;
+                                if(attacker.stats.hp > attacker.stats.max_hp)
+                                {
+                                    attacker.stats.hp = attacker.stats.max_hp; // Cap at max hp
+                                }
                                 attacker.curse = Elements.none;
                             }
                             else if (curse == "SkipTurn")
                             {
                                 logs.Add(attacker.name + " skipped turn");
                             }
-
-                                break;
+                            break;
                         }
                     case ActionType.Swap:
                         {
@@ -601,18 +619,19 @@ namespace groundCrashers_game.classes
 
         public void AddPlayerCreatures(Creature newCreature)
         {
-
+            
             // Create Player Actor
             Actor playerActor = GetPlayerActor();
             if(playerActor == null)
             {
-                logs.Add("could not find that groundcrasher");
+                logs.Add("the playerActor is null");
+                return;
             }
             else
             {
                 if(playerActor.Creatures.Count < _maxCreatures)
                 {
-                    foreach (var creature in playerActor.Creatures)
+                    foreach (Creature creature in playerActor.Creatures)
                     {
                         if (creature.id == newCreature.id)
                         {
@@ -621,45 +640,93 @@ namespace groundCrashers_game.classes
                         }
                     }
                     playerActor.Creatures.Add(newCreature.Clone());
+                    logs.Add(newCreature.name + " added to team");
                 }
                 else
                 {
                     logs.Add($"you have the maximum GroundCrashers 0f {_maxCreatures}");
+                    return;
                 }
-                WeatherBuff();
-                BiomeBuff();
-                DaytimeBuff();
+
+                if (playerActor.Creatures.Count == _maxCreatures)
+                {
+                    // enviroment buff for player
+                    EnviromentBuff_Setup(playerActor);
+                }
             }
         }
 
-        private void WeatherBuff()
+        private void EnviromentBuff_Setup(Actor actor)
         {
-            Actor playerActor = GetPlayerActor();
-            if (playerActor != null)
+            if (actor != null)
             {
-                foreach (Creature creature in playerActor.Creatures)
+                foreach (Creature creature in actor.Creatures)
+                {
+                    // weather buff
+                    string actionWeather = WeatherChart.GetWeatherEffectiveness(creature);
+                    string[] actionWeatherSplit = actionWeather.Split('/');
+                    environmentBuff(creature, actionWeatherSplit);
+
+                    // time of day buff
+                    string actionTime = DaytimeChart.GetDaytimeEffectiveness(creature);
+                    string[] actionTimeSplit = actionTime.Split('/');
+                    environmentBuff(creature, actionTimeSplit);
+
+                    // Biome buff
+                    string actionBiome = BiomeChart.GetBiomeEffectiveness(creature);
+                    string[] actionBiomeSplit = actionBiome.Split('/');
+                    environmentBuff(creature, actionBiomeSplit);
+                }
+            }
+        }
+
+        private void environmentBuff(Creature creature, string[] actionSplit)
+        {
+            float number = 1.0f;
+            if (actionSplit[0] == "Buff") number = _rnd.Next(105, 111) / 100f;
+            else if (actionSplit[0] == "Debuff") number = _rnd.Next(90, 96) / 100f;
+            int save;
+
+            switch (actionSplit[1])
+            {
+                case "Health":
+                    save = creature.stats.max_hp;
+                    creature.stats.max_hp = (int)Math.Round(creature.stats.max_hp * number);
+                    logs.Add($"{creature.name} max hp went from {save} to {creature.stats.max_hp}");
+                    break;
+                case "Attack":
+                    save = creature.stats.max_attack;
+                    creature.stats.max_attack = (int)Math.Round(creature.stats.max_attack * number);
+                    logs.Add($"{creature.name} attack went from {save} to {creature.stats.max_attack}");
+                    break;
+                case "Defense":
+                    save = creature.stats.max_defense;
+                    creature.stats.max_defense = (int)Math.Round(creature.stats.max_defense * number);
+                    logs.Add($"{creature.name} defense went from {save} to {creature.stats.max_defense}");
+                    break;
+                case "Speed":
+                    save = creature.stats.max_speed;
+                    creature.stats.max_speed = (int)Math.Round(creature.stats.max_speed * number);
+                    logs.Add($"{creature.name} speed went from {save} to {creature.stats.max_speed}");
+                    break;
+            }
+        }
+
+        private void BiomeBuff(Actor actor)
+        {
+            if (actor != null)
+            {
+                foreach (Creature creature in actor.Creatures)
                 {
 
                 }
             }
         }
-        private void BiomeBuff()
+        private void DaytimeBuff(Actor actor)
         {
-            Actor playerActor = GetPlayerActor();
-            if (playerActor != null)
+            if (actor != null)
             {
-                foreach (Creature creature in playerActor.Creatures)
-                {
-
-                }
-            }
-        }
-        private void DaytimeBuff()
-        {
-            Actor playerActor = GetPlayerActor();
-            if (playerActor != null)
-            {
-                foreach (Creature creature in playerActor.Creatures)
+                foreach (Creature creature in actor.Creatures)
                 {
 
                 }
@@ -674,6 +741,9 @@ namespace groundCrashers_game.classes
             var cpuActor = new Actor("CPU", false);
             cpuActor.Creatures.AddRange(GetRandomCreatures(_maxCreatures));
             CurrentActors.Add(cpuActor);
+
+            // enviroment buff for CPU
+            EnviromentBuff_Setup(cpuActor);
 
             var playerActor = new Actor("Player", true);
             CurrentActors.Add(playerActor);
