@@ -34,7 +34,7 @@ namespace groundCrashers_game
             }
         }
 
-        private async void BtnSendcredentials_Click(object sender, RoutedEventArgs e)
+        public async void BtnSendcredentials_Click(object sender, RoutedEventArgs e)
         {
             try
             {

@@ -656,6 +656,12 @@ namespace groundCrashers_game.classes
             }
         }
 
+        public void AddCreatureToCard(Creature newCreature)
+        {
+            
+            
+        }
+
         private void EnviromentBuff_Setup(Actor actor)
         {
             if (actor != null)
