@@ -17,6 +17,7 @@
     <None Remove="Images\battleGrounds\glacier.jpg" />
     <None Remove="Images\battleGrounds\highlands.jpg" />
     <None Remove="Images\battleGrounds\jungle.jpg" />
+    <None Remove="Images\battleGrounds\map.png" />
     <None Remove="Images\battleGrounds\marsh.jpg" />
     <None Remove="Images\battleGrounds\mountain.jpg" />
     <None Remove="Images\battleGrounds\ocean.jpg" />
@@ -247,6 +248,7 @@
     <Resource Include="Images\battleGrounds\glacier.jpg" />
     <Resource Include="Images\battleGrounds\highlands.jpg" />
     <Resource Include="Images\battleGrounds\jungle.jpg" />
+    <Resource Include="Images\battleGrounds\map.png" />
     <Resource Include="Images\battleGrounds\marsh.jpg" />
     <Resource Include="Images\battleGrounds\mountain.jpg" />
     <Resource Include="Images\battleGrounds\ocean.jpg" />

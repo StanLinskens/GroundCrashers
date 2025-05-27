@@ -37,23 +37,13 @@
     </Window.Resources>
 
     <Canvas>
-        <!-- Paths (Lines between biomes) -->
-        <Line X1="100"  Y1="250" X2="550"  Y2="140" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="500"  Y1="150" X2="740"  Y2="350" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="740"  Y1="350" X2="1100" Y2="150" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="740"  Y1="350" X2="250"  Y2="550" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="1100" Y1="150" X2="1400" Y2="350" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="1400" Y1="350" X2="1700" Y2="150" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="1400" Y1="350" X2="1300" Y2="650" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="1300" Y1="650" X2="1600" Y2="850" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="1300" Y1="650" X2="900"  Y2="750" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="900"  Y1="750" X2="500"  Y2="700" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="500"  Y1="700" X2="250"  Y2="500" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="200"  Y1="800" X2="550"  Y2="700" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
-        <Line X1="1300" Y1="1000" X2="1600" Y2="850" Stroke="White" StrokeThickness="3" StrokeDashArray="4 2"/>
+        <Canvas.Background>
+            <ImageBrush x:Name="MapBackground" ImageSource="/Images/battleGrounds/map.png"/>
+        </Canvas.Background>
+
 
         <!-- Forest Biome -->
-        <Border Canvas.Left="50" Canvas.Top="180" Width="150" Height="130"
+        <Border Canvas.Left="140" Canvas.Top="200" Width="150" Height="45"
         Background="#2E4E1C" CornerRadius="10"
         BorderBrush="#3E6A29" BorderThickness="2">
             <Grid>
@@ -63,15 +53,8 @@
                    Foreground="#C5E1A5"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="ForestChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="ForestChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="ForestChooseBtn_Click"/>
 
                 <Popup x:Name="ForestPopup"
                PlacementTarget="{Binding ElementName=ForestChooseBtn}"
@@ -106,15 +89,8 @@
                    Foreground="#E0C068"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="DesertChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="DesertChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="DesertChooseBtn_Click"/>
 
                 <Popup x:Name="DesertPopup"
                PlacementTarget="{Binding ElementName=DesertChooseBtn}"
@@ -149,15 +125,8 @@
                    Foreground="#B0BEC5"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="MountainChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="MountainChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="MountainChooseBtn_Click"/>
 
                 <Popup x:Name="MountainPopup"
                PlacementTarget="{Binding ElementName=MountainChooseBtn}"
@@ -192,15 +161,8 @@
                    Foreground="#A5D6A7"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="HighlandsChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="HighlandsChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="HighlandsChooseBtn_Click"/>
 
                 <Popup x:Name="HighlandsPopup"
                PlacementTarget="{Binding ElementName=HighlandsChooseBtn}"
@@ -235,15 +197,8 @@
                    Foreground="#B0BEC5"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="GlacierChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="GlacierChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="GlacierChooseBtn_Click"/>
 
                 <Popup x:Name="GlacierPopup"
                PlacementTarget="{Binding ElementName=GlacierChooseBtn}"
@@ -278,15 +233,8 @@
                    Foreground="#C0B283"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="WastelandChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="WastelandChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="WastelandChooseBtn_Click"/>
 
                 <Popup x:Name="WastelandPopup"
                PlacementTarget="{Binding ElementName=WastelandChooseBtn}"
@@ -321,15 +269,8 @@
                    Foreground="#A5D6A7"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="SwampChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="SwampChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="SwampChooseBtn_Click"/>
 
                 <Popup x:Name="SwampPopup"
                PlacementTarget="{Binding ElementName=SwampChooseBtn}"
@@ -364,15 +305,8 @@
                    Foreground="#90CAF9"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="OceanChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="OceanChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="OceanChooseBtn_Click"/>
 
                 <Popup x:Name="OceanPopup"
                PlacementTarget="{Binding ElementName=OceanChooseBtn}"
@@ -407,15 +341,8 @@
                    Foreground="#EF9A9A"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="VolcanoChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="VolcanoChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="VolcanoChooseBtn_Click"/>
 
                 <Popup x:Name="VolcanoPopup"
                PlacementTarget="{Binding ElementName=VolcanoChooseBtn}"
@@ -450,15 +377,8 @@
                    Foreground="#FDD835"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="SavannaChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="SavannaChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="SavannaChooseBtn_Click"/>
 
                 <Popup x:Name="SavannaPopup"
                PlacementTarget="{Binding ElementName=SavannaChooseBtn}"
@@ -493,15 +413,8 @@
                    Foreground="#A5D6A7"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="JungleChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="JungleChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="JungleChooseBtn_Click"/>
 
                 <Popup x:Name="JunglePopup"
                PlacementTarget="{Binding ElementName=JungleChooseBtn}"
@@ -536,15 +449,8 @@
                    Foreground="#B3E5FC"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="TundraChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="TundraChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="TundraChooseBtn_Click"/>
 
                 <Popup x:Name="TundraPopup"
                PlacementTarget="{Binding ElementName=TundraChooseBtn}"
@@ -579,15 +485,8 @@
                    Foreground="#80DEEA"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="MarshChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="MarshChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="MarshChooseBtn_Click"/>
 
                 <Popup x:Name="MarshPopup"
                PlacementTarget="{Binding ElementName=MarshChooseBtn}"
@@ -622,15 +521,8 @@
                    Foreground="#B0BEC5"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="CaveChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="CaveChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="CaveChooseBtn_Click"/>
 
                 <Popup x:Name="CavePopup"
                PlacementTarget="{Binding ElementName=CaveChooseBtn}"
@@ -665,15 +557,8 @@
                    Foreground="#E0E0E0"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="RuinsChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="RuinsChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="RuinsChooseBtn_Click"/>
 
                 <Popup x:Name="RuinsPopup"
                PlacementTarget="{Binding ElementName=RuinsChooseBtn}"
@@ -708,15 +593,8 @@
                    Foreground="#D1C4E9"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Top"
-                   Margin="0,8,0,0"/>
-
-                <Button x:Name="CrystalCavernChooseBtn"
-                Content="Choose Level"
-                Style="{StaticResource DarkButton}"
-                Width="110"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Padding="6,2" Click="CrystalCavernChooseBtn_Click"/>
+                   Margin="0,8,0,0"
+                   MouseEnter="CrystalCavernChooseBtn_Click"/>
 
                 <Popup x:Name="CrystalCavernPopup"
                PlacementTarget="{Binding ElementName=CrystalCavernChooseBtn}"
