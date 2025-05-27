@@ -148,7 +148,7 @@ namespace groundCrashers_game
             {
                 string name = SelectedCreature.name;
 
-                espConnectionWindow..AddCreatureToCard(name);
+                //espConnectionWindow..AddCreatureToCard(name);
             }
             else
             {
