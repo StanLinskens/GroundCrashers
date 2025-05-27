@@ -55,8 +55,8 @@
 
 
         <!-- Forest Biome -->
-        <Border Canvas.Left="140"
-                Canvas.Top="200"
+        <Border Canvas.Left="150"
+                Canvas.Top="220"
                 Width="150"
                 Height="45"
                 Background="#2E4E1C"
@@ -111,8 +111,8 @@
         </Border>
 
         <!-- Desert Biome -->
-        <Border Canvas.Left="425"
-                Canvas.Top="82"
+        <Border Canvas.Left="340"
+                Canvas.Top="450"
                 Width="150"
                 Height="45"
                 Background="#7F6A1F"
@@ -167,8 +167,8 @@
         </Border>
 
         <!-- Mountain Biome -->
-        <Border Canvas.Left="682"
-                Canvas.Top="286"
+        <Border Canvas.Left="470"
+                Canvas.Top="110"
                 Width="150"
                 Height="45"
                 Background="#4B5268"
@@ -223,8 +223,8 @@
         </Border>
 
         <!-- Highlands Biome -->
-        <Border Canvas.Left="225"
-                Canvas.Top="476"
+        <Border Canvas.Left="1390"
+                Canvas.Top="700"
                 Width="150"
                 Height="45"
                 Background="#2F4F32"
@@ -279,8 +279,8 @@
         </Border>
 
         <!-- Glacier Biome -->
-        <Border Canvas.Left="475"
-                Canvas.Top="667"
+        <Border Canvas.Left="860"
+                Canvas.Top="160"
                 Width="150"
                 Height="45"
                 Background="#3A4E64"
@@ -335,8 +335,8 @@
         </Border>
 
         <!-- Wasteland Biome -->
-        <Border Canvas.Left="150"
-                Canvas.Top="732"
+        <Border Canvas.Left="500"
+                Canvas.Top="310"
                 Width="150"
                 Height="45"
                 Background="#50402E"
@@ -391,8 +391,8 @@
         </Border>
 
         <!-- Swamp Biome -->
-        <Border Canvas.Left="1289"
-                Canvas.Top="300"
+        <Border Canvas.Left="1590"
+                Canvas.Top="580"
                 Width="150"
                 Height="45"
                 Background="#23472F"
@@ -447,8 +447,8 @@
         </Border>
 
         <!-- Ocean Biome -->
-        <Border Canvas.Left="1214"
-                Canvas.Top="585"
+        <Border Canvas.Left="70"
+                Canvas.Top="650"
                 Width="150"
                 Height="45"
                 Background="#1F3A4D"
@@ -503,8 +503,8 @@
         </Border>
 
         <!-- Volcano Biome -->
-        <Border Canvas.Left="1018"
-                Canvas.Top="106"
+        <Border Canvas.Left="785"
+                Canvas.Top="515"
                 Width="150"
                 Height="45"
                 Background="#5C1E1E"
@@ -559,8 +559,8 @@
         </Border>
 
         <!-- Savanna Biome -->
-        <Border Canvas.Left="1610"
-                Canvas.Top="106"
+        <Border Canvas.Left="730"
+                Canvas.Top="790"
                 Width="150"
                 Height="45"
                 Background="#7F5E00"
@@ -615,8 +615,8 @@
         </Border>
 
         <!-- Jungle Biome -->
-        <Border Canvas.Left="1535"
-                Canvas.Top="794"
+        <Border Canvas.Left="1180"
+                Canvas.Top="250"
                 Width="150"
                 Height="45"
                 Background="#1B5E20"
@@ -671,8 +671,8 @@
         </Border>
 
         <!-- Tundra Biome -->
-        <Border Canvas.Left="829"
-                Canvas.Top="691"
+        <Border Canvas.Left="1260"
+                Canvas.Top="880"
                 Width="150"
                 Height="45"
                 Background="#25414F"
@@ -727,8 +727,8 @@
         </Border>
 
         <!-- Marsh Biome -->
-        <Border Canvas.Left="1200"
-                Canvas.Top="900"
+        <Border Canvas.Left="1575"
+                Canvas.Top="885"
                 Width="150"
                 Height="45"
                 Background="#334D4D"
@@ -783,8 +783,8 @@
         </Border>
 
         <!-- Cave Biome -->
-        <Border Canvas.Left="300"
-                Canvas.Top="300"
+        <Border Canvas.Left="1390"
+                Canvas.Top="470"
                 Width="150"
                 Height="45"
                 Background="#3B3B3B"
@@ -839,8 +839,8 @@
         </Border>
 
         <!-- Ruins Biome -->
-        <Border Canvas.Left="550"
-                Canvas.Top="520"
+        <Border Canvas.Left="270"
+                Canvas.Top="805"
                 Width="150"
                 Height="45"
                 Background="#2F2F2F"
@@ -895,8 +895,8 @@
         </Border>
 
         <!-- Crystal Cavern Biome -->
-        <Border Canvas.Left="900"
-                Canvas.Top="450"
+        <Border Canvas.Left="1430"
+                Canvas.Top="185"
                 Width="150"
                 Height="45"
                 Background="#3A2F6B"
