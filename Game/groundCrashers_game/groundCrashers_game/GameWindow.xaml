@@ -181,16 +181,18 @@
                        Stretch="Uniform"/>
 
                     <!-- Labels -->
-                    <Border x:Name="EnemyCreatureBorder" Background="#111" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="1280" Canvas.Top="60" Padding="5">
-                        <TextBlock x:Name="EnemyCreatureName" Text="ENEMY" FontSize="24" Foreground="#FF4D4D"/>
+                    <Border x:Name="EnemyCreatureBorder" Canvas.Left="1280" Canvas.Top="60">
+                        <Button x:Name="EnemyCreatureName" Content="Enemy" Background="#111" BorderBrush="#444444" BorderThickness="2" FontSize="20" Foreground="#FF4D4D" FontWeight="Normal" Padding="10,5" Click="EnemyCreatureName_Click"/>
                     </Border>
 
-                    <Border x:Name="PlayerCreatureBorder" Background="#111" BorderBrush="#444444" BorderThickness="2" CornerRadius="5" Canvas.Left="180" Canvas.Top="460" Padding="5">
-                        <TextBlock x:Name="PlayerCreatureName" Text="PLAYER" FontSize="24" Foreground="#66FF66"/>
+                    <Border x:Name="PlayerCreatureBorder" Canvas.Left="180" Canvas.Top="460" >
+                        <Button x:Name="PlayerCreatureName" Content="PLAYER" Background="#111" BorderBrush="#444444" BorderThickness="2" FontSize="20" Foreground="#66FF66" FontWeight="Normal" Padding="10,5" Click="PlayerCreatureName_Click"/>
                     </Border>
                 </Canvas>
             </Grid>
 
+            
+            
             <!-- Player Info -->
             <Border Grid.Row="3" Padding="20">
                 <Grid>
