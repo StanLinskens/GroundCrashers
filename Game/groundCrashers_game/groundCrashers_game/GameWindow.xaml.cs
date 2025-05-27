@@ -80,7 +80,7 @@ namespace groundCrashers_game
             var playerCreature = gameManager.ActivePlayerCreature;
             if (playerCreature != null)
             {
-                PlayerCreatureName.Text = playerCreature.name;
+                PlayerCreatureName.Content = playerCreature.name;
                 PlayerHealthText.Text = playerCreature.stats.hp.ToString() + "/" + playerCreature.stats.max_hp.ToString();
                 PlayerHealthBar.Value = playerCreature.stats.hp;
                 PlayerHealthBar.Maximum = playerCreature.stats.max_hp;
@@ -89,7 +89,7 @@ namespace groundCrashers_game
                         CreaturePrimaryColor.GetValueOrDefault(
                             playerCreature.primary_type, 
                             "#555555")));
-                PlayerCreatureBorder.BorderBrush =
+                PlayerCreatureName.BorderBrush =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
                         CreatureElementColor.GetValueOrDefault(
                             playerCreature.element,
@@ -128,7 +128,7 @@ namespace groundCrashers_game
             var cpuCreature = gameManager.ActiveCpuCreature;
             if (cpuCreature != null)
             {
-                EnemyCreatureName.Text = cpuCreature.name;
+                EnemyCreatureName.Content = cpuCreature.name;
                 EnemyHealthText.Text = cpuCreature.stats.hp.ToString() + "/" + cpuCreature.stats.max_hp.ToString();
                 EnemyHealthBar.Value = cpuCreature.stats.hp;
                 EnemyHealthBar.Maximum = cpuCreature.stats.max_hp;
@@ -138,7 +138,7 @@ namespace groundCrashers_game
                         CreaturePrimaryColor.GetValueOrDefault( 
                             cpuCreature.primary_type,
                             "#555555")));
-                EnemyCreatureBorder.BorderBrush =
+                EnemyCreatureName.BorderBrush =
                     new SolidColorBrush((Color)ColorConverter.ConvertFromString(
                         CreatureElementColor.GetValueOrDefault(
                             cpuCreature.element,
@@ -526,6 +526,72 @@ namespace groundCrashers_game
             MainWindow.Show();
             RefreshLogBox();
             this.Close();
+        }
+
+        private void PlayerCreatureName_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> newLogs = new List<string>();
+            Actor PlayerActor = gameManager.GetPlayerActor();
+            foreach (Creature c in PlayerActor.Creatures)
+            {
+                if (c.name == PlayerCreatureName.Content.ToString())
+                {
+                    newLogs.Add($"{c.name} (Player)");
+                    newLogs.Add($"Primary Type: {c.primary_type}");
+                    newLogs.Add($"Element: {c.element}");
+                    newLogs.Add($"Curse: {c.curse}");
+
+                    foreach (Creature all_c in gameManager.AllCreatures)
+                    {
+                        if (all_c.name == PlayerCreatureName.Content.ToString())
+                        {
+                            newLogs.Add($"current hp: {c.stats.hp} max hp: {c.stats.max_hp} normal max hp: {all_c.stats.hp * 3}");
+                            newLogs.Add($"current attack: {c.stats.attack} max attack: {c.stats.max_attack} normal attack: {all_c.stats.attack}");
+                            newLogs.Add($"current defense: {c.stats.defense} max defense: {c.stats.max_defense} normal defense: {all_c.stats.defense}");
+                            newLogs.Add($"current speed: {c.stats.speed} max speed: {c.stats.max_speed} normal speed: {all_c.stats.speed}");
+                        }
+                    }
+
+                    logbox.Text = string.Join("\n", newLogs);
+                    newLogs.Clear();
+                    return;
+                }
+            }
+            gameManager.logs.Add("Creature not found.");
+            RefreshLogBox();
+        }
+
+        private void EnemyCreatureName_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> newLogs = new List<string>();
+            Actor CpuActor = gameManager.GetCpuActor();
+            foreach (Creature c in CpuActor.Creatures)
+            {
+                if (c.name == EnemyCreatureName.Content.ToString())
+                {
+                    newLogs.Add($"{c.name} (CPU)");
+                    newLogs.Add($"Primary Type: {c.primary_type}");
+                    newLogs.Add($"Element: {c.element}");
+                    newLogs.Add($"Curse: {c.curse}");
+
+                    foreach (Creature all_c in gameManager.AllCreatures)
+                    {
+                        if(all_c.name == EnemyCreatureName.Content.ToString())
+                        {
+                            newLogs.Add($"current hp: {c.stats.hp} max hp: {c.stats.max_hp} normal max hp: {all_c.stats.hp * 3}");
+                            newLogs.Add($"current attack: {c.stats.attack} max attack: {c.stats.max_attack} normal attack: {all_c.stats.attack}");
+                            newLogs.Add($"current defense: {c.stats.defense} max defense: {c.stats.max_defense} normal defense: {all_c.stats.defense}");
+                            newLogs.Add($"current speed: {c.stats.speed} max speed: {c.stats.max_speed} normal speed: {all_c.stats.speed}");
+                        }
+                    }
+
+                    logbox.Text = string.Join("\n", newLogs);
+                    newLogs.Clear();
+                    return;
+                }
+            }
+            gameManager.logs.Add("Creature not found.");
+            RefreshLogBox();
         }
     }
 }
