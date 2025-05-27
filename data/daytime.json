@@ -2,7 +2,7 @@
   {
     "name": "Dawn",
     "buff": {
-      "types": ["Verdant", "Apex", "Synthetic", "God"],
+      "types": ["Verdant", "Apex", "Synthetic"],
       "effect": "Attack"
     },
     "debuff": {
@@ -13,7 +13,7 @@
   {
     "name": "Day",
     "buff": {
-      "types": ["Primal", "Verdant", "Synthetic", "God"],
+      "types": ["Primal", "Verdant", "Synthetic"],
       "effect": "Defense"
     },
     "debuff": {
@@ -24,7 +24,7 @@
   {
     "name": "Dusk",
     "buff": {
-      "types": ["Primal", "Sapient", "God"],
+      "types": ["Primal", "Sapient"],
       "effect": "Speed"
     },
     "debuff": {
@@ -35,7 +35,7 @@
   {
     "name": "Night",
     "buff": {
-      "types": ["Apex", "Primal", "God"],
+      "types": ["Apex", "Primal"],
       "effect": "Health"
     },
     "debuff": {

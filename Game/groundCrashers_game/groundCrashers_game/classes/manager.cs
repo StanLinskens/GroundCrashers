@@ -692,7 +692,6 @@ namespace groundCrashers_game.classes
                 case "Health":
                     save = creature.stats.max_hp;
                     creature.stats.max_hp = (int)Math.Round(creature.stats.max_hp * number);
-                    creature.stats.hp = creature.stats.max_hp; // Reset current hp to max after buff
                     logs.Add($"{creature.name} max hp went from {save} to {creature.stats.max_hp}");
                     break;
                 case "Attack":

@@ -2,7 +2,7 @@
   {
     "name": "Forest",
     "buff": { 
-      "types": ["Nature", "Light", "ALL"], 
+      "types": ["Nature", "Light"], 
       "effect": "Attack" 
     },
     "debuff": { 
@@ -13,7 +13,7 @@
   {
     "name": "Desert",
     "buff": { 
-      "types": ["Earth", "Electric", "ALL"], 
+      "types": ["Earth", "Electric"], 
       "effect": "Health" 
     },
     "debuff": { 
@@ -24,7 +24,7 @@
   {
     "name": "Mountain",
     "buff": { 
-      "types": ["Draconic", "Dark", "ALL"], 
+      "types": ["Draconic", "Dark"], 
       "effect": "Defense" 
     },
     "debuff": { 
@@ -35,7 +35,7 @@
   {
     "name": "Highlands",
     "buff": { 
-      "types": ["Wind", "Nature", "ALL"], 
+      "types": ["Wind", "Nature"], 
       "effect": "Speed" 
     },
     "debuff": { 
@@ -46,7 +46,7 @@
   {
     "name": "Glacier",
     "buff": { 
-      "types": ["Ice", "Toxic", "ALL"], 
+      "types": ["Ice", "Toxic"], 
       "effect": "Attack" 
     },
     "debuff": { 
@@ -57,7 +57,7 @@
   {
     "name": "Swamp",
     "buff": 
-    { "types": ["Toxic", "Water", "ALL"], 
+    { "types": ["Toxic", "Water"], 
     "effect": "Defense" 
   },
     "debuff": { 
@@ -68,7 +68,7 @@
   {
     "name": "Ocean",
     "buff": { 
-      "types": ["Water", "Psychic", "ALL"], 
+      "types": ["Water", "Psychic"], 
       "effect": "Attack" 
     },
     "debuff": { 
@@ -79,7 +79,7 @@
     {
     "name": "Volcano",
     "buff": {
-      "types": ["Fire", "Acid", "ALL"],
+      "types": ["Fire", "Acid"],
       "effect": "Attack"
     },
     "debuff": {
@@ -90,7 +90,7 @@
   {
     "name": "Savanna",
     "buff": {
-      "types": ["Electric", "Wind", "ALL"],
+      "types": ["Electric", "Wind"],
       "effect": "Speed"
     },
     "debuff": {
@@ -101,7 +101,7 @@
   {
     "name": "Jungle",
     "buff": {
-      "types": ["Light", "Dark", "ALL"],
+      "types": ["Light", "Dark"],
       "effect": "Speed"
     },
     "debuff": {
@@ -112,7 +112,7 @@
   {
     "name": "Tundra",
     "buff": {
-      "types": ["Ice", "Magnetic", "ALL"],
+      "types": ["Ice", "Magnetic"],
       "effect": "Defense"
     },
     "debuff": {
@@ -123,7 +123,7 @@
   {
     "name": "Cave",
     "buff": {
-      "types": ["Dark", "Acid", "ALL"],
+      "types": ["Dark", "Acid"],
       "effect": "Defense"
     },
     "debuff": {
@@ -134,7 +134,7 @@
   {
     "name": "Ruins",
     "buff": {
-      "types": ["Psychic", "Magnetic", "ALL"],
+      "types": ["Psychic", "Magnetic"],
       "effect": "Health"
     },
     "debuff": {
@@ -145,7 +145,7 @@
   {
     "name": "Marsh",
     "buff": {
-      "types": ["Demonic", "Earth", "ALL"],
+      "types": ["Demonic", "Earth"],
       "effect": "Attack"
     },
     "debuff": {
@@ -156,7 +156,7 @@
   {
     "name": "Crystal Cavern",
     "buff": {
-      "types": ["Psychic", "Magnetic", "ALL"],
+      "types": ["Psychic", "Magnetic"],
       "effect": "Speed"
     },
     "debuff": {
@@ -167,7 +167,7 @@
   {
     "name": "Wasteland",
     "buff": {
-      "types": ["Demonic", "Draconic", "ALL"],
+      "types": ["Demonic", "Draconic"],
       "effect": "Speed"
     },
     "debuff": {
