@@ -148,9 +148,7 @@ namespace groundCrashers_game
             {
                 string name = SelectedCreature.name;
 
-                Creature selected = loadedCreatures.FirstOrDefault(c => c.name == name);
-
-                _Manager.AddPlayerCreatures(selected);
+                espConnectionWindow..AddCreatureToCard(name);
             }
             else
             {

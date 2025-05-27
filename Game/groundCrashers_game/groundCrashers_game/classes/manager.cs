@@ -656,11 +656,7 @@ namespace groundCrashers_game.classes
             }
         }
 
-        public void AddCreatureToCard(Creature newCreature)
-        {
-            
-            
-        }
+        
 
         private void EnviromentBuff_Setup(Actor actor)
         {
@@ -728,6 +724,7 @@ namespace groundCrashers_game.classes
                 }
             }
         }
+        
         private void DaytimeBuff(Actor actor)
         {
             if (actor != null)
