@@ -3,7 +3,7 @@
   {
     "name": "Sunny",
     "buff": {
-      "types": ["Fire", "Light", "ALL"],
+      "types": ["Fire", "Light"],
       "effect": "Attack"
     },
     "debuff": {
@@ -14,7 +14,7 @@
   {
     "name": "Rainy",
     "buff": {
-      "types": ["Water", "Electric", "ALL"],
+      "types": ["Water", "Electric"],
       "effect": "Defense"
     },
     "debuff": {
@@ -25,7 +25,7 @@
   {
     "name": "Cloudy",
     "buff": {
-      "types": ["Dark", "Psychic", "ALL"],
+      "types": ["Dark", "Psychic"],
       "effect": "Speed"
     },
     "debuff": {
@@ -36,7 +36,7 @@
   {
     "name": "Foggy",
     "buff": {
-      "types": ["Demonic", "Draconic", "ALL"],
+      "types": ["Demonic", "Draconic"],
       "effect": "Health"
     },
     "debuff": {
@@ -47,7 +47,7 @@
   {
     "name": "Windy",
     "buff": {
-      "types": ["Wind", "Ice", "ALL"],
+      "types": ["Wind", "Ice"],
       "effect": "Speed"
     },
     "debuff": {
@@ -58,7 +58,7 @@
   {
     "name": "Hail",
     "buff": {
-      "types": ["Magnetic", "Acid", "ALL"],
+      "types": ["Magnetic", "Acid"],
       "effect": "Defense"
     },
     "debuff": {
@@ -69,7 +69,7 @@
   {
     "name": "Sandstorm",
     "buff": {
-      "types": ["Earth", "Nature", "ALL"],
+      "types": ["Earth", "Nature"],
       "effect": "Attack"
     },
     "debuff": {
@@ -80,7 +80,7 @@
   {
     "name": "Clear",
     "buff": {
-      "types": ["Psychic", "ALL"],
+      "types": ["Psychic"],
       "effect": "Health"
     },
     "debuff": {

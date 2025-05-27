@@ -95,8 +95,10 @@
                     <TextBlock Text="Speed:" Grid.Row="6" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
                     <TextBlock Name="GroundCrasherSpeed" Text="N/A" HorizontalAlignment="Right" Grid.Row="6" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
                 </Grid>
-
-                <Button Name="ConfirmButton" Style="{StaticResource DarkButton}" Content="Confirm" Width="200" Height="40" Margin="0,20,0,0" HorizontalAlignment="Center" Click="ConfirmGroundCrasher_Click" />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Name="ConfirmButton" Style="{StaticResource DarkButton}" Content="Confirm" Width="120" Height="40" Margin="0,20,0,0" HorizontalAlignment="Left" Click="ConfirmGroundCrasher_Click" />
+                    <Button Name="AddToCardButton" Style="{StaticResource DarkButton}" Content="AddToCard" Width="120" Height="40" Margin="0,20,0,0" HorizontalAlignment="Right" Click="AddtoCard_Click" RenderTransformOrigin="0.556,-1.17" />
+                </StackPanel>
             </StackPanel>
         </Border>
 

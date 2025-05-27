@@ -142,5 +142,20 @@ namespace groundCrashers_game
             }
         }
 
+        private void AddtoCard_Click(object sender, RoutedEventArgs e)
+        {
+            if (SelectedCreature != null)
+            {
+                string name = SelectedCreature.name;
+
+                Creature selected = loadedCreatures.FirstOrDefault(c => c.name == name);
+
+                _Manager.AddPlayerCreatures(selected);
+            }
+            else
+            {
+                _Manager.logs.Add("no creature selected to add to card!");
+            }
+        }
     }
 }
