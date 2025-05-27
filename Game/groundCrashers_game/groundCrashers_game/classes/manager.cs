@@ -685,52 +685,24 @@ namespace groundCrashers_game.classes
             float number = 1.0f;
             if (actionSplit[0] == "Buff") number = _rnd.Next(105, 111) / 100f;
             else if (actionSplit[0] == "Debuff") number = _rnd.Next(90, 96) / 100f;
-            int save;
 
             switch (actionSplit[1])
             {
                 case "Health":
-                    save = creature.stats.max_hp;
-                    creature.stats.max_hp = (int)Math.Round(creature.stats.max_hp * number);
-                    creature.stats.hp = creature.stats.max_hp; // Reset current hp to max after buff
-                    logs.Add($"{creature.name} max hp went from {save} to {creature.stats.max_hp}");
+                    creature.stats.max_hp = (int)Math.Round(creature.stats.max_hp * number)
                     break;
                 case "Attack":
-                    save = creature.stats.max_attack;
                     creature.stats.max_attack = (int)Math.Round(creature.stats.max_attack * number);
-                    logs.Add($"{creature.name} attack went from {save} to {creature.stats.max_attack}");
+                    creature.stats.attack = creature.stats.max_attack; // Reset current attack to max after buff
                     break;
                 case "Defense":
-                    save = creature.stats.max_defense;
                     creature.stats.max_defense = (int)Math.Round(creature.stats.max_defense * number);
-                    logs.Add($"{creature.name} defense went from {save} to {creature.stats.max_defense}");
+                    creature.stats.defense = creature.stats.max_defense; // Reset current defense to max after buff
                     break;
                 case "Speed":
-                    save = creature.stats.max_speed;
                     creature.stats.max_speed = (int)Math.Round(creature.stats.max_speed * number);
-                    logs.Add($"{creature.name} speed went from {save} to {creature.stats.max_speed}");
+                    creature.stats.speed = creature.stats.max_speed; // Reset current speed to max after buff
                     break;
-            }
-        }
-
-        private void BiomeBuff(Actor actor)
-        {
-            if (actor != null)
-            {
-                foreach (Creature creature in actor.Creatures)
-                {
-
-                }
-            }
-        }
-        private void DaytimeBuff(Actor actor)
-        {
-            if (actor != null)
-            {
-                foreach (Creature creature in actor.Creatures)
-                {
-
-                }
             }
         }
 

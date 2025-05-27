@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.IO.Ports;
 
 namespace groundCrashers_game
 {
@@ -14,6 +15,7 @@ namespace groundCrashers_game
         public espConnectionWindow()
         {
             InitializeComponent();
+
             // Voorbeeldwaardes, vervang dit met je echte logica
             txtSSID.Text = "GroundCrashersNetwerk";
             txtPASSWORD.Text = "veiligwachtwoord123";
@@ -23,8 +25,8 @@ namespace groundCrashers_game
         {
             try
             {
-                string response = await client.GetStringAsync(esp32Url + "/uid");
-                TxtResult.Text = response;
+                string response = await client.GetStringAsync(esp32Url);
+                TxtResult.Text = "RFID Tag UID:\n" + response;
             }
             catch (Exception ex)
             {
@@ -32,13 +34,39 @@ namespace groundCrashers_game
             }
         }
 
-        private async void BtnSendcredentials_Click(object sender, RoutedEventArgs e)
+        public async void BtnSendcredentials_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                var ssid = txtSSID.Text;
-                var password = txtPASSWORD.Text;
+                string ssid = txtSSID.Text.Trim();
+                string password = txtPASSWORD.Text.Trim();
 
+                if (string.IsNullOrWhiteSpace(ssid) || string.IsNullOrWhiteSpace(password))
+                {
+                    TxtResult.Text = "SSID of wachtwoord mag niet leeg zijn.";
+                    return;
+                }
+
+                // Send over serial
+                string[] portNames = SerialPort.GetPortNames();
+                if (portNames.Length == 0)
+                {
+                    TxtResult.Text = "Geen seriële poorten gevonden.";
+                    return;
+                }
+
+                string myPortName = portNames[0]; // You could let the user choose this
+                int baudRate = 115200;
+
+                using (SerialPort sp = new SerialPort(myPortName, baudRate))
+                {
+                    sp.Open();
+                    sp.WriteLine(ssid);
+                    sp.WriteLine(password);
+                    sp.Close();
+                }
+
+                // Send over HTTP
                 var content = new StringContent(
                     $"ssid={ssid}&password={password}",
                     Encoding.UTF8,
@@ -47,11 +75,19 @@ namespace groundCrashers_game
                 HttpResponseMessage response = await client.PostAsync(esp32Url + "/credentials", content);
                 string result = await response.Content.ReadAsStringAsync();
 
-                TxtResult.Text = $"Send!\nAnwser ESP32:\n{result}";
+                TxtResult.Text = $"Verzonden!\nAntwoord ESP32:\n{result}";
             }
             catch (Exception ex)
             {
-                TxtResult.Text = "error connection:\n" + ex.Message;
+                TxtResult.Text = "Fout bij verzenden:\n" + ex.Message;
+            }
+        }
+
+        public void AddCreatureToCard(string name)
+        {
+            if (name != "")
+            {
+
             }
         }
     }
