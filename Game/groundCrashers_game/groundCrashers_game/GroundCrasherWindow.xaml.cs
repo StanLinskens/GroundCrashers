@@ -31,11 +31,14 @@ namespace groundCrashers_game
 
         private Esp32Manager _esp32Manager;
 
+        private bool StoryMode;
+
         List<int> allowedIdsFromCard = new List<int>{};
 
-        public GroundCrasherWindow(Manager manager, GameWindow gameWindow, Esp32Manager esp32Manager)
+        public GroundCrasherWindow(Manager manager, GameWindow gameWindow, Esp32Manager esp32Manager, bool storyMode)
         {
             InitializeComponent();
+            StoryMode = storyMode;
             _Manager = manager;
             _gameWindow = gameWindow;
             _esp32Manager = esp32Manager;
@@ -44,9 +47,16 @@ namespace groundCrashers_game
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //LoadCreatureButtons();
+            if (!StoryMode)
+            {
+                LoadCreatureButtons();
+            }
+            else
+            {
+                LoadCreatureButtonsFormCard(allowedIdsFromCard);
+            }
 
-            LoadCreatureButtonsFormCard(allowedIdsFromCard);
+
         }
 
         private async void ScanCardButton_Click(object sender, RoutedEventArgs e)

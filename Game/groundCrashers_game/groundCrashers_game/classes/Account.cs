@@ -81,7 +81,6 @@ namespace groundCrashers_game.classes
         {
             var json = JsonSerializer.Serialize(accounts, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(FilePath, json);
-            MessageBox.Show("Account created");
         }
 
         public static void AddAccount(string username, string password)
@@ -107,6 +106,7 @@ namespace groundCrashers_game.classes
                 current_biome_lvl_id = 1
             });
 
+            MessageBox.Show("Account created");
             SaveAccounts(accounts);
         }
     }

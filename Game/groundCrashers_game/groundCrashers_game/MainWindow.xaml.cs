@@ -14,7 +14,8 @@ namespace groundCrashers_game
 
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow();
+            // false is that the game is started from the main menu (arcadeMode)
+            GameWindow gameWindow = new GameWindow(false);
             gameWindow.Show();
             this.Close();
         }

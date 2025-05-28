@@ -3,6 +3,7 @@ using groundCrashers_game.classes;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using static groundCrashers_game.classes.Manager;
 
 namespace groundCrashers_game
 {
@@ -12,6 +13,8 @@ namespace groundCrashers_game
     public partial class LevelMapWindow : Window
     {
         // to get current biome and level index
+
+        public bool LVLWon { get; set; } = false;
         public int currentBiomeIndex { get; set; } = 0;
         public int currentLVLIndex { get; set; } = 1;
 
@@ -23,6 +26,22 @@ namespace groundCrashers_game
 
             currentBiomeIndex = ActiveAccount.Active_current_biome_id;
             currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
+
+            if (LVLWon)
+            {
+                currentBiomeIndex++;
+                if (currentLVLIndex == 6)
+                {
+                    currentLVLIndex = 1;
+                    currentBiomeIndex++;
+                    
+                }
+            }
+
+            LVLWon = false;
+
+            AccountManager.UpdateActiveAccount();
+
 
             Show_Levels();
         }
@@ -240,13 +259,10 @@ namespace groundCrashers_game
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            currentLVLIndex++;
-            if (currentLVLIndex == 6)
-            {
-                currentLVLIndex = 1;
-                currentBiomeIndex++;
-            }
-            Show_Levels();
+            // true means the game is started from the map window (storyMode)
+            GameWindow gameWindow = new GameWindow(true);
+            gameWindow.Show();
+            this.Close();
         }
     }
 }
