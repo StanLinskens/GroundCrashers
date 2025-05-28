@@ -56,26 +56,27 @@
 
             <!-- Forest Biome -->
             <Border Canvas.Left="150"
-                    Canvas.Top="220"
-                    Width="150"
-                    Height="45"
-                    Background="#2E4E1C"
-                    CornerRadius="10"
-                    BorderBrush="#3E6A29"
-                    BorderThickness="2">
+                    Canvas.Top="220">
                 <Grid>
-                    <TextBlock Text="🌲 Forest"
+                    <Button 
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#2E4E1C"
+                               BorderBrush="#3E6A29"
+                               Content="🌲 Forest"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#C5E1A5"
-                               HorizontalAlignment="Center"
+                               HorizontalAlignment="Left"
                                VerticalAlignment="Top"
-                               Margin="0,8,0,0"
-                               MouseEnter="ForestChooseBtn_Click"/>
+                               Margin="0,-30,0,0"
+                               Click="ForestChooseBtn_Click"/>
 
                     <Popup x:Name="ForestPopup"
                            PlacementTarget="{Binding ElementName=ForestChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -109,29 +110,30 @@
                     </Popup>
                 </Grid>
             </Border>
-
             <!-- Desert Biome -->
             <Border Canvas.Left="340"
-                    Canvas.Top="450"
-                    Width="150"
-                    Height="45"
-                    Background="#7F6A1F"
-                    CornerRadius="10"
-                    BorderBrush="#A38F3B"
-                    BorderThickness="2">
+                    Canvas.Top="450">
                 <Grid>
-                    <TextBlock Text="🏜️ Desert"
+                    <Button 
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#7F6A1F"
+                               BorderBrush="#A38F3B"
+                               BorderThickness="2"
+                               Content="🏜️ Desert"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#E0C068"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="DesertChooseBtn_Click"/>
+                               Click="DesertChooseBtn_Click"/>
 
                     <Popup x:Name="DesertPopup"
                            PlacementTarget="{Binding ElementName=DesertChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -167,27 +169,29 @@
             </Border>
 
             <!-- Mountain Biome -->
-            <Border Canvas.Left="470"
-                    Canvas.Top="110"
-                    Width="150"
-                    Height="45"
-                    Background="#4B5268"
-                    CornerRadius="10"
-                    BorderBrush="#6D748A"
-                    BorderThickness="2">
+            <Border Canvas.Left="464"
+                    Canvas.Top="96">
                 <Grid>
-                    <TextBlock Text="🏔️ Mountain"
+                    <Button    
+                               Width="150"
+                               Height="46"
+                               Style="{StaticResource DarkButton}"
+                               Background="#4B5268"
+                               BorderBrush="#6D748A"
+                               BorderThickness="2"
+                               Content="🏔️ Mountain"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#B0BEC5"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="MountainChooseBtn_Click"/>
+                               Click="MountainChooseBtn_Click"/>
 
                     <Popup x:Name="MountainPopup"
                            PlacementTarget="{Binding ElementName=MountainChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -224,26 +228,28 @@
 
             <!-- Highlands Biome -->
             <Border Canvas.Left="1390"
-                    Canvas.Top="700"
-                    Width="150"
-                    Height="45"
-                    Background="#2F4F32"
-                    CornerRadius="10"
-                    BorderBrush="#4B6B48"
-                    BorderThickness="2">
+                    Canvas.Top="700">
                 <Grid>
-                    <TextBlock Text="🏞️ Highlands"
+                    <Button 
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#2F4F32"
+                               BorderBrush="#4B6B48"
+                               BorderThickness="2"
+                               Content="🏞️ Highlands"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#A5D6A7"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="HighlandsChooseBtn_Click"/>
+                               Click="HighlandsChooseBtn_Click"/>
 
                     <Popup x:Name="HighlandsPopup"
                            PlacementTarget="{Binding ElementName=HighlandsChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -280,26 +286,28 @@
 
             <!-- Glacier Biome -->
             <Border Canvas.Left="860"
-                    Canvas.Top="160"
-                    Width="150"
-                    Height="45"
-                    Background="#3A4E64"
-                    CornerRadius="10"
-                    BorderBrush="#5C7291"
-                    BorderThickness="2">
+                    Canvas.Top="160">
                 <Grid>
-                    <TextBlock Text="❄️ Glacier"
+                    <Button    
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#3A4E64"
+                               BorderBrush="#5C7291"
+                               BorderThickness="2"
+                               Content="❄️ Glacier"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#B0BEC5"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="GlacierChooseBtn_Click"/>
+                               Click="GlacierChooseBtn_Click"/>
 
                     <Popup x:Name="GlacierPopup"
                            PlacementTarget="{Binding ElementName=GlacierChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -337,25 +345,28 @@
             <!-- Wasteland Biome -->
             <Border Canvas.Left="500"
                     Canvas.Top="310"
-                    Width="150"
-                    Height="45"
-                    Background="#50402E"
-                    CornerRadius="10"
-                    BorderBrush="#6D5A44"
-                    BorderThickness="2">
+>
                 <Grid>
-                    <TextBlock Text="♻️ Wasteland"
+                    <Button
+                               Width="150"
+                               Height="45"
+                               Style="{StaticResource DarkButton}"
+                               Background="#50402E"
+                               BorderBrush="#6D5A44"
+                               BorderThickness="2"
+                               Content="♻️ Wasteland"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#C0B283"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="WastelandChooseBtn_Click"/>
+                               Click="WastelandChooseBtn_Click"/>
 
                     <Popup x:Name="WastelandPopup"
                            PlacementTarget="{Binding ElementName=WastelandChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -392,26 +403,28 @@
 
             <!-- Swamp Biome -->
             <Border Canvas.Left="1590"
-                    Canvas.Top="580"
-                    Width="150"
-                    Height="45"
-                    Background="#23472F"
-                    CornerRadius="10"
-                    BorderBrush="#3B6F50"
-                    BorderThickness="2">
+                    Canvas.Top="580">
                 <Grid>
-                    <TextBlock Text="🌿 Swamp"
+                    <Button 
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#23472F"
+                               BorderBrush="#3B6F50"
+                               BorderThickness="2"
+                               Content="🌿 Swamp"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#A5D6A7"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="SwampChooseBtn_Click"/>
+                               Click="SwampChooseBtn_Click"/>
 
                     <Popup x:Name="SwampPopup"
                            PlacementTarget="{Binding ElementName=SwampChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -448,26 +461,28 @@
 
             <!-- Ocean Biome -->
             <Border Canvas.Left="70"
-                    Canvas.Top="650"
-                    Width="150"
-                    Height="45"
-                    Background="#1F3A4D"
-                    CornerRadius="10"
-                    BorderBrush="#365971"
-                    BorderThickness="2">
+                    Canvas.Top="650">
                 <Grid>
-                    <TextBlock Text="🌊 Ocean"
+                    <Button 
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#1F3A4D"
+                               BorderBrush="#365971"
+                               BorderThickness="2"
+                               Content="🌊 Ocean"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#90CAF9"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="OceanChooseBtn_Click"/>
+                               Click="OceanChooseBtn_Click"/>
 
                     <Popup x:Name="OceanPopup"
                            PlacementTarget="{Binding ElementName=OceanChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -504,26 +519,28 @@
 
             <!-- Volcano Biome -->
             <Border Canvas.Left="785"
-                    Canvas.Top="515"
-                    Width="150"
-                    Height="45"
-                    Background="#5C1E1E"
-                    CornerRadius="10"
-                    BorderBrush="#7D2D2D"
-                    BorderThickness="2">
+                    Canvas.Top="515">
                 <Grid>
-                    <TextBlock Text="🌋 Volcano"
+                    <Button 
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#5C1E1E"
+                               BorderBrush="#7D2D2D"
+                               BorderThickness="2"
+                               Content="🌋 Volcano"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#EF9A9A"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="VolcanoChooseBtn_Click"/>
+                               Click="VolcanoChooseBtn_Click"/>
 
                     <Popup x:Name="VolcanoPopup"
                            PlacementTarget="{Binding ElementName=VolcanoChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -560,26 +577,28 @@
 
             <!-- Savanna Biome -->
             <Border Canvas.Left="730"
-                    Canvas.Top="790"
-                    Width="150"
-                    Height="45"
-                    Background="#7F5E00"
-                    CornerRadius="10"
-                    BorderBrush="#9E7B10"
-                    BorderThickness="2">
+                    Canvas.Top="790">
                 <Grid>
-                    <TextBlock Text="🌾 Savanna"
+                    <Button
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#7F5E00"
+                               BorderBrush="#9E7B10"
+                               BorderThickness="2" 
+                               Content="🌾 Savanna"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#FDD835"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="SavannaChooseBtn_Click"/>
+                               Click="SavannaChooseBtn_Click"/>
 
                     <Popup x:Name="SavannaPopup"
                            PlacementTarget="{Binding ElementName=SavannaChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -616,26 +635,28 @@
 
             <!-- Jungle Biome -->
             <Border Canvas.Left="1180"
-                    Canvas.Top="250"
-                    Width="150"
-                    Height="45"
-                    Background="#1B5E20"
-                    CornerRadius="10"
-                    BorderBrush="#2E7D32"
-                    BorderThickness="2">
+                    Canvas.Top="250">
                 <Grid>
-                    <TextBlock Text="🌳 Jungle"
+                    <Button
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#1B5E20"
+                               BorderBrush="#2E7D32"
+                               BorderThickness="2" 
+                               Content="🌳 Jungle"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#A5D6A7"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="JungleChooseBtn_Click"/>
+                               Click="JungleChooseBtn_Click"/>
 
                     <Popup x:Name="JunglePopup"
                            PlacementTarget="{Binding ElementName=JungleChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -672,26 +693,28 @@
 
             <!-- Tundra Biome -->
             <Border Canvas.Left="1260"
-                    Canvas.Top="880"
-                    Width="150"
-                    Height="45"
-                    Background="#25414F"
-                    CornerRadius="10"
-                    BorderBrush="#3C5E72"
-                    BorderThickness="2">
+                    Canvas.Top="880">
                 <Grid>
-                    <TextBlock Text="❄️ Tundra"
+                    <Button
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#25414F"
+                               BorderBrush="#3C5E72"
+                               BorderThickness="2" 
+                               Content="❄️ Tundra"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#B3E5FC"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="TundraChooseBtn_Click"/>
+                               Click="TundraChooseBtn_Click"/>
 
                     <Popup x:Name="TundraPopup"
                            PlacementTarget="{Binding ElementName=TundraChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -728,26 +751,28 @@
 
             <!-- Marsh Biome -->
             <Border Canvas.Left="1575"
-                    Canvas.Top="885"
-                    Width="150"
-                    Height="45"
-                    Background="#334D4D"
-                    CornerRadius="10"
-                    BorderBrush="#4E6B6B"
-                    BorderThickness="2">
+                    Canvas.Top="885">
                 <Grid>
-                    <TextBlock Text="💧 Marsh"
+                    <Button 
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#334D4D"
+                               BorderBrush="#4E6B6B"
+                               BorderThickness="2" 
+                               Content="💧 Marsh"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#80DEEA"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="MarshChooseBtn_Click"/>
+                               Click="MarshChooseBtn_Click"/>
 
                     <Popup x:Name="MarshPopup"
                            PlacementTarget="{Binding ElementName=MarshChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -784,26 +809,28 @@
 
             <!-- Cave Biome -->
             <Border Canvas.Left="1390"
-                    Canvas.Top="470"
-                    Width="150"
-                    Height="45"
-                    Background="#3B3B3B"
-                    CornerRadius="10"
-                    BorderBrush="#555555"
-                    BorderThickness="2">
+                    Canvas.Top="470">
                 <Grid>
-                    <TextBlock Text="⛏️ Cave"
+                    <Button
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#3B3B3B"
+                               BorderBrush="#555555"
+                               BorderThickness="2" 
+                               Content="⛏️ Cave"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#B0BEC5"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="CaveChooseBtn_Click"/>
+                               Click="CaveChooseBtn_Click"/>
 
                     <Popup x:Name="CavePopup"
                            PlacementTarget="{Binding ElementName=CaveChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -840,26 +867,28 @@
 
             <!-- Ruins Biome -->
             <Border Canvas.Left="270"
-                    Canvas.Top="805"
-                    Width="150"
-                    Height="45"
-                    Background="#2F2F2F"
-                    CornerRadius="10"
-                    BorderBrush="#555555"
-                    BorderThickness="2">
+                    Canvas.Top="805">
                 <Grid>
-                    <TextBlock Text="🏛️ Ruins"
+                    <Button
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#2F2F2F"
+                               BorderBrush="#555555"
+                               BorderThickness="2" 
+                               Content="🏛️ Ruins"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#E0E0E0"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="RuinsChooseBtn_Click"/>
+                               Click="RuinsChooseBtn_Click"/>
 
                     <Popup x:Name="RuinsPopup"
                            PlacementTarget="{Binding ElementName=RuinsChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
@@ -896,26 +925,28 @@
 
             <!-- Crystal Cavern Biome -->
             <Border Canvas.Left="1430"
-                    Canvas.Top="185"
-                    Width="150"
-                    Height="45"
-                    Background="#3A2F6B"
-                    CornerRadius="10"
-                    BorderBrush="#574683"
-                    BorderThickness="2">
+                    Canvas.Top="185">
                 <Grid>
-                    <TextBlock Text="🔮 CrystalCavern"
+                    <Button
+                               Style="{StaticResource DarkButton}"
+                               Width="150"
+                               Height="45"
+                               Background="#3A2F6B"
+                               BorderBrush="#574683"
+                               BorderThickness="2" 
+                               Content="🔮 CrystalCavern"
                                FontSize="16"
                                FontWeight="Bold"
                                Foreground="#D1C4E9"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               MouseEnter="CrystalCavernChooseBtn_Click"/>
+                               Click="CrystalCavernChooseBtn_Click"/>
 
                     <Popup x:Name="CrystalCavernPopup"
                            PlacementTarget="{Binding ElementName=CrystalCavernChooseBtn}"
                            Placement="Bottom"
+                           Width="150"
                            StaysOpen="False"
                            AllowsTransparency="True">
                         <Border Background="#1E1E1E"
