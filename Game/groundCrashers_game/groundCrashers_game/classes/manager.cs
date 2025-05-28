@@ -690,7 +690,6 @@ namespace groundCrashers_game.classes
             {
                 case "Health":
                     creature.stats.max_hp = (int)Math.Round(creature.stats.max_hp * number);
-                    creature.stats.hp = creature.stats.max_hp; // Reset current hp to max after buff
                     break;
                 case "Attack":
                     creature.stats.max_attack = (int)Math.Round(creature.stats.max_attack * number);

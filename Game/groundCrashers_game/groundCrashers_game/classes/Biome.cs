@@ -6,21 +6,21 @@ namespace groundCrashers_game
     public enum Biomes
     {
         Forest,
-        Desert,
+        Wasteland,
         Mountain,
-        Highlands,
         Glacier,
-        Swamp,
-        Ocean,
-        Volcano,
-        Savanna,
         Jungle,
-        Tundra,
-        Cave,
-        Ruins,
-        Marsh,
         CrystalCavern,
-        Wasteland
+        Cave,
+        Swamp,
+        Highlands,
+        Marsh,
+        Tundra,
+        Savanna,
+        Ruins,
+        Ocean,
+        Desert,
+        Volcano
     }
 
 

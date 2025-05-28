@@ -10,6 +10,21 @@ namespace groundCrashers_game
         public LevelMapWindow()
         {
             InitializeComponent();
+            MountainButton.Visibility = Visibility.Collapsed;
+            GlacierButton.Visibility = Visibility.Collapsed;
+            JungleButton.Visibility = Visibility.Collapsed;
+            CrystalCavernButton.Visibility = Visibility.Collapsed;
+            CaveButton.Visibility = Visibility.Collapsed;
+            SwampButton.Visibility = Visibility.Collapsed;
+            HighlandsButton.Visibility = Visibility.Collapsed;
+            MarshButton.Visibility = Visibility.Collapsed;
+            TundraButton.Visibility = Visibility.Collapsed;
+            SavannaButton.Visibility = Visibility.Collapsed;
+            RuinsButton.Visibility = Visibility.Collapsed;
+            OceanButton.Visibility = Visibility.Collapsed;
+            DesertButton.Visibility = Visibility.Collapsed;
+            WastelandButton.Visibility = Visibility.Collapsed;
+            VolcanoButton.Visibility = Visibility.Collapsed;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
