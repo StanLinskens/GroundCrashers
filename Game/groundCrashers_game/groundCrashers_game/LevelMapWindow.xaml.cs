@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Drawing;
+using groundCrashers_game.classes;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -11,8 +12,8 @@ namespace groundCrashers_game
     public partial class LevelMapWindow : Window
     {
         // to get current biome and level index
-        public int currentBiomeIndex { get; set; } = 15;
-        public int currentLVLIndex { get; set; } = 5;
+        public int currentBiomeIndex { get; set; } = 0;
+        public int currentLVLIndex { get; set; } = 1;
 
         bool lvls_Hidden = false;
 
@@ -20,6 +21,14 @@ namespace groundCrashers_game
         {
             InitializeComponent();
 
+            currentBiomeIndex = ActiveAccount.Active_current_biome_id;
+            currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
+
+            Show_Levels();
+        }
+
+        private void Show_Levels()
+        {
             foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
             {
                 // make the enum value an int

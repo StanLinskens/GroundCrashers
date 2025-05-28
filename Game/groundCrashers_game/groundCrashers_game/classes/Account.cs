@@ -1,13 +1,14 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace groundCrashers_game.classes
 {
@@ -19,10 +20,40 @@ namespace groundCrashers_game.classes
         public int current_biome_id { get; set; }
         public int current_biome_lvl_id { get; set; }
     }
+
+    public class ActiveAccount
+    {
+        public static int Active_id { get; set; }
+        public static string Active_name { get; set; }
+        public static string Active_password { get; set; }
+        public static int Active_current_biome_id { get; set; }
+        public static int Active_current_biome_lvl_id { get; set; }
+    }
     public class AccountManager
     {
-        private static readonly string FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "biomes.json");
+        private static readonly string FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "accounts.json");
 
+        public static bool Login(string username, string password)
+        {
+            var accounts = LoadAccounts();
+
+            var account = accounts.FirstOrDefault(a =>
+                a.name.Equals(username, StringComparison.OrdinalIgnoreCase) &&
+                a.password == password);
+
+            if (account != null)
+            {
+                ActiveAccount.Active_id = account.id;
+                ActiveAccount.Active_name = account.name;
+                ActiveAccount.Active_password = account.password;
+                ActiveAccount.Active_current_biome_id = account.current_biome_id;
+                ActiveAccount.Active_current_biome_lvl_id = account.current_biome_lvl_id;
+
+                return true;
+            }
+
+            return false;
+        }
         public static List<Account> LoadAccounts()
         {
             if (!File.Exists(FilePath))
@@ -32,15 +63,37 @@ namespace groundCrashers_game.classes
             return JsonSerializer.Deserialize<List<Account>>(json) ?? new List<Account>();
         }
 
+        public static void UpdateActiveAccount()
+        {
+            var accounts = LoadAccounts();
+
+            var account = accounts.FirstOrDefault(a => a.id == ActiveAccount.Active_id);
+            if (account != null)
+            {
+                account.current_biome_id = ActiveAccount.Active_current_biome_id;
+                account.current_biome_lvl_id = ActiveAccount.Active_current_biome_lvl_id;
+                // Optionally update name or password if those change
+                SaveAccounts(accounts);
+            }
+        }
+
         public static void SaveAccounts(List<Account> accounts)
         {
             var json = JsonSerializer.Serialize(accounts, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(FilePath, json);
+            MessageBox.Show("Account created");
         }
 
         public static void AddAccount(string username, string password)
         {
             var accounts = LoadAccounts();
+
+            // Check if the username already exists (case-insensitive)
+            if (accounts.Any(a => a.name.Equals(username, StringComparison.OrdinalIgnoreCase)))
+            {
+                MessageBox.Show("An account with that username already exists.", "Duplicate Username", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             // Generate new ID
             int newId = accounts.Any() ? accounts.Max(a => a.id) + 1 : 1;

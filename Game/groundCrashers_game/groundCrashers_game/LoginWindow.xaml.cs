@@ -42,7 +42,21 @@ namespace groundCrashers_game
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
+            string username = TBXusername.Text;
+            string password = PBXpassword.Password; // Assuming you're using PasswordBox for passwords
 
+            bool success = AccountManager.Login(username, password);
+
+            if (success)
+            {
+                LevelMapWindow LevelMapWindow = new LevelMapWindow();
+                LevelMapWindow.Show();
+                this.Close(); // Close the login window after successful login
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButton.OK);
+            }
         }
 
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
@@ -50,9 +64,10 @@ namespace groundCrashers_game
             string username = TBXusername.Text;
             string password = PBXpassword.Password;
 
-            AccountManager.AddAccount(username, password);
-
-            MessageBox.Show("Account created!");
+            if(username != "" || password != "")
+            {
+                AccountManager.AddAccount(username, password);
+            }
         }
     }
 }
