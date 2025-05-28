@@ -142,7 +142,7 @@
                     <StackPanel Orientation="Horizontal" Margin="20,10">
                         <TextBlock Text="ENEMY" Style="{StaticResource StatusText}" FontSize="24"/>
                         <ProgressBar x:Name="EnemyHealthBar" Style="{StaticResource HealthBar}" Width="300" Value="150" Maximum="150" Margin="20,0,0,0" Foreground="#FF4D4D"/>
-                        <TextBlock x:Name="EnemyHealthText" Text="60/100" FontSize="20" Margin="20,0,0,0" Style="{StaticResource StatusText}"/>
+                        <TextBlock x:Name="EnemyHealthText" Text="?/?" FontSize="20" Margin="20,0,0,0" Style="{StaticResource StatusText}"/>
                     </StackPanel>
                 </Grid>
             </Border>

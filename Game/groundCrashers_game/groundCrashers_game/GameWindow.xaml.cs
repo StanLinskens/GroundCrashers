@@ -66,7 +66,7 @@ namespace groundCrashers_game
 
             portalManager = new Esp32Manager();
 
-            UpdateBattleUI();
+            //UpdateBattleUI();
 
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
@@ -197,14 +197,6 @@ namespace groundCrashers_game
 
             // 3) Set the background image based on the random biome
             BiomeBackground.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/images/battleGrounds/{randomBiome.ToString().ToLower()}.jpg", UriKind.Absolute));
-            try { 
-                  EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{gameManager.ActiveCpuCreature.name}.png", UriKind.Absolute));
-                  //PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{gameManager.ActivePlayerCreature.name}.png", UriKind.Absolute));
-
-            } catch
-            {
-                //MessageBox.Show("Could not find the image for the enemy creature. Please check the image path.");
-            }
         }
 
         // Helper: map each Biome to a simple emoji
@@ -443,9 +435,9 @@ namespace groundCrashers_game
         private void Swap_Button_Click(object sender, RoutedEventArgs e)
         {
             Actor playerActor = gameManager.GetPlayerActor();
-            if (playerActor.Creatures.Count < 3)
+            if (playerActor.Creatures.Count < gameManager._maxCreatures)
             {
-                gameManager.logs.Add("You need at least 3 creatures to swap.");
+                gameManager.logs.Add($"You need at least {gameManager._maxCreatures} creatures to swap.");
             }
             else
             {
