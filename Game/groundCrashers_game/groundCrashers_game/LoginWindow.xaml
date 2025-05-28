@@ -1,0 +1,171 @@
+﻿<Window x:Class="groundCrashers_game.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:groundCrashers_game"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="Margin" Value="0,10,0,0"/>
+        <Setter Property="Width" Value="220"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value="0.85"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+        <Style x:Key="RoundedTextboxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Width" Value="220"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10"
+                        SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                  Margin="{TemplateBinding Padding}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.85"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="RoundedPasswordboxStyle" TargetType="PasswordBox">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Width" Value="220"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="10"
+                        SnapsToDevicePixels="True">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                  Margin="{TemplateBinding Padding}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.85"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <!-- Background Gradient -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#FF2C2C2C" Offset="0.0"/>
+                <GradientStop Color="#FF1E1E1E" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
+        <TextBlock Text="login!"
+               FontSize="36"
+               FontWeight="Bold"
+               Foreground="White"
+               HorizontalAlignment="Center"
+               Margin="0,0,0,10">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2"/>
+            </TextBlock.Effect>
+        </TextBlock>
+
+            <Grid>
+                <TextBox x:Name="TBXusername"
+             Style="{StaticResource RoundedTextboxStyle}"
+             Background="White"
+             BorderBrush="Black"
+             BorderThickness="2"
+             TextChanged="TBXusername_TextChanged"/>
+
+                <TextBlock x:Name="PlaceholderUsername"
+               Text="Enter your username..."
+               Foreground="Gray"
+               Margin="95,10,0,0"
+               VerticalAlignment="Center"
+               IsHitTestVisible="False"
+               Visibility="Visible"/>
+            </Grid>
+
+            <Grid>
+                <PasswordBox x:Name="PBXpassword"
+             Style="{StaticResource RoundedPasswordboxStyle}"
+             Background="White"
+             BorderBrush="Black"
+             BorderThickness="2"
+             PasswordChanged="PBXpassword_PasswordChanged"/>
+
+                <TextBlock x:Name="PlaceholderPassword"
+               Text="Enter your password..."
+               Foreground="Gray"
+               Margin="96,10,0,0"
+               VerticalAlignment="Center"
+               IsHitTestVisible="False"
+               Visibility="Visible"/>
+            </Grid>
+
+        <Button x:Name="BtnLogin"
+        Content="Login account"
+        Style="{StaticResource RoundedButtonStyle}"
+        Background="green"
+        Foreground="Black" Click="BtnLogin_Click"/>
+
+        <Button x:Name="BtnCreate"
+        Content="create account"
+        Style="{StaticResource RoundedButtonStyle}"
+        Background="Red" Click="BtnCreate_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
