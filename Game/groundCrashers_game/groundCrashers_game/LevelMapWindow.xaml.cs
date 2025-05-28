@@ -1,6 +1,7 @@
 ﻿using DocumentFormat.OpenXml.Drawing;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace groundCrashers_game
 {
@@ -9,8 +10,9 @@ namespace groundCrashers_game
     /// </summary>
     public partial class LevelMapWindow : Window
     {
-        public int currentBiomeIndex { get; set; } = 0;
-        public int currentLVLIndex { get; set; } = 1;
+        // to get current biome and level index
+        public int currentBiomeIndex { get; set; } = 15;
+        public int currentLVLIndex { get; set; } = 5;
 
         bool lvls_Hidden = false;
 
@@ -20,15 +22,20 @@ namespace groundCrashers_game
 
             foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
             {
+                // make the enum value an int
                 int biomeValue = (int)biome;
+                // all lvl above the current biome index are hidden
                 if (biomeValue > currentBiomeIndex)
                 {
+                    // get the button name from the enum value
                     var buttonBiomeName = $"{biome}Button";
                     var buttonBiome = this.FindName(buttonBiomeName) as Button;
                     if (buttonBiome != null)
                     {
+                        // hide the button
                         buttonBiome.Visibility = Visibility.Collapsed;
 
+                        // hide all levels for this biome exept the first one
                         for (int i = 1; i <= 5; i++)
                         {
                             var buttonLVLName = $"{biome}LVL{i}";
@@ -40,8 +47,10 @@ namespace groundCrashers_game
                         }
                     }
                 }
+                // if the biome is the current biome, show all levels up to the current level index
                 else if (biomeValue == currentBiomeIndex)
                 {
+                    // all levels after the current biome are hidden
                     for (int i = 5; i > currentLVLIndex; i--)
                     {
                         var buttonLVLName = $"{biome}LVL{i}";
@@ -49,6 +58,32 @@ namespace groundCrashers_game
                         if (buttonLVL != null)
                         {
                             buttonLVL.Visibility = Visibility.Collapsed;
+                        }
+                    }
+                    // all levels below the current level index are green
+                    for (int i = 1; i < currentLVLIndex; i++)
+                    {
+                        var buttonLVLName = $"{biome}LVL{i}";
+                        var buttonLVL = this.FindName(buttonLVLName) as Button;
+                        if (buttonLVL != null)
+                        {
+                            buttonLVL.Background = Brushes.Green;
+                            buttonLVL.BorderBrush = Brushes.LightGreen;
+                        }
+                    }
+                }
+                // if the biome is below the current biome, show all levels and make them greens
+                else
+                {
+                    for (int i = 0; i <= 5; i++)
+                    {
+                        var buttonLVLName = $"{biome}LVL{i}";
+                        var buttonLVL = this.FindName(buttonLVLName) as Control;
+
+                        if (buttonLVL != null)
+                        {
+                            buttonLVL.Background = Brushes.Green;
+                            buttonLVL.BorderBrush = Brushes.LightGreen;
                         }
                     }
                 }
