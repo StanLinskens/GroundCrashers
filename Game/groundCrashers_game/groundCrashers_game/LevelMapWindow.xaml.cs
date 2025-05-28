@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using DocumentFormat.OpenXml.Drawing;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace groundCrashers_game
 {
@@ -7,24 +10,84 @@ namespace groundCrashers_game
     /// </summary>
     public partial class LevelMapWindow : Window
     {
+        // to get current biome and level index
+        public int currentBiomeIndex { get; set; } = 15;
+        public int currentLVLIndex { get; set; } = 5;
+
+        bool lvls_Hidden = false;
+
         public LevelMapWindow()
         {
             InitializeComponent();
-            MountainButton.Visibility = Visibility.Collapsed;
-            GlacierButton.Visibility = Visibility.Collapsed;
-            JungleButton.Visibility = Visibility.Collapsed;
-            CrystalCavernButton.Visibility = Visibility.Collapsed;
-            CaveButton.Visibility = Visibility.Collapsed;
-            SwampButton.Visibility = Visibility.Collapsed;
-            HighlandsButton.Visibility = Visibility.Collapsed;
-            MarshButton.Visibility = Visibility.Collapsed;
-            TundraButton.Visibility = Visibility.Collapsed;
-            SavannaButton.Visibility = Visibility.Collapsed;
-            RuinsButton.Visibility = Visibility.Collapsed;
-            OceanButton.Visibility = Visibility.Collapsed;
-            DesertButton.Visibility = Visibility.Collapsed;
-            WastelandButton.Visibility = Visibility.Collapsed;
-            VolcanoButton.Visibility = Visibility.Collapsed;
+
+            foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
+            {
+                // make the enum value an int
+                int biomeValue = (int)biome;
+                // all lvl above the current biome index are hidden
+                if (biomeValue > currentBiomeIndex)
+                {
+                    // get the button name from the enum value
+                    var buttonBiomeName = $"{biome}Button";
+                    var buttonBiome = this.FindName(buttonBiomeName) as Button;
+                    if (buttonBiome != null)
+                    {
+                        // hide the button
+                        buttonBiome.Visibility = Visibility.Collapsed;
+
+                        // hide all levels for this biome exept the first one
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            var buttonLVLName = $"{biome}LVL{i}";
+                            var buttonLVL = this.FindName(buttonLVLName) as Button;
+                            if (buttonLVL != null)
+                            {
+                                buttonLVL.Visibility = Visibility.Collapsed;
+                            }
+                        }
+                    }
+                }
+                // if the biome is the current biome, show all levels up to the current level index
+                else if (biomeValue == currentBiomeIndex)
+                {
+                    // all levels after the current biome are hidden
+                    for (int i = 5; i > currentLVLIndex; i--)
+                    {
+                        var buttonLVLName = $"{biome}LVL{i}";
+                        var buttonLVL = this.FindName(buttonLVLName) as Button;
+                        if (buttonLVL != null)
+                        {
+                            buttonLVL.Visibility = Visibility.Collapsed;
+                        }
+                    }
+                    // all levels below the current level index are green
+                    for (int i = 1; i < currentLVLIndex; i++)
+                    {
+                        var buttonLVLName = $"{biome}LVL{i}";
+                        var buttonLVL = this.FindName(buttonLVLName) as Button;
+                        if (buttonLVL != null)
+                        {
+                            buttonLVL.Background = Brushes.Green;
+                            buttonLVL.BorderBrush = Brushes.LightGreen;
+                        }
+                    }
+                }
+                // if the biome is below the current biome, show all levels and make them greens
+                else
+                {
+                    for (int i = 0; i <= 5; i++)
+                    {
+                        var buttonLVLName = $"{biome}LVL{i}";
+                        var buttonLVL = this.FindName(buttonLVLName) as Control;
+
+                        if (buttonLVL != null)
+                        {
+                            buttonLVL.Background = Brushes.Green;
+                            buttonLVL.BorderBrush = Brushes.LightGreen;
+                        }
+                    }
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -128,6 +191,23 @@ namespace groundCrashers_game
         private void CrystalCavernChooseBtn_Click(object sender, RoutedEventArgs e)
         {
             CrystalCavernPopup.IsOpen = !CrystalCavernPopup.IsOpen;
+        }
+
+        private void DisplayMapButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
+            {
+                int biomeValue = (int)biome;
+
+                var buttonName = $"{biome}Button";
+                var button = this.FindName(buttonName) as UIElement;
+                if (button != null)
+                {
+                    if (lvls_Hidden && biomeValue <= currentBiomeIndex) button.Visibility = Visibility.Visible;
+                    else button.Visibility = Visibility.Collapsed;
+                }
+            }
+            lvls_Hidden = !lvls_Hidden;
         }
     }
 }
