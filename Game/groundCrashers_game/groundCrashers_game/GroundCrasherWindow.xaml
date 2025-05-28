@@ -96,8 +96,9 @@
                     <TextBlock Name="GroundCrasherSpeed" Text="N/A" HorizontalAlignment="Right" Grid.Row="6" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
                 </Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Name="ConfirmButton" Style="{StaticResource DarkButton}" Content="Confirm" Width="120" Height="40" Margin="0,20,0,0" HorizontalAlignment="Left" Click="ConfirmGroundCrasher_Click" />
-                    <Button Name="AddToCardButton" Style="{StaticResource DarkButton}" Content="AddToCard" Width="120" Height="40" Margin="0,20,0,0" HorizontalAlignment="Right" Click="AddtoCard_Click" RenderTransformOrigin="0.556,-1.17" />
+                    <Button Name="ConfirmButton" Style="{StaticResource DarkButton}" Content="Confirm" Width="90" Height="40" Margin="0,20,0,0" HorizontalAlignment="Left" Click="ConfirmGroundCrasher_Click" />
+                    <Button Name="AddToCardButton" Style="{StaticResource DarkButton}" Content="AddToCard" Width="90" Height="40" Margin="0,20,0,0" HorizontalAlignment="Right" Click="AddtoCard_Click" RenderTransformOrigin="0.556,-1.17" />
+                    <Button Name="ScanCardButton" Content="Scan Card" Style="{StaticResource DarkButton}" Height="40" Width="90" Margin="0,20,0,0" Click="ScanCardButton_Click" />
                 </StackPanel>
             </StackPanel>
         </Border>

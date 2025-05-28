@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO.Ports;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace groundCrashers_game
@@ -9,63 +8,57 @@ namespace groundCrashers_game
     public class Esp32Manager
     {
         private readonly HttpClient _client;
-        private readonly string _esp32Url;
+        private readonly string _esp32BaseUrl;
         private readonly int _baudRate;
 
-        public Esp32Manager(string esp32Url = "http://192.168.230.27", int baudRate = 115200)
+        public Esp32Manager(string esp32BaseUrl = "http://192.168.230.27", int baudRate = 115200)
         {
             _client = new HttpClient();
-            _esp32Url = esp32Url;
+            _esp32BaseUrl = esp32BaseUrl.TrimEnd('/');
             _baudRate = baudRate;
         }
 
-        public async Task<string> GetUidAsync()
+        /// <summary>
+        /// Calls the ESP32 /read endpoint. Waits (up to ~10 seconds on the ESP32) for a card tap.
+        /// Returns either the creature ID (as string) or an error string.
+        /// </summary>
+        public async Task<string> GetCardIDAsync()
         {
             try
             {
-                return await _client.GetStringAsync(_esp32Url);
+                string fullUrl = $"{_esp32BaseUrl}/read";
+                string result = await _client.GetStringAsync(fullUrl);
+                // The ESP32 returns "ERROR: ..." or a number as plain text
+                return result.Trim();
             }
             catch (Exception ex)
             {
-                return $"Fout bij verbinden:\n{ex.Message}";
+                return $"Error connecting to ESP32: {ex.Message}";
             }
         }
 
-        public async Task<string> SendCredentialsAsync(string ssid, string password)
+        /// <summary>
+        /// Calls the ESP32 /write endpoint with ?id=X. 
+        /// The ESP32 will respond immediately saying it's ready to write,
+        /// and then as soon as the next card is tapped, it will write that ID.
+        /// </summary>
+        public async Task<string> WriteCardIDAsync(int id)
         {
-            if (string.IsNullOrWhiteSpace(ssid) || string.IsNullOrWhiteSpace(password))
-                return "SSID of wachtwoord mag niet leeg zijn.";
+            if (id <= 0)
+                return "ID must be greater than zero.";
 
             try
             {
-                // Serial
-                string[] portNames = SerialPort.GetPortNames();
-                if (portNames.Length == 0)
-                    return "Geen seriële poorten gevonden.";
+                // First, send via HTTP: GET /write?id=NNN
+                string fullUrl = $"{_esp32BaseUrl}/write?id={id}";
+                string response = await _client.GetStringAsync(fullUrl);
 
-                string myPortName = portNames[0]; // you might make this configurable
-                using (SerialPort sp = new SerialPort(myPortName, _baudRate))
-                {
-                    sp.Open();
-                    sp.WriteLine(ssid);
-                    sp.WriteLine(password);
-                    sp.Close();
-                }
-
-                // HTTP
-                var content = new StringContent(
-                    $"ssid={ssid}&password={password}",
-                    Encoding.UTF8,
-                    "application/x-www-form-urlencoded");
-
-                HttpResponseMessage response = await _client.PostAsync(_esp32Url + "/credentials", content);
-                string result = await response.Content.ReadAsStringAsync();
-
-                return $"Verzonden!\nAntwoord ESP32:\n{result}";
+                // The ESP32 answer will be something like "OK: Ready to write ID 42"
+                return response.Trim();
             }
             catch (Exception ex)
             {
-                return $"Fout bij verzenden:\n{ex.Message}";
+                return $"Error writing to ESP32: {ex.Message}";
             }
         }
     }

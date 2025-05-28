@@ -16,6 +16,8 @@ namespace groundCrashers_game
     public partial class GameWindow : Window
     {
         Manager gameManager;
+        Esp32Manager portalManager;
+
         private Button fightButton;
         private Button bagButton;
         private Button groundCrashersButton;
@@ -56,9 +58,10 @@ namespace groundCrashers_game
 
             // Initialize the game manager
             gameManager = new Manager();
-            //gameManager.LoadAllCreatures();
             gameManager.LoadGameData();
             gameManager.LoadActorsForBattleMode();
+
+            portalManager = new Esp32Manager();
 
             UpdateBattleUI();
 
@@ -515,7 +518,7 @@ namespace groundCrashers_game
 
         private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
         {
-            GroundCrasherWindow crasherWindow = new GroundCrasherWindow(gameManager, this);
+            GroundCrasherWindow crasherWindow = new GroundCrasherWindow(gameManager, this, portalManager);
             crasherWindow.Show();
             RefreshLogBox();
         }
