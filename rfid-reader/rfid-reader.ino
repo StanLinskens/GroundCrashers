@@ -40,6 +40,16 @@ void setup() {
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
+
+    lcd_i2c.clear();
+    lcd_i2c.setCursor(0, 0);
+    lcd_i2c.print("connecting to wifi");
+  } if (WiFi.status() == WL_CONNECTED){
+    lcd_i2c.clear();
+    lcd_i2c.setCursor(0, 0);
+    lcd_i2c.print("connected");
+    lcd_i2c.setCursor(0, 1);
+    lcd_i2c.print("scan card");
   }
 
   Serial.println("\nWiFi connected!");
