@@ -11,16 +11,21 @@ namespace groundCrashers_game
     {
         private readonly Esp32Manager espManager = new Esp32Manager();
 
+        public espConnectionWindow()
+        {
+            InitializeComponent();
+        }
+
         private async void BtnGetUid_Click(object sender, RoutedEventArgs e)
         {
-            TxtResult.Text = await espManager.GetUidAsync();
+            //TxtResult.Text = await espManager.GetUidAsync();
         }
 
         private async void BtnSendcredentials_Click(object sender, RoutedEventArgs e)
         {
             string ssid = txtSSID.Text.Trim();
             string password = txtPASSWORD.Text.Trim();
-            TxtResult.Text = await espManager.SendCredentialsAsync(ssid, password);
+            //TxtResult.Text = await espManager.SendCredentialsAsync(ssid, password);
         }
 
     }

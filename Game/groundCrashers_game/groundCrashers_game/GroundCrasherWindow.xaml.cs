@@ -29,17 +29,59 @@ namespace groundCrashers_game
 
         private GameWindow _gameWindow;
 
-        public GroundCrasherWindow(Manager manager, GameWindow gameWindow)
+        private Esp32Manager _esp32Manager;
+
+        List<int> allowedIdsFromCard = new List<int>{};
+
+        public GroundCrasherWindow(Manager manager, GameWindow gameWindow, Esp32Manager esp32Manager)
         {
             InitializeComponent();
             _Manager = manager;
             _gameWindow = gameWindow;
+            _esp32Manager = esp32Manager;
         }
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadCreatureButtons();
+            //LoadCreatureButtons();
+
+            LoadCreatureButtonsFormCard(allowedIdsFromCard);
         }
+
+        private async void ScanCardButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string result = await _esp32Manager.GetCardIDAsync();
+                // Example result might be "Reading...12345" or "Reading...ERROR: Timeout or no card"
+
+                // Remove “Reading...” if it’s there
+                if (result.StartsWith("Reading..."))
+                {
+                    result = result.Substring("Reading...".Length);
+                }
+
+                result = result.Trim(); // remove whitespace/newlines
+
+                if (int.TryParse(result, out int cardId))
+                {
+                    LoadCreatureButtonsFormCard(new List<int> { cardId });
+                    _Manager.logs.Add($"Scanned card with Creature ID: {cardId}");
+                }
+                else
+                {
+                    // Now result might be "ERROR: Timeout or no card" or something else
+                    MessageBox.Show($"Failed to read card: {result}");
+                    _Manager.logs.Add($"Card scan error: {result}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
         public void SelectPokemon_Click(object sender, RoutedEventArgs e)
         {
@@ -121,6 +163,41 @@ namespace groundCrashers_game
                 CreatureButtonPanel.Children.Add(btn);
             }
         }
+
+        private void LoadCreatureButtonsFormCard(List<int> allowedCreatureIds)
+        {
+            string jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "creatures.json");
+            jsonPath = System.IO.Path.GetFullPath(jsonPath);
+
+            if (!File.Exists(jsonPath))
+            {
+                MessageBox.Show("Creature JSON file not found!");
+                return;
+            }
+
+            string json = File.ReadAllText(jsonPath);
+            var allCreatures = JsonConvert.DeserializeObject<List<Creature>>(json);
+
+            // Filter creatures based on allowed IDs
+            loadedCreatures = allCreatures.Where(c => allowedCreatureIds.Contains(c.id)).ToList();
+
+            CreatureButtonPanel.Children.Clear(); // Optional: Clear previous buttons
+
+            foreach (Creature creature in loadedCreatures)
+            {
+                Button btn = new Button
+                {
+                    Content = creature.name,
+                    Margin = new Thickness(5),
+                    Height = 40,
+                    Style = (Style)FindResource("DarkButton"),
+                };
+
+                btn.Click += SelectPokemon_Click;
+                CreatureButtonPanel.Children.Add(btn);
+            }
+        }
+
 
         private void ConfirmGroundCrasher_Click(object sender, RoutedEventArgs e)
         {
