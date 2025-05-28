@@ -1,270 +1,408 @@
 #include <WiFi.h>
 #include <SPI.h>
 #include <MFRC522.h>
+#include <NfcAdapter.h>  // NDEF / NfcAdapter layer
 #include <LiquidCrystal_I2C.h>
 
+// ================================
+// GROUNDCRASHERS NFC CARD READER
+// ================================
+// This system reads/writes creature IDs to NFC cards
+// for the Groundcrashers fighting game. Each card
+// represents a unique creature that can battle.
+
 // --------------------
-// HARDWARE PINS
+// HARDWARE CONFIGURATION
 // --------------------
-#define SS_PIN  5    // MFRC522 SDA pin
-#define RST_PIN 27   // MFRC522 RST pin
+#define SS_PIN 5    // RC522 SDA pin - NFC reader chip select
+#define RST_PIN 27  // RC522 RST pin - NFC reader reset
 
 MFRC522 rfid(SS_PIN, RST_PIN);
-LiquidCrystal_I2C lcd_i2c(0x27, 20, 4);
+NfcAdapter nfc(&rfid);                   // NDEF layer for structured data
+LiquidCrystal_I2C lcd_i2c(0x27, 20, 4);  // 20x4 character display
 
 // --------------------
-// WIFI CREDENTIALS
+// NETWORK CONFIGURATION
 // --------------------
-const char* ssid     = "POCO F5";
-const char* password = "Wout007!";
-
+const char* ssid = "MMS";
+const char* password = "1M2a3r4l5i6n7t8t9";
 WiFiServer server(80);
 
 // --------------------
-// GLOBAL STATE
+// GAME STATE MANAGEMENT
 // --------------------
-bool waitingForWrite = false;
-uint32_t pendingWriteID = 0;
+bool waitingForCreatureWrite = false;   // Are we waiting to write a creature ID?
+uint32_t pendingCreatureID = 0;         // Which creature ID to write next
+unsigned long lastCardInteraction = 0;  // Prevent spam reading
 
-// The card sector & block we’ll use. 
-// MIFARE Classic sectors are 0–15; each sector has 4 blocks of 16 bytes.
-// We must authenticate on a sector trailer (e.g. last block of that sector). 
-// Here we'll store data in SECTOR 1, BLOCK 0 (which is absolute block #4).
-// Remember: block numbering is linear: sector 0 = blocks 0–3, sector 1 = blocks 4–7, etc.
-const byte targetSector = 1;
-const byte targetBlock  = 4;  
-
-// Default key for MIFARE Classic (factory default). 
-// Change if your cards/blocks use a different key.
-MFRC522::MIFARE_Key keyA = {
-  {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF}
-};
+// --------------------
+// GAME CONSTANTS
+// --------------------
+const unsigned long CARD_COOLDOWN = 1000;  // 1 second between card reads
+const unsigned long READ_TIMEOUT = 15000;  // 15 seconds to present card
+const unsigned long DISPLAY_DELAY = 2000;  // How long to show results
 
 void setup() {
   Serial.begin(115200);
+  Serial.println("=== GROUNDCRASHERS CARD READER STARTING ===");
+
+  // Initialize NFC hardware
   SPI.begin();
   rfid.PCD_Init();
+  nfc.begin();
 
-  // Initialize the LCD and show a startup message
+  Serial.println("[HARDWARE] NFC reader initialized");
+
+  // Initialize battle arena display
   lcd_i2c.init();
   lcd_i2c.backlight();
-  lcd_i2c.clear();
-  lcd_i2c.setCursor(0, 0);
-  lcd_i2c.print("ESP32 RFID Ready");
+  showBootupSequence();
 
-  // Connect to WiFi
-  WiFi.begin(ssid, password);
-  Serial.print("Connecting to WiFi");
-  int wifiTimeout = 0;
-  while (WiFi.status() != WL_CONNECTED && wifiTimeout < 40) {
-    delay(500);
-    Serial.print(".");
-    wifiTimeout++;
-  }
-  if (WiFi.status() == WL_CONNECTED) {
-    Serial.println("\nWiFi connected!");
-    Serial.print("IP address: ");
-    Serial.println(WiFi.localIP());
+  // Connect to the game network
+  connectToGameNetwork();
 
-    lcd_i2c.clear();
-    lcd_i2c.setCursor(0, 0);
-    lcd_i2c.print("WiFi connected");
-    lcd_i2c.setCursor(0, 1);
-    lcd_i2c.print(WiFi.localIP().toString());
-  } else {
-    Serial.println("\nFailed to connect to WiFi");
-    lcd_i2c.clear();
-    lcd_i2c.setCursor(0, 0);
-    lcd_i2c.print("WiFi FAIL");
-  }
-
+  // Start the creature card server
   server.begin();
+  Serial.println("[SERVER] Creature card server started on port 80");
+  Serial.println("[SERVER] Endpoints:");
+  Serial.println("  /read - Summon creature from card");
+  Serial.println("  /write?id=XXX - Bind creature to card");
+
+  showReadyScreen();
 }
 
 void loop() {
-  // Check for HTTP clients
+  // Handle game client connections (Unity game requests)
+  handleGameClientRequests();
+
+  // Process pending creature card writes
+  handleCreatureCardWrites();
+
+  // Optional: Show card info for debugging
+  debugCardPresence();
+
+  delay(50);  // Small delay to prevent overwhelming the NFC reader
+}
+
+// ================================
+// GAME CLIENT REQUEST HANDLING
+// ================================
+void handleGameClientRequests() {
   WiFiClient client = server.available();
-  if (client) {
-    Serial.println("Client connected");
-    String request = client.readStringUntil('\r');
-    Serial.print("Request: ");
-    Serial.println(request);
-    client.flush();
+  if (!client) return;
 
-    // Very simple parsing: GET /write?id=NNN
-    if (request.indexOf("GET /write?id=") != -1) {
-      int idx = request.indexOf("GET /write?id=") + 15;
-      String idStr = request.substring(idx);
-      int amp = idStr.indexOf(' ');
-      if (amp > 0) idStr = idStr.substring(0, amp);
-      uint32_t newID = (uint32_t) idStr.toInt();
-      if (newID > 0) {
-        pendingWriteID = newID;
-        waitingForWrite = true;
-        Serial.print("Will write ID: ");
-        Serial.println(pendingWriteID);
-        // Respond immediately but actual write happens when card is tapped
-        client.println("HTTP/1.1 200 OK");
-        client.println("Content-Type: text/plain");
-        client.println();
-        client.println("OK: Ready to write ID " + String(pendingWriteID));
-      } else {
-        client.println("HTTP/1.1 400 Bad Request");
-        client.println("Content-Type: text/plain");
-        client.println();
-        client.println("Invalid ID");
-      }
-    }
-    // GET /read
-    else if (request.indexOf("GET /read") != -1) {
-  // Don’t send “Reading...” here.
-  // First, wait for the card up to 10 seconds.
-  Serial.println("Waiting for card to read ID...");
-  uint32_t readID = waitForCardAndReadID(10000); // 10 second timeout
+  Serial.println("[CLIENT] Game client connected");
+  showDisplayMessage("GAME CONNECTED", "Processing...", 1000);
 
-  // Now send the HTTP response headers:
+  String request = client.readStringUntil('\r');
+  Serial.print("[REQUEST] ");
+  Serial.println(request);
+  client.flush();
+
+  // --------- CREATURE BINDING (WRITE) ----------
+  if (request.indexOf("GET /write?id=") != -1) {
+    handleCreatureBindingRequest(client, request);
+  }
+  // --------- CREATURE SUMMONING (READ) ----------
+  else if (request.indexOf("GET /read") != -1) {
+    handleCreatureSummoningRequest(client);
+  }
+  // --------- UNKNOWN COMMAND ----------
+  else {
+    Serial.println("[ERROR] Unknown game command received");
+    client.println("HTTP/1.1 404 Not Found");
+    client.println("Content-Type: text/plain");
+    client.println();
+    client.println("GROUNDCRASHERS: Unknown command");
+  }
+
+  delay(1);
+  client.stop();
+  Serial.println("[CLIENT] Game client disconnected");
+}
+
+// ================================
+// CREATURE BINDING (WRITE OPERATIONS)
+// ================================
+void handleCreatureBindingRequest(WiFiClient& client, String& request) {
+  // Extract creature ID from request
+  int idx = request.indexOf("GET /write?id=") + 15;
+  String idStr = request.substring(idx);
+  int space = idStr.indexOf(' ');
+  if (space > 0) idStr = idStr.substring(0, space);
+
+  uint32_t creatureID = (uint32_t)idStr.toInt();
+
+  if (creatureID > 0) {
+    pendingCreatureID = creatureID;
+    waitingForCreatureWrite = true;
+
+    Serial.print("[BIND] Preparing to bind Creature ID ");
+    Serial.print(creatureID);
+    Serial.println(" to card");
+
+    showDisplayMessage("CREATURE BINDING", "Present card to", "bind Creature #" + String(creatureID), "");
+
+    // Respond to game immediately
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-Type: text/plain");
+    client.println();
+    client.println("READY_TO_BIND:" + String(creatureID));
+  } else {
+    Serial.println("[ERROR] Invalid creature ID for binding");
+    client.println("HTTP/1.1 400 Bad Request");
+    client.println("Content-Type: text/plain");
+    client.println();
+    client.println("INVALID_CREATURE_ID");
+
+    showDisplayMessage("BINDING ERROR", "Invalid Creature ID", 2000);
+  }
+}
+
+// ================================
+// CREATURE SUMMONING (READ OPERATIONS)
+// ================================
+void handleCreatureSummoningRequest(WiFiClient& client) {
+  Serial.println("[SUMMON] Waiting for creature card...");
+  showDisplayMessage("SUMMON CREATURE", "Present your card", "to enter battle!", "");
+
+  String creatureData = waitForCreatureCard(READ_TIMEOUT);
+
   client.println("HTTP/1.1 200 OK");
   client.println("Content-Type: text/plain");
   client.println();
 
-  if (readID != UINT32_MAX) {
-    // Send only the raw number, no extra prefix
-    client.print(readID);
-    Serial.print("Read ID: ");
-    Serial.println(readID);
+  if (creatureData.length() > 0) {
+    Serial.print("[SUMMON] Creature #");
+    Serial.print(creatureData);
+    Serial.println(" summoned for battle!");
+
+    client.print(creatureData);  // Send creature ID to game
+
+    showDisplayMessage("CREATURE SUMMONED!", "Creature #" + creatureData, "Ready for battle!", "");
+    delay(DISPLAY_DELAY);
   } else {
-    client.print("ERROR: Timeout or no card");
-    Serial.println("Read timeout/no card");
+    Serial.println("[SUMMON] No creature card presented - summoning failed");
+    client.print("NO_CREATURE");
+
+    showDisplayMessage("SUMMON FAILED", "No card detected", "Try again!", "");
+    delay(DISPLAY_DELAY);
   }
+
+  showReadyScreen();
 }
 
-    // Unrecognized endpoint
-    else {
-      client.println("HTTP/1.1 404 Not Found");
-      client.println("Content-Type: text/plain");
-      client.println();
-      client.println("Unknown endpoint");
+// ================================
+// CREATURE CARD WRITE PROCESSING
+// ================================
+void handleCreatureCardWrites() {
+  if (!waitingForCreatureWrite) return;
+
+  // Check if a card is presented for binding
+  if (rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {
+    Serial.println("[BIND] Card detected for creature binding");
+
+    showDisplayMessage("BINDING...", "Writing creature", "data to card...", "");
+
+    bool bindingSuccess = bindCreatureToCard(String(pendingCreatureID));
+
+    if (bindingSuccess) {
+      Serial.print("[BIND] SUCCESS! Creature #");
+      Serial.print(pendingCreatureID);
+      Serial.println(" bound to card");
+
+      showDisplayMessage("BINDING SUCCESS!", "Creature #" + String(pendingCreatureID), "bound to card!", "Ready for battle!");
+    } else {
+      Serial.print("[BIND] FAILED! Could not bind Creature #");
+      Serial.println(pendingCreatureID);
+
+      showDisplayMessage("BINDING FAILED!", "Could not write", "creature data", "Try another card");
     }
 
-    delay(1);
-    client.stop();
-    Serial.println("Client disconnected");
-  }
+    delay(DISPLAY_DELAY);
+    showReadyScreen();
 
-  // If we’re waiting to write an ID, check for card tap
-  if (waitingForWrite) {
-    if (rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {
-      // Write the 4‐byte ID into the card
-      bool ok = writeIDToCard(pendingWriteID);
-      if (ok) {
-        Serial.print("Successfully wrote ID ");
-        Serial.println(pendingWriteID);
-        lcd_i2c.clear();
-        lcd_i2c.setCursor(0, 0);
-        lcd_i2c.print("Wrote ID:");
-        lcd_i2c.setCursor(0, 1);
-        lcd_i2c.print(pendingWriteID);
-      } else {
-        Serial.println("Failed to write ID");
-        lcd_i2c.clear();
-        lcd_i2c.setCursor(0, 0);
-        lcd_i2c.print("Write FAILED");
-      }
-      delay(1500);
-      lcd_i2c.clear();
-      lcd_i2c.setCursor(0, 0);
-      lcd_i2c.print("Tap RFID card...");
-      waitingForWrite = false;
-      pendingWriteID = 0;
-      rfid.PICC_HaltA();
-      rfid.PCD_StopCrypto1();
-    }
+    // Reset binding state
+    waitingForCreatureWrite = false;
+    pendingCreatureID = 0;
+
+    rfid.PICC_HaltA();
+    rfid.PCD_StopCrypto1();
   }
 }
 
-//---------------------------------------------------------------------------------
-// Helper: Authenticate + write a 4‐byte integer into BLOCK “targetBlock”
-//---------------------------------------------------------------------------------
-bool writeIDToCard(uint32_t creatureID) {
-  // Authenticate for block
-  MFRC522::StatusCode status;
-  status = rfid.PCD_Authenticate(
-    MFRC522::PICC_CMD_MF_AUTH_KEY_A,
-    targetBlock,
-    &keyA,
-    &(rfid.uid)
-  );
-  if (status != MFRC522::STATUS_OK) {
-    Serial.print(F("Auth failed: "));
-    Serial.println(rfid.GetStatusCodeName(status));
-    return false;
+// ================================
+// CARD DATA OPERATIONS
+// ================================
+bool bindCreatureToCard(const String& creatureID) {
+  // Convert creature ID to card data format
+  char creatureBuffer[32];
+  creatureID.toCharArray(creatureBuffer, sizeof(creatureBuffer));
+
+  // Create NDEF message with creature data
+  NdefMessage message = NdefMessage();
+  message.addTextRecord(creatureBuffer);
+
+  // Write creature data to card
+  bool success = nfc.write(message);
+
+  if (success) {
+    Serial.print("[CARD] Creature data written: ");
+    Serial.println(creatureID);
+  } else {
+    Serial.println("[CARD] Failed to write creature data");
   }
 
-  // Prepare a 16‐byte buffer; first 4 bytes is our ID in big‐endian
-  byte buffer[16];
-  buffer[0] = (byte)((creatureID >> 24) & 0xFF);
-  buffer[1] = (byte)((creatureID >> 16) & 0xFF);
-  buffer[2] = (byte)((creatureID >> 8) & 0xFF);
-  buffer[3] = (byte)(creatureID & 0xFF);
-  // Zero out the rest
-  for (int i = 4; i < 16; i++) buffer[i] = 0x00;
-
-  // Write the block
-  status = rfid.MIFARE_Write(targetBlock, buffer, 16);
-  if (status != MFRC522::STATUS_OK) {
-    Serial.print(F("MIFARE_Write failed: "));
-    Serial.println(rfid.GetStatusCodeName(status));
-    return false;
-  }
-  return true;
+  return success;
 }
 
-//---------------------------------------------------------------------------------
-// Helper: Wait until a card is tapped (or timeout) and then read 4‐byte int
-// from BLOCK “targetBlock”. Returns UINT32_MAX on failure/timeout.
-//---------------------------------------------------------------------------------
-uint32_t waitForCardAndReadID(unsigned long timeoutMillis) {
-  unsigned long start = millis();
-  while (millis() - start < timeoutMillis) {
+String waitForCreatureCard(unsigned long timeoutMillis) {
+  unsigned long startTime = millis();
+
+  while (millis() - startTime < timeoutMillis) {
     if (rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {
-      MFRC522::StatusCode status;
-      status = rfid.PCD_Authenticate(
-        MFRC522::PICC_CMD_MF_AUTH_KEY_A,
-        targetBlock,
-        &keyA,
-        &(rfid.uid)
-      );
-      if (status != MFRC522::STATUS_OK) {
-        Serial.print(F("Auth failed: "));
-        Serial.println(rfid.GetStatusCodeName(status));
+      Serial.println("[CARD] Creature card detected");
+
+      // Prevent rapid re-reading of same card
+      if (millis() - lastCardInteraction < CARD_COOLDOWN) {
         rfid.PICC_HaltA();
         rfid.PCD_StopCrypto1();
-        return UINT32_MAX;
+        continue;
       }
 
-      byte blockBuffer[18];
-      byte size = sizeof(blockBuffer);
-      status = rfid.MIFARE_Read(targetBlock, blockBuffer, &size);
-      if (status != MFRC522::STATUS_OK) {
-        Serial.print(F("MIFARE_Read failed: "));
-        Serial.println(rfid.GetStatusCodeName(status));
-        rfid.PICC_HaltA();
-        rfid.PCD_StopCrypto1();
-        return UINT32_MAX;
-      }
+      lastCardInteraction = millis();
 
-      // Extract the first 4 bytes into a uint32
-      uint32_t readValue = 0;
-      readValue |= ((uint32_t)blockBuffer[0] << 24);
-      readValue |= ((uint32_t)blockBuffer[1] << 16);
-      readValue |= ((uint32_t)blockBuffer[2] << 8);
-      readValue |= ((uint32_t)blockBuffer[3]);
-
+      NfcTag tag = nfc.read();
       rfid.PICC_HaltA();
       rfid.PCD_StopCrypto1();
-      return readValue;
+
+      if (tag.hasNdefMessage()) {
+        NdefMessage message = tag.getNdefMessage();
+
+        for (int i = 0; i < message.getRecordCount(); i++) {
+          NdefRecord record = message.getRecord(i);
+
+          // Look for text records (creature data)
+          if (record.getTnf() == 0x01 && record.getType()[0] == 'T') {
+            int payloadLength = record.getPayloadLength();
+            const byte* payload = record.getPayload();
+
+            // Extract creature ID from text record
+            int languageLength = payload[0] & 0x3F;
+            String creatureID = "";
+            for (int i = languageLength + 1; i < payloadLength; i++) {
+              creatureID += (char)payload[i];
+            }
+
+            Serial.print("[CARD] Creature ID read: ");
+            Serial.println(creatureID);
+            return creatureID;
+          }
+        }
+      }
+
+      Serial.println("[CARD] No creature data found on card");
+      return "";
+    }
+
+    delay(100);  // Small delay in card detection loop
+  }
+
+  Serial.println("[CARD] Timeout waiting for creature card");
+  return "";
+}
+
+// ================================
+// DISPLAY MANAGEMENT
+// ================================
+void showBootupSequence() {
+  lcd_i2c.clear();
+  lcd_i2c.setCursor(0, 0);
+  lcd_i2c.print("GROUNDCRASHERS");
+  lcd_i2c.setCursor(0, 1);
+  lcd_i2c.print("Card Reader v1.0");
+  lcd_i2c.setCursor(0, 2);
+  lcd_i2c.print("Initializing...");
+  delay(2000);
+}
+
+void showReadyScreen() {
+  lcd_i2c.clear();
+  lcd_i2c.setCursor(0, 0);
+  lcd_i2c.print("GROUNDCRASHERS");
+  lcd_i2c.setCursor(0, 1);
+  lcd_i2c.print("Ready for Battle!");
+  lcd_i2c.setCursor(0, 2);
+  lcd_i2c.print("Present creature");
+  lcd_i2c.setCursor(0, 3);
+  lcd_i2c.print("card to fight...");
+}
+
+void showDisplayMessage(String line1, String line2, unsigned long displayTime) {
+  lcd_i2c.clear();
+  lcd_i2c.setCursor(0, 0);
+  lcd_i2c.print(line1);
+  lcd_i2c.setCursor(0, 1);
+  lcd_i2c.print(line2);
+  delay(displayTime);
+}
+
+void showDisplayMessage(String line1, String line2, String line3, String line4) {
+  lcd_i2c.clear();
+  lcd_i2c.setCursor(0, 0);
+  lcd_i2c.print(line1);
+  lcd_i2c.setCursor(0, 1);
+  lcd_i2c.print(line2);
+  lcd_i2c.setCursor(0, 2);
+  lcd_i2c.print(line3);
+  lcd_i2c.setCursor(0, 3);
+  lcd_i2c.print(line4);
+}
+
+// ================================
+// NETWORK SETUP
+// ================================
+void connectToGameNetwork() {
+  Serial.println("[NETWORK] Connecting to game network...");
+  showDisplayMessage("CONNECTING...", "Joining game network", 0);
+
+  WiFi.begin(ssid, password);
+  int attempts = 0;
+
+  while (WiFi.status() != WL_CONNECTED && attempts < 40) {
+    delay(500);
+    Serial.print(".");
+    attempts++;
+  }
+
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.println();
+    Serial.println("[NETWORK] Connected to game network!");
+    Serial.print("[NETWORK] Card reader IP: ");
+    Serial.println(WiFi.localIP());
+
+    showDisplayMessage("NETWORK READY", "IP: " + WiFi.localIP().toString(), 2000);
+  } else {
+    Serial.println();
+    Serial.println("[NETWORK] Failed to connect to game network!");
+    showDisplayMessage("NETWORK ERROR", "Connection failed", "Check settings", "");
+    delay(3000);
+  }
+}
+
+// ================================
+// DEBUG FUNCTIONS
+// ================================
+void debugCardPresence() {
+  // Optional: Log when cards are detected (for debugging)
+  static unsigned long lastDebugTime = 0;
+  if (millis() - lastDebugTime > 5000) {  // Every 5 seconds
+    if (rfid.PICC_IsNewCardPresent() && rfid.PICC_ReadCardSerial()) {
+      Serial.println("[DEBUG] Card present - dumping info:");
+      rfid.PICC_DumpToSerial(&(rfid.uid));
+      rfid.PICC_HaltA();
+      rfid.PCD_StopCrypto1();
+      lastDebugTime = millis();
     }
   }
-  // timeout
-  return UINT32_MAX;
 }
