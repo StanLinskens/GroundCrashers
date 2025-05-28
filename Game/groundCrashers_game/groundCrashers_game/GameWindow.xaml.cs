@@ -24,6 +24,8 @@ namespace groundCrashers_game
         private Button runButton;
         private WrapPanel actionButtonsPanel;
 
+        private bool StoryMode;
+
         private Dictionary<Elements, string> CreatureElementColor = new()
         {
             { Elements.Nature, "#9BCF53" },
@@ -52,8 +54,9 @@ namespace groundCrashers_game
             { Primaries.Synthetic, "#0066CC" },
         };
 
-        public GameWindow()
+        public GameWindow(bool storyMode)
         {
+            StoryMode = storyMode;
             InitializeComponent();
 
             // Initialize the game manager
@@ -518,7 +521,7 @@ namespace groundCrashers_game
 
         private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
         {
-            GroundCrasherWindow crasherWindow = new GroundCrasherWindow(gameManager, this, portalManager);
+            GroundCrasherWindow crasherWindow = new GroundCrasherWindow(gameManager, this, portalManager, StoryMode);
             crasherWindow.Show();
             RefreshLogBox();
         }

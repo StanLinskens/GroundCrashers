@@ -25,7 +25,7 @@ namespace groundCrashers_game.classes
 
         private static readonly Random _rnd = new Random();
 
-        private int _maxCreatures = 3;
+        public int _maxCreatures { get; set; } = 3;
 
         public enum ActionType
         {
