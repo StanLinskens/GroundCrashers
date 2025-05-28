@@ -53,27 +53,18 @@ namespace groundCrashers_game
         {
             try
             {
-                string result = await _esp32Manager.GetCardIDAsync();
-                // Example result might be "Reading...12345" or "Reading...ERROR: Timeout or no card"
+                var idsFromCard = await _esp32Manager.GetCreatureIDsAsync(); // Get 13 IDs or more!
 
-                // Remove “Reading...” if it’s there
-                if (result.StartsWith("Reading..."))
+                if (idsFromCard.Count > 0)
                 {
-                    result = result.Substring("Reading...".Length);
-                }
-
-                result = result.Trim(); // remove whitespace/newlines
-
-                if (int.TryParse(result, out int cardId))
-                {
-                    LoadCreatureButtonsFormCard(new List<int> { cardId });
-                    _Manager.logs.Add($"Scanned card with Creature ID: {cardId}");
+                    allowedIdsFromCard = idsFromCard; // 🟢 store them in the class-level field
+                    LoadCreatureButtonsFormCard(allowedIdsFromCard); // 🟢 load them all
+                    _Manager.logs.Add($"Scanned card with Creature IDs: {string.Join(", ", idsFromCard)}");
                 }
                 else
                 {
-                    // Now result might be "ERROR: Timeout or no card" or something else
-                    MessageBox.Show($"Failed to read card: {result}");
-                    _Manager.logs.Add($"Card scan error: {result}");
+                    MessageBox.Show("No creatures found on card.");
+                    _Manager.logs.Add("Card scan returned no creatures.");
                 }
             }
             catch (Exception ex)
@@ -81,7 +72,6 @@ namespace groundCrashers_game
                 MessageBox.Show(ex.Message);
             }
         }
-
 
         public void SelectPokemon_Click(object sender, RoutedEventArgs e)
         {
