@@ -33,12 +33,31 @@ namespace groundCrashers_game
             {
                 // make the enum value an int
                 int biomeValue = (int)biome;
+                // get the button name from the enum value
+                var buttonBiomeName = $"{biome}Button";
+                var buttonBiome = this.FindName(buttonBiomeName) as Button;
+                if (buttonBiome != null)
+                {
+                    // hide the button
+                    buttonBiome.Visibility = Visibility.Visible;
+
+                    // hide all levels for this biome exept the first one
+                    for (int i = 1; i <= 5; i++)
+                    {
+                        var buttonLVLName = $"{biome}LVL{i}";
+                        var buttonLVL = this.FindName(buttonLVLName) as Button;
+                        if (buttonLVL != null)
+                        {
+                            buttonLVL.Visibility = Visibility.Visible;
+                        }
+                    }
+                }
                 // all lvl above the current biome index are hidden
                 if (biomeValue > currentBiomeIndex)
                 {
                     // get the button name from the enum value
-                    var buttonBiomeName = $"{biome}Button";
-                    var buttonBiome = this.FindName(buttonBiomeName) as Button;
+                    buttonBiomeName = $"{biome}Button";
+                    buttonBiome = this.FindName(buttonBiomeName) as Button;
                     if (buttonBiome != null)
                     {
                         // hide the button
@@ -217,6 +236,17 @@ namespace groundCrashers_game
                 }
             }
             lvls_Hidden = !lvls_Hidden;
+        }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            currentLVLIndex++;
+            if (currentLVLIndex == 6)
+            {
+                currentLVLIndex = 1;
+                currentBiomeIndex++;
+            }
+            Show_Levels();
         }
     }
 }

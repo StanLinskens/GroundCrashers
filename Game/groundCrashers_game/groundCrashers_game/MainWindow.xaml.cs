@@ -26,9 +26,19 @@ namespace groundCrashers_game
 
         private void Map_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow LoginWindow = new LoginWindow();
-            LoginWindow.Show();
-            this.Close();
+            if (ActiveAccount.Active_id == 0)
+            {
+                LoginWindow LoginWindow = new LoginWindow();
+                LoginWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                LevelMapWindow LevelMapWindow = new LevelMapWindow();
+                LevelMapWindow.Show();
+                this.Close();
+            }
+
         }
 
         private void Portal_Click(object sender, RoutedEventArgs e)

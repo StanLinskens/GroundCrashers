@@ -5,5 +5,12 @@
     "password": "YcW7A57t",
     "current_biome_id": 0,
     "current_biome_lvl_id": 1
+  },
+  {
+    "id": 2,
+    "name": "1",
+    "password": "1",
+    "current_biome_id": 0,
+    "current_biome_lvl_id": 1
   }
 ]

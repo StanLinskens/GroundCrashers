@@ -23,7 +23,7 @@ namespace groundCrashers_game.classes
 
     public class ActiveAccount
     {
-        public static int Active_id { get; set; }
+        public static int Active_id { get; set; } = 0;
         public static string Active_name { get; set; }
         public static string Active_password { get; set; }
         public static int Active_current_biome_id { get; set; }

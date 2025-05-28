@@ -64,7 +64,7 @@
                     Background="#FF4CAF50"
                     Click="StartGame_Click"/>
 
-            <Button Content="Map"
+            <Button Content="Story mode"
                     Style="{StaticResource RoundedButtonStyle}"
                     Background="#3be9ff"
                     Click="Map_Click"

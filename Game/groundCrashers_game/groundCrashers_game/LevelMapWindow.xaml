@@ -108,27 +108,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="ForestLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="ForestLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="ForestLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="ForestLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -171,27 +176,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="DesertLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="DesertLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="DesertLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="DesertLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -235,27 +245,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="MountainLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="MountainLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="MountainLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="MountainLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -299,27 +314,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="HighlandsLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="HighlandsLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="HighlandsLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="HighlandsLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -363,27 +383,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="GlacierLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="GlacierLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="GlacierLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="GlacierLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -428,27 +453,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="WastelandLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="WastelandLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="WastelandLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="WastelandLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -492,27 +522,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="SwampLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="SwampLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="SwampLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="SwampLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -556,27 +591,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="OceanLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="OceanLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="OceanLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="OceanLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -620,27 +660,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="VolcanoLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="VolcanoLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="VolcanoLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="VolcanoLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -684,27 +729,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="SavannaLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="SavannaLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="SavannaLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="SavannaLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -748,27 +798,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="JungleLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="JungleLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="JungleLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="JungleLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -812,27 +867,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="TundraLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="TundraLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="TundraLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="TundraLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -876,27 +936,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="MarshLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="MarshLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="MarshLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="MarshLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -940,27 +1005,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="CaveLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="CaveLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="CaveLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="CaveLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1004,27 +1074,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="RuinsLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="RuinsLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="RuinsLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="RuinsLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1068,27 +1143,32 @@
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="CrystalCavernLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="CrystalCavernLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="CrystalCavernLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                                 <Button x:Name="CrystalCavernLVL5"
                                         Content="Level 5"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
-                                        Width="100"/>
+                                        Width="100"
+                                        Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
