@@ -82,5 +82,13 @@ namespace groundCrashers_game
                 TxtResult.Text = "Fout bij verzenden:\n" + ex.Message;
             }
         }
+
+        public void AddCreatureToCard(string name)
+        {
+            if (name != "")
+            {
+
+            }
+        }
     }
 }
