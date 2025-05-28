@@ -427,6 +427,65 @@ namespace groundCrashers_game.classes
 
                             break;
                         }
+
+                    // Option 1: Cosmic Element - Reduces all stats by 10%
+                    case Elements.Cosmic:
+                        activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.90f); // 10% attack reduction
+                        logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
+                        activeCreature.stats.defense = (int)Math.Round(activeCreature.stats.max_defense * 0.90f); // 10% defense reduction
+                        logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
+                        activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.90f); // 10% speed reduction
+                        logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
+                        break;
+
+                    // Option 2: Chaos Element - Random small reductions (5-15%) to all stats
+                    case Elements.Chaos:
+                        {
+                            int attackReduction = _rnd.Next(5, 16); // 5-15% reduction
+                            int defenseReduction = _rnd.Next(5, 16);
+                            int speedReduction = _rnd.Next(5, 16);
+
+                            activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * (100 - attackReduction) / 100f);
+                            logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
+
+                            activeCreature.stats.defense = (int)Math.Round(activeCreature.stats.max_defense * (100 - defenseReduction) / 100f);
+                            logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
+
+                            activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * (100 - speedReduction) / 100f);
+                            logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
+                            break;
+                        }
+
+                    // Option 3: Void Element - Gradual stat drain (8% all stats + small HP damage)
+                    case Elements.Void:
+                        {
+                            int save = activeCreature.stats.hp;
+                            activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.05f); // 5% max hp damage
+                            logs.Add(activeCreature.name + " hp went from " + save + " to " + activeCreature.stats.hp);
+
+                            activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.92f); // 8% attack reduction
+                            logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
+
+                            activeCreature.stats.defense = (int)Math.Round(activeCreature.stats.max_defense * 0.92f); // 8% defense reduction
+                            logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
+
+                            activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.92f); // 8% speed reduction
+                            logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
+                            break;
+                        }
+
+                    // Option 4: Astral Element - Balanced reduction with chance effect
+                    case Elements.Astral:
+                        activeCreature.stats.attack = (int)Math.Round(activeCreature.stats.max_attack * 0.88f); // 12% attack reduction
+                        logs.Add(activeCreature.name + " attack went from " + activeCreature.stats.max_attack + " to " + activeCreature.stats.attack);
+
+                        activeCreature.stats.defense = (int)Math.Round(activeCreature.stats.max_defense * 0.88f); // 12% defense reduction
+                        logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
+
+                        activeCreature.stats.speed = (int)Math.Round(activeCreature.stats.max_speed * 0.88f); // 12% speed reduction
+                        logs.Add(activeCreature.name + " speed went from " + activeCreature.stats.max_speed + " to " + activeCreature.stats.speed);
+
+                        return randomNumber < 25 ? "confused" : "none"; // 25% chance for confusion effect
                 }
 
 

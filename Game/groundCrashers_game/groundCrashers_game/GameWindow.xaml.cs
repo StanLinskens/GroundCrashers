@@ -42,7 +42,11 @@ namespace groundCrashers_game
             { Elements.Demonic, "#b92222" },
             { Elements.Electric, "#f6e15b" },
             { Elements.Acid, "#aae666" },
-            { Elements.Magnetic, "#c0c0c0" }
+            { Elements.Magnetic, "#c0c0c0" },
+            { Elements.Cosmic, "#4B0082" },
+            { Elements.Chaos, "#8B008B" },
+            { Elements.Void, "#1C1C1C" },
+            { Elements.Astral, "#E6E6FA" }
         };
 
         private Dictionary<Primaries, string> CreaturePrimaryColor = new()
@@ -52,6 +56,8 @@ namespace groundCrashers_game
             { Primaries.Apex, "#D7263D" },
             { Primaries.Sapient, "#800080" },
             { Primaries.Synthetic, "#0066CC" },
+            { Primaries.God, "#FFD700" },
+            { Primaries.Titan, "#C0392B" }
         };
 
         public GameWindow(bool storyMode)
