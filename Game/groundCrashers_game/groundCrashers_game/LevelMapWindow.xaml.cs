@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using DocumentFormat.OpenXml.Drawing;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace groundCrashers_game
 {
@@ -7,24 +9,50 @@ namespace groundCrashers_game
     /// </summary>
     public partial class LevelMapWindow : Window
     {
+        public int currentBiomeIndex { get; set; } = 0;
+        public int currentLVLIndex { get; set; } = 1;
+
+        bool lvls_Hidden = false;
+
         public LevelMapWindow()
         {
             InitializeComponent();
-            MountainButton.Visibility = Visibility.Collapsed;
-            GlacierButton.Visibility = Visibility.Collapsed;
-            JungleButton.Visibility = Visibility.Collapsed;
-            CrystalCavernButton.Visibility = Visibility.Collapsed;
-            CaveButton.Visibility = Visibility.Collapsed;
-            SwampButton.Visibility = Visibility.Collapsed;
-            HighlandsButton.Visibility = Visibility.Collapsed;
-            MarshButton.Visibility = Visibility.Collapsed;
-            TundraButton.Visibility = Visibility.Collapsed;
-            SavannaButton.Visibility = Visibility.Collapsed;
-            RuinsButton.Visibility = Visibility.Collapsed;
-            OceanButton.Visibility = Visibility.Collapsed;
-            DesertButton.Visibility = Visibility.Collapsed;
-            WastelandButton.Visibility = Visibility.Collapsed;
-            VolcanoButton.Visibility = Visibility.Collapsed;
+
+            foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
+            {
+                int biomeValue = (int)biome;
+                if (biomeValue > currentBiomeIndex)
+                {
+                    var buttonBiomeName = $"{biome}Button";
+                    var buttonBiome = this.FindName(buttonBiomeName) as Button;
+                    if (buttonBiome != null)
+                    {
+                        buttonBiome.Visibility = Visibility.Collapsed;
+
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            var buttonLVLName = $"{biome}LVL{i}";
+                            var buttonLVL = this.FindName(buttonLVLName) as Button;
+                            if (buttonLVL != null)
+                            {
+                                buttonLVL.Visibility = Visibility.Collapsed;
+                            }
+                        }
+                    }
+                }
+                else if (biomeValue == currentBiomeIndex)
+                {
+                    for (int i = 5; i > currentLVLIndex; i--)
+                    {
+                        var buttonLVLName = $"{biome}LVL{i}";
+                        var buttonLVL = this.FindName(buttonLVLName) as Button;
+                        if (buttonLVL != null)
+                        {
+                            buttonLVL.Visibility = Visibility.Collapsed;
+                        }
+                    }
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -128,6 +156,23 @@ namespace groundCrashers_game
         private void CrystalCavernChooseBtn_Click(object sender, RoutedEventArgs e)
         {
             CrystalCavernPopup.IsOpen = !CrystalCavernPopup.IsOpen;
+        }
+
+        private void DisplayMapButton_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
+            {
+                int biomeValue = (int)biome;
+
+                var buttonName = $"{biome}Button";
+                var button = this.FindName(buttonName) as UIElement;
+                if (button != null)
+                {
+                    if (lvls_Hidden && biomeValue <= currentBiomeIndex) button.Visibility = Visibility.Visible;
+                    else button.Visibility = Visibility.Collapsed;
+                }
+            }
+            lvls_Hidden = !lvls_Hidden;
         }
     }
 }
