@@ -1,163 +1,178 @@
 [
   {
-    "id": 0,
     "name": "Forest",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": { 
+      "types": ["Nature", "Light", "ALL"], 
+      "effect": "Attack" 
+    },
+    "debuff": { 
+      "types": ["Fire", "Acid"], 
+      "effect": "Speed" 
+    }
   },
   {
-    "id": 0,
     "name": "Desert",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": { 
+      "types": ["Earth", "Electric", "ALL"], 
+      "effect": "Health" 
+    },
+    "debuff": { 
+      "types": ["Water", "Psychic"], 
+      "effect": "Defense" 
+    }
   },
   {
-    "id": 0,
     "name": "Mountain",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": { 
+      "types": ["Draconic", "Dark", "ALL"], 
+      "effect": "Defense" 
+    },
+    "debuff": { 
+      "types": ["Magnetic", "Fire"], 
+      "effect": "Attack" 
+    }
   },
   {
-    "id": 0,
     "name": "Highlands",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": { 
+      "types": ["Wind", "Nature", "ALL"], 
+      "effect": "Speed" 
+    },
+    "debuff": { 
+      "types": ["Dark", "Ice"], 
+      "effect": "Health" 
+    }
   },
   {
-    "id": 0,
     "name": "Glacier",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": { 
+      "types": ["Ice", "Toxic", "ALL"], 
+      "effect": "Attack" 
+    },
+    "debuff": { 
+      "types": ["Electric", "Draconic"], 
+      "effect": "Speed" 
+    }
   },
   {
-    "id": 0,
     "name": "Swamp",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": 
+    { "types": ["Toxic", "Water", "ALL"], 
+    "effect": "Defense" 
+  },
+    "debuff": { 
+      "types": ["Light", "Wind"], 
+    "effect": "Speed" 
+  }
   },
   {
-    "id": 0,
     "name": "Ocean",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": { 
+      "types": ["Water", "Psychic", "ALL"], 
+      "effect": "Attack" 
+    },
+    "debuff": { 
+      "types": ["Demonic", "Nature"], 
+      "effect": "Defense" 
+    }
   },
-  {
-    "id": 0,
+    {
     "name": "Volcano",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": {
+      "types": ["Fire", "Acid", "ALL"],
+      "effect": "Attack"
+    },
+    "debuff": {
+      "types": ["Earth", "Ice"],
+      "effect": "Health"
+    }
   },
   {
-    "id": 0,
     "name": "Savanna",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": {
+      "types": ["Electric", "Wind", "ALL"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Psychic", "Demonic"],
+      "effect": "Health"
+    }
   },
   {
-    "id": 0,
     "name": "Jungle",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": {
+      "types": ["Light", "Dark", "ALL"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Draconic", "Earth"],
+      "effect": "Health"
+    }
   },
   {
-    "id": 0,
     "name": "Tundra",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": {
+      "types": ["Ice", "Magnetic", "ALL"],
+      "effect": "Defense"
+    },
+    "debuff": {
+      "types": ["Toxic", "Fire"],
+      "effect": "Attack"
+    }
   },
   {
-    "id": 0,
     "name": "Cave",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": {
+      "types": ["Dark", "Acid", "ALL"],
+      "effect": "Defense"
+    },
+    "debuff": {
+      "types": ["Electric", "Nature"],
+      "effect": "Health"
+    }
   },
   {
-    "id": 0,
     "name": "Ruins",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": {
+      "types": ["Psychic", "Magnetic", "ALL"],
+      "effect": "Health"
+    },
+    "debuff": {
+      "types": ["Water", "Light"],
+      "effect": "Defense"
+    }
   },
   {
-    "id": 0,
     "name": "Marsh",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": {
+      "types": ["Demonic", "Earth", "ALL"],
+      "effect": "Attack"
+    },
+    "debuff": {
+      "types": ["Ice", "Wind"],
+      "effect": "Defense"
+    }
   },
   {
-    "id": 0,
     "name": "Crystal Cavern",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
+    "buff": {
+      "types": ["Psychic", "Magnetic", "ALL"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Acid", "Toxic"],
+      "effect": "Attack"
+    }
   },
   {
-    "id": 0,
     "name": "Wasteland",
-    "password": null,
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 0
-  },
-  {
-    "id": 1,
-    "name": "test",
-    "password": "test",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1
-  },
-  {
-    "id": 2,
-    "name": "test",
-    "password": "test",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1
-  },
-  {
-    "id": 3,
-    "name": "test",
-    "password": "test",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1
-  },
-  {
-    "id": 4,
-    "name": "test",
-    "password": "test",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1
-  },
-  {
-    "id": 5,
-    "name": "test",
-    "password": "test",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1
-  },
-  {
-    "id": 6,
-    "name": "test",
-    "password": "test",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1
-  },
-  {
-    "id": 7,
-    "name": "test",
-    "password": "test",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1
+    "buff": {
+      "types": ["Demonic", "Draconic", "ALL"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Magnetic", "Water"],
+      "effect": "Health"
+    }
   }
 ]
