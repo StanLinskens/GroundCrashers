@@ -142,6 +142,7 @@
     <None Remove="Images\GroundCrasherSprites\Glaciferor.png" />
     <None Remove="Images\GroundCrasherSprites\Heliocybix.png" />
     <None Remove="Images\GroundCrasherSprites\Heliosanan.png" />
+    <None Remove="Images\GroundCrasherSprites\Hydra.png" />
     <None Remove="Images\GroundCrasherSprites\Hydrpriid.png" />
     <None Remove="Images\GroundCrasherSprites\Ignilogor.png" />
     <None Remove="Images\GroundCrasherSprites\Ignirhior.png" />
@@ -155,6 +156,7 @@
     <None Remove="Images\GroundCrasherSprites\Infesopis.png" />
     <None Remove="Images\GroundCrasherSprites\Ionoarbor.png" />
     <None Remove="Images\GroundCrasherSprites\Ionodomis.png" />
+    <None Remove="Images\GroundCrasherSprites\Kirin.png" />
     <None Remove="Images\GroundCrasherSprites\Litharton.png" />
     <None Remove="Images\GroundCrasherSprites\Lithmenan.png" />
     <None Remove="Images\GroundCrasherSprites\Lithonapeis.png" />
@@ -255,6 +257,7 @@
     <None Remove="Images\GroundCrasherSprites\Voltasanor.png" />
     <None Remove="Images\GroundCrasherSprites\Voltfaban.png" />
     <None Remove="Images\GroundCrasherSprites\Voltopriid.png" />
+    <None Remove="Images\GroundCrasherSprites\Wyrm.png" />
     <None Remove="Images\GroundCrasherSprites\Wyrmarbid.png" />
     <None Remove="Images\GroundCrasherSprites\Wyrmoferan.png" />
     <None Remove="Images\GroundCrasherSprites\Wyrmothais.png" />
@@ -413,6 +416,7 @@
     <Resource Include="Images\GroundCrasherSprites\Glaciferor.png" />
     <Resource Include="Images\GroundCrasherSprites\Heliocybix.png" />
     <Resource Include="Images\GroundCrasherSprites\Heliosanan.png" />
+    <Resource Include="Images\GroundCrasherSprites\Hydra.png" />
     <Resource Include="Images\GroundCrasherSprites\Hydrpriid.png" />
     <Resource Include="Images\GroundCrasherSprites\Ignilogor.png" />
     <Resource Include="Images\GroundCrasherSprites\Ignirhior.png" />
@@ -426,6 +430,7 @@
     <Resource Include="Images\GroundCrasherSprites\Infesopis.png" />
     <Resource Include="Images\GroundCrasherSprites\Ionoarbor.png" />
     <Resource Include="Images\GroundCrasherSprites\Ionodomis.png" />
+    <Resource Include="Images\GroundCrasherSprites\Kirin.png" />
     <Resource Include="Images\GroundCrasherSprites\Litharton.png" />
     <Resource Include="Images\GroundCrasherSprites\Lithmenan.png" />
     <Resource Include="Images\GroundCrasherSprites\Lithonapeis.png" />
@@ -526,6 +531,7 @@
     <Resource Include="Images\GroundCrasherSprites\Voltasanor.png" />
     <Resource Include="Images\GroundCrasherSprites\Voltfaban.png" />
     <Resource Include="Images\GroundCrasherSprites\Voltopriid.png" />
+    <Resource Include="Images\GroundCrasherSprites\Wyrm.png" />
     <Resource Include="Images\GroundCrasherSprites\Wyrmarbid.png" />
     <Resource Include="Images\GroundCrasherSprites\Wyrmoferan.png" />
     <Resource Include="Images\GroundCrasherSprites\Wyrmothais.png" />
