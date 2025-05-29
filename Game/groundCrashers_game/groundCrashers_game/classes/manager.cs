@@ -681,19 +681,20 @@ namespace groundCrashers_game.classes
                     }
 
                     var text = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show("Downloaded JSON (first 500 chars):\n" +
-                        text.Substring(0, Math.Min(500, text.Length)));
+                    //MessageBox.Show("Downloaded JSON (first 500 chars):\n" +
+                    //    text.Substring(0, Math.Min(500, text.Length)));
 
                     // Try parsing with a very loose check first:
                     var list = JsonConvert.DeserializeObject<List<Creature>>(text);
                     if (list == null)
                     {
-                        MessageBox.Show("Deserialize returned null. Check JSON shape.");
+                        //MessageBox.Show("Deserialize returned null. Check JSON shape.");
+                        //MessageBox.Show("Deserialize returned null. Check JSON shape.");
                         return;
                     }
 
                     AllCreatures = list;
-                    MessageBox.Show($"Success! Found {AllCreatures.Count} creatures.");
+                    //MessageBox.Show($"Success! Found {AllCreatures.Count} creatures.");
                 }
             }
             catch (Exception ex)
