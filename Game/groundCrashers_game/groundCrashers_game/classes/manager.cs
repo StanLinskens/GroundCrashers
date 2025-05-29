@@ -671,7 +671,7 @@ namespace groundCrashers_game.classes
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    var response = await client.GetAsync(url);
+                    var response = client.GetAsync(url).Result;
 
                     if (!response.IsSuccessStatusCode)
                         throw new Exception($"Failed to download creatures.json (Status: {response.StatusCode})");
