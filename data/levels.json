@@ -1,0 +1,43 @@
+[
+    {
+        "name": "ForestLVL1",
+        "biome": "Forest",
+        "daytime": "Dawn",
+        "amountCreatures": 1,
+        "CreatureID": [ 44 ],
+        "strengthModifier": 75
+    },
+    {
+        "name": "ForestLVL2",
+        "biome": "Forest",
+        "daytime": "Day",
+        "amountCreatures": 1,
+        "CreatureID": [ 49 ],
+        "strengthModifier": 75
+    },
+    {
+        "name": "ForestLVL3",
+        "biome": "Forest",
+        "daytime": "Day",
+        "amountCreatures": 1,
+        "CreatureID": [ 46 ],
+        "strengthModifier": 80
+    },
+    {
+        "name": "ForestLVL4",
+        "biome": "Forest",
+        "daytime": "Dusk",
+        "amountCreatures": 1,
+        "CreatureID": [ 55 ],
+        "strengthModifier": 80
+    },
+    {
+        "name": "ForestLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreatures": 1,
+        "CreatureID": [ 30 ],
+        "strengthModifier": 90
+    }
+
+]

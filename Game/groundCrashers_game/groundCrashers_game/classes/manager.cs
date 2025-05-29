@@ -73,8 +73,6 @@ namespace groundCrashers_game.classes
             {
                 // Load creatures
                 //LoadAllCreatures();
-
-                // uses the internet
                 LoadAllCreaturesFromWebAsync();
 
                 // Load elements
@@ -209,7 +207,7 @@ namespace groundCrashers_game.classes
                                 attacker.stats.hp -= DamageDealt;
                                 logs.Add(attacker.name + " hit himself");
                             }
-                            else if (curse != "missed" || curse != "SkipTurn")
+                            else if (curse != "missed" && curse != "SkipTurn")
                             {
                                 int DamageDealt = Damage(attacker, defender);
                                 defender.stats.hp -= DamageDealt;
@@ -234,7 +232,7 @@ namespace groundCrashers_game.classes
                                 logs.Add(attacker.name + " hit himself");
                                 logs.Add(attacker.name + " curse is " + attacker.element.ToString().ToLower());
                             }
-                            else if (curse != "missed" || curse != "SkipTurn")
+                            else if (curse != "missed" && curse != "SkipTurn")
                             {
                                 int DamageDealt = DamageElemental(attacker, defender);
                                 defender.stats.hp -= DamageDealt;
@@ -335,23 +333,29 @@ namespace groundCrashers_game.classes
 
         private void RandomCurse(Creature ActiveCreature)
         {
-            int randomnumber = _rnd.Next(1, 16);
+            int randomnumber = _rnd.Next(1, 1001); // 1 t/m 1000
 
-            if (randomnumber == 1) { ActiveCreature.curse = Elements.Nature; }
-            if (randomnumber == 2) { ActiveCreature.curse = Elements.Ice; }
-            if (randomnumber == 3) { ActiveCreature.curse = Elements.Toxic; }
-            if (randomnumber == 4) { ActiveCreature.curse = Elements.Fire; }
-            if (randomnumber == 5) { ActiveCreature.curse = Elements.Water; }
-            if (randomnumber == 6) { ActiveCreature.curse = Elements.Draconic; }
-            if (randomnumber == 7) { ActiveCreature.curse = Elements.Earth; }
-            if (randomnumber == 8) { ActiveCreature.curse = Elements.Dark; }
-            if (randomnumber == 9) { ActiveCreature.curse = Elements.Wind; }
-            if (randomnumber == 10) { ActiveCreature.curse = Elements.Psychic; }
-            if (randomnumber == 11) { ActiveCreature.curse = Elements.Light; }
-            if (randomnumber == 12) { ActiveCreature.curse = Elements.Electric; }
-            if (randomnumber == 13) { ActiveCreature.curse = Elements.Acid; }
-            if (randomnumber == 14) { ActiveCreature.curse = Elements.Magnetic; }
-            if (randomnumber == 15) { ActiveCreature.curse = Elements.Demonic; }
+            if (randomnumber <= 51) { ActiveCreature.curse = Elements.Nature; }
+            else if (randomnumber <= 102) { ActiveCreature.curse = Elements.Ice; }
+            else if (randomnumber <= 153) { ActiveCreature.curse = Elements.Toxic; }
+            else if (randomnumber <= 204) { ActiveCreature.curse = Elements.Fire; }
+            else if (randomnumber <= 255) { ActiveCreature.curse = Elements.Water; }
+            else if (randomnumber <= 306) { ActiveCreature.curse = Elements.Draconic; }
+            else if (randomnumber <= 357) { ActiveCreature.curse = Elements.Earth; }
+            else if (randomnumber <= 408) { ActiveCreature.curse = Elements.Dark; }
+            else if (randomnumber <= 459) { ActiveCreature.curse = Elements.Wind; }
+            else if (randomnumber <= 510) { ActiveCreature.curse = Elements.Psychic; }
+            else if (randomnumber <= 561) { ActiveCreature.curse = Elements.Light; }
+            else if (randomnumber <= 612) { ActiveCreature.curse = Elements.Electric; }
+            else if (randomnumber <= 663) { ActiveCreature.curse = Elements.Acid; }
+            else if (randomnumber <= 714) { ActiveCreature.curse = Elements.Magnetic; }
+            else if (randomnumber <= 765) { ActiveCreature.curse = Elements.Demonic; }
+            else if (randomnumber <= 816) { ActiveCreature.curse = Elements.Chaos; }
+            else if (randomnumber <= 867) { ActiveCreature.curse = Elements.Cosmic; }
+            else if (randomnumber <= 918) { ActiveCreature.curse = Elements.Void; }
+            else if (randomnumber <= 969) { ActiveCreature.curse = Elements.Astral; }
+            else { ActiveCreature.curse = Elements.GOD; } // 970–1000 (31 getallen = 3.1%)
+            if (ActiveCpuCreature.primary_type == Primaries.Titan && randomnumber <= 250) ActiveCreature.curse = Elements.GOD;
         }
 
         private string CurseEffect(Creature activeCreature)
@@ -402,6 +406,11 @@ namespace groundCrashers_game.classes
                         activeCreature.stats.defense = (int)Math.Round(activeCreature.stats.max_defense * 0.70f); // 30% defense reduction
                         logs.Add(activeCreature.name + " defense went from " + activeCreature.stats.max_defense + " to " + activeCreature.stats.defense);
                         break;
+                    case Elements.GOD:
+                        {
+                            activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.15f); // 15% max hp damage
+                            return "SkipTurn";
+                        }
                     case Elements.Wind:
                     case Elements.Demonic:
                         return randomNumber < 32 ? "SelfHit" : "none";

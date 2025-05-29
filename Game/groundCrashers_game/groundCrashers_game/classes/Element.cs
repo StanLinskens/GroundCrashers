@@ -22,6 +22,7 @@ namespace groundCrashers_game
         Wind,
         Psychic,
         Light,
+        GOD,
         Demonic,
         Electric,
         Acid,

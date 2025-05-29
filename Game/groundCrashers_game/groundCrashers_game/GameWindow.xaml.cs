@@ -57,7 +57,7 @@ namespace groundCrashers_game
             { Primaries.Apex, "#C62828" },      
             { Primaries.Sapient, "#9C27B0" },   
             { Primaries.Synthetic, "#2196F3" }, 
-            { Primaries.God, "#FFD700" },       
+            { Primaries.God, "#333" },       
             { Primaries.Titan, "#B71C1C" }      
         };
 
