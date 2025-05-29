@@ -12,6 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Media.Imaging;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Converters;
 
 namespace groundCrashers_game.classes
 {
@@ -674,23 +675,33 @@ namespace groundCrashers_game.classes
                     var response = client.GetAsync(url).Result;
 
                     if (!response.IsSuccessStatusCode)
-                        throw new Exception($"Failed to download creatures.json (Status: {response.StatusCode})");
+                    {
+                        MessageBox.Show($"HTTP error: {response.StatusCode}");
+                        return;
+                    }
 
                     var text = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show("Downloaded JSON (first 500 chars):\n" +
+                        text.Substring(0, Math.Min(500, text.Length)));
 
-                    AllCreatures = JsonConvert.DeserializeObject<List<Creature>>(
-                        text,
-                        new JsonSerializerSettings
-                        {
-                            Converters = { new Newtonsoft.Json.Converters.StringEnumConverter() }
-                        }) ?? new List<Creature>();
+                    // Try parsing with a very loose check first:
+                    var list = JsonConvert.DeserializeObject<List<Creature>>(text);
+                    if (list == null)
+                    {
+                        MessageBox.Show("Deserialize returned null. Check JSON shape.");
+                        return;
+                    }
+
+                    AllCreatures = list;
+                    MessageBox.Show($"Success! Found {AllCreatures.Count} creatures.");
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception($"Failed to load creatures from web JSON: {ex.Message}", ex);
+                MessageBox.Show($"UNEXPECTED EXCEPTION: {ex.GetBaseException().Message}");
             }
         }
+
 
         // Load actors from a level file (player and CPU)
         public void LoadActorsForLevel(string levelFileName)

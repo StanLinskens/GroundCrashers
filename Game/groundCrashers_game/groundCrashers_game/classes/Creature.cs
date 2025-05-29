@@ -11,6 +11,7 @@
         public Elements element { get; set; }
         public string ability { get; set; }
         public string description { get; set; }
+        public string scientific_name { get; set; }
         public Elements curse { get; set; } = Elements.none;
         public bool alive { get; set; } = true;
         

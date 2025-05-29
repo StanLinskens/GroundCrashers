@@ -1,4 +1,5 @@
 ﻿using groundCrashers_game.classes;
+using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Windows;
 using System.Windows.Controls;
@@ -69,6 +70,9 @@ namespace groundCrashers_game
             gameManager = new Manager();
             gameManager.LoadGameData();
             gameManager.LoadActorsForBattleMode();
+
+            string creatureListText = string.Join("\n", gameManager.AllCreatures.Select(c => c.ToString()));
+            MessageBox.Show(creatureListText, "All Creatures");
 
             portalManager = new Esp32Manager();
 
