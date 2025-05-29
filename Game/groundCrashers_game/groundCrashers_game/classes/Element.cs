@@ -24,7 +24,11 @@ namespace groundCrashers_game
         Acid,
         Magnetic,
         ALL,
-        none
+        none,
+        Chaos,
+        Cosmic,
+        Void,
+        Astral
     }
 
     public class Element
