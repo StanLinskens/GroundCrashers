@@ -675,25 +675,17 @@ namespace groundCrashers_game.classes
                     var response = client.GetAsync(url).Result;
 
                     if (!response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show($"HTTP error: {response.StatusCode}");
-                        return;
-                    }
+                        throw new Exception($"Failed to download creatures.json (Status: {response.StatusCode})");
 
                     var text = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show("Downloaded JSON (first 500 chars):\n" +
-                        text.Substring(0, Math.Min(500, text.Length)));
 
                     // Try parsing with a very loose check first:
-                    var list = JsonConvert.DeserializeObject<List<Creature>>(text);
-                    if (list == null)
-                    {
-                        MessageBox.Show("Deserialize returned null. Check JSON shape.");
-                        return;
-                    }
-
-                    AllCreatures = list;
-                    MessageBox.Show($"Success! Found {AllCreatures.Count} creatures.");
+                    AllCreatures = JsonConvert.DeserializeObject<List<Creature>>(
+                        text,
+                        new JsonSerializerSettings
+                        {
+                            Converters = { new Newtonsoft.Json.Converters.StringEnumConverter() }
+                        }) ?? new List<Creature>();
                 }
             }
             catch (Exception ex)

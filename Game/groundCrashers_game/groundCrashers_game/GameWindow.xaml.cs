@@ -71,9 +71,6 @@ namespace groundCrashers_game
             gameManager.LoadGameData();
             gameManager.LoadActorsForBattleMode();
 
-            string creatureListText = string.Join("\n", gameManager.AllCreatures.Select(c => c.ToString()));
-            MessageBox.Show(creatureListText, "All Creatures");
-
             portalManager = new Esp32Manager();
 
             //UpdateBattleUI();
