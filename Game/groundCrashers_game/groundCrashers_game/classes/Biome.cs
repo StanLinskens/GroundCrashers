@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace groundCrashers_game
 {
@@ -49,7 +51,12 @@ namespace groundCrashers_game
             get
             {
                 if (!_isLoaded)
-                    LoadBiomesFromJson();
+                {
+                    //LoadBiomesFromJson();
+
+                    // uses the internet
+                    LoadBiomesFromWebAsync();
+                }
                 return _chart;
             }
         }
@@ -102,10 +109,66 @@ namespace groundCrashers_game
             }
         }
 
+        public static async Task LoadBiomesFromWebAsync()
+        {
+            try
+            {
+                string url = "https://stan.1pc.nl/GroundCrashers/data/biomes.json";
+
+                using (HttpClient client = new HttpClient())
+                {
+                    var response = await client.GetAsync(url);
+
+                    if (!response.IsSuccessStatusCode)
+                        throw new Exception($"Failed to download JSON. Status code: {response.StatusCode}");
+
+                    string text = await response.Content.ReadAsStringAsync();
+
+                    var biomeConfig = JsonConvert.DeserializeObject<List<BiomeData>>(text);
+
+                    if (biomeConfig == null)
+                        throw new Exception("Invalid biome configuration");
+
+                    _chart.Clear();
+
+                    foreach (var biomeData in biomeConfig)
+                    {
+                        if (Enum.TryParse<Biomes>(biomeData.Name.Replace(" ", ""), out var biomeEnum))
+                        {
+                            var biome = new Biome
+                            {
+                                Name = biomeEnum,
+                                Buff = new Effect
+                                {
+                                    Types = biomeData.Buff.Types.Select(t => Enum.Parse<Elements>(t)).ToList(),
+                                    EffectType = biomeData.Buff.Effect
+                                },
+                                Debuff = new Effect
+                                {
+                                    Types = biomeData.Debuff.Types.Select(t => Enum.Parse<Elements>(t)).ToList(),
+                                    EffectType = biomeData.Debuff.Effect
+                                }
+                            };
+
+                            _chart[biomeEnum] = biome;
+                        }
+                    }
+
+                    _isLoaded = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to load biomes from web JSON: {ex.Message}", ex);
+            }
+        }
+
         public static void ReloadBiomes()
         {
             _isLoaded = false;
-            LoadBiomesFromJson();
+            //LoadBiomesFromJson();
+
+            LoadBiomesFromWebAsync();
         }
 
         public static bool IsLoaded => _isLoaded;
@@ -113,7 +176,9 @@ namespace groundCrashers_game
         public static string GetBiomeEffectiveness(Creature creature)
         {
             if (!_isLoaded)
-                LoadBiomesFromJson();
+                //LoadBiomesFromJson();
+
+                LoadBiomesFromWebAsync();
 
             if (_chart.TryGetValue(currentBiome, out var biome))
             {

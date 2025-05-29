@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace groundCrashers_game
 {
@@ -52,7 +54,10 @@ namespace groundCrashers_game
             {
                 if (!_isLoaded)
                 {
-                    LoadPrimariesFromJson();
+                    //LoadPrimariesFromJson();
+
+                    // uses the internet
+                    LoadPrimariesFromWebAsync();
                 }
                 return _chart;
             }
@@ -142,17 +147,103 @@ namespace groundCrashers_game
             }
         }
 
+        public static async Task LoadPrimariesFromWebAsync()
+        {
+            try
+            {
+                string url = "https://stan.1pc.nl/GroundCrashers/data/primaryTypes.json";
+
+                using (HttpClient client = new HttpClient())
+                {
+                    var response = await client.GetAsync(url);
+
+                    if (!response.IsSuccessStatusCode)
+                        throw new Exception($"Failed to download JSON. Status code: {response.StatusCode}");
+
+                    string text = await response.Content.ReadAsStringAsync();
+
+                    var primariesConfig = JsonConvert.DeserializeObject<PrimariesConfig>(text);
+
+                    if (primariesConfig == null || primariesConfig.Primaries == null)
+                    {
+                        throw new Exception("Invalid primaries configuration");
+                    }
+
+                    _chart.Clear();
+
+                    foreach (var primaryData in primariesConfig.Primaries)
+                    {
+                        if (Enum.TryParse<Primaries>(primaryData.Name, out Primaries primaryEnum))
+                        {
+                            var primary = new Primary
+                            {
+                                Name = primaryEnum,
+                                StrongAgainst = new List<Primaries>(),
+                                BetterAgainst = new List<Primaries>(),
+                                WeakerAgainst = new List<Primaries>(),
+                                WeakAgainst = new List<Primaries>()
+                            };
+
+                            foreach (var strongName in primaryData.StrongAgainst)
+                            {
+                                if (Enum.TryParse<Primaries>(strongName, out Primaries strongEnum))
+                                {
+                                    primary.StrongAgainst.Add(strongEnum);
+                                }
+                            }
+
+                            foreach (var betterName in primaryData.BetterAgainst)
+                            {
+                                if (Enum.TryParse<Primaries>(betterName, out Primaries betterEnum))
+                                {
+                                    primary.BetterAgainst.Add(betterEnum);
+                                }
+                            }
+
+                            foreach (var weakerName in primaryData.WeakerAgainst)
+                            {
+                                if (Enum.TryParse<Primaries>(weakerName, out Primaries weakerEnum))
+                                {
+                                    primary.WeakerAgainst.Add(weakerEnum);
+                                }
+                            }
+
+                            foreach (var weakName in primaryData.WeakAgainst)
+                            {
+                                if (Enum.TryParse<Primaries>(weakName, out Primaries weakEnum))
+                                {
+                                    primary.WeakAgainst.Add(weakEnum);
+                                }
+                            }
+
+                            _chart[primaryEnum] = primary;
+                        }
+                    }
+
+                    _isLoaded = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to load primaries from web JSON: {ex.Message}", ex);
+            }
+        }
+
         public static void ReloadPrimaries()
         {
             _isLoaded = false;
-            LoadPrimariesFromJson();
+            //LoadPrimariesFromJson();
+
+            LoadPrimariesFromWebAsync();
         }
 
         public static float GetPrimaryEffectiveness(Primaries attacker, Primaries defender)
         {
             if (!_isLoaded)
             {
-                LoadPrimariesFromJson();
+                //LoadPrimariesFromJson();
+
+                LoadPrimariesFromWebAsync();
             }
 
             if (_chart.ContainsKey(attacker))
@@ -171,7 +262,9 @@ namespace groundCrashers_game
         {
             if (!_isLoaded)
             {
-                LoadPrimariesFromJson();
+                //LoadPrimariesFromJson();
+
+                LoadPrimariesFromWebAsync();
             }
             return _chart.Keys.ToList();
         }

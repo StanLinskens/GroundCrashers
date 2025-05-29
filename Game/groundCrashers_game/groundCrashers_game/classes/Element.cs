@@ -1,8 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace groundCrashers_game
 {
@@ -62,7 +65,10 @@ namespace groundCrashers_game
             {
                 if (!_isLoaded)
                 {
-                    LoadElementsFromJson();
+                    //LoadElementsFromJson();
+
+                    // uses the internet
+                    LoadElementsFromWebAsync();
                 }
                 return _chart;
             }
@@ -132,17 +138,86 @@ namespace groundCrashers_game
             }
         }
 
+        public static async Task LoadElementsFromWebAsync()
+        {
+            try
+            {
+                string url = "https://stan.1pc.nl/GroundCrashers/data/elements.json";
+
+                using (HttpClient client = new HttpClient())
+                {
+                    var response = await client.GetAsync(url);
+
+                    if (!response.IsSuccessStatusCode)
+                        throw new Exception($"Failed to download JSON. Status code: {response.StatusCode}");
+
+                    string text = await response.Content.ReadAsStringAsync();
+
+                    var elementsConfig = JsonConvert.DeserializeObject<ElementsConfig>(text);
+
+                    if (elementsConfig == null || elementsConfig.Elements == null)
+                    {
+                        throw new Exception("Invalid elements configuration");
+                    }
+
+                    _chart.Clear();
+
+                    foreach (var elementData in elementsConfig.Elements)
+                    {
+                        if (Enum.TryParse<Elements>(elementData.Name, out Elements elementEnum))
+                        {
+                            var element = new Element
+                            {
+                                Name = elementEnum,
+                                StrongAgainst = new List<Elements>(),
+                                WeakAgainst = new List<Elements>()
+                            };
+
+                            foreach (var strongName in elementData.StrongAgainst)
+                            {
+                                if (Enum.TryParse<Elements>(strongName, out Elements strongEnum))
+                                {
+                                    element.StrongAgainst.Add(strongEnum);
+                                }
+                            }
+
+                            foreach (var weakName in elementData.WeakAgainst)
+                            {
+                                if (Enum.TryParse<Elements>(weakName, out Elements weakEnum))
+                                {
+                                    element.WeakAgainst.Add(weakEnum);
+                                }
+                            }
+
+                            _chart[elementEnum] = element;
+                        }
+                    }
+
+                    _isLoaded = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to load elements from web JSON: {ex.Message}", ex);
+            }
+        }
+
         public static void ReloadElements()
         {
             _isLoaded = false;
-            LoadElementsFromJson();
+            //LoadElementsFromJson();
+
+            LoadElementsFromWebAsync();
+
         }
 
         public static float GetElementEffectiveness(Elements attacker, Elements defender)
         {
             if (!_isLoaded)
             {
-                LoadElementsFromJson();
+                //LoadElementsFromJson();
+
+                LoadElementsFromWebAsync();
             }
 
             if (_chart.ContainsKey(attacker))
@@ -159,7 +234,9 @@ namespace groundCrashers_game
         {
             if (!_isLoaded)
             {
-                LoadElementsFromJson();
+                //LoadElementsFromJson();
+
+                LoadElementsFromWebAsync();
             }
             return _chart.Keys.ToList();
         }

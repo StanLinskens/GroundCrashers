@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using static groundCrashers_game.classes.Manager;
 
 namespace groundCrashers_game
@@ -63,7 +65,12 @@ namespace groundCrashers_game
             get
             {
                 if (!_isLoaded)
-                    LoadWeathersFromJson();
+                {
+                    //LoadWeathersFromJson();
+
+                    // uses the internet
+                    LoadWeathersFromWebAsync();
+                }
 
                 return _chart;
             }
@@ -117,10 +124,66 @@ namespace groundCrashers_game
             }
         }
 
+        public static async Task LoadWeathersFromWebAsync()
+        {
+            try
+            {
+                string url = "https://stan.1pc.nl/GroundCrashers/data/weather.json";
+
+                using (HttpClient client = new HttpClient())
+                {
+                    var response = await client.GetAsync(url);
+
+                    if (!response.IsSuccessStatusCode)
+                        throw new Exception($"Failed to download JSON. Status code: {response.StatusCode}");
+
+                    string text = await response.Content.ReadAsStringAsync();
+
+                    var weatherConfig = JsonConvert.DeserializeObject<List<WeatherData>>(text); // assuming your JSON is a list
+
+                    if (weatherConfig == null)
+                        throw new Exception("Invalid weather configuration");
+
+                    _chart.Clear();
+
+                    foreach (var weatherData in weatherConfig)
+                    {
+                        if (Enum.TryParse<Weathers>(weatherData.Name, out var weatherEnum))
+                        {
+                            var weather = new Weather
+                            {
+                                Name = weatherEnum,
+                                Buff = new Effect
+                                {
+                                    Types = weatherData.Buff.Types.Select(t => Enum.Parse<Elements>(t)).ToList(),
+                                    EffectType = weatherData.Buff.Effect
+                                },
+                                Debuff = new Effect
+                                {
+                                    Types = weatherData.Debuff.Types.Select(t => Enum.Parse<Elements>(t)).ToList(),
+                                    EffectType = weatherData.Debuff.Effect
+                                }
+                            };
+
+                            _chart[weatherEnum] = weather;
+                        }
+                    }
+
+                    _isLoaded = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to load weather from web JSON: {ex.Message}", ex);
+            }
+        }
+
         public static void ReloadWeather()
         {
             _isLoaded = false;
-            LoadWeathersFromJson();
+            //LoadWeathersFromJson();
+
+            LoadWeathersFromWebAsync();
         }
 
         public static bool IsLoaded => _isLoaded;
@@ -130,6 +193,8 @@ namespace groundCrashers_game
             if (!_isLoaded)
             {
                 LoadWeathersFromJson();
+
+                LoadWeathersFromWebAsync();
             }
 
             if (_chart.TryGetValue(currentWeather, out var weather))

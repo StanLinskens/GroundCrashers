@@ -10,6 +10,8 @@ using System.Text;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media.Imaging;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace groundCrashers_game.classes
 {
@@ -69,22 +71,30 @@ namespace groundCrashers_game.classes
             try
             {
                 // Load creatures
-                LoadAllCreatures();
+                //LoadAllCreatures();
+
+                // uses the internet
+                LoadAllCreaturesFromWebAsync();
 
                 // Load elements
-                ElementChart.LoadElementsFromJson();
+                //ElementChart.LoadElementsFromJson();
+                ElementChart.LoadElementsFromWebAsync();
 
                 // Load primaries
-                PrimaryChart.LoadPrimariesFromJson();
+                //PrimaryChart.LoadPrimariesFromJson();
+                PrimaryChart.LoadPrimariesFromWebAsync();
 
                 // Load weather
-                WeatherChart.LoadWeathersFromJson();
+                //WeatherChart.LoadWeathersFromJson();
+                WeatherChart.LoadWeathersFromWebAsync();
 
                 // Load daytime
-                DaytimeChart.LoadDaytimesFromJson();
+                //DaytimeChart.LoadDaytimesFromJson();
+                DaytimeChart.LoadDaytimesFromWebAsync();
 
                 // load biomes
-                BiomeChart.LoadBiomesFromJson();
+                //BiomeChart.LoadBiomesFromJson();
+                BiomeChart.LoadBiomesFromWebAsync();
 
                 logs.Add("Game data loaded successfully");
             }
@@ -651,6 +661,35 @@ namespace groundCrashers_game.classes
                 {
                     Converters = { new Newtonsoft.Json.Converters.StringEnumConverter() }
                 }) ?? new List<Creature>();
+        }
+
+        public async Task LoadAllCreaturesFromWebAsync()
+        {
+            string url = "https://stan.1pc.nl/GroundCrashers/data/creatures.json";
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    var response = await client.GetAsync(url);
+
+                    if (!response.IsSuccessStatusCode)
+                        throw new Exception($"Failed to download creatures.json (Status: {response.StatusCode})");
+
+                    var text = await response.Content.ReadAsStringAsync();
+
+                    AllCreatures = JsonConvert.DeserializeObject<List<Creature>>(
+                        text,
+                        new JsonSerializerSettings
+                        {
+                            Converters = { new Newtonsoft.Json.Converters.StringEnumConverter() }
+                        }) ?? new List<Creature>();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to load creatures from web JSON: {ex.Message}", ex);
+            }
         }
 
         // Load actors from a level file (player and CPU)

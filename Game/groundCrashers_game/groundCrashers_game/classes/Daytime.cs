@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace groundCrashers_game
 {
@@ -48,7 +50,12 @@ namespace groundCrashers_game
             get
             {
                 if (!_isLoaded)
-                    LoadDaytimesFromJson();
+                {
+                    //LoadDaytimesFromJson();
+
+                    // uses the internet
+                    LoadDaytimesFromWebAsync();
+                }
                 return _chart;
             }
         }
@@ -101,10 +108,66 @@ namespace groundCrashers_game
             }
         }
 
+        public static async Task LoadDaytimesFromWebAsync()
+        {
+            try
+            {
+                string url = "https://stan.1pc.nl/GroundCrashers/data/daytime.json";
+
+                using (HttpClient client = new HttpClient())
+                {
+                    var response = await client.GetAsync(url);
+
+                    if (!response.IsSuccessStatusCode)
+                        throw new Exception($"Failed to download JSON. Status code: {response.StatusCode}");
+
+                    string text = await response.Content.ReadAsStringAsync();
+
+                    var daytimeConfig = JsonConvert.DeserializeObject<List<DaytimeData>>(text);
+
+                    if (daytimeConfig == null)
+                        throw new Exception("Invalid daytime configuration");
+
+                    _chart.Clear();
+
+                    foreach (var dt in daytimeConfig)
+                    {
+                        if (Enum.TryParse<Daytimes>(dt.Name, out var dtEnum))
+                        {
+                            var day = new Daytime
+                            {
+                                Name = dtEnum,
+                                Buff = new PrimaryEffect
+                                {
+                                    Types = dt.Buff.Types.Select(t => Enum.Parse<Primaries>(t)).ToList(),
+                                    EffectType = dt.Buff.Effect
+                                },
+                                Debuff = new PrimaryEffect
+                                {
+                                    Types = dt.Debuff.Types.Select(t => Enum.Parse<Primaries>(t)).ToList(),
+                                    EffectType = dt.Debuff.Effect
+                                }
+                            };
+
+                            _chart[dtEnum] = day;
+                        }
+                    }
+
+                    _isLoaded = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Failed to load daytime from web JSON: {ex.Message}", ex);
+            }
+        }
+
         public static void ReloadDaytime()
         {
             _isLoaded = false;
-            LoadDaytimesFromJson();
+            //LoadDaytimesFromJson();
+
+            LoadDaytimesFromWebAsync();
         }
 
         public static bool IsLoaded => _isLoaded;
@@ -112,7 +175,9 @@ namespace groundCrashers_game
         public static string GetDaytimeEffectiveness(Creature creature)
         {
             if (!_isLoaded)
-                LoadDaytimesFromJson();
+                //LoadDaytimesFromJson();
+
+                LoadDaytimesFromWebAsync();
 
             if (_chart.TryGetValue(currentDaytime, out var daytime))
             {
