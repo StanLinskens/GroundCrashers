@@ -381,6 +381,23 @@
     .hidden {
       display: none;
     }
+
+    .download-btn {
+      position: absolute;
+      top: 3%;
+      right: 2%;
+      padding: 10px 20px;
+      background-color: #26a14b;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #35943a;
+    }
   </style>
 
 </head>
@@ -467,6 +484,11 @@
   <header>
     <h1>Creature Database</h1>
     <p>Your ultimate guide to creatures and game mechanics</p>
+
+    <div class="download-section">
+      <a href="../GroundCrashers.zip" download class="download-btn">Download GroundCrashers</a>
+    </div>
+
   </header>
 
   <nav id="categoryNav">
