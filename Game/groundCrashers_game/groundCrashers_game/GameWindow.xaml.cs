@@ -28,36 +28,36 @@ namespace groundCrashers_game
 
         private Dictionary<Elements, string> CreatureElementColor = new()
         {
-            { Elements.Nature, "#9BCF53" },
-            { Elements.Ice, "#B2EBF2" },
-            { Elements.Toxic, "#CE93D8" },
-            { Elements.Fire, "#f0563b" },
-            { Elements.Water, "#81D4FA" },
-            { Elements.Draconic, "#cd3737" },
-            { Elements.Earth, "#D2B48C" },
-            { Elements.Dark, "#444444" },
-            { Elements.Wind, "#86dcd3" },
-            { Elements.Psychic, "#F48FB1" },
-            { Elements.Light, "#fff8ba" },
-            { Elements.Demonic, "#b92222" },
-            { Elements.Electric, "#f6e15b" },
-            { Elements.Acid, "#aae666" },
-            { Elements.Magnetic, "#c0c0c0" },
-            { Elements.Cosmic, "#4B0082" },
-            { Elements.Chaos, "#8B008B" },
-            { Elements.Void, "#1C1C1C" },
-            { Elements.Astral, "#E6E6FA" }
+            { Elements.Nature, "#6AA84F" },     
+            { Elements.Ice, "#66CCFF" },        
+            { Elements.Toxic, "#9C27B0" },      
+            { Elements.Fire, "#FF5722" },       
+            { Elements.Water, "#2196F3" },      
+            { Elements.Draconic, "#B71C1C" },   
+            { Elements.Earth, "#8D6E63" },      
+            { Elements.Dark, "#888888" },       
+            { Elements.Wind, "#26C6DA" },       
+            { Elements.Psychic, "#EC407A" },    
+            { Elements.Light, "#FFE066" },      
+            { Elements.Demonic, "#880E4F" },    
+            { Elements.Electric, "#FFEB3B" },   
+            { Elements.Acid, "#AEEA00" },       
+            { Elements.Magnetic, "#9E9E9E" },   
+            { Elements.Cosmic, "#7B1FA2" },     
+            { Elements.Chaos, "#C2185B" },      
+            { Elements.Void, "#424242" },       
+            { Elements.Astral, "#CEB4FF" }      
         };
 
         private Dictionary<Primaries, string> CreaturePrimaryColor = new()
         {
-            { Primaries.Verdant, "#228B22" },
-            { Primaries.Primal, "#FFC300" },
-            { Primaries.Apex, "#D7263D" },
-            { Primaries.Sapient, "#800080" },
-            { Primaries.Synthetic, "#0066CC" },
-            { Primaries.God, "#FFD700" },
-            { Primaries.Titan, "#C0392B" }
+            { Primaries.Verdant, "#388E3C" },   
+            { Primaries.Primal, "#FFB300" },    
+            { Primaries.Apex, "#C62828" },      
+            { Primaries.Sapient, "#9C27B0" },   
+            { Primaries.Synthetic, "#2196F3" }, 
+            { Primaries.God, "#FFD700" },       
+            { Primaries.Titan, "#B71C1C" }      
         };
 
         public GameWindow(bool storyMode)
