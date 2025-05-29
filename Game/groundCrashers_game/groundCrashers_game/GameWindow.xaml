@@ -162,8 +162,14 @@
                        Width="300" Height="300"
                        Canvas.Left="200" Canvas.Top="250"
                        Source="/Images/other/questionmark.png"
-                       Opacity="100"
-                       Stretch="Uniform"/>
+                       Opacity="1"
+                       Stretch="Uniform"
+                       RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <ScaleTransform ScaleX="-1"/>
+                        </Image.RenderTransform>
+                    </Image>
+
 
                     <!-- Enemy Platform - Shadow Effect -->
                     <Ellipse x:Name="EnemyEllipse" Width="300" Height="60" Fill="#222" Stroke="#555555" StrokeThickness="2" Opacity="0.7" Canvas.Left="1300" Canvas.Top="100">
