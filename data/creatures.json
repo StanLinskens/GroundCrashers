@@ -3629,6 +3629,54 @@
     "element": "Cosmic",
     "ability": "",
     "description": "A legendary titan touched by cosmic forces",
-    "scientific_name": "Stan"
+    "scientific_name": "Cosmicus Dragonus"
+  },
+  {
+    "id": 228,
+    "name": "Wyrm",
+    "primary_type": "Titan",
+    "subtype": "none",
+    "stats": {
+      "hp": 140,
+      "attack": 160,
+      "defense": 140,
+      "speed": 160
+    },
+    "element": "Chaos",
+    "ability": "",
+    "description": "An ancient wyrm whose chaotic nature makes it unpredictable in battle",
+    "scientific_name": "Chaoticus Draconis"
+  },
+  {
+    "id": 229,
+    "name": "Hydra",
+    "primary_type": "Titan",
+    "subtype": "none",
+    "stats": {
+      "hp": 160,
+      "attack": 140,
+      "defense": 170,
+      "speed": 130
+    },
+    "element": "Void",
+    "ability": "",
+    "description": "A multi-headed serpent that drains the essence from all around it",
+    "scientific_name": "Voidus Hydros"
+  },
+  {
+    "id": 230,
+    "name": "Kirin",
+    "primary_type": "Titan",
+    "subtype": "none",
+    "stats": {
+      "hp": 110,
+      "attack": 170,
+      "defense": 130,
+      "speed": 190
+    },
+    "element": "Astral",
+    "ability": "",
+    "description": "A celestial dragon-horse that walks between dimensions",
+    "scientific_name": "Astralis Kirinus"
   }
 ]
