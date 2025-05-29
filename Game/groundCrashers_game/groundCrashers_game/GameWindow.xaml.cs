@@ -481,33 +481,47 @@ namespace groundCrashers_game
 
             actionButtonsPanel.Children.Add(back_S_Button);
         }
+
         private void Creature_Button_Click(object sender, RoutedEventArgs e)
         {
-            Button clicked = sender as Button;
-            string name = clicked.Content.ToString() ?? "default";
-
-            Actor playerActor = gameManager.GetPlayerActor();
-
-            bool IsAlive = playerActor.Creatures.FirstOrDefault(c => c.name == name)?.alive ?? false;
-
-            if (gameManager.ActivePlayerCreature != null && IsAlive && gameManager.ActivePlayerCreature.name.ToString() != name)
+            try
             {
-                gameManager.ProcessTurn(ActionType.Swap, name);
-                gameManager.logs.Add("player swapped to " + name);
-            }
-            else if (gameManager.ActivePlayerCreature == null && IsAlive)
-            {
-                gameManager.CurrentPlayerCreatureSet(name);
-            }
-            else
-            {
-                gameManager.logs.Add("this creature is already active");
-            }
+                Button clicked = sender as Button;
+                string name = clicked.Content.ToString() ?? "default";
 
-            UpdateBattleUI();
-            // After attack, restore main action buttons
-            RestoreMainActionButtons();
-            RefreshLogBox();
+                Actor playerActor = gameManager.GetPlayerActor();
+                var creature = playerActor.Creatures.FirstOrDefault(c => c.name == name);
+
+                if (creature == null)
+                {
+                    gameManager.logs.Add("Creature not found.");
+                }
+                else if (!creature.alive)
+                {
+                    gameManager.logs.Add("This creature is dead.");
+                }
+                else if (gameManager.ActivePlayerCreature != null && gameManager.ActivePlayerCreature.name != name)
+                {
+                    gameManager.ProcessTurn(ActionType.Swap, name);
+                    gameManager.logs.Add("Player swapped to " + name);
+                }
+                else if (gameManager.ActivePlayerCreature == null)
+                {
+                    gameManager.CurrentPlayerCreatureSet(name);
+                }
+                else
+                {
+                    gameManager.logs.Add("This creature is already active.");
+                }
+
+                UpdateBattleUI();
+                RestoreMainActionButtons();
+                RefreshLogBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Swap failed: " + ex.Message);
+            }
         }
 
         private void Back_S_Button_Click(object sender, RoutedEventArgs e)
