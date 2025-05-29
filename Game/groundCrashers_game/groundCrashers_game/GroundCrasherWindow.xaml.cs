@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Newtonsoft.Json;
 using System.IO;
 using groundCrashers_game.classes;
+using System.Net.Http;
 
 
 namespace groundCrashers_game
@@ -135,19 +136,34 @@ namespace groundCrashers_game
 
         public Creature SelectedCreature { get; private set; }
 
-        private void LoadCreatureButtons()
+        private async void LoadCreatureButtons()
         {
             string jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "creatures.json");
             jsonPath = System.IO.Path.GetFullPath(jsonPath);
 
-            if (!File.Exists(jsonPath))
+            string json;
+
+            if (File.Exists(jsonPath))
             {
-                MessageBox.Show("Creature JSON file not found!");
-                return;
+                json = File.ReadAllText(jsonPath);
+            }
+            else
+            {
+                try
+                {
+                    using (HttpClient client = new HttpClient())
+                    {
+                        json = await client.GetStringAsync("https://stan.1pc.nl/GroundCrashers/data/creatures.json");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to load creature data from the internet: {ex.Message}");
+                    return;
+                }
             }
 
-            string json = File.ReadAllText(jsonPath);
-            loadedCreatures = JsonConvert.DeserializeObject<List<Creature>>(json); // Store the list
+            loadedCreatures = JsonConvert.DeserializeObject<List<Creature>>(json);
 
             foreach (Creature creature in loadedCreatures)
             {
@@ -164,24 +180,38 @@ namespace groundCrashers_game
             }
         }
 
-        private void LoadCreatureButtonsFormCard(List<int> allowedCreatureIds)
+
+        private async void LoadCreatureButtonsFormCard(List<int> allowedCreatureIds)
         {
             string jsonPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "..", "..", "..", "data", "creatures.json");
             jsonPath = System.IO.Path.GetFullPath(jsonPath);
 
-            if (!File.Exists(jsonPath))
+            string json;
+
+            if (File.Exists(jsonPath))
             {
-                MessageBox.Show("Creature JSON file not found!");
-                return;
+                json = File.ReadAllText(jsonPath);
+            }
+            else
+            {
+                try
+                {
+                    using (HttpClient client = new HttpClient())
+                    {
+                        json = await client.GetStringAsync("https://stan.1pc.nl/GroundCrashers/data/creatures.json");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to load creature data from the internet: {ex.Message}");
+                    return;
+                }
             }
 
-            string json = File.ReadAllText(jsonPath);
             var allCreatures = JsonConvert.DeserializeObject<List<Creature>>(json);
-
-            // Filter creatures based on allowed IDs
             loadedCreatures = allCreatures.Where(c => allowedCreatureIds.Contains(c.id)).ToList();
 
-            CreatureButtonPanel.Children.Clear(); // Optional: Clear previous buttons
+            CreatureButtonPanel.Children.Clear();
 
             foreach (Creature creature in loadedCreatures)
             {
@@ -197,6 +227,7 @@ namespace groundCrashers_game
                 CreatureButtonPanel.Children.Add(btn);
             }
         }
+
 
 
         private void ConfirmGroundCrasher_Click(object sender, RoutedEventArgs e)
