@@ -268,8 +268,15 @@ namespace groundCrashers_game
 
         private void SecretSpaceBtn_Click(object sender, RoutedEventArgs e)
         {
-            MapBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/battleGrounds/space.png"));
+            string currentImage = MapBackground.ImageSource.ToString();
+
+            string newImage = currentImage.Contains("space.png")
+                ? "pack://application:,,,/Images/battleGrounds/map.png"
+                : "pack://application:,,,/Images/battleGrounds/space.png";
+
+            MapBackground.ImageSource = new BitmapImage(new Uri(newImage));
         }
+
 
     }
 }
