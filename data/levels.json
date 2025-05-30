@@ -49,7 +49,7 @@
 
     {
         "name": "WastelandLVL1",
-        "biome": "Forest",
+        "biome": "Wasteland",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -58,7 +58,7 @@
     },
     {
         "name": "WastelandLVL2",
-        "biome": "Forest",
+        "biome": "Wasteland",
         "daytime": "Day",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -67,7 +67,7 @@
     },
     {
         "name": "WastelandLVL3",
-        "biome": "Forest",
+        "biome": "Wasteland",
         "daytime": "Day",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -76,7 +76,7 @@
     },
     {
         "name": "WastelandLVL4",
-        "biome": "Forest",
+        "biome": "Wasteland",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -85,7 +85,7 @@
     },
     {
         "name": "WastelandLVL5",
-        "biome": "Forest",
+        "biome": "Wasteland",
         "daytime": "Night",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -97,7 +97,7 @@
 
     {
         "name": "MountainLVL1",
-        "biome": "Forest",
+        "biome": "Mountain",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -106,7 +106,7 @@
     },
     {
         "name": "MountainLVL2",
-        "biome": "Forest",
+        "biome": "Mountain",
         "daytime": "Day",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -115,7 +115,7 @@
     },
     {
         "name": "MountainLVL3",
-        "biome": "Forest",
+        "biome": "Mountain",
         "daytime": "Day",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -124,7 +124,7 @@
     },
     {
         "name": "MountainLVL4",
-        "biome": "Forest",
+        "biome": "Mountain",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -133,7 +133,7 @@
     },
     {
         "name": "MountainLVL5",
-        "biome": "Forest",
+        "biome": "Mountain",
         "daytime": "Night",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -145,7 +145,7 @@
     
     {
         "name": "GlacierLVL1",
-        "biome": "Forest",
+        "biome": "Glacier",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -154,7 +154,7 @@
     },
     {
         "name": "GlacierLVL2",
-        "biome": "Forest",
+        "biome": "Glacier",
         "daytime": "Day",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -163,7 +163,7 @@
     },
     {
         "name": "GlacierLVL3",
-        "biome": "Forest",
+        "biome": "Glacier",
         "daytime": "Day",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -172,7 +172,7 @@
     },
     {
         "name": "GlacierLVL4",
-        "biome": "Forest",
+        "biome": "Glacier",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -181,7 +181,7 @@
     },
     {
         "name": "GlacierLVL5",
-        "biome": "Forest",
+        "biome": "Glacier",
         "daytime": "Night",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -193,7 +193,7 @@
 
     {
         "name": "JungleLVL1",
-        "biome": "Forest",
+        "biome": "Jungle",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -202,7 +202,7 @@
     },
     {
         "name": "JungleLVL2",
-        "biome": "Forest",
+        "biome": "Jungle",
         "daytime": "Day",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -211,7 +211,7 @@
     },
     {
         "name": "JungleLVL3",
-        "biome": "Forest",
+        "biome": "Jungle",
         "daytime": "Day",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -220,7 +220,7 @@
     },
     {
         "name": "JungleLVL4",
-        "biome": "Forest",
+        "biome": "Jungle",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -229,7 +229,7 @@
     },
     {
         "name": "JungleLVL5",
-        "biome": "Forest",
+        "biome": "Jungle",
         "daytime": "Night",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -241,7 +241,7 @@
 
     {
         "name": "CrystalCavernLVL1",
-        "biome": "Forest",
+        "biome": "CrystalCavern",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -250,7 +250,7 @@
     },
     {
         "name": "CrystalCavernLVL2",
-        "biome": "Forest",
+        "biome": "CrystalCavern",
         "daytime": "Day",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -259,7 +259,7 @@
     },
     {
         "name": "CrystalCavernLVL3",
-        "biome": "Forest",
+        "biome": "CrystalCavern",
         "daytime": "Day",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -268,7 +268,7 @@
     },
     {
         "name": "CrystalCavernLVL4",
-        "biome": "Forest",
+        "biome": "CrystalCavern",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -277,7 +277,7 @@
     },
     {
         "name": "CrystalCavernLVL5",
-        "biome": "Forest",
+        "biome": "CrystalCavern",
         "daytime": "Night",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 1,
@@ -290,7 +290,7 @@
 
     {
         "name": "CaveLVL1",
-        "biome": "Forest",
+        "biome": "Cave",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -299,7 +299,7 @@
     },
     {
         "name": "CaveLVL2",
-        "biome": "Forest",
+        "biome": "Cave",
         "daytime": "Day",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -308,7 +308,7 @@
     },
     {
         "name": "CaveLVL3",
-        "biome": "Forest",
+        "biome": "Cave",
         "daytime": "Day",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -317,7 +317,7 @@
     },
     {
         "name": "CaveLVL4",
-        "biome": "Forest",
+        "biome": "Cave",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -326,7 +326,7 @@
     },
     {
         "name": "CaveLVL5",
-        "biome": "Forest",
+        "biome": "Cave",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -338,7 +338,7 @@
 
     {
         "name": "SwampLVL1",
-        "biome": "Forest",
+        "biome": "Swamp",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -347,7 +347,7 @@
     },
     {
         "name": "SwampLVL2",
-        "biome": "Forest",
+        "biome": "Swamp",
         "daytime": "Day",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -356,7 +356,7 @@
     },
     {
         "name": "SwampLVL3",
-        "biome": "Forest",
+        "biome": "Swamp",
         "daytime": "Day",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -365,7 +365,7 @@
     },
     {
         "name": "SwampLVL4",
-        "biome": "Forest",
+        "biome": "Swamp",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -374,7 +374,7 @@
     },
     {
         "name": "SwampLVL5",
-        "biome": "Forest",
+        "biome": "Swamp",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -387,7 +387,7 @@
 
     {
         "name": "HighlandsLVL1",
-        "biome": "Forest",
+        "biome": "Highlands",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -396,7 +396,7 @@
     },
     {
         "name": "HighlandsLVL2",
-        "biome": "Forest",
+        "biome": "Highlands",
         "daytime": "Day",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -405,7 +405,7 @@
     },
     {
         "name": "HighlandsLVL3",
-        "biome": "Forest",
+        "biome": "Highlands",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -414,7 +414,7 @@
     },
     {
         "name": "HighlandsLVL4",
-        "biome": "Forest",
+        "biome": "Highlands",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -423,7 +423,7 @@
     },
     {
         "name": "HighlandsLVL5",
-        "biome": "Forest",
+        "biome": "Highlands",
         "daytime": "Night",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 2,
@@ -435,7 +435,7 @@
 
     {
         "name": "MarshLVL1",
-        "biome": "Forest",
+        "biome": "Marsh",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -444,7 +444,7 @@
     },
     {
         "name": "MarshLVL2",
-        "biome": "Forest",
+        "biome": "Marsh",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -453,7 +453,7 @@
     },
     {
         "name": "MarshLVL3",
-        "biome": "Forest",
+        "biome": "Marsh",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -462,7 +462,7 @@
     },
     {
         "name": "MarshLVL4",
-        "biome": "Forest",
+        "biome": "Marsh",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -471,7 +471,7 @@
     },
     {
         "name": "MarshLVL5",
-        "biome": "Forest",
+        "biome": "Marsh",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -483,7 +483,7 @@
 
     {
         "name": "TundraLVL1",
-        "biome": "Forest",
+        "biome": "Tundra",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -492,7 +492,7 @@
     },
     {
         "name": "TundraLVL2",
-        "biome": "Forest",
+        "biome": "Tundra",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -501,7 +501,7 @@
     },
     {
         "name": "TundraLVL3",
-        "biome": "Forest",
+        "biome": "Tundra",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -510,7 +510,7 @@
     },
     {
         "name": "TundraLVL4",
-        "biome": "Forest",
+        "biome": "Tundra",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -519,7 +519,7 @@
     },
     {
         "name": "TundraLVL5",
-        "biome": "Forest",
+        "biome": "Tundra",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -531,7 +531,7 @@
 
     {
         "name": "SavannaLVL1",
-        "biome": "Forest",
+        "biome": "Savanna",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -540,7 +540,7 @@
     },
     {
         "name": "SavannaLVL2",
-        "biome": "Forest",
+        "biome": "Savanna",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -549,7 +549,7 @@
     },
     {
         "name": "SavannaLVL3",
-        "biome": "Forest",
+        "biome": "Savanna",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -558,7 +558,7 @@
     },
     {
         "name": "SavannaLVL4",
-        "biome": "Forest",
+        "biome": "Savanna",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -567,7 +567,7 @@
     },
     {
         "name": "SavannaLVL5",
-        "biome": "Forest",
+        "biome": "Savanna",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 4,
@@ -579,7 +579,7 @@
 
     {
         "name": "RuinsLVL1",
-        "biome": "Forest",
+        "biome": "Ruins",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -588,7 +588,7 @@
     },
     {
         "name": "RuinsLVL2",
-        "biome": "Forest",
+        "biome": "Ruins",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -597,7 +597,7 @@
     },
     {
         "name": "RuinsLVL3",
-        "biome": "Forest",
+        "biome": "Ruins",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -606,7 +606,7 @@
     },
     {
         "name": "RuinsLVL4",
-        "biome": "Forest",
+        "biome": "Ruins",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -615,7 +615,7 @@
     },
     {
         "name": "RuinsLVL5",
-        "biome": "Forest",
+        "biome": "Ruins",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -627,7 +627,7 @@
 
     {
         "name": "OceanLVL1",
-        "biome": "Forest",
+        "biome": "Ocean",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 3,
@@ -636,7 +636,7 @@
     },
     {
         "name": "OceanLVL2",
-        "biome": "Forest",
+        "biome": "Ocean",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -645,7 +645,7 @@
     },
     {
         "name": "OceanLVL3",
-        "biome": "Forest",
+        "biome": "Ocean",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -654,7 +654,7 @@
     },
     {
         "name": "OceanLVL4",
-        "biome": "Forest",
+        "biome": "Ocean",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -663,7 +663,7 @@
     },
     {
         "name": "OceanLVL5",
-        "biome": "Forest",
+        "biome": "Ocean",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 4,
@@ -675,7 +675,7 @@
 
     {
         "name": "DesertLVL1",
-        "biome": "Forest",
+        "biome": "Desert",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -684,7 +684,7 @@
     },
     {
         "name": "DesertLVL2",
-        "biome": "Forest",
+        "biome": "Desert",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -693,7 +693,7 @@
     },
     {
         "name": "DesertLVL3",
-        "biome": "Forest",
+        "biome": "Desert",
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -702,7 +702,7 @@
     },
     {
         "name": "DesertLVL4",
-        "biome": "Forest",
+        "biome": "Desert",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
@@ -711,7 +711,7 @@
     },
     {
         "name": "DesertLVL5",
-        "biome": "Forest",
+        "biome": "Desert",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 1,
@@ -723,7 +723,7 @@
 
     {
         "name": "VolcanoLVL1",
-        "biome": "Forest",
+        "biome": "Volcano",
         "daytime": "Night",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
@@ -732,7 +732,7 @@
     },
     {
         "name": "VolcanoLVL2",
-        "biome": "Forest",
+        "biome": "Volcano",
         "daytime": "Night",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 1,
@@ -741,7 +741,7 @@
     },
     {
         "name": "VolcanoLVL3",
-        "biome": "Forest",
+        "biome": "Volcano",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 1,
@@ -750,7 +750,7 @@
     },
     {
         "name": "VolcanoLVL4",
-        "biome": "Forest",
+        "biome": "Volcano",
         "daytime": "Night",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 2,
@@ -759,7 +759,7 @@
     },
     {
         "name": "VolcanoLVL5",
-        "biome": "Forest",
+        "biome": "Volcano",
         "daytime": "Night",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 3,
