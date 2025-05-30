@@ -174,5 +174,59 @@
       "types": ["Magnetic", "Water"],
       "effect": "Health"
     }
+  },
+    {
+    "name": "Interstellar",
+    "buff": {
+      "types": ["Titan"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["ALL"],
+      "effect": "Health"
+    }
+  },
+    {
+    "name": "Mars",
+    "buff": {
+      "types": ["Titan"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["ALL"],
+      "effect": "Speed"
+    }
+  },
+    {
+    "name": "Moon",
+    "buff": {
+      "types": ["Titan"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["ALL"],
+      "effect": "Attack"
+    }
+  },
+    {
+    "name": "Skyloft",
+    "buff": {
+      "types": ["Titan"],
+      "effect": "Defense"
+    },
+    "debuff": {
+      "types": ["ALL"],
+      "effect": "Health"
+    }
+  },  {
+    "name": "Steel",
+    "buff": {
+      "types": ["Titan"],
+      "effect": "Health"
+    },
+    "debuff": {
+      "types": ["ALL"],
+      "effect": "Health"
+    }
   }
 ]

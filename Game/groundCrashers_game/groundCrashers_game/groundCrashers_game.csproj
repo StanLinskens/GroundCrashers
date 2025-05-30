@@ -16,14 +16,19 @@
     <None Remove="Images\battleGrounds\forest.jpg" />
     <None Remove="Images\battleGrounds\glacier.jpg" />
     <None Remove="Images\battleGrounds\highlands.jpg" />
+    <None Remove="Images\battleGrounds\interstellar.jpg" />
     <None Remove="Images\battleGrounds\jungle.jpg" />
     <None Remove="Images\battleGrounds\map.png" />
+    <None Remove="Images\battleGrounds\mars.jpg" />
     <None Remove="Images\battleGrounds\marsh.jpg" />
+    <None Remove="Images\battleGrounds\moon.jpg" />
     <None Remove="Images\battleGrounds\mountain.jpg" />
     <None Remove="Images\battleGrounds\ocean.jpg" />
     <None Remove="Images\battleGrounds\ruins.jpg" />
     <None Remove="Images\battleGrounds\savanna.jpg" />
+    <None Remove="Images\battleGrounds\skyloft.jpg" />
     <None Remove="Images\battleGrounds\space.png" />
+    <None Remove="Images\battleGrounds\steel.jpg" />
     <None Remove="Images\battleGrounds\swamp.jpg" />
     <None Remove="Images\battleGrounds\tundra.jpg" />
     <None Remove="Images\battleGrounds\volcano.jpg" />
@@ -284,6 +289,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <COMReference Include="WMPLib">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>1</VersionMajor>
+      <Guid>6bf52a50-394a-11d3-b153-00c04f79faa6</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="JsonData\creatures.json" />
   </ItemGroup>
 
@@ -301,14 +318,19 @@
     <Resource Include="Images\battleGrounds\forest.jpg" />
     <Resource Include="Images\battleGrounds\glacier.jpg" />
     <Resource Include="Images\battleGrounds\highlands.jpg" />
+    <Resource Include="Images\battleGrounds\interstellar.jpg" />
     <Resource Include="Images\battleGrounds\jungle.jpg" />
     <Resource Include="Images\battleGrounds\map.png" />
+    <Resource Include="Images\battleGrounds\mars.jpg" />
     <Resource Include="Images\battleGrounds\marsh.jpg" />
+    <Resource Include="Images\battleGrounds\moon.jpg" />
     <Resource Include="Images\battleGrounds\mountain.jpg" />
     <Resource Include="Images\battleGrounds\ocean.jpg" />
     <Resource Include="Images\battleGrounds\ruins.jpg" />
     <Resource Include="Images\battleGrounds\savanna.jpg" />
+    <Resource Include="Images\battleGrounds\skyloft.jpg" />
     <Resource Include="Images\battleGrounds\space.png" />
+    <Resource Include="Images\battleGrounds\steel.jpg" />
     <Resource Include="Images\battleGrounds\swamp.jpg" />
     <Resource Include="Images\battleGrounds\tundra.jpg" />
     <Resource Include="Images\battleGrounds\volcano.jpg" />
@@ -549,6 +571,10 @@
     <Resource Include="Images\GroundCrasherSprites\Zephantix.png" />
     <Resource Include="Images\GroundCrasherSprites\Zephyisanus.png" />
     <Resource Include="Images\other\questionmark.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Audio\" />
   </ItemGroup>
 
 </Project>

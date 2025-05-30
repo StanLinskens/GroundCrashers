@@ -7,6 +7,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Xml.Linq;
+using WMPLib;
+using System.Media;
 using static groundCrashers_game.classes.Manager;
 
 namespace groundCrashers_game
@@ -18,6 +20,7 @@ namespace groundCrashers_game
     {
         Manager gameManager;
         Esp32Manager portalManager;
+        AudioPlayer audioPlayer;
 
         private Button fightButton;
         private Button bagButton;
@@ -79,6 +82,10 @@ namespace groundCrashers_game
             FindActionButtonsPanel();
 
             RandomScenarioGenerator();
+
+            audioPlayer = new AudioPlayer();
+
+            audioPlayer.PlayRandomBattleMusic();
         }
 
         public void RefreshLogBox()
@@ -226,7 +233,12 @@ namespace groundCrashers_game
                 case Biomes.Ruins: return "🏰";
                 case Biomes.Marsh: return "🦢";
                 case Biomes.CrystalCavern: return "💎";
-                case Biomes.Wasteland: return "🏜️";
+                case Biomes.Wasteland: return "☢️";
+                case Biomes.Interstellar: return "🌌";
+                case Biomes.Mars: return "🔴";
+                case Biomes.Moon: return "🌕";
+                case Biomes.Skyloft: return "☁️";
+                case Biomes.Steel: return "🏭";
                 default: return "❓";
             }
         }
