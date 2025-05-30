@@ -22,7 +22,12 @@ namespace groundCrashers_game
         Ruins,
         Ocean,
         Desert,
-        Volcano
+        Volcano,
+        Interstellar,
+        Mars,
+        Moon,
+        Skyloft,
+        Steel
     }
 
 

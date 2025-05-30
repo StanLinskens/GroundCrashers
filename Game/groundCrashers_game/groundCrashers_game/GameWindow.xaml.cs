@@ -226,7 +226,12 @@ namespace groundCrashers_game
                 case Biomes.Ruins: return "🏰";
                 case Biomes.Marsh: return "🦢";
                 case Biomes.CrystalCavern: return "💎";
-                case Biomes.Wasteland: return "🏜️";
+                case Biomes.Wasteland: return "☢️";
+                case Biomes.Interstellar: return "🌌";
+                case Biomes.Mars: return "🔴";
+                case Biomes.Moon: return "🌕";
+                case Biomes.Skyloft: return "☁️";
+                case Biomes.Steel: return "🏭";
                 default: return "❓";
             }
         }
