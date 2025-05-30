@@ -51,6 +51,7 @@
     <None Remove="Images\GroundCrasherSprites\Ampelogix.png" />
     <None Remove="Images\GroundCrasherSprites\Ampesanon.png" />
     <None Remove="Images\GroundCrasherSprites\Ampethaid.png" />
+    <None Remove="Images\GroundCrasherSprites\Amphithere.png" />
     <None Remove="Images\GroundCrasherSprites\Anemaniix.png" />
     <None Remove="Images\GroundCrasherSprites\Anemobesan.png" />
     <None Remove="Images\GroundCrasherSprites\Anemocybid.png" />
@@ -108,6 +109,7 @@
     <None Remove="Images\GroundCrasherSprites\Dissmecan.png" />
     <None Remove="Images\GroundCrasherSprites\Dracodomix.png" />
     <None Remove="Images\GroundCrasherSprites\Drago.png" />
+    <None Remove="Images\GroundCrasherSprites\Drake.png" />
     <None Remove="Images\GroundCrasherSprites\Elecfloid.png" />
     <None Remove="Images\GroundCrasherSprites\Electocogix.png" />
     <None Remove="Images\GroundCrasherSprites\Ferrlogus.png" />
@@ -167,6 +169,7 @@
     <None Remove="Images\GroundCrasherSprites\Lumifloor.png" />
     <None Remove="Images\GroundCrasherSprites\Luminasapis.png" />
     <None Remove="Images\GroundCrasherSprites\Lumiregan.png" />
+    <None Remove="Images\GroundCrasherSprites\Lung.png" />
     <None Remove="Images\GroundCrasherSprites\Magnconor.png" />
     <None Remove="Images\GroundCrasherSprites\Maledartis.png" />
     <None Remove="Images\GroundCrasherSprites\Maledozenon.png" />
@@ -262,6 +265,7 @@
     <None Remove="Images\GroundCrasherSprites\Wyrmoferan.png" />
     <None Remove="Images\GroundCrasherSprites\Wyrmothais.png" />
     <None Remove="Images\GroundCrasherSprites\Wyrmratid.png" />
+    <None Remove="Images\GroundCrasherSprites\Wyvern.png" />
     <None Remove="Images\GroundCrasherSprites\Zephantix.png" />
     <None Remove="Images\GroundCrasherSprites\Zephyisanus.png" />
     <None Remove="Images\highlands.jpg" />
@@ -325,6 +329,7 @@
     <Resource Include="Images\GroundCrasherSprites\Ampelogix.png" />
     <Resource Include="Images\GroundCrasherSprites\Ampesanon.png" />
     <Resource Include="Images\GroundCrasherSprites\Ampethaid.png" />
+    <Resource Include="Images\GroundCrasherSprites\Amphithere.png" />
     <Resource Include="Images\GroundCrasherSprites\Anemaniix.png" />
     <Resource Include="Images\GroundCrasherSprites\Anemobesan.png" />
     <Resource Include="Images\GroundCrasherSprites\Anemocybid.png" />
@@ -382,6 +387,7 @@
     <Resource Include="Images\GroundCrasherSprites\Dissmecan.png" />
     <Resource Include="Images\GroundCrasherSprites\Dracodomix.png" />
     <Resource Include="Images\GroundCrasherSprites\Drago.png" />
+    <Resource Include="Images\GroundCrasherSprites\Drake.png" />
     <Resource Include="Images\GroundCrasherSprites\Elecfloid.png" />
     <Resource Include="Images\GroundCrasherSprites\Electocogix.png" />
     <Resource Include="Images\GroundCrasherSprites\Ferrlogus.png" />
@@ -441,6 +447,7 @@
     <Resource Include="Images\GroundCrasherSprites\Lumifloor.png" />
     <Resource Include="Images\GroundCrasherSprites\Luminasapis.png" />
     <Resource Include="Images\GroundCrasherSprites\Lumiregan.png" />
+    <Resource Include="Images\GroundCrasherSprites\Lung.png" />
     <Resource Include="Images\GroundCrasherSprites\Magnconor.png" />
     <Resource Include="Images\GroundCrasherSprites\Maledartis.png" />
     <Resource Include="Images\GroundCrasherSprites\Maledozenon.png" />
@@ -536,6 +543,7 @@
     <Resource Include="Images\GroundCrasherSprites\Wyrmoferan.png" />
     <Resource Include="Images\GroundCrasherSprites\Wyrmothais.png" />
     <Resource Include="Images\GroundCrasherSprites\Wyrmratid.png" />
+    <Resource Include="Images\GroundCrasherSprites\Wyvern.png" />
     <Resource Include="Images\GroundCrasherSprites\Zephantix.png" />
     <Resource Include="Images\GroundCrasherSprites\Zephyisanus.png" />
     <Resource Include="Images\other\questionmark.png" />

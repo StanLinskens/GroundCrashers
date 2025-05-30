@@ -3678,5 +3678,69 @@
     "ability": "",
     "description": "A celestial dragon-horse that walks between dimensions",
     "scientific_name": "Astralis Kirinus"
+  },
+   {
+    "id": 231,
+    "name": "Wyvern",
+    "primary_type": "Titan",
+    "subtype": "none",
+    "stats": {
+      "hp": 100,
+      "attack": 190,
+      "defense": 120,
+      "speed": 190
+    },
+    "element": "Cosmic",
+    "ability": "",
+    "description": "A two-winged cosmic dragon that soars through stellar winds",
+    "scientific_name": "Cosmicus Wyvernus"
+  },
+  {
+    "id": 232,
+    "name": "Drake",
+    "primary_type": "Titan",
+    "subtype": "none",
+    "stats": {
+      "hp": 180,
+      "attack": 150,
+      "defense": 180,
+      "speed": 90
+    },
+    "element": "Void",
+    "ability": "",
+    "description": "A wingless dragon that devours light and matter itself",
+    "scientific_name": "Voidus Drakonis"
+  },
+  {
+    "id": 233,
+    "name": "Lung",
+    "primary_type": "Titan",
+    "subtype": "none",
+    "stats": {
+      "hp": 130,
+      "attack": 160,
+      "defense": 160,
+      "speed": 150
+    },
+    "element": "Astral",
+    "ability": "",
+    "description": "An eastern dragon that commands celestial winds and starlight",
+    "scientific_name": "Astralis Lungensis"
+  },
+  {
+    "id": 234,
+    "name": "Amphithere",
+    "primary_type": "Titan",
+    "subtype": "none",
+    "stats": {
+      "hp": 110,
+      "attack": 170,
+      "defense": 130,
+      "speed": 190
+    },
+    "element": "Chaos",
+    "ability": "",
+    "description": "A feathered serpent whose chaotic nature shifts like the wind",
+    "scientific_name": "Chaoticus Amphitherus"
   }
 ]
