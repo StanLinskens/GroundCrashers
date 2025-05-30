@@ -23,6 +23,7 @@
     <None Remove="Images\battleGrounds\ocean.jpg" />
     <None Remove="Images\battleGrounds\ruins.jpg" />
     <None Remove="Images\battleGrounds\savanna.jpg" />
+    <None Remove="Images\battleGrounds\space.png" />
     <None Remove="Images\battleGrounds\swamp.jpg" />
     <None Remove="Images\battleGrounds\tundra.jpg" />
     <None Remove="Images\battleGrounds\volcano.jpg" />
@@ -307,6 +308,7 @@
     <Resource Include="Images\battleGrounds\ocean.jpg" />
     <Resource Include="Images\battleGrounds\ruins.jpg" />
     <Resource Include="Images\battleGrounds\savanna.jpg" />
+    <Resource Include="Images\battleGrounds\space.png" />
     <Resource Include="Images\battleGrounds\swamp.jpg" />
     <Resource Include="Images\battleGrounds\tundra.jpg" />
     <Resource Include="Images\battleGrounds\volcano.jpg" />

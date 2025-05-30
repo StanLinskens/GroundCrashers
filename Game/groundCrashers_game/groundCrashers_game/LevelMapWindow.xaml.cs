@@ -3,6 +3,7 @@ using groundCrashers_game.classes;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using static groundCrashers_game.classes.Manager;
 
 namespace groundCrashers_game
@@ -264,5 +265,11 @@ namespace groundCrashers_game
             gameWindow.Show();
             this.Close();
         }
+
+        private void SecretSpaceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MapBackground.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/battleGrounds/space.png"));
+        }
+
     }
 }
