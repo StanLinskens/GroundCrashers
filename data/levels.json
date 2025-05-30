@@ -81,7 +81,7 @@
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
         "CreatureID": [  ],
-        "strengthModifier": 90
+        "strengthModifier": 80
     },
     {
         "name": "WastelandLVL5",
@@ -90,7 +90,7 @@
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 90
     },
 
 
@@ -186,7 +186,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 100
+        "strengthModifier": 95
     },
 
 
@@ -198,7 +198,7 @@
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
         "CreatureID": [  ],
-        "strengthModifier": 95
+        "strengthModifier": 100
     },
     {
         "name": "JungleLVL2",
@@ -225,7 +225,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 105
+        "strengthModifier": 95
     },
     {
         "name": "JungleLVL5",
@@ -234,7 +234,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 95
+        "strengthModifier": 105
     },
 
 
@@ -246,7 +246,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 100
     },
     {
         "name": "CrystalCavernLVL2",
@@ -255,7 +255,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 100
     },
     {
         "name": "CrystalCavernLVL3",
@@ -264,7 +264,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 100
     },
     {
         "name": "CrystalCavernLVL4",
@@ -273,7 +273,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 100
     },
     {
         "name": "CrystalCavernLVL5",
@@ -295,7 +295,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 105
     },
     {
         "name": "CaveLVL2",
@@ -304,7 +304,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 105
     },
     {
         "name": "CaveLVL3",
@@ -313,7 +313,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 105
     },
     {
         "name": "CaveLVL4",
@@ -322,7 +322,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 115
     },
     {
         "name": "CaveLVL5",
@@ -331,7 +331,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 100
     },
 
 
@@ -343,7 +343,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 110
     },
     {
         "name": "SwampLVL2",
@@ -352,7 +352,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 110
     },
     {
         "name": "SwampLVL3",
@@ -361,7 +361,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 110
     },
     {
         "name": "SwampLVL4",
@@ -370,7 +370,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 105
     },
     {
         "name": "SwampLVL5",
@@ -379,7 +379,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 115
     },
 
 
@@ -392,7 +392,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 115
     },
     {
         "name": "HighlandsLVL2",
@@ -401,7 +401,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 115
     },
     {
         "name": "HighlandsLVL3",
@@ -410,7 +410,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 115
     },
     {
         "name": "HighlandsLVL4",
@@ -419,7 +419,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 120
     },
     {
         "name": "HighlandsLVL5",
@@ -428,7 +428,7 @@
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 105
     },
 
 
@@ -440,7 +440,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 120
     },
     {
         "name": "MarshLVL2",
@@ -449,7 +449,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 120
     },
     {
         "name": "MarshLVL3",
@@ -458,7 +458,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 120
     },
     {
         "name": "MarshLVL4",
@@ -467,7 +467,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 125
     },
     {
         "name": "MarshLVL5",
@@ -476,7 +476,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 130
     },
 
 
@@ -488,7 +488,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 125
     },
     {
         "name": "TundraLVL2",
@@ -497,7 +497,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 125
     },
     {
         "name": "TundraLVL3",
@@ -506,7 +506,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 125
     },
     {
         "name": "TundraLVL4",
@@ -515,7 +515,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 130
     },
     {
         "name": "TundraLVL5",
@@ -524,7 +524,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 135
     },
 
 
@@ -536,7 +536,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 130
     },
     {
         "name": "SavannaLVL2",
@@ -545,7 +545,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 130
     },
     {
         "name": "SavannaLVL3",
@@ -554,7 +554,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 130
     },
     {
         "name": "SavannaLVL4",
@@ -563,7 +563,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 135
     },
     {
         "name": "SavannaLVL5",
@@ -572,7 +572,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 4,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 125
     },
 
 
@@ -584,7 +584,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 135
     },
     {
         "name": "RuinsLVL2",
@@ -593,7 +593,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 135
     },
     {
         "name": "RuinsLVL3",
@@ -602,7 +602,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 135
     },
     {
         "name": "RuinsLVL4",
@@ -611,7 +611,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 140
     },
     {
         "name": "RuinsLVL5",
@@ -620,7 +620,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 145
     },
 
 
@@ -632,7 +632,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 130
     },
     {
         "name": "OceanLVL2",
@@ -641,7 +641,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 150
     },
     {
         "name": "OceanLVL3",
@@ -650,7 +650,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 150
     },
     {
         "name": "OceanLVL4",
@@ -659,7 +659,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 150
     },
     {
         "name": "OceanLVL5",
@@ -668,7 +668,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 4,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 135
     },
 
 
@@ -680,7 +680,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 150
     },
     {
         "name": "DesertLVL2",
@@ -689,7 +689,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 150
     },
     {
         "name": "DesertLVL3",
@@ -698,7 +698,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 150
     },
     {
         "name": "DesertLVL4",
@@ -707,16 +707,16 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 150
     },
     {
         "name": "DesertLVL5",
         "biome": "Forest",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
-        "amountCreaturesCpu": 3,
+        "amountCreaturesCpu": 1,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 225
     },
 
 
@@ -728,7 +728,7 @@
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 150
     },
     {
         "name": "VolcanoLVL2",
@@ -737,7 +737,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 1,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 200
     },
     {
         "name": "VolcanoLVL3",
@@ -746,7 +746,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 1,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 300
     },
     {
         "name": "VolcanoLVL4",
@@ -755,7 +755,7 @@
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 2,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 100
     },
     {
         "name": "VolcanoLVL5",
@@ -764,7 +764,7 @@
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 3,
         "CreatureID": [  ],
-        "strengthModifier": 85
+        "strengthModifier": 90
     }
 
 ]
