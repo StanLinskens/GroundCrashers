@@ -260,8 +260,9 @@ namespace groundCrashers_game
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
+            Button clicked = sender as Button;
             // true means the game is started from the map window (storyMode)
-            GameWindow gameWindow = new GameWindow(true);
+            GameWindow gameWindow = new GameWindow(true, clicked.Name);
             gameWindow.Show();
             this.Close();
         }

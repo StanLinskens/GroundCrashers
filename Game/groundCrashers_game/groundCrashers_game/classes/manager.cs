@@ -28,6 +28,10 @@ namespace groundCrashers_game.classes
 
         private static readonly Random _rnd = new Random();
 
+        public bool StoryMode { get; set; } // True = story mode, False = free play
+
+        public string levelName { get; set; } // Default level name
+
         public int _maxCreatures { get; set; } = 3;
 
         public enum ActionType
@@ -44,11 +48,37 @@ namespace groundCrashers_game.classes
         // Round counter (increments after both actors have taken a turn)
         public int RoundNumber { get; private set; } = 1;
 
+        public Daytimes GetDaytime()
+        {
+            if (Levels.Chart.TryGetValue(levelName, out var level))
+            {
+                return level.Daytime;
+            }
+            else
+            {
+                Console.WriteLine($"Level {levelName} not found.");
+                return Daytimes.Day;
+            }
+        }
+
         public static Daytimes GetRandomDaytime()
         {
             var values = Enum.GetValues(typeof(Daytimes));
             int index = _rnd.Next(values.Length);
             return (Daytimes)values.GetValue(index);
+        }
+
+        public Biomes GetBiome()
+        {
+            if (Levels.Chart.TryGetValue(levelName, out var level))
+            {
+                return level.Biome;
+            }
+            else
+            {
+                Console.WriteLine($"Level '{levelName}' not found in chart.");
+                return Biomes.Forest;
+            }
         }
 
         public static Biomes GetRandomBiome()
@@ -72,8 +102,14 @@ namespace groundCrashers_game.classes
             try
             {
                 // Load creatures
-                //LoadAllCreatures();
-                LoadAllCreaturesFromWebAsync();
+                LoadAllCreatures();
+                //LoadAllCreaturesFromWebAsync();
+
+                if(StoryMode)
+                {
+                    // Load levels from local JSON for story mode
+                    Levels.LoadLevelsFromJson(); 
+                }
 
                 // Load elements
                 //ElementChart.LoadElementsFromJson();

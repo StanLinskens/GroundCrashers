@@ -28,8 +28,6 @@ namespace groundCrashers_game
         private Button runButton;
         private WrapPanel actionButtonsPanel;
 
-        private bool StoryMode;
-
         private Dictionary<Elements, string> CreatureElementColor = new()
         {
             { Elements.Nature, "#6AA84F" },     
@@ -64,13 +62,16 @@ namespace groundCrashers_game
             { Primaries.Titan, "#B71C1C" }      
         };
 
-        public GameWindow(bool storyMode)
+        public GameWindow(bool storyMode, string LVLName = "null")
         {
-            StoryMode = storyMode;
             InitializeComponent();
 
             // Initialize the game manager
             gameManager = new Manager();
+
+            gameManager.StoryMode = storyMode;
+            gameManager.levelName = LVLName;
+
             gameManager.LoadGameData();
             gameManager.LoadActorsForBattleMode();
 
@@ -81,7 +82,15 @@ namespace groundCrashers_game
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
 
-            RandomScenarioGenerator();
+            if(storyMode)
+            {
+                EnviromentGenerator();
+            }
+            else
+            {
+                RandomScenarioGenerator();
+            }
+
 
             audioPlayer = new AudioPlayer();
 
@@ -189,6 +198,23 @@ namespace groundCrashers_game
                 EnemyHealthText.Text = "0/" + EnemyHealt_split[1];
                 this.Close();
             }
+        }
+
+        private void EnviromentGenerator()
+        {
+            // 1) Get random enum values
+            var Biome = gameManager.GetBiome();
+            var Time = gameManager.GetDaytime();
+            var randomWeather = Manager.GetRandomWeather();
+            // 2) Update the TextBlocks
+            BiomeText.Text = Biome.ToString().ToUpper();
+            BiomeIcon.Text = GetBiomeEmoji(Biome);
+            DaytimeText.Text = Time.ToString().ToUpper();
+            DaytimeIcon.Text = GetDaytimeEmoji(Time);
+            WeatherText.Text = randomWeather.ToString().ToUpper();
+            WeatherIcon.Text = GetWeatherEmoji(randomWeather);
+            // 3) Set the background image based on the random biome
+            BiomeBackground.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/images/battleGrounds/{Biome.ToString().ToLower()}.jpg", UriKind.Absolute));
         }
 
         // Event handler for when the window is loaded
@@ -546,7 +572,7 @@ namespace groundCrashers_game
 
         private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
         {
-            GroundCrasherWindow crasherWindow = new GroundCrasherWindow(gameManager, this, portalManager, StoryMode);
+            GroundCrasherWindow crasherWindow = new GroundCrasherWindow(gameManager, this, portalManager);
             crasherWindow.Show();
             RefreshLogBox();
         }
