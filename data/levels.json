@@ -3,41 +3,768 @@
         "name": "ForestLVL1",
         "biome": "Forest",
         "daytime": "Dawn",
-        "amountCreatures": 1,
-        "CreatureID": [ 44 ],
+        "amountCreaturesPlayer": 1,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [  ],
         "strengthModifier": 75
     },
     {
         "name": "ForestLVL2",
         "biome": "Forest",
         "daytime": "Day",
-        "amountCreatures": 1,
-        "CreatureID": [ 49 ],
+        "amountCreaturesPlayer": 1,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [  ],
         "strengthModifier": 75
     },
     {
         "name": "ForestLVL3",
         "biome": "Forest",
         "daytime": "Day",
-        "amountCreatures": 1,
-        "CreatureID": [ 46 ],
-        "strengthModifier": 80
+        "amountCreaturesPlayer": 1,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [  ],
+        "strengthModifier": 75
     },
     {
         "name": "ForestLVL4",
         "biome": "Forest",
         "daytime": "Dusk",
-        "amountCreatures": 1,
-        "CreatureID": [ 55 ],
+        "amountCreaturesPlayer": 1,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [  ],
         "strengthModifier": 80
     },
     {
         "name": "ForestLVL5",
         "biome": "Forest",
         "daytime": "Night",
-        "amountCreatures": 1,
-        "CreatureID": [ 30 ],
+        "amountCreaturesPlayer": 1,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [  ],
         "strengthModifier": 90
+    },
+
+
+
+    {
+        "name": "WastelandLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 1,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [  ],
+        "strengthModifier": 80
+    },
+    {
+        "name": "WastelandLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 1,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [  ],
+        "strengthModifier": 80
+    },
+    {
+        "name": "WastelandLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 1,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [  ],
+        "strengthModifier": 80
+    },
+    {
+        "name": "WastelandLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 1,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "WastelandLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "MountainLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "MountainLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "MountainLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "MountainLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "MountainLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+    
+    {
+        "name": "GlacierLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "GlacierLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "GlacierLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "GlacierLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "GlacierLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "JungleLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "JungleLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "JungleLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "JungleLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "JungleLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "CrystalCavernLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "CrystalCavernLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "CrystalCavernLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "CrystalCavernLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "CrystalCavernLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+
+    {
+        "name": "CaveLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "CaveLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "CaveLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "CaveLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "CaveLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "SwampLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "SwampLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "SwampLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "SwampLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "SwampLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+
+    {
+        "name": "HighlandsLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "HighlandsLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "HighlandsLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "HighlandsLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "HighlandsLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "MarshLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "MarshLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "MarshLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "MarshLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "MarshLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "TundraLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "TundraLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "TundraLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "TundraLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "TundraLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "SavannaLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "SavannaLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "SavannaLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "SavannaLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "SavannaLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "RuinsLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "RuinsLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "RuinsLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "RuinsLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "RuinsLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "OceanLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "OceanLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "OceanLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "OceanLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "OceanLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "DesertLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "DesertLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "DesertLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "DesertLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "DesertLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+
+
+
+    {
+        "name": "VolcanoLVL1",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "VolcanoLVL2",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "VolcanoLVL3",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "VolcanoLVL4",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
+    },
+    {
+        "name": "VolcanoLVL5",
+        "biome": "Forest",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [  ],
+        "strengthModifier": 85
     }
 
 ]
