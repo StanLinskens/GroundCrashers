@@ -93,7 +93,7 @@ namespace groundCrashers_game
 
 
             audioPlayer = new AudioPlayer();
-
+            audioPlayer.Stop();
             audioPlayer.PlayRandomBattleMusic();
         }
 

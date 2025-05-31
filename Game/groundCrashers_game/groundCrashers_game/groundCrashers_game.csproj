@@ -573,8 +573,4 @@
     <Resource Include="Images\other\questionmark.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Audio\" />
-  </ItemGroup>
-
 </Project>
