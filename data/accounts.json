@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "pattje72",
-    "password": "YcW7A57t",
+    "password": "sven",
     "current_biome_id": 0,
     "current_biome_lvl_id": 1
   },
@@ -10,8 +10,8 @@
     "id": 2,
     "name": "1",
     "password": "1",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1
+    "current_biome_id": 15,
+    "current_biome_lvl_id": 3
   },
   {
     "id": 3,

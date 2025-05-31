@@ -196,8 +196,8 @@ namespace groundCrashers_game.classes
             {
                 logs.Add("you win");
                 MessageBox.Show("You win!");
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+                LevelMapWindow mapWindow = new LevelMapWindow(true);
+                mapWindow.Show();
             }
         }
 
@@ -641,6 +641,7 @@ namespace groundCrashers_game.classes
             }
             return ActionType.Attack; // Default action
         }
+
         public void ControlLogs()
         {
             while (logs.Count > 10)
@@ -829,6 +830,7 @@ namespace groundCrashers_game.classes
             {
                 case "Health":
                     creature.stats.max_hp = (int)Math.Round(creature.stats.max_hp * number);
+                    creature.stats.hp = creature.stats.max_hp; // Reset current hp to max after buff
                     break;
                 case "Attack":
                     creature.stats.max_attack = (int)Math.Round(creature.stats.max_attack * number);
@@ -847,12 +849,21 @@ namespace groundCrashers_game.classes
 
         public void LoadActorsForBattleMode()
         {
-            CurrentActors.Clear();
-
-            // Create CPU Actor
             var cpuActor = new Actor("CPU", false);
-            cpuActor.Creatures.AddRange(GetRandomCreatures(_maxCreatures));
-            CurrentActors.Add(cpuActor);
+
+            if (!StoryMode)
+            {
+                cpuActor.Creatures.AddRange(GetRandomCreatures(_maxCreatures));
+                CurrentActors.Add(cpuActor);
+            }
+            else
+            {
+                GetLevelCreatures(cpuActor);
+                CurrentActors.Add(cpuActor);
+                CpuLVLBalance();
+            }
+
+
 
             // enviroment buff for CPU
             EnviromentBuff_Setup(cpuActor);
@@ -866,6 +877,53 @@ namespace groundCrashers_game.classes
             ActiveCpuCreature = cpuActor.Creatures.Count > 0
                 ? cpuActor.Creatures[0]
                 : null;
+        }
+
+        private void CpuLVLBalance()
+        {
+            // Balance CPU creatures based on the level
+            if (Levels.Chart.TryGetValue(levelName, out var level))
+            {
+                double multiplier = level.StrengthModifier / 100.0;
+
+                foreach (var creature in GetCpuActor().Creatures)
+                {
+                    creature.stats.max_hp = (int)(creature.stats.max_hp * multiplier);
+                    creature.stats.max_attack = (int)(creature.stats.max_attack * multiplier);
+                    creature.stats.max_defense = (int)(creature.stats.max_defense * multiplier);
+                    creature.stats.max_speed = (int)(creature.stats.max_speed * multiplier);
+
+                    // stats reset to max new after balancing
+                    creature.stats.hp = creature.stats.max_hp;
+                    creature.stats.attack = creature.stats.max_attack;
+                    creature.stats.defense = creature.stats.max_defense;
+                    creature.stats.speed = creature.stats.max_speed;
+                }
+            }
+        }
+
+        private void GetLevelCreatures(Actor cpuActor)
+        {
+            // In story mode, load creatures from the current level
+            if (Levels.Chart.TryGetValue(levelName, out var level))
+            {
+                foreach (int creatureId in level.CreatureID)
+                {
+                    var creature = AllCreatures.Find(c => c.id == creatureId);
+                    if (creature != null)
+                    {
+                        cpuActor.Creatures.Add(creature.Clone());
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Creature with ID {creatureId} not found.");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Level '{levelName}' not found in chart.");
+            }
         }
 
         private List<Creature> GetRandomCreatures(int count)

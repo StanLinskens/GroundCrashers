@@ -23,27 +23,33 @@ namespace groundCrashers_game
 
         bool lvls_Hidden = false;
 
-        public LevelMapWindow()
+        public LevelMapWindow(bool LVLWon = false)
         {
             InitializeComponent();
+
+            SecretSpaceBtn.Visibility = Visibility.Collapsed;
+
+            if (LVLWon)
+            {
+                ActiveAccount.Active_current_biome_lvl_id++;
+                if (ActiveAccount.Active_current_biome_lvl_id == 6)
+                {
+                    ActiveAccount.Active_current_biome_lvl_id = 1;
+                    ActiveAccount.Active_current_biome_id++;
+                }
+            }
 
             currentBiomeIndex = ActiveAccount.Active_current_biome_id;
             currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
 
-            if (LVLWon)
-            {
-                currentBiomeIndex++;
-                if (currentLVLIndex == 6)
-                {
-                    currentLVLIndex = 1;
-                    currentBiomeIndex++;
-                    
-                }
-            }
-
             LVLWon = false;
 
             AccountManager.UpdateActiveAccount();
+
+            if (currentBiomeIndex >= 16)
+            {
+                SecretSpaceBtn.Visibility = Visibility.Visible;
+            }
 
             _audioPlayer = new AudioPlayer();
             _audioPlayer.Stop();

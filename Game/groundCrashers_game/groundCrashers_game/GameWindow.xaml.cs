@@ -85,6 +85,11 @@ namespace groundCrashers_game
             if(storyMode)
             {
                 EnviromentGenerator();
+
+                if (Levels.Chart.TryGetValue(gameManager.levelName, out var level))
+                {
+                    gameManager._maxCreatures = level.AmountCreaturesPlayer; // Use the 'level' object to access the property
+                }
             }
             else
             {
@@ -579,10 +584,21 @@ namespace groundCrashers_game
 
         private void Run_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow MainWindow = new MainWindow();
-            MainWindow.Show();
-            RefreshLogBox();
-            this.Close();
+            if (gameManager.StoryMode)
+            {
+                LevelMapWindow MapWindow = new LevelMapWindow();
+                MapWindow.Show();
+                RefreshLogBox();
+                this.Close();
+            }
+            else
+            {
+                MainWindow MainWindow = new MainWindow();
+                MainWindow.Show();
+                RefreshLogBox();
+                this.Close();
+            }
+
         }
 
         private void PlayerCreatureName_Click(object sender, RoutedEventArgs e)
