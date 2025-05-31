@@ -84,7 +84,7 @@ namespace groundCrashers_game
             RandomScenarioGenerator();
 
             audioPlayer = new AudioPlayer();
-
+            audioPlayer.Stop();
             audioPlayer.PlayRandomBattleMusic();
         }
 

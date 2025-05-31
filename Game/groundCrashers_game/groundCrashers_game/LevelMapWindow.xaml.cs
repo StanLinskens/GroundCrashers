@@ -13,6 +13,8 @@ namespace groundCrashers_game
     /// </summary>
     public partial class LevelMapWindow : Window
     {
+        AudioPlayer _audioPlayer;
+
         // to get current biome and level index
 
         public bool LVLWon { get; set; } = false;
@@ -43,6 +45,9 @@ namespace groundCrashers_game
 
             AccountManager.UpdateActiveAccount();
 
+            _audioPlayer = new AudioPlayer();
+            _audioPlayer.Stop();
+            _audioPlayer.PlaySpecific("map.wav",true);
 
             Show_Levels();
         }
