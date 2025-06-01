@@ -262,8 +262,17 @@ namespace groundCrashers_game
                 var button = this.FindName(buttonName) as UIElement;
                 if (button != null)
                 {
-                    if (!lvls_Hidden && biomeValue <= currentBiomeIndex) button.Visibility = Visibility.Visible;
-                    else button.Visibility = Visibility.Collapsed;
+                    if (spaceMap_hidden && biomeValue <= 15)
+                    {
+                        if (!lvls_Hidden && biomeValue <= currentBiomeIndex) button.Visibility = Visibility.Visible;
+                        else button.Visibility = Visibility.Collapsed;
+                    }
+                    else
+                    {
+                        if (!lvls_Hidden && biomeValue >= 16) button.Visibility = Visibility.Visible;
+                        else button.Visibility = Visibility.Collapsed;
+                    }
+
                 }
             }
             lvls_Hidden = !lvls_Hidden;

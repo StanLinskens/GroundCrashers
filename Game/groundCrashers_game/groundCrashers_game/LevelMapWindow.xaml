@@ -51,7 +51,7 @@
                 Height="1080">
             <Canvas.Background>
                 <ImageBrush x:Name="MapBackground"
-                            ImageSource="/Images/battleGrounds/map.png"/>
+                            ImageSource="/Images/battleGrounds/space.png"/>
             </Canvas.Background>
 
             <Border
@@ -1185,6 +1185,75 @@
                                         Margin="0,4,0,0"
                                         Width="100"
                                         Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- earth space map -->
+            <Border Canvas.Left="290"
+                    Canvas.Top="155">
+                <Grid>
+                    <Button
+                    x:Name="EarthButton"
+                    Style="{StaticResource DarkButton}"
+                    Width="150"
+                    Height="45"
+                    Background="#3A2F6B"
+                    BorderBrush="#574683"
+                    BorderThickness="2" 
+                    Content="???"
+                    FontSize="16"
+                    FontWeight="Bold"
+                    Foreground="#D1C4E9"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    Margin="0,8,0,0"
+                    Click="EarthChooseBtn_Click"/>
+
+                    <Popup x:Name="EarthPopup"
+                PlacementTarget="{Binding ElementName=EarthChooseBtn}"
+                Placement="Bottom"
+                Width="150"
+                StaysOpen="False"
+                AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                     BorderBrush="#444444"
+                     BorderThickness="2"
+                     CornerRadius="6"
+                     Padding="6">
+                            <StackPanel>
+                                <Button x:Name="EarthLVL1"
+                             Content="Level 1"
+                             Style="{StaticResource DarkButton}"
+                             Margin="0,4,0,0"
+                             Width="100"
+                             Click="Start_Click"/>
+                                <Button x:Name="EarthLVL2"
+                             Content="Level 2"
+                             Style="{StaticResource DarkButton}"
+                             Margin="0,4,0,0"
+                             Width="100"
+                             Click="Start_Click"/>
+                                <Button x:Name="EarthLVL3"
+                             Content="Level 3"
+                             Style="{StaticResource DarkButton}"
+                             Margin="0,4,0,0"
+                             Width="100"
+                             Click="Start_Click"/>
+                                <Button x:Name="EarthLVL4"
+                             Content="Level 4"
+                             Style="{StaticResource DarkButton}"
+                             Margin="0,4,0,0"
+                             Width="100"
+                             Click="Start_Click"/>
+                                <Button x:Name="EarthLVL5"
+                             Content="Level 5"
+                             Style="{StaticResource DarkButton}"
+                             Margin="0,4,0,0"
+                             Width="100"
+                             Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
