@@ -21,7 +21,9 @@ namespace groundCrashers_game
         public int currentBiomeIndex { get; set; } = 0;
         public int currentLVLIndex { get; set; } = 1;
 
-        bool lvls_Hidden = false;
+        bool lvls_Hidden = true;
+
+        bool spaceMap_hidden = true;
 
         public LevelMapWindow(bool LVLWon = false)
         {
@@ -109,7 +111,7 @@ namespace groundCrashers_game
                 // if the biome is the current biome, show all levels up to the current level index
                 else if (biomeValue == currentBiomeIndex)
                 {
-                    // all levels after the current biome are hidden
+                    // all levels after the current lvl are hidden
                     for (int i = 5; i > currentLVLIndex; i--)
                     {
                         var buttonLVLName = $"{biome}LVL{i}";
@@ -262,7 +264,7 @@ namespace groundCrashers_game
                 var button = this.FindName(buttonName) as UIElement;
                 if (button != null)
                 {
-                    if (lvls_Hidden && biomeValue <= currentBiomeIndex) button.Visibility = Visibility.Visible;
+                    if (!lvls_Hidden && biomeValue <= currentBiomeIndex) button.Visibility = Visibility.Visible;
                     else button.Visibility = Visibility.Collapsed;
                 }
             }
@@ -280,6 +282,8 @@ namespace groundCrashers_game
 
         private void SecretSpaceBtn_Click(object sender, RoutedEventArgs e)
         {
+            spaceMap_hidden = !spaceMap_hidden;
+
             string currentImage = MapBackground.ImageSource.ToString();
 
             string newImage = currentImage.Contains("space.png")
@@ -287,8 +291,26 @@ namespace groundCrashers_game
                 : "pack://application:,,,/Images/battleGrounds/space.png";
 
             MapBackground.ImageSource = new BitmapImage(new Uri(newImage));
+
+            foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
+            {
+
+                int biomeValue = (int)biome;
+                var buttonName = $"{biome}Button";
+                var button = this.FindName(buttonName) as UIElement;
+                if (button != null)
+                {
+                    if (spaceMap_hidden && biomeValue <= 15)
+                    {
+                        button.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        button.Visibility = Visibility.Collapsed;
+                    }
+
+                }
+            }
         }
-
-
     }
 }
