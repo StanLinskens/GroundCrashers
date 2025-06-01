@@ -340,33 +340,24 @@
         writeBtn.addEventListener('click', writeToNFC);
 
         randomBtn.addEventListener('click', () => {
-            let randomNum;
+            // Always generate random number from min/max range
+            const randomNum = getRandomFromRange();
+            showStatus(`Generated random number: ${randomNum}`, 'success');
             
-            // Use array if it has numbers, otherwise use range
-            if (currentArray.length > 0) {
-                randomNum = getRandomFromArray();
-                showStatus(`Random from array: ${randomNum}`, 'success');
+            // Add the random number to the input field
+            const currentInput = numbersInput.value.trim();
+            if (currentInput === '') {
+                numbersInput.value = randomNum.toString();
             } else {
-                randomNum = getRandomFromRange();
-                showStatus(`Random from range ${minValue}-${maxValue}: ${randomNum}`, 'success');
+                numbersInput.value = currentInput + ',' + randomNum;
             }
             
-            if (randomNum !== null) {
-                // Add the random number to the input field
-                const currentInput = numbersInput.value.trim();
-                if (currentInput === '') {
-                    numbersInput.value = randomNum.toString();
-                } else {
-                    numbersInput.value = currentInput + ',' + randomNum;
-                }
-                
-                // Update the array preview
-                updateArrayPreview();
-                
-                // Show the result
-                randomResult.textContent = randomNum;
-                randomResult.style.display = 'block';
-            }
+            // Update the array preview
+            updateArrayPreview();
+            
+            // Show the result
+            randomResult.textContent = randomNum;
+            randomResult.style.display = 'block';
         });
 
         // Initialize
