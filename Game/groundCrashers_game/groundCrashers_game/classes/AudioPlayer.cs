@@ -6,20 +6,25 @@ using System.Threading.Tasks;
 
 namespace groundCrashers_game.classes
 {
-    public class AudioPlayer
+    public class AudioPlayer : IDisposable
     {
-        private SoundPlayer player;
-        private Random random = new Random();
+        private static AudioPlayer _instance;
+        public static AudioPlayer Instance => _instance ??= new AudioPlayer();
+
+        private SoundPlayer player;            // for PlaySpecific
+        private SoundPlayer battlePlayer;      // for the battleground loop
+        private readonly Random random = new Random();
 
         // Token source used to stop the battleground rotation thread
         private CancellationTokenSource battleCts;
         private Task battleTask;
+        private readonly object lockObject = new object();
 
         /// <summary>
         /// Play any specific .wav file once or looped.
         /// </summary>
-        /// <param name="filePath">Full path to the .wav file</param>
-        /// <param name="loop">If true, will loop the file until Stop() is called</param>
+        /// <param name="fileName">File name (just the .wav file, no path)</param>
+        /// <param name="loop">If true, will loop until Stop() is called</param>
         public void PlaySpecific(string fileName, bool loop = false)
         {
             // Build full path from fileName (just the file, no path)
@@ -36,17 +41,20 @@ namespace groundCrashers_game.classes
 
             try
             {
-                player = new SoundPlayer(fullPath);
+                lock (lockObject)
+                {
+                    player = new SoundPlayer(fullPath);
 
-                if (loop)
-                {
-                    player.PlayLooping();
-                    Console.WriteLine($"Looping: {fullPath}");
-                }
-                else
-                {
-                    player.Play();
-                    Console.WriteLine($"Playing once: {fullPath}");
+                    if (loop)
+                    {
+                        player.PlayLooping();
+                        Console.WriteLine($"Looping: {fullPath}");
+                    }
+                    else
+                    {
+                        player.Play();
+                        Console.WriteLine($"Playing once: {fullPath}");
+                    }
                 }
             }
             catch (Exception ex)
@@ -55,15 +63,15 @@ namespace groundCrashers_game.classes
             }
         }
 
-
         /// <summary>
         /// Start continuously rotating through all battleground*.wav files in the Audio folder.
         /// When one finishes, another (random) will start automatically.
+        /// This runs asynchronously and won't block the UI.
         /// </summary>
-        public void PlayRandomBattleMusic()
+        public async Task PlayRandomBattleMusicAsync()
         {
             // Stop anything that might already be playing
-            Stop();
+            await StopAsync();
 
             string folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Audio");
             if (!Directory.Exists(folder))
@@ -84,64 +92,150 @@ namespace groundCrashers_game.classes
             battleCts = new CancellationTokenSource();
             CancellationToken token = battleCts.Token;
 
-            // Run the rotation in a background Task
-            battleTask = Task.Run(() =>
+            battleTask = Task.Run(async () =>
             {
                 while (!token.IsCancellationRequested)
                 {
-                    // Pick a random battleground file
                     string nextFile = wavFiles[random.Next(wavFiles.Length)];
                     Console.WriteLine("Playing: " + nextFile);
 
                     try
                     {
-                        // Create a new player each time (we’ll dispose it before picking the next)
-                        using (var loopPlayer = new SoundPlayer(nextFile))
+                        lock (lockObject)
                         {
-                            // PlaySync blocks until the file finishes
-                            loopPlayer.PlaySync();
+                            if (token.IsCancellationRequested) break;
+
+                            // Dispose previous battlePlayer if exists
+                            battlePlayer?.Dispose();
+                            battlePlayer = new SoundPlayer(nextFile);
                         }
+
+                        // Use Play() instead of PlaySync() to avoid blocking
+                        battlePlayer.Play();
+
+                        // Get audio duration (you'll need to implement this method)
+                        int duration = GetAudioDurationMs(nextFile);
+
+                        // Wait for the sound to finish or cancellation
+                        await Task.Delay(duration, token);
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        // We were told to cancel; exit the loop immediately
+                        break;
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine($"Error playing '{nextFile}': {ex.Message}");
+                        // Small delay before trying next file
+                        await Task.Delay(1000, token);
                     }
 
-                    // Small check to see if we should exit before picking another
-                    if (token.IsCancellationRequested) break;
+                    if (token.IsCancellationRequested)
+                        break;
                 }
             }, token);
         }
 
         /// <summary>
-        /// Stops any playing sound (specific or in rotation) and cancels the battleground loop.
+        /// Synchronous version that starts the async battleground music
+        /// </summary>
+        public void PlayRandomBattleMusic()
+        {
+            _ = PlayRandomBattleMusicAsync();
+        }
+
+        /// <summary>
+        /// Stops any playing sound (specific or battleground loop) and cancels the loop.
         /// </summary>
         public void Stop()
         {
-            // Cancel the battleground rotation if it’s running
+            StopAsync().Wait();
+        }
+
+        /// <summary>
+        /// Async version of Stop method
+        /// </summary>
+        public async Task StopAsync()
+        {
+            // 1) Cancel the battleground loop if it's running
             if (battleCts != null && !battleCts.IsCancellationRequested)
             {
                 battleCts.Cancel();
-                try
+
+                // Wait for the task to complete with timeout
+                if (battleTask != null)
                 {
-                    battleTask?.Wait(); // wait for the loop to end
+                    try
+                    {
+                        await battleTask.WaitAsync(TimeSpan.FromSeconds(2));
+                    }
+                    catch (TimeoutException)
+                    {
+                        Console.WriteLine("Battle task didn't stop within timeout");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error stopping battle task: {ex.Message}");
+                    }
                 }
-                catch (AggregateException) { /* ignore */ }
+
                 battleCts.Dispose();
                 battleCts = null;
+                battleTask = null;
             }
 
-            // Stop the current player if it exists
-            if (player != null)
+            lock (lockObject)
             {
-                try
+                // 2) Stop/Dispose the battlePlayer if it exists
+                if (battlePlayer != null)
                 {
-                    player.Stop();
+                    try
+                    {
+                        battlePlayer.Stop();
+                    }
+                    catch { /* ignore errors */ }
+
+                    battlePlayer.Dispose();
+                    battlePlayer = null;
                 }
-                catch { /* ignore errors on stop */ }
-                player.Dispose();
-                player = null;
+
+                // 3) Stop/Dispose the "specific" player if it exists
+                if (player != null)
+                {
+                    try
+                    {
+                        player.Stop();
+                    }
+                    catch { /* ignore errors */ }
+
+                    player.Dispose();
+                    player = null;
+                }
             }
         }
+
+        public void Dispose()
+        {
+            Stop();
+        }
+
+        private int GetAudioDurationMs(string filePath)
+        {
+            // Use NAudio to read the file's duration
+            try
+            {
+                using (var reader = new NAudio.Wave.AudioFileReader(filePath))
+                {
+                    return (int)reader.TotalTime.TotalMilliseconds;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting audio duration for '{filePath}': {ex.Message}");
+                return 10000; // Default to 10 seconds if unknown
+            }
+        }
+
     }
 }

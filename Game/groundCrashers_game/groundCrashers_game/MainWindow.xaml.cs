@@ -5,15 +5,13 @@ namespace groundCrashers_game
 {
     public partial class MainWindow : Window
     {
-        AudioPlayer player;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            player = new AudioPlayer();
-            player.Stop();
-            player.PlaySpecific("intro.wav",true);
+            AudioPlayer.Instance.Stop();
+            AudioPlayer.Instance.PlaySpecific("intro.wav",true);
         }
 
         private void StartGame_Click(object sender, RoutedEventArgs e)

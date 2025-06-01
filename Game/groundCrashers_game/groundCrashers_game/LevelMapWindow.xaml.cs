@@ -13,7 +13,6 @@ namespace groundCrashers_game
     /// </summary>
     public partial class LevelMapWindow : Window
     {
-        AudioPlayer _audioPlayer;
 
         // to get current biome and level index
 
@@ -53,9 +52,8 @@ namespace groundCrashers_game
                 SecretSpaceBtn.Visibility = Visibility.Visible;
             }
 
-            _audioPlayer = new AudioPlayer();
-            _audioPlayer.Stop();
-            _audioPlayer.PlaySpecific("map.wav",true);
+            AudioPlayer.Instance.Stop();
+            AudioPlayer.Instance.PlaySpecific("map.wav",true);
 
             Show_Levels();
         }

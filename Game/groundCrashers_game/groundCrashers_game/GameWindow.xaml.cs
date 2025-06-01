@@ -20,7 +20,6 @@ namespace groundCrashers_game
     {
         Manager gameManager;
         Esp32Manager portalManager;
-        AudioPlayer audioPlayer;
 
         private Button fightButton;
         private Button bagButton;
@@ -96,10 +95,9 @@ namespace groundCrashers_game
                 RandomScenarioGenerator();
             }
 
-
-            audioPlayer = new AudioPlayer();
-            audioPlayer.Stop();
-            audioPlayer.PlayRandomBattleMusic();
+            
+            AudioPlayer.Instance.Stop();
+            //AudioPlayer.Instance.PlayRandomBattleMusic();
         }
 
         public void RefreshLogBox()
