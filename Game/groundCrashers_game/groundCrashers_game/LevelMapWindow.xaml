@@ -70,12 +70,12 @@
                         Click="DisplayMapButton_Click"
                     />
             </Border>
-            
+
             <Border 
                     Canvas.Left="1790"
-                    Canvas.Top="65">
+                    Canvas.Top="55">
                 <Button 
-                    x:Name="SecretSpaceBtn"
+                    x:Name="SpaceBtn"
                     Canvas.Left="10"
                     Canvas.Top="1000"
                     Width="125"
@@ -85,7 +85,7 @@
                     Content="Space map"
                     Style="{StaticResource DarkButton}"
                     ToolTip="Secret"
-                    Click="SecretSpaceBtn_Click"/>
+                    Click="SpaceBtn_Click"/>
             </Border>
 
             <!-- Forest Biome -->
