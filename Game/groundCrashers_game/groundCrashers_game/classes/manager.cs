@@ -152,7 +152,9 @@ namespace groundCrashers_game.classes
         // Damage formula
         public int Damage(Creature attacker, Creature defender)
         {
-            float damage = attacker.stats.attack / 100f * (100f - ((100f / 600f) * defender.stats.defense));
+            float defense = (100f / 600f) * defender.stats.defense;
+            if (defense > 50) defense = 50; 
+            float damage = attacker.stats.attack / 100f * (100f - defense);
             float multiplier = PrimaryChart.GetPrimaryEffectiveness(attacker.primary_type, defender.primary_type);
             damage *= multiplier;
             logs.Add($"{attacker.name} did {multiplier}x the normal damage");
@@ -161,7 +163,9 @@ namespace groundCrashers_game.classes
 
         public int DamageElemental(Creature attacker, Creature defender)
         {
-            float damage = attacker.stats.attack / 100f * (100f - ((100f / 600f) * defender.stats.defense));
+            float defense = (100f / 600f) * defender.stats.defense;
+            if (defense > 50) defense = 50;
+            float damage = attacker.stats.attack / 100f * (100f - defense);
             float multiplier = ElementChart.GetElementEffectiveness(attacker.element, defender.element);
             damage *= multiplier;
             damage *= 0.4f; // Elemental attacks do less damage
@@ -299,10 +303,6 @@ namespace groundCrashers_game.classes
                             {
                                 int healing = (int)Math.Round(attacker.stats.max_hp * 0.20f); // 20% heal
                                 attacker.stats.hp += healing;
-                                if(attacker.stats.hp > attacker.stats.max_hp)
-                                {
-                                    attacker.stats.hp = attacker.stats.max_hp; // Cap at max hp
-                                }
                                 attacker.curse = Elements.none;
                             }
                             else if (curse == "SkipTurn")
@@ -314,7 +314,7 @@ namespace groundCrashers_game.classes
                     case ActionType.Swap:
                         {
                             // if cpu turn
-                            if(_currentActorIndex == 0)
+                            if(_currentActorIndex == 0 && curse != "SkipTurn")
                             {
                                 Actor cpuActor = GetCpuActor();
 
@@ -326,8 +326,9 @@ namespace groundCrashers_game.classes
                                 ActiveCpuCreature = candidate;
                                 break;
                             }
+
                             // if player turn
-                            else if (_currentActorIndex == 1)
+                            else if (_currentActorIndex == 1 && curse != "SkipTurn")
                             {
                                 Actor playerActor = GetPlayerActor();
                                 if (name != "default")
@@ -341,6 +342,10 @@ namespace groundCrashers_game.classes
                                 }
                                 break;
                             }
+                            if (curse == "SkipTurn")
+                            {
+                                logs.Add(attacker.name + " skipped turn");
+                            }
                             break;
                         }
 
@@ -351,7 +356,10 @@ namespace groundCrashers_game.classes
                 // 4) Advance to the next actor’s turn
                 _currentActorIndex = 1 - _currentActorIndex;
 
-
+                if (attacker.stats.hp > attacker.stats.max_hp)
+                {
+                    attacker.stats.hp = attacker.stats.max_hp; // Cap at max hp
+                }
 
                 // 5) If we’ve just returned to actor 0, that means both have acted → increment round
                 if (_currentActorIndex == 0)
@@ -368,9 +376,9 @@ namespace groundCrashers_game.classes
                     attacker.stats.speed = attacker.stats.max_speed;
                 }
 
-                if ((attacker != null) && attacker.curse == Elements.ALL)
+                if ((defender != null) && defender.curse == Elements.ALL)
                 {
-                    RandomCurse(attacker);
+                    RandomCurse(defender);
                 }
             }
         }
@@ -399,7 +407,7 @@ namespace groundCrashers_game.classes
             else if (randomnumber <= 918) { ActiveCreature.curse = Elements.Void; }
             else if (randomnumber <= 969) { ActiveCreature.curse = Elements.Astral; }
             else { ActiveCreature.curse = Elements.GOD; } // 970–1000
-            if (ActiveCpuCreature.primary_type == Primaries.Titan && randomnumber <= 250) ActiveCreature.curse = Elements.GOD;
+            if (ActiveCreature.primary_type == Primaries.Titan && randomnumber <= 250) ActiveCreature.curse = Elements.GOD;
         }
 
         private string CurseEffect(Creature activeCreature)
@@ -452,6 +460,7 @@ namespace groundCrashers_game.classes
                         break;
                     case Elements.GOD:
                         {
+                            int damage = (int)Math.Round(activeCreature.stats.max_hp * 0.05f); // 5% max hp damage
                             activeCreature.stats.hp -= (int)Math.Round(activeCreature.stats.max_hp * 0.15f); // 15% max hp damage
                             return "SkipTurn";
                         }
@@ -566,6 +575,7 @@ namespace groundCrashers_game.classes
             int playerMaxHp = ActivePlayerCreature.stats.max_hp;
             int playerPercentage = (int)Math.Round((float)playerHp / playerMaxHp * 100);
 
+            if(ActivePlayerCreature.curse == Elements.GOD) return ActionType.Defend; // If player is cursed with GOD, CPU will always defend
             if ((randomNumber < 33) && multiplier < 1)
             {
                 Actor cpuActor = GetCpuActor();
@@ -942,6 +952,10 @@ namespace groundCrashers_game.classes
                     if (creature != null)
                     {
                         cpuActor.Creatures.Add(creature.Clone());
+                    }
+                    else if (creatureId == 999)
+                    {
+                        cpuActor.Creatures.AddRange(GetRandomCreatures(1));
                     }
                     else
                     {

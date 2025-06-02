@@ -1242,18 +1242,6 @@
                              Margin="0,4,0,0"
                              Width="100"
                              Click="Start_Click"/>
-                                <Button x:Name="MoonLVL4"
-                             Content="Level 4"
-                             Style="{StaticResource DarkButton}"
-                             Margin="0,4,0,0"
-                             Width="100"
-                             Click="Start_Click"/>
-                                <Button x:Name="MoonLVL5"
-                             Content="Level 5"
-                             Style="{StaticResource DarkButton}"
-                             Margin="0,4,0,0"
-                             Width="100"
-                             Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1307,18 +1295,6 @@
                                     Click="Start_Click"/>
                                 <Button x:Name="NebulaLVL3"
                                     Content="Level 3"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
-                                <Button x:Name="NebulaLVL4"
-                                    Content="Level 4"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
-                                <Button x:Name="NebulaLVL5"
-                                    Content="Level 5"
                                     Style="{StaticResource DarkButton}"
                                     Margin="0,4,0,0"
                                     Width="100"
@@ -1380,18 +1356,6 @@
                                     Margin="0,4,0,0"
                                     Width="100"
                                     Click="Start_Click"/>
-                                <Button x:Name="InterstellarLVL4"
-                                    Content="Level 4"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
-                                <Button x:Name="InterstellarLVL5"
-                                    Content="Level 5"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1445,18 +1409,6 @@
                                     Click="Start_Click"/>
                                 <Button x:Name="DebrisLVL3"
                                     Content="Level 3"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
-                                <Button x:Name="DebrisLVL4"
-                                    Content="Level 4"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
-                                <Button x:Name="DebrisLVL5"
-                                    Content="Level 5"
                                     Style="{StaticResource DarkButton}"
                                     Margin="0,4,0,0"
                                     Width="100"
@@ -1518,18 +1470,6 @@
                                     Margin="0,4,0,0"
                                     Width="100"
                                     Click="Start_Click"/>
-                                <Button x:Name="SaturnLVL4"
-                                    Content="Level 4"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
-                                <Button x:Name="SaturnLVL5"
-                                    Content="Level 5"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1583,18 +1523,6 @@
                                     Click="Start_Click"/>
                                 <Button x:Name="CybertronLVL3"
                                     Content="Level 3"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
-                                <Button x:Name="CybertronLVL4"
-                                    Content="Level 4"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
-                                <Button x:Name="CybertronLVL5"
-                                    Content="Level 5"
                                     Style="{StaticResource DarkButton}"
                                     Margin="0,4,0,0"
                                     Width="100"
@@ -1656,14 +1584,59 @@
                                     Margin="0,4,0,0"
                                     Width="100"
                                     Click="Start_Click"/>
-                                <Button x:Name="SunLVL4"
-                                    Content="Level 4"
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- earth space map -->
+            <Border Canvas.Left="290"
+                    Canvas.Top="150">
+                <Grid>
+                    <Button
+                        x:Name="EarthButton"
+                        Style="{StaticResource DarkButton}"
+                        Width="150"
+                        Height="45"
+                        Background="#3A2F6B"
+                        BorderBrush="#574683"
+                        BorderThickness="2" 
+                        Content="🌍 Earth"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#D1C4E9"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0,8,0,0"
+                        Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="EarthPopup"
+                        PlacementTarget="{Binding ElementName=EarthChooseBtn}"
+                        Placement="Bottom"
+                        Width="150"
+                        StaysOpen="False"
+                        AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                            BorderBrush="#444444"
+                            BorderThickness="2"
+                            CornerRadius="6"
+                            Padding="6">
+                            <StackPanel>
+                                <Button x:Name="EarthLVL1"
+                                    Content="Level 1"
                                     Style="{StaticResource DarkButton}"
                                     Margin="0,4,0,0"
                                     Width="100"
                                     Click="Start_Click"/>
-                                <Button x:Name="SunLVL5"
-                                    Content="Level 5"
+                                <Button x:Name="EarthLVL2"
+                                    Content="Level 2"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="EarthLVL3"
+                                    Content="Level 3"
                                     Style="{StaticResource DarkButton}"
                                     Margin="0,4,0,0"
                                     Width="100"
@@ -1672,8 +1645,8 @@
                         </Border>
                     </Popup>
                 </Grid>
-            </Border>
-
+            </Border>            
+            
             <!-- Asteroids space map -->
             <Border Canvas.Left="740"
                     Canvas.Top="100">
@@ -1721,18 +1694,6 @@
                                     Click="Start_Click"/>
                                 <Button x:Name="AsteroidsLVL3"
                                     Content="Level 3"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
-                                <Button x:Name="AsteroidsLVL4"
-                                    Content="Level 4"
-                                    Style="{StaticResource DarkButton}"
-                                    Margin="0,4,0,0"
-                                    Width="100"
-                                    Click="Start_Click"/>
-                                <Button x:Name="AsteroidsLVL5"
-                                    Content="Level 5"
                                     Style="{StaticResource DarkButton}"
                                     Margin="0,4,0,0"
                                     Width="100"

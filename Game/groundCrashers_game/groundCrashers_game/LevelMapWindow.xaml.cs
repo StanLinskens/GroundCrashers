@@ -31,6 +31,9 @@ namespace groundCrashers_game
 
             SpaceBtn.Visibility = Visibility.Collapsed;
 
+            currentBiomeIndex = ActiveAccount.Active_current_biome_id;
+            currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
+
             GetPlayedLevelResult(LVLWon, LVLname);
 
             currentBiomeIndex = ActiveAccount.Active_current_biome_id;
@@ -78,7 +81,7 @@ namespace groundCrashers_game
 
                         // lvl go up and if lvl is 6, go to next biome
                         ActiveAccount.Active_current_biome_lvl_id++;
-                        if (ActiveAccount.Active_current_biome_lvl_id == 6)
+                        if ((ActiveAccount.Active_current_biome_lvl_id >= 6 && ActiveAccount.Active_current_biome_id <= 15) || (ActiveAccount.Active_current_biome_lvl_id >= 4 && ActiveAccount.Active_current_biome_id >= 16))
                         {
                             ActiveAccount.Active_current_biome_lvl_id = 1;
                             ActiveAccount.Active_current_biome_id++;

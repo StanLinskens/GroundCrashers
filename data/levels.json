@@ -765,5 +765,291 @@
         "amountCreaturesCpu": 3,
         "CreatureID": [ 187, 3, 84 ],
         "strengthModifier": 90
+    },
+
+
+
+
+
+    {
+        "name": "EarthLVL1",
+        "biome": "Earth",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 160
+    },
+    {
+        "name": "EarthLVL2",
+        "biome": "Earth",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [ 230 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "EarthLVL3",
+        "biome": "Earth",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 230 ],
+        "strengthModifier": 125
+    },
+
+
+
+    {
+        "name": "MoonLVL1",
+        "biome": "Moon",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 170
+    },
+    {
+        "name": "MoonLVL2",
+        "biome": "Moon",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [ 233 ],
+        "strengthModifier": 160
+    },
+    {
+        "name": "MoonLVL3",
+        "biome": "Moon",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 233 ],
+        "strengthModifier": 135
+    },
+
+
+
+
+
+    {
+        "name": "NebulaLVL1",
+        "biome": "Nebula",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 180
+    },
+    {
+        "name": "NebulaLVL2",
+        "biome": "Nebula",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [ 228 ],
+        "strengthModifier": 170
+    },
+    {
+        "name": "NebulaLVL3",
+        "biome": "Nebula",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 228 ],
+        "strengthModifier": 145
+    },
+
+
+
+
+
+    {
+        "name": "InterstellarLVL1",
+        "biome": "Interstellar",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 190
+    },
+    {
+        "name": "InterstellarLVL2",
+        "biome": "Interstellar",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [ 234 ],
+        "strengthModifier": 180
+    },
+    {
+        "name": "InterstellarLVL3",
+        "biome": "Interstellar",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 234 ],
+        "strengthModifier": 155
+    },
+
+
+
+
+
+    {
+        "name": "DebrisLVL1",
+        "biome": "Debris",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 200
+    },
+    {
+        "name": "DebrisLVL2",
+        "biome": "Debris",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [ 231 ],
+        "strengthModifier": 190
+    },
+    {
+        "name": "DebrisLVL3",
+        "biome": "Debris",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 231 ],
+        "strengthModifier": 165
+    },
+
+
+
+
+
+    {
+        "name": "SaturnLVL1",
+        "biome": "Saturn",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 210
+    },
+    {
+        "name": "SaturnLVL2",
+        "biome": "Saturn",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [ 229 ],
+        "strengthModifier": 200
+    },
+    {
+        "name": "SaturnLVL3",
+        "biome": "Saturn",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 229 ],
+        "strengthModifier": 175
+    },
+
+
+
+
+
+    {
+        "name": "CybertronLVL1",
+        "biome": "Cybertron",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 220
+    },
+    {
+        "name": "CybertronLVL2",
+        "biome": "Cybertron",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [ 232 ],
+        "strengthModifier": 210
+    },
+    {
+        "name": "CybertronLVL3",
+        "biome": "Cybertron",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 232 ],
+        "strengthModifier": 185
+    },
+
+
+
+
+
+    {
+        "name": "AsteroidsLVL1",
+        "biome": "Asteroids",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 230
+    },
+    {
+        "name": "AsteroidsLVL2",
+        "biome": "Asteroids",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [ 227 ],
+        "strengthModifier": 220
+    },
+    {
+        "name": "AsteroidsLVL3",
+        "biome": "Asteroids",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 227 ],
+        "strengthModifier": 195
+    },
+
+
+
+
+
+    {
+        "name": "SunLVL1",
+        "biome": "Sun",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 240
+    },
+    {
+        "name": "SunLVL2",
+        "biome": "Sun",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 1,
+        "CreatureID": [ 226 ],
+        "strengthModifier": 230
+    },
+    {
+        "name": "SunLVL3",
+        "biome": "Sun",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 226 ],
+        "strengthModifier": 200
     }
 ]

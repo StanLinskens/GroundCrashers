@@ -24,7 +24,7 @@ namespace groundCrashers_game
         Desert,
         Volcano,
 
-        earth,
+        Earth,
         Moon,
         Nebula,
         Interstellar,

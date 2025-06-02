@@ -219,7 +219,15 @@ namespace groundCrashers_game
             WeatherText.Text = randomWeather.ToString().ToUpper();
             WeatherIcon.Text = GetWeatherEmoji(randomWeather);
             // 3) Set the background image based on the random biome
-            BiomeBackground.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/images/battleGrounds/{Biome.ToString().ToLower()}.jpg", UriKind.Absolute));
+            try
+            {
+                BiomeBackground.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/images/battleGrounds/{Biome.ToString().ToLower()}.jpg", UriKind.Absolute));
+            }
+            catch
+            {
+                MessageBox.Show("fuck this shit");
+            }
+
         }
 
         // Event handler for when the window is loaded
