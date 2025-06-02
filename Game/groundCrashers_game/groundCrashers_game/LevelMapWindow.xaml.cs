@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Drawing;
 using groundCrashers_game.classes;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -17,7 +18,6 @@ namespace groundCrashers_game
 
         // to get current biome and level index
 
-        public bool LVLWon { get; set; } = false;
         public int currentBiomeIndex { get; set; } = 0;
         public int currentLVLIndex { get; set; } = 1;
 
@@ -25,21 +25,13 @@ namespace groundCrashers_game
 
         bool spaceMap_hidden = true;
 
-        public LevelMapWindow(bool LVLWon = false)
+        public LevelMapWindow(bool LVLWon = false, string LVLname = "")
         {
             InitializeComponent();
 
             SpaceBtn.Visibility = Visibility.Collapsed;
 
-            if (LVLWon)
-            {
-                ActiveAccount.Active_current_biome_lvl_id++;
-                if (ActiveAccount.Active_current_biome_lvl_id == 6)
-                {
-                    ActiveAccount.Active_current_biome_lvl_id = 1;
-                    ActiveAccount.Active_current_biome_id++;
-                }
-            }
+            GetPlayedLevelResult(LVLWon, LVLname);
 
             currentBiomeIndex = ActiveAccount.Active_current_biome_id;
             currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
@@ -54,11 +46,62 @@ namespace groundCrashers_game
             }
 
             AudioPlayer.Instance.Stop();
-            AudioPlayer.Instance.PlaySpecific("map.wav",true);
+            AudioPlayer.Instance.PlaySpecific("map.wav", true);
 
             Display_Levels();
 
             Show_Biomes_Earth();
+        }
+
+        private void GetPlayedLevelResult(bool LVLWon, string LVLname)
+        {
+            foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
+            {
+                // get the name of the level
+                string[] LVLname_split = LVLname.Split("LVL");
+                if (LVLname_split[0] == biome.ToString())
+                {
+                    // get biome info
+                    int biomeValue = (int)biome;
+                    int BiomeLVL = int.Parse(LVLname_split[1]);
+                    // if lvl won and the biome and lvl have not been completed yet
+                    if (LVLWon && biomeValue == currentBiomeIndex && BiomeLVL == currentLVLIndex)
+                    {
+                        // the earned xp for completing a level
+                        int xpEarned = 1;
+
+                        // if completed biome is 5, 10, 15, etc. you get 1 xp more
+                        for (int i = 5; i <= currentBiomeIndex; i += 5)
+                        {
+                            xpEarned += 1;
+                        }
+
+                        // lvl go up and if lvl is 6, go to next biome
+                        ActiveAccount.Active_current_biome_lvl_id++;
+                        if (ActiveAccount.Active_current_biome_lvl_id == 6)
+                        {
+                            ActiveAccount.Active_current_biome_lvl_id = 1;
+                            ActiveAccount.Active_current_biome_id++;
+                            xpEarned *= 2; // Extra XP for completing a biome
+                        }
+
+                        // update the players XP
+                        ActiveAccount.Active_XP += xpEarned;
+
+                        // for every level you need 10 more xp to level up
+                        int xpneeded = 10 * ActiveAccount.Active_LVL;
+
+                        // if the player has enough XP, level up
+                        if (ActiveAccount.Active_XP >= xpneeded)
+                        {
+                            ActiveAccount.Active_LVL++;
+                            ActiveAccount.Active_XP -= xpneeded; // Reset XP after leveling up
+                        }
+
+                    }
+                }
+            }
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -108,7 +108,13 @@ namespace groundCrashers_game.classes
                 if (StoryMode)
                 {
                     // Load levels from local JSON for story mode
-                    Levels.LoadLevelsFromJson(); 
+                    Levels.LoadLevelsFromJson();
+
+                    if (Levels.Chart.TryGetValue(levelName, out var level))
+                    {
+                        logs.Add($"Enemy creatures amount: {level.AmountCreaturesCpu}");
+                        logs.Add($"Player creatures amount: {level.AmountCreaturesPlayer}");
+                    }
                 }
 
                 // Load elements
@@ -131,7 +137,9 @@ namespace groundCrashers_game.classes
                 //BiomeChart.LoadBiomesFromJson();
                 BiomeChart.LoadBiomesFromWebAsync();
 
-                logs.Add("Game data loaded successfully");
+
+
+                //logs.Add("Game data loaded successfully");
             }
             catch (Exception ex)
             {
@@ -196,7 +204,7 @@ namespace groundCrashers_game.classes
             {
                 logs.Add("you win");
                 MessageBox.Show("You win!");
-                LevelMapWindow mapWindow = new LevelMapWindow(true);
+                LevelMapWindow mapWindow = new LevelMapWindow(true, levelName);
                 mapWindow.Show();
             }
         }
@@ -390,7 +398,7 @@ namespace groundCrashers_game.classes
             else if (randomnumber <= 867) { ActiveCreature.curse = Elements.Cosmic; }
             else if (randomnumber <= 918) { ActiveCreature.curse = Elements.Void; }
             else if (randomnumber <= 969) { ActiveCreature.curse = Elements.Astral; }
-            else { ActiveCreature.curse = Elements.GOD; } // 970–1000 (31 getallen = 3.1%)
+            else { ActiveCreature.curse = Elements.GOD; } // 970–1000
             if (ActiveCpuCreature.primary_type == Primaries.Titan && randomnumber <= 250) ActiveCreature.curse = Elements.GOD;
         }
 
@@ -792,6 +800,27 @@ namespace groundCrashers_game.classes
                 {
                     // enviroment buff for player
                     EnviromentBuff_Setup(playerActor);
+                    PlayerLevelBuff(playerActor);
+                }
+            }
+        }
+
+        private void PlayerLevelBuff(Actor actor)
+        {
+            if(StoryMode)
+            {
+                foreach (var creature in actor.Creatures)
+                {
+                    float creatureBuffAmount = 1.0f + (int)ActiveAccount.Active_LVL / 10f; // 10% buff per level
+
+                    creature.stats.max_hp = (int)Math.Round(creature.stats.max_hp * creatureBuffAmount);
+                    creature.stats.hp = creature.stats.max_hp; // Reset current hp to max after buff
+                    creature.stats.max_attack = (int)Math.Round(creature.stats.max_attack * creatureBuffAmount);
+                    creature.stats.attack = creature.stats.max_attack; // Reset current attack to max after buff
+                    creature.stats.max_defense = (int)Math.Round(creature.stats.max_defense * creatureBuffAmount);
+                    creature.stats.defense = creature.stats.max_defense; // Reset current defense to max after buff
+                    creature.stats.max_speed = (int)Math.Round(creature.stats.max_speed * creatureBuffAmount);
+                    creature.stats.speed = creature.stats.max_speed; // Reset current speed to max after buff
                 }
             }
         }

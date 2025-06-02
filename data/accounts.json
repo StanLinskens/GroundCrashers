@@ -4,20 +4,26 @@
     "name": "pattje72",
     "password": "sven",
     "current_biome_id": 0,
-    "current_biome_lvl_id": 1
+    "current_biome_lvl_id": 1,
+    "LVL": 999,
+    "XP": 0
   },
   {
     "id": 2,
     "name": "1",
     "password": "1",
     "current_biome_id": 20,
-    "current_biome_lvl_id": 1
+    "current_biome_lvl_id": 2,
+    "LVL": 0,
+    "XP": 0
   },
   {
     "id": 3,
     "name": "Stan",
     "password": "Stan",
     "current_biome_id": 0,
-    "current_biome_lvl_id": 3
+    "current_biome_lvl_id": 3,
+    "LVL": 0,
+    "XP": 0
   }
 ]
