@@ -24,8 +24,8 @@ LiquidCrystal_I2C lcd_i2c(0x27, 20, 4);  // 20x4 character display
 // --------------------
 // NETWORK CONFIGURATION
 // --------------------
-const char* ssid = "MMS";
-const char* password = "1M2a3r4l5i6n7t8t9";
+const char* ssid = "POCO F5";  
+const char* password = "Wout007!";
 WiFiServer server(80);
 
 // --------------------

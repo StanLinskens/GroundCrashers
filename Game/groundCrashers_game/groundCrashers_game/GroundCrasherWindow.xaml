@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:groundCrashers_game"
         mc:Ignorable="d"
-        Title="Choose Your GroundCrasher" Height="460" Width="800"
+        Title="Choose Your GroundCrasher" Height="550" Width="800"
         Loaded="Window_Loaded">
 
     <Window.Resources>
@@ -46,62 +46,77 @@
         </Grid.ColumnDefinitions>
 
         <!-- Left Panel: Selected Pokémon -->
-        <Border Grid.Column="0" Margin="20,10,20,10" Background="#323232" CornerRadius="10" BorderBrush="#666666" BorderThickness="4">
-            <StackPanel Margin="10">
-                <TextBlock Text="Selected GroundCrasher" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
+        <StackPanel Grid.Column="0" Margin="20,10,20,10">
+            <!-- Info Box -->
+            <Border Background="#323232" CornerRadius="10" BorderBrush="#666666" BorderThickness="4">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Selected GroundCrasher" FontSize="20" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" />
 
-                <!-- Placeholder for image -->
-                <Image x:Name="creatureImageBox"
-                       Height="100"
-                       Canvas.Left="200" Canvas.Top="250"
-                       Source="/Images/other/questionmark.png"
-                       Opacity="100"
-                       Stretch="Uniform"/>
-                <!-- Details in two columns -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                    <!-- Placeholder for image -->
+                    <Image x:Name="creatureImageBox"
+                           Height="100"
+                           Canvas.Left="200" Canvas.Top="250"
+                           Source="/Images/other/questionmark.png"
+                           Opacity="100"
+                           Stretch="Uniform"/>
+                    <!-- Details in two columns -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    
-                    <TextBlock Text="Name:" Grid.Row="0" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
-                    <TextBlock Name="GroundCrasherName" Text="N/A" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
-                    
-                    <TextBlock Text="Type:" Grid.Row="1" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
-                    <TextBlock Name="GroundCrasherType" Text="N/A" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
 
-                    <TextBlock Text="Element:" Grid.Row="2" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
-                    <TextBlock Name="GroundCrasherElement" Text="N/A" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+                        <TextBlock Text="Name:" Grid.Row="0" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                        <TextBlock Name="GroundCrasherName" Text="N/A" HorizontalAlignment="Right" Grid.Row="0" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
 
-                    <TextBlock Text="HP:" Grid.Row="3" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
-                    <TextBlock Name="GroundCrasherHP" Text="N/A" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+                        <TextBlock Text="Type:" Grid.Row="1" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                        <TextBlock Name="GroundCrasherType" Text="N/A" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
 
-                    <TextBlock Text="Attack:" Grid.Row="4" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
-                    <TextBlock Name="GroundCrasherAttack" Text="N/A" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+                        <TextBlock Text="Element:" Grid.Row="2" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                        <TextBlock Name="GroundCrasherElement" Text="N/A" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
 
-                    <TextBlock Text="Defense:" Grid.Row="5" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
-                    <TextBlock Name="GroundCrasherDefense" Text="N/A" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+                        <TextBlock Text="HP:" Grid.Row="3" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                        <TextBlock Name="GroundCrasherHP" Text="N/A" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
 
-                    <TextBlock Text="Speed:" Grid.Row="6" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
-                    <TextBlock Name="GroundCrasherSpeed" Text="N/A" HorizontalAlignment="Right" Grid.Row="6" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
-                </Grid>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Name="ConfirmButton" Style="{StaticResource DarkButton}" Content="Confirm" Width="90" Height="40" Margin="0,20,0,0" HorizontalAlignment="Left" Click="ConfirmGroundCrasher_Click" />
-                    <Button Name="AddToCardButton" Style="{StaticResource DarkButton}" Content="AddToCard" Width="90" Height="40" Margin="0,20,0,0" HorizontalAlignment="Right" Click="AddtoCard_Click" RenderTransformOrigin="0.556,-1.17" />
-                    <Button Name="ScanCardButton" Content="Scan Card" Style="{StaticResource DarkButton}" Height="40" Width="90" Margin="0,20,0,0" Click="ScanCardButton_Click" />
+                        <TextBlock Text="Attack:" Grid.Row="4" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                        <TextBlock Name="GroundCrasherAttack" Text="N/A" HorizontalAlignment="Right" Grid.Row="4" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                        <TextBlock Text="Defense:" Grid.Row="5" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                        <TextBlock Name="GroundCrasherDefense" Text="N/A" HorizontalAlignment="Right" Grid.Row="5" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+
+                        <TextBlock Text="Speed:" Grid.Row="6" Grid.Column="0" FontSize="16" Foreground="White" Margin="0,2"/>
+                        <TextBlock Name="GroundCrasherSpeed" Text="N/A" HorizontalAlignment="Right" Grid.Row="6" Grid.Column="1" FontSize="16" Foreground="White" Margin="5,2"/>
+                    </Grid>
+
+                    <!-- Confirm and Add to ListButtons -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Button Name="ConfirmButton" Style="{StaticResource DarkButton}" Content="Confirm" Width="110" Height="40" Margin="5,20,5,0" Click="ConfirmGroundCrasher_Click" />
+                        <Button Name="AddToListButton" Style="{StaticResource DarkButton}" Content="Add to List" Width="110" Height="40" Margin="5,20,5,0" Click="AddToList_Click" />
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
-        </Border>
+            </Border>
+
+            <!-- Card Actions Box -->
+            <Border Background="#323232" CornerRadius="10" BorderBrush="#666666" BorderThickness="4" Margin="0,10,0,0">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Card Actions" FontSize="16" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" HorizontalAlignment="Center" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Name="AddToCardButton" Style="{StaticResource DarkButton}" Content="Add to Card" Width="110" Height="40" Margin="5,0,5,0" Click="AddtoCard_Click" />
+                        <Button Name="ScanCardButton" Content="Scan Card" Style="{StaticResource DarkButton}" Height="40" Width="110" Margin="5,0,5,0" Click="ScanCardButton_Click" />
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
 
         <!-- Right Panel: Pokémon List -->
         <Border Grid.Column="1" Margin="20,10,20,10" Background="#323232" CornerRadius="10" BorderBrush="#666666" BorderThickness="4">
