@@ -34,6 +34,8 @@ namespace groundCrashers_game
 
         List<int> allowedIdsFromCard = new List<int>{};
 
+        List<int> WriteToCard = new List<int>();
+
         public GroundCrasherWindow(Manager manager, GameWindow gameWindow, Esp32Manager esp32Manager)
         {
             InitializeComponent();
@@ -259,6 +261,11 @@ namespace groundCrashers_game
             {
                 _Manager.logs.Add("no creature selected to add to card!");
             }
+        }
+
+        private void AddToList_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
