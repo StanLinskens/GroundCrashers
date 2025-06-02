@@ -319,5 +319,10 @@ namespace groundCrashers_game
                 }
             }
         }
+
+        private void EarthButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

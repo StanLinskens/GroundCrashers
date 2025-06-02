@@ -97,7 +97,7 @@ namespace groundCrashers_game
 
             
             AudioPlayer.Instance.Stop();
-            //AudioPlayer.Instance.PlayRandomBattleMusic();
+            AudioPlayer.Instance.PlayRandomBattleMusic();
         }
 
         public void RefreshLogBox()

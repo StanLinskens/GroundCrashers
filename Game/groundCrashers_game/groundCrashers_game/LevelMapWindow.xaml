@@ -1210,7 +1210,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
                     Margin="0,8,0,0"
-                    Click="EarthChooseBtn_Click"/>
+                    Click="EarthButton_Click"/>
 
                     <Popup x:Name="EarthPopup"
                 PlacementTarget="{Binding ElementName=EarthChooseBtn}"

@@ -737,7 +737,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 1,
         "CreatureID": [ 1 ],
-        "strengthModifier": 200
+        "strengthModifier": 175
     },
     {
         "name": "VolcanoLVL3",
@@ -746,7 +746,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 1,
         "CreatureID": [ 92 ],
-        "strengthModifier": 300
+        "strengthModifier": 250
     },
     {
         "name": "VolcanoLVL4",
