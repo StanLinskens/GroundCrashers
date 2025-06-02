@@ -1,27 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace groundCrashers_game
 {
-    /// <summary>
-    /// Interaction logic for StoryWindow.xaml
-    /// </summary>
     public partial class StoryWindow : Window
     {
-        public StoryWindow()
+        private string levelName;
+
+        public StoryWindow(string biomeName, string levelName)
         {
             InitializeComponent();
+            this.levelName = levelName;
+            StoryText.Text = GetStoryForBiome(biomeName);
+        }
+
+        private void StartLevel_Click(object sender, RoutedEventArgs e)
+        {
+            GameWindow gameWindow = new GameWindow(true, levelName);
+            gameWindow.Show();
+            this.Close();
+            //Application.Current.Windows[0]?.Close(); 
+        }
+
+        private string GetStoryForBiome(string biomeName)
+        {
+            return biomeName switch
+            {
+                "Forest" => "Welcome to the Forest Biome! Ancient trees whisper secrets of the past.",
+                "Desert" => "You’ve entered the Desert Biome. Watch out for hidden dangers beneath the sand.",
+                "Mountain" => "High in the Mountain Biome, icy winds test your resolve.",
+            };
         }
     }
 }
