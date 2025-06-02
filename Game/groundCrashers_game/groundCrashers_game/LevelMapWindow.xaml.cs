@@ -281,10 +281,24 @@ namespace groundCrashers_game
         private void Start_Click(object sender, RoutedEventArgs e)
         {
             Button clicked = sender as Button;
-            // true means the game is started from the map window (storyMode)
-            GameWindow gameWindow = new GameWindow(true, clicked.Name);
-            gameWindow.Show();
-            this.Close();
+            string levelName = clicked.Name;
+
+            // Get biome name from levelName (e.g., ForestLVL1 -> Forest)
+            string biomeName = levelName.Replace("LVL1", "").Replace("Button", "");
+
+            // Only show story window for the first level of each biome
+            if (levelName.EndsWith("LVL1"))
+            {
+                StoryWindow storyWindow = new StoryWindow(biomeName, levelName);
+                storyWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                GameWindow gameWindow = new GameWindow(true, levelName);
+                gameWindow.Show();
+                this.Close();
+            }
         }
 
         private void SecretSpaceBtn_Click(object sender, RoutedEventArgs e)

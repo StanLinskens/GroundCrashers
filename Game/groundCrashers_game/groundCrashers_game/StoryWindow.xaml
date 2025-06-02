@@ -1,0 +1,22 @@
+﻿<Window x:Class="groundCrashers_game.StoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:groundCrashers_game"
+        mc:Ignorable="d"
+        Title="Start Screen" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="Black">
+        <TextBlock x:Name="StoryText"
+                   Foreground="White"
+                   FontSize="16"
+                   TextWrapping="Wrap"
+                   Margin="20" />
+        <Button Content="Start Level"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom"
+                Margin="20"
+                Width="100"
+                Click="StartLevel_Click"/>
+    </Grid>
+</Window>
