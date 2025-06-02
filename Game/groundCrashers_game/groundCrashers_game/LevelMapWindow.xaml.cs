@@ -2,6 +2,7 @@
 using groundCrashers_game.classes;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using static groundCrashers_game.classes.Manager;
@@ -84,7 +85,7 @@ namespace groundCrashers_game
                     }
                 }
                 // all lvl above the current biome index are hidden
-                if (biomeValue > currentBiomeIndex)
+                if (biomeValue > currentBiomeIndex || biomeValue >= 16)
                 {
                     // get the button name from the enum value
                     buttonBiomeName = $"{biome}Button";
@@ -156,102 +157,6 @@ namespace groundCrashers_game
             this.Close();
         }
 
-        // Forest Biome
-        private void ForestChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            ForestPopup.IsOpen = !ForestPopup.IsOpen;
-        }
-
-        // Desert Biome
-        private void DesertChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            DesertPopup.IsOpen = !DesertPopup.IsOpen;
-        }
-
-        // Mountain Biome
-        private void MountainChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MountainPopup.IsOpen = !MountainPopup.IsOpen;
-        }
-
-        // Highlands Biome
-        private void HighlandsChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            HighlandsPopup.IsOpen = !HighlandsPopup.IsOpen;
-        }
-
-        // Glacier Biome
-        private void GlacierChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            GlacierPopup.IsOpen = !GlacierPopup.IsOpen;
-        }
-
-        // Wasteland Biome
-        private void WastelandChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            WastelandPopup.IsOpen = !WastelandPopup.IsOpen;
-        }
-
-        // Swamp Biome
-        private void SwampChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            SwampPopup.IsOpen = !SwampPopup.IsOpen;
-        }
-
-        // Ocean Biome
-        private void OceanChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            OceanPopup.IsOpen = !OceanPopup.IsOpen;
-        }
-
-        // Volcano Biome
-        private void VolcanoChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            VolcanoPopup.IsOpen = !VolcanoPopup.IsOpen;
-        }
-
-        // Savanna Biome
-        private void SavannaChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            SavannaPopup.IsOpen = !SavannaPopup.IsOpen;
-        }
-
-        // Jungle Biome
-        private void JungleChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            JunglePopup.IsOpen = !JunglePopup.IsOpen;
-        }
-
-        // Tundra Biome
-        private void TundraChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            TundraPopup.IsOpen = !TundraPopup.IsOpen;
-        }
-
-        // Marsh Biome
-        private void MarshChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MarshPopup.IsOpen = !MarshPopup.IsOpen;
-        }
-
-        // Cave Biome
-        private void CaveChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            CavePopup.IsOpen = !CavePopup.IsOpen;
-        }
-
-        // Ruins Biome
-        private void RuinsChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            RuinsPopup.IsOpen = !RuinsPopup.IsOpen;
-        }
-
-        // Crystal Cavern Biome
-        private void CrystalCavernChooseBtn_Click(object sender, RoutedEventArgs e)
-        {
-            CrystalCavernPopup.IsOpen = !CrystalCavernPopup.IsOpen;
-        }
-
         private void DisplayMapButton_Click(object sender, RoutedEventArgs e)
         {
             foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
@@ -269,7 +174,7 @@ namespace groundCrashers_game
                     }
                     else
                     {
-                        if (!lvls_Hidden && biomeValue >= 16) button.Visibility = Visibility.Visible;
+                        if (!lvls_Hidden && !spaceMap_hidden && biomeValue >= 16 && biomeValue <= currentBiomeIndex) button.Visibility = Visibility.Visible;
                         else button.Visibility = Visibility.Collapsed;
                     }
 
@@ -321,7 +226,11 @@ namespace groundCrashers_game
                 var button = this.FindName(buttonName) as UIElement;
                 if (button != null)
                 {
-                    if (spaceMap_hidden && biomeValue <= 15)
+                    if (spaceMap_hidden && biomeValue <= 15 && biomeValue <= currentBiomeIndex)
+                    {
+                        button.Visibility = Visibility.Visible;
+                    }
+                    else if (!spaceMap_hidden && biomeValue >= 16 && biomeValue <= currentBiomeIndex)
                     {
                         button.Visibility = Visibility.Visible;
                     }
@@ -334,9 +243,21 @@ namespace groundCrashers_game
             }
         }
 
-        private void EarthButton_Click(object sender, RoutedEventArgs e)
+        private void BiomeBtn_Click(object sender, RoutedEventArgs e)
         {
+            Button clicked = sender as Button;
+            string buttonFullName = clicked.Name;
+            string biomeName = buttonFullName.Replace("Button", "");
 
+            if (biomeName != null)
+            {
+                var popupName = $"{biomeName}Popup";
+                var popup = this.FindName(popupName) as Popup;
+                if (popup != null)
+                {
+                    popup.IsOpen = !popup.IsOpen;
+                }
+            }
         }
     }
 }

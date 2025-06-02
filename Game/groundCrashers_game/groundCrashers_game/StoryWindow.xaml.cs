@@ -24,12 +24,20 @@ namespace groundCrashers_game
 
         private string GetStoryForBiome(string biomeName)
         {
-            return biomeName switch
+            try
             {
-                "Forest" => "Welcome to the Forest Biome! Ancient trees whisper secrets of the past.",
-                "Desert" => "You’ve entered the Desert Biome. Watch out for hidden dangers beneath the sand.",
-                "Mountain" => "High in the Mountain Biome, icy winds test your resolve.",
-            };
+                return biomeName switch
+                {
+                    "Forest" => "Welcome to the Forest Biome! Ancient trees whisper secrets of the past.",
+                    "Desert" => "You’ve entered the Desert Biome. Watch out for hidden dangers beneath the sand.",
+                    "Mountain" => "High in the Mountain Biome, icy winds test your resolve.",
+                };
+            }
+            catch (Exception ex)
+            {
+                return "FUCK YOU";
+            }
+
         }
     }
 }

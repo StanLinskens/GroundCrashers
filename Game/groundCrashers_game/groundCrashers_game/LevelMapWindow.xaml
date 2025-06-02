@@ -51,7 +51,7 @@
                 Height="1080">
             <Canvas.Background>
                 <ImageBrush x:Name="MapBackground"
-                            ImageSource="/Images/battleGrounds/space.png"/>
+                            ImageSource="/Images/battleGrounds/map.png"/>
             </Canvas.Background>
 
             <Border
@@ -106,7 +106,7 @@
                                HorizontalAlignment="Left"
                                VerticalAlignment="Top"
                                Margin="0,-30,0,0"
-                               Click="ForestChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="ForestPopup"
                            PlacementTarget="{Binding ElementName=ForestChooseBtn}"
@@ -174,7 +174,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="DesertChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="DesertPopup"
                            PlacementTarget="{Binding ElementName=DesertChooseBtn}"
@@ -243,7 +243,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="MountainChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="MountainPopup"
                            PlacementTarget="{Binding ElementName=MountainChooseBtn}"
@@ -312,7 +312,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="HighlandsChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="HighlandsPopup"
                            PlacementTarget="{Binding ElementName=HighlandsChooseBtn}"
@@ -381,7 +381,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="GlacierChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="GlacierPopup"
                            PlacementTarget="{Binding ElementName=GlacierChooseBtn}"
@@ -451,7 +451,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="WastelandChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="WastelandPopup"
                            PlacementTarget="{Binding ElementName=WastelandChooseBtn}"
@@ -520,7 +520,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="SwampChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="SwampPopup"
                            PlacementTarget="{Binding ElementName=SwampChooseBtn}"
@@ -589,7 +589,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="OceanChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="OceanPopup"
                            PlacementTarget="{Binding ElementName=OceanChooseBtn}"
@@ -658,7 +658,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="VolcanoChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="VolcanoPopup"
                            PlacementTarget="{Binding ElementName=VolcanoChooseBtn}"
@@ -727,7 +727,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="SavannaChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="SavannaPopup"
                            PlacementTarget="{Binding ElementName=SavannaChooseBtn}"
@@ -796,7 +796,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="JungleChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="JunglePopup"
                            PlacementTarget="{Binding ElementName=JungleChooseBtn}"
@@ -865,7 +865,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="TundraChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="TundraPopup"
                            PlacementTarget="{Binding ElementName=TundraChooseBtn}"
@@ -934,7 +934,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="MarshChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="MarshPopup"
                            PlacementTarget="{Binding ElementName=MarshChooseBtn}"
@@ -1003,7 +1003,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="CaveChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="CavePopup"
                            PlacementTarget="{Binding ElementName=CaveChooseBtn}"
@@ -1072,7 +1072,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="RuinsChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="RuinsPopup"
                            PlacementTarget="{Binding ElementName=RuinsChooseBtn}"
@@ -1141,7 +1141,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
-                               Click="CrystalCavernChooseBtn_Click"/>
+                               Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="CrystalCavernPopup"
                            PlacementTarget="{Binding ElementName=CrystalCavernChooseBtn}"
@@ -1191,29 +1191,29 @@
                 </Grid>
             </Border>
 
-            <!-- earth space map -->
-            <Border Canvas.Left="290"
-                    Canvas.Top="155">
+            <!-- moon space map -->
+            <Border Canvas.Left="200"
+                    Canvas.Top="500">
                 <Grid>
                     <Button
-                    x:Name="EarthButton"
+                    x:Name="MoonButton"
                     Style="{StaticResource DarkButton}"
                     Width="150"
                     Height="45"
                     Background="#3A2F6B"
                     BorderBrush="#574683"
                     BorderThickness="2" 
-                    Content="???"
+                    Content="🌕 Moon"
                     FontSize="16"
                     FontWeight="Bold"
                     Foreground="#D1C4E9"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
                     Margin="0,8,0,0"
-                    Click="EarthButton_Click"/>
+                    Click="BiomeBtn_Click"/>
 
-                    <Popup x:Name="EarthPopup"
-                PlacementTarget="{Binding ElementName=EarthChooseBtn}"
+                    <Popup x:Name="MoonPopup"
+                PlacementTarget="{Binding ElementName=MoonChooseBtn}"
                 Placement="Bottom"
                 Width="150"
                 StaysOpen="False"
@@ -1224,36 +1224,519 @@
                      CornerRadius="6"
                      Padding="6">
                             <StackPanel>
-                                <Button x:Name="EarthLVL1"
+                                <Button x:Name="MoonLVL1"
                              Content="Level 1"
                              Style="{StaticResource DarkButton}"
                              Margin="0,4,0,0"
                              Width="100"
                              Click="Start_Click"/>
-                                <Button x:Name="EarthLVL2"
+                                <Button x:Name="MoonLVL2"
                              Content="Level 2"
                              Style="{StaticResource DarkButton}"
                              Margin="0,4,0,0"
                              Width="100"
                              Click="Start_Click"/>
-                                <Button x:Name="EarthLVL3"
+                                <Button x:Name="MoonLVL3"
                              Content="Level 3"
                              Style="{StaticResource DarkButton}"
                              Margin="0,4,0,0"
                              Width="100"
                              Click="Start_Click"/>
-                                <Button x:Name="EarthLVL4"
+                                <Button x:Name="MoonLVL4"
                              Content="Level 4"
                              Style="{StaticResource DarkButton}"
                              Margin="0,4,0,0"
                              Width="100"
                              Click="Start_Click"/>
-                                <Button x:Name="EarthLVL5"
+                                <Button x:Name="MoonLVL5"
                              Content="Level 5"
                              Style="{StaticResource DarkButton}"
                              Margin="0,4,0,0"
                              Width="100"
                              Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- nebula space map -->
+            <Border Canvas.Left="400"
+                    Canvas.Top="810">
+                <Grid>
+                    <Button
+                        x:Name="NebulaButton"
+                        Style="{StaticResource DarkButton}"
+                        Width="150"
+                        Height="45"
+                        Background="#3A2F6B"
+                        BorderBrush="#574683"
+                        BorderThickness="2" 
+                        Content="🌀 Nebula"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#D1C4E9"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0,8,0,0"
+                        Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="NebulaPopup"
+                        PlacementTarget="{Binding ElementName=NebulaChooseBtn}"
+                        Placement="Bottom"
+                        Width="150"
+                        StaysOpen="False"
+                        AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                            BorderBrush="#444444"
+                            BorderThickness="2"
+                            CornerRadius="6"
+                            Padding="6">
+                            <StackPanel>
+                                <Button x:Name="NebulaLVL1"
+                                    Content="Level 1"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="NebulaLVL2"
+                                    Content="Level 2"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="NebulaLVL3"
+                                    Content="Level 3"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="NebulaLVL4"
+                                    Content="Level 4"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="NebulaLVL5"
+                                    Content="Level 5"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- Interstellar space map -->
+            <Border Canvas.Left="1350"
+                    Canvas.Top="800">
+                <Grid>
+                    <Button
+                        x:Name="InterstellarButton"
+                        Style="{StaticResource DarkButton}"
+                        Width="150"
+                        Height="45"
+                        Background="#3A2F6B"
+                        BorderBrush="#574683"
+                        BorderThickness="2" 
+                        Content="🌌 Interstellar"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#D1C4E9"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0,8,0,0"
+                        Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="InterstellarPopup"
+                        PlacementTarget="{Binding ElementName=InterstellarChooseBtn}"
+                        Placement="Bottom"
+                        Width="150"
+                        StaysOpen="False"
+                        AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                            BorderBrush="#444444"
+                            BorderThickness="2"
+                            CornerRadius="6"
+                            Padding="6">
+                            <StackPanel>
+                                <Button x:Name="InterstellarLVL1"
+                                    Content="Level 1"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="InterstellarLVL2"
+                                    Content="Level 2"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="InterstellarLVL3"
+                                    Content="Level 3"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="InterstellarLVL4"
+                                    Content="Level 4"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="InterstellarLVL5"
+                                    Content="Level 5"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- Debris space map -->
+            <Border Canvas.Left="1550"
+                    Canvas.Top="430">
+                <Grid>
+                    <Button
+                        x:Name="DebrisButton"
+                        Style="{StaticResource DarkButton}"
+                        Width="150"
+                        Height="45"
+                        Background="#3A2F6B"
+                        BorderBrush="#574683"
+                        BorderThickness="2" 
+                        Content="🛰️ Debris"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#D1C4E9"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0,8,0,0"
+                        Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="DebrisPopup"
+                        PlacementTarget="{Binding ElementName=DebrisChooseBtn}"
+                        Placement="Bottom"
+                        Width="150"
+                        StaysOpen="False"
+                        AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                            BorderBrush="#444444"
+                            BorderThickness="2"
+                            CornerRadius="6"
+                            Padding="6">
+                            <StackPanel>
+                                <Button x:Name="DebrisLVL1"
+                                    Content="Level 1"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="DebrisLVL2"
+                                    Content="Level 2"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="DebrisLVL3"
+                                    Content="Level 3"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="DebrisLVL4"
+                                    Content="Level 4"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="DebrisLVL5"
+                                    Content="Level 5"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- Saturn space map -->
+            <Border Canvas.Left="1445"
+                    Canvas.Top="150">
+                <Grid>
+                    <Button
+                        x:Name="SaturnButton"
+                        Style="{StaticResource DarkButton}"
+                        Width="150"
+                        Height="45"
+                        Background="#3A2F6B"
+                        BorderBrush="#574683"
+                        BorderThickness="2" 
+                        Content="🪐 Saturn"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#D1C4E9"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0,8,0,0"
+                        Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="SaturnPopup"
+                        PlacementTarget="{Binding ElementName=SaturnChooseBtn}"
+                        Placement="Bottom"
+                        Width="150"
+                        StaysOpen="False"
+                        AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                            BorderBrush="#444444"
+                            BorderThickness="2"
+                            CornerRadius="6"
+                            Padding="6">
+                            <StackPanel>
+                                <Button x:Name="SaturnLVL1"
+                                    Content="Level 1"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="SaturnLVL2"
+                                    Content="Level 2"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="SaturnLVL3"
+                                    Content="Level 3"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="SaturnLVL4"
+                                    Content="Level 4"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="SaturnLVL5"
+                                    Content="Level 5"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- Cybertron space map -->
+            <Border Canvas.Left="1080"
+                    Canvas.Top="230">
+                <Grid>
+                    <Button
+                        x:Name="CybertronButton"
+                        Style="{StaticResource DarkButton}"
+                        Width="150"
+                        Height="45"
+                        Background="#3A2F6B"
+                        BorderBrush="#574683"
+                        BorderThickness="2" 
+                        Content="🤖 Cybertron"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#D1C4E9"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0,8,0,0"
+                        Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="CybertronPopup"
+                        PlacementTarget="{Binding ElementName=CybertronChooseBtn}"
+                        Placement="Bottom"
+                        Width="150"
+                        StaysOpen="False"
+                        AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                            BorderBrush="#444444"
+                            BorderThickness="2"
+                            CornerRadius="6"
+                            Padding="6">
+                            <StackPanel>
+                                <Button x:Name="CybertronLVL1"
+                                    Content="Level 1"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="CybertronLVL2"
+                                    Content="Level 2"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="CybertronLVL3"
+                                    Content="Level 3"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="CybertronLVL4"
+                                    Content="Level 4"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="CybertronLVL5"
+                                    Content="Level 5"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- Sun space map -->
+            <Border Canvas.Left="835"
+                    Canvas.Top="500">
+                <Grid>
+                    <Button
+                        x:Name="SunButton"
+                        Style="{StaticResource DarkButton}"
+                        Width="150"
+                        Height="45"
+                        Background="#3A2F6B"
+                        BorderBrush="#574683"
+                        BorderThickness="2" 
+                        Content="☀️ Sun"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#D1C4E9"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0,8,0,0"
+                        Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="SunPopup"
+                        PlacementTarget="{Binding ElementName=SunChooseBtn}"
+                        Placement="Bottom"
+                        Width="150"
+                        StaysOpen="False"
+                        AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                            BorderBrush="#444444"
+                            BorderThickness="2"
+                            CornerRadius="6"
+                            Padding="6">
+                            <StackPanel>
+                                <Button x:Name="SunLVL1"
+                                    Content="Level 1"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="SunLVL2"
+                                    Content="Level 2"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="SunLVL3"
+                                    Content="Level 3"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="SunLVL4"
+                                    Content="Level 4"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="SunLVL5"
+                                    Content="Level 5"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- Asteroids space map -->
+            <Border Canvas.Left="740"
+                    Canvas.Top="100">
+                <Grid>
+                    <Button
+                        x:Name="AsteroidsButton"
+                        Style="{StaticResource DarkButton}"
+                        Width="150"
+                        Height="45"
+                        Background="#3A2F6B"
+                        BorderBrush="#574683"
+                        BorderThickness="2" 
+                        Content="☄️ Asteroids"
+                        FontSize="16"
+                        FontWeight="Bold"
+                        Foreground="#D1C4E9"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        Margin="0,8,0,0"
+                        Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="AsteroidsPopup"
+                        PlacementTarget="{Binding ElementName=AsteroidsChooseBtn}"
+                        Placement="Bottom"
+                        Width="150"
+                        StaysOpen="False"
+                        AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                            BorderBrush="#444444"
+                            BorderThickness="2"
+                            CornerRadius="6"
+                            Padding="6">
+                            <StackPanel>
+                                <Button x:Name="AsteroidsLVL1"
+                                    Content="Level 1"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="AsteroidsLVL2"
+                                    Content="Level 2"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="AsteroidsLVL3"
+                                    Content="Level 3"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="AsteroidsLVL4"
+                                    Content="Level 4"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
+                                <Button x:Name="AsteroidsLVL5"
+                                    Content="Level 5"
+                                    Style="{StaticResource DarkButton}"
+                                    Margin="0,4,0,0"
+                                    Width="100"
+                                    Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
