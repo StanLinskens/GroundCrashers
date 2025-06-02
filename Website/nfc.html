@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC Number Writer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4a5568;
+            font-size: 2rem;
+            font-weight: 300;
+        }
+
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .section h3 {
+            margin-bottom: 15px;
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .min-max-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .min-max-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .write-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .write-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .random-btn {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+        }
+
+        .random-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(72, 187, 120, 0.3);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .status {
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .success {
+            background-color: #c6f6d5;
+            color: #22543d;
+            border: 1px solid #9ae6b4;
+        }
+
+        .error {
+            background-color: #fed7d7;
+            color: #742a2a;
+            border: 1px solid #fc8181;
+        }
+
+        .info {
+            background-color: #bee3f8;
+            color: #2a4365;
+            border: 1px solid #90cdf4;
+        }
+
+        .random-result {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            color: #667eea;
+            margin: 15px 0;
+            padding: 20px;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 15px;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .array-preview {
+            background: rgba(72, 187, 120, 0.1);
+            border: 1px solid rgba(72, 187, 120, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        .nfc-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .min-max-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 NFC Number Writer</h1>
+        
+        <div class="section">
+            <h3>Numbers Array</h3>
+            <input type="text" id="numbersInput" placeholder="Enter numbers like: 1,2,3,4,5" value="1,2,3,4,5">
+            <div class="array-preview" id="arrayPreview">Array: [1, 2, 3, 4, 5]</div>
+        </div>
+
+        <div class="section">
+            <h3>Range Settings</h3>
+            <div class="min-max-container">
+                <div>
+                    <label for="minValue">Min Value:</label>
+                    <input type="number" id="minValue" value="1">
+                </div>
+                <div>
+                    <label for="maxValue">Max Value:</label>
+                    <input type="number" id="maxValue" value="5">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>NFC Actions</h3>
+            <button class="write-btn" id="writeBtn">
+                <span class="nfc-icon">📡</span>Write to NFC Tag
+            </button>
+            
+            <button class="random-btn" id="randomBtn">
+                🎲 Get Random Number
+            </button>
+            
+            <div id="randomResult" class="random-result" style="display: none;"></div>
+        </div>
+
+        <div id="status"></div>
+    </div>
+
+    <script>
+        let currentArray = [1, 2, 3, 4, 5];
+        let minValue = 1;
+        let maxValue = 5;
+
+        const numbersInput = document.getElementById('numbersInput');
+        const minValueInput = document.getElementById('minValue');
+        const maxValueInput = document.getElementById('maxValue');
+        const writeBtn = document.getElementById('writeBtn');
+        const randomBtn = document.getElementById('randomBtn');
+        const randomResult = document.getElementById('randomResult');
+        const status = document.getElementById('status');
+        const arrayPreview = document.getElementById('arrayPreview');
+
+        // Check NFC support
+        if (!('NDEFReader' in window)) {
+            showStatus('NFC is not supported on this device/browser. Use Chrome on Android with NFC enabled.', 'error');
+            writeBtn.disabled = true;
+        }
+
+        // Parse numbers input
+        function parseNumbers(input) {
+            return input.split(',')
+                       .map(n => n.trim())
+                       .filter(n => n !== '')
+                       .map(n => parseInt(n))
+                       .filter(n => !isNaN(n));
+        }
+
+        // Update array preview
+        function updateArrayPreview() {
+            const numbers = parseNumbers(numbersInput.value);
+            if (numbers.length > 0) {
+                currentArray = numbers;
+                arrayPreview.textContent = `Array: [${numbers.join(', ')}]`;
+                arrayPreview.style.display = 'block';
+            } else {
+                arrayPreview.style.display = 'none';
+            }
+        }
+
+        // Show status message
+        function showStatus(message, type = 'info') {
+            status.innerHTML = `<div class="status ${type}">${message}</div>`;
+            setTimeout(() => {
+                status.innerHTML = '';
+            }, 5000);
+        }
+
+        // Get random number from current array
+        function getRandomFromArray() {
+            if (currentArray.length === 0) return null;
+            const randomIndex = Math.floor(Math.random() * currentArray.length);
+            return currentArray[randomIndex];
+        }
+
+        // Get random number from range
+        function getRandomFromRange() {
+            return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+        }
+
+        // Write to NFC
+        async function writeToNFC() {
+            if (!('NDEFReader' in window)) {
+                showStatus('NFC not supported on this device', 'error');
+                return;
+            }
+
+            try {
+                const ndef = new NDEFReader();
+                
+                const data = {
+                    numbers: currentArray,
+                    min: minValue,
+                    max: maxValue,
+                    timestamp: new Date().toISOString()
+                };
+
+                await ndef.write({
+                    records: [{
+                        recordType: "text",
+                        data: JSON.stringify(data)
+                    }]
+                });
+
+                showStatus('Successfully wrote to NFC tag!', 'success');
+            } catch (error) {
+                console.error('NFC write error:', error);
+                if (error.name === 'NotAllowedError') {
+                    showStatus('NFC access denied. Please allow NFC permissions.', 'error');
+                } else if (error.name === 'NotSupportedError') {
+                    showStatus('NFC not supported on this device.', 'error');
+                } else {
+                    showStatus(`NFC write failed: ${error.message}`, 'error');
+                }
+            }
+        }
+
+        // Event listeners
+        numbersInput.addEventListener('input', updateArrayPreview);
+
+        minValueInput.addEventListener('input', (e) => {
+            minValue = parseInt(e.target.value) || 0;
+        });
+
+        maxValueInput.addEventListener('input', (e) => {
+            maxValue = parseInt(e.target.value) || 100;
+        });
+
+        writeBtn.addEventListener('click', writeToNFC);
+
+        randomBtn.addEventListener('click', () => {
+            // Always generate random number from min/max range
+            const randomNum = getRandomFromRange();
+            showStatus(`Generated random number: ${randomNum}`, 'success');
+            
+            // Add the random number to the input field
+            const currentInput = numbersInput.value.trim();
+            if (currentInput === '') {
+                numbersInput.value = randomNum.toString();
+            } else {
+                numbersInput.value = currentInput + ',' + randomNum;
+            }
+            
+            // Update the array preview
+            updateArrayPreview();
+            
+            // Show the result
+            randomResult.textContent = randomNum;
+            randomResult.style.display = 'block';
+        });
+
+        // Initialize
+        updateArrayPreview();
+    </script>
+</body>
+</html>
