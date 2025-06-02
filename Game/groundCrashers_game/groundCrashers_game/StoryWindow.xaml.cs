@@ -11,7 +11,13 @@ namespace groundCrashers_game
         {
             InitializeComponent();
             this.levelName = levelName;
+            try
+            {
             StoryText.Text = GetStoryForBiome(biomeName);
+            } catch
+            {
+                return;
+            }
         }
 
         private void StartLevel_Click(object sender, RoutedEventArgs e)
