@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:groundCrashers_game"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="LoginWindow" Height="450" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
         <Setter Property="FontSize" Value="18"/>
@@ -105,30 +105,27 @@
         <!-- Background Gradient -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="#FF2C2C2C" Offset="0.0"/>
-                <GradientStop Color="#FF1E1E1E" Offset="1.0"/>
+                <GradientStop Color="#FFEEBEFA" Offset="0.0"/>
+                <GradientStop Color="#FF845EF7" Offset="1.0"/>
             </LinearGradientBrush>
         </Grid.Background>
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
-        <TextBlock Text="login!"
+            <TextBlock Text="login!"
                FontSize="36"
                FontWeight="Bold"
                Foreground="White"
                HorizontalAlignment="Center"
                Margin="0,0,0,10">
-            <TextBlock.Effect>
-                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2"/>
-            </TextBlock.Effect>
-        </TextBlock>
+            </TextBlock>
 
             <Grid>
                 <TextBox x:Name="TBXusername"
              Style="{StaticResource RoundedTextboxStyle}"
-             Background="White"
-             BorderBrush="Black"
+             Background="#7BFFFFFF"
+             BorderBrush="White"
              BorderThickness="2"
-             TextChanged="TBXusername_TextChanged"/>
+             TextChanged="TBXusername_TextChanged" Foreground="#7F000000"/>
 
                 <TextBlock x:Name="PlaceholderUsername"
                Text="Enter your username..."
@@ -142,8 +139,8 @@
             <Grid>
                 <PasswordBox x:Name="PBXpassword"
              Style="{StaticResource RoundedPasswordboxStyle}"
-             Background="White"
-             BorderBrush="Black"
+             Background="#7FFFFFFF"
+             BorderBrush="White"
              BorderThickness="2"
              PasswordChanged="PBXpassword_PasswordChanged"/>
 
@@ -159,13 +156,16 @@
         <Button x:Name="BtnLogin"
         Content="Login account"
         Style="{StaticResource RoundedButtonStyle}"
-        Background="green"
-        Foreground="Black" Click="BtnLogin_Click"/>
+        Background="White"
+        Foreground="Black" Click="BtnLogin_Click" BorderBrush="White"/>
+            
 
         <Button x:Name="BtnCreate"
         Content="create account"
         Style="{StaticResource RoundedButtonStyle}"
-        Background="Red" Click="BtnCreate_Click"/>
+        Background="White" Click="BtnCreate_Click"
+        Foreground="Black"/>
+        
         </StackPanel>
     </Grid>
 </Window>
