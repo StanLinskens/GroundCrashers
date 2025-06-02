@@ -105,7 +105,7 @@ namespace groundCrashers_game.classes
                 LoadAllCreatures();
                 //LoadAllCreaturesFromWebAsync();
 
-                if(StoryMode)
+                if (StoryMode)
                 {
                     // Load levels from local JSON for story mode
                     Levels.LoadLevelsFromJson(); 

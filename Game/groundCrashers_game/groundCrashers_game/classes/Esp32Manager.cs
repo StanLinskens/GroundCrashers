@@ -14,7 +14,7 @@ namespace groundCrashers_game
         private readonly string _esp32BaseUrl;
         private readonly int _baudRate;
 
-        public Esp32Manager(string esp32BaseUrl = "http://192.168.2.57", int baudRate = 115200)
+        public Esp32Manager(string esp32BaseUrl = "http://192.168.117.27", int baudRate = 115200)
         {
             _client = new HttpClient();
             _esp32BaseUrl = esp32BaseUrl.TrimEnd('/');

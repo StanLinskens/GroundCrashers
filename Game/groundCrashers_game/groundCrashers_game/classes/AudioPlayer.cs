@@ -70,17 +70,21 @@ namespace groundCrashers_game.classes
         /// </summary>
         public async Task PlayRandomBattleMusicAsync()
         {
-            // Stop anything that might already be playing
+            // Stop any sound that might already be playing
             await StopAsync();
 
-            string folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "Audio");
+            // Locate your Audio folder
+            string folder = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "..", "..", "..", "Audio"
+            );
             if (!Directory.Exists(folder))
             {
                 Console.WriteLine("Audio folder not found: " + folder);
                 return;
             }
 
-            // Gather all battleground*.wav files
+            // Gather all files that match battleground*.wav
             string[] wavFiles = Directory.GetFiles(folder, "battleground*.wav");
             if (wavFiles.Length == 0)
             {
@@ -88,62 +92,34 @@ namespace groundCrashers_game.classes
                 return;
             }
 
-            // Set up a CancellationToken so we can stop the loop later
-            battleCts = new CancellationTokenSource();
-            CancellationToken token = battleCts.Token;
+            // Pick one file at random
+            string chosenFile = wavFiles[random.Next(wavFiles.Length)];
+            Console.WriteLine("Playing once: " + chosenFile);
 
-            battleTask = Task.Run(async () =>
+            try
             {
-                while (!token.IsCancellationRequested)
+                lock (lockObject)
                 {
-                    string nextFile = wavFiles[random.Next(wavFiles.Length)];
-                    Console.WriteLine("Playing: " + nextFile);
+                    // Dispose any previous players
+                    player?.Dispose();
 
-                    try
-                    {
-                        lock (lockObject)
-                        {
-                            if (token.IsCancellationRequested) break;
-
-                            // Dispose previous battlePlayer if exists
-                            battlePlayer?.Dispose();
-                            battlePlayer = new SoundPlayer(nextFile);
-                        }
-
-                        // Use Play() instead of PlaySync() to avoid blocking
-                        battlePlayer.Play();
-
-                        // Get audio duration (you'll need to implement this method)
-                        int duration = GetAudioDurationMs(nextFile);
-
-                        // Wait for the sound to finish or cancellation
-                        await Task.Delay(duration, token);
-                    }
-                    catch (OperationCanceledException)
-                    {
-                        // We were told to cancel; exit the loop immediately
-                        break;
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error playing '{nextFile}': {ex.Message}");
-                        // Small delay before trying next file
-                        await Task.Delay(1000, token);
-                    }
-
-                    if (token.IsCancellationRequested)
-                        break;
+                    // Set up a new SoundPlayer for the chosen file
+                    player = new SoundPlayer(chosenFile);
+                    player.Play(); // Play once, no looping
                 }
-            }, token);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error playing sound '{chosenFile}': {ex.Message}");
+            }
         }
 
-        /// <summary>
-        /// Synchronous version that starts the async battleground music
-        /// </summary>
+        // Synchronous wrapper (you can keep this as-is or remove it if you don’t need a sync call)
         public void PlayRandomBattleMusic()
         {
             _ = PlayRandomBattleMusicAsync();
         }
+
 
         /// <summary>
         /// Stops any playing sound (specific or battleground loop) and cancels the loop.
