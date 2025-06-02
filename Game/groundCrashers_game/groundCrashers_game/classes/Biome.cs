@@ -23,11 +23,15 @@ namespace groundCrashers_game
         Ocean,
         Desert,
         Volcano,
-        Interstellar,
-        Mars,
+
         Moon,
-        Skyloft,
-        Steel
+        Nebula,
+        Interstellar,
+        Debris,
+        Saturn,
+        Cybertron,
+        Asteroids,
+        Sun,
     }
 
 

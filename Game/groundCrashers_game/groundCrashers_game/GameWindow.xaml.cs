@@ -247,6 +247,7 @@ namespace groundCrashers_game
         {
             switch (b)
             {
+                // normal biomes
                 case Biomes.Forest: return "🌲";
                 case Biomes.Desert: return "🏜️";
                 case Biomes.Mountain: return "⛰️";
@@ -263,11 +264,19 @@ namespace groundCrashers_game
                 case Biomes.Marsh: return "🦢";
                 case Biomes.CrystalCavern: return "💎";
                 case Biomes.Wasteland: return "☢️";
-                case Biomes.Interstellar: return "🌌";
-                case Biomes.Mars: return "🔴";
+
+                // Space-themed biomes
                 case Biomes.Moon: return "🌕";
-                case Biomes.Skyloft: return "☁️";
-                case Biomes.Steel: return "🏭";
+                case Biomes.Nebula: return "🌀";
+                case Biomes.Interstellar: return "🌌";
+                case Biomes.Debris: return "🛰️";
+                case Biomes.Saturn: return "🪐";
+                case Biomes.Cybertron: return "🤖";
+                case Biomes.Asteroids: return "☄️";
+                case Biomes.Sun: return "☀️";
+
+                // might add later
+                //case Biomes.Skyloft: return "☁️";
                 default: return "❓";
             }
         }

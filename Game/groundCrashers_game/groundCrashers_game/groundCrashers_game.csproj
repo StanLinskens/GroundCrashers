@@ -19,7 +19,6 @@
     <None Remove="Images\battleGrounds\interstellar.jpg" />
     <None Remove="Images\battleGrounds\jungle.jpg" />
     <None Remove="Images\battleGrounds\map.png" />
-    <None Remove="Images\battleGrounds\mars.jpg" />
     <None Remove="Images\battleGrounds\marsh.jpg" />
     <None Remove="Images\battleGrounds\moon.jpg" />
     <None Remove="Images\battleGrounds\mountain.jpg" />
@@ -28,7 +27,6 @@
     <None Remove="Images\battleGrounds\savanna.jpg" />
     <None Remove="Images\battleGrounds\skyloft.jpg" />
     <None Remove="Images\battleGrounds\space.png" />
-    <None Remove="Images\battleGrounds\steel.jpg" />
     <None Remove="Images\battleGrounds\swamp.jpg" />
     <None Remove="Images\battleGrounds\tundra.jpg" />
     <None Remove="Images\battleGrounds\volcano.jpg" />
@@ -322,7 +320,6 @@
     <Resource Include="Images\battleGrounds\interstellar.jpg" />
     <Resource Include="Images\battleGrounds\jungle.jpg" />
     <Resource Include="Images\battleGrounds\map.png" />
-    <Resource Include="Images\battleGrounds\mars.jpg" />
     <Resource Include="Images\battleGrounds\marsh.jpg" />
     <Resource Include="Images\battleGrounds\moon.jpg" />
     <Resource Include="Images\battleGrounds\mountain.jpg" />
@@ -331,7 +328,7 @@
     <Resource Include="Images\battleGrounds\savanna.jpg" />
     <Resource Include="Images\battleGrounds\skyloft.jpg" />
     <Resource Include="Images\battleGrounds\space.png" />
-    <Resource Include="Images\battleGrounds\steel.jpg" />
+    <Resource Include="Images\battleGrounds\cybertron.jpg" />
     <Resource Include="Images\battleGrounds\swamp.jpg" />
     <Resource Include="Images\battleGrounds\tundra.jpg" />
     <Resource Include="Images\battleGrounds\volcano.jpg" />
