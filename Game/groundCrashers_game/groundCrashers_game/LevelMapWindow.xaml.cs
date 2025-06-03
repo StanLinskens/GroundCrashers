@@ -25,6 +25,8 @@ namespace groundCrashers_game
 
         bool spaceMap_hidden = true;
 
+        bool hardcore = false;
+
         public LevelMapWindow(bool LVLWon = false, string LVLname = "")
         {
             InitializeComponent();
@@ -202,7 +204,28 @@ namespace groundCrashers_game
             }
         }
 
+        private void HardcoreBtn_Click(object sender, RoutedEventArgs e)
+        {
+            hardcore = !hardcore;
 
+            string currentImage = MapBackground.ImageSource.ToString();
+            if (spaceMap_hidden)
+            {
+                string newImage = currentImage.Contains("hardcore_map.png")
+                ? "pack://application:,,,/Images/battleGrounds/map.png"
+                : "pack://application:,,,/Images/battleGrounds/hardcore_map.png";
+
+                MapBackground.ImageSource = new BitmapImage(new Uri(newImage));
+            }
+            else
+            {
+                string newImage = currentImage.Contains("hardcore_space.png")
+                ? "pack://application:,,,/Images/battleGrounds/space.png"
+                : "pack://application:,,,/Images/battleGrounds/hardcore_space.png";
+
+                MapBackground.ImageSource = new BitmapImage(new Uri(newImage));
+            }
+        }
 
         private void Display_Levels()
         {
