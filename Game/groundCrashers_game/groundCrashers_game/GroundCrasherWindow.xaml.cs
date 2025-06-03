@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 using System.IO;
 using groundCrashers_game.classes;
 using System.Net.Http;
+using System.Diagnostics;
 
 
 namespace groundCrashers_game
@@ -47,7 +48,7 @@ namespace groundCrashers_game
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (_Manager.StoryMode)
+            if (!_Manager.StoryMode)
             {
                 LoadCreatureButtons();
             }
@@ -265,7 +266,23 @@ namespace groundCrashers_game
 
         private void AddToList_Click(object sender, RoutedEventArgs e)
         {
-
+            if (SelectedCreature != null)
+            {
+                if (!WriteToCard.Contains(SelectedCreature.id))
+                {
+                    WriteToCard.Add(SelectedCreature.id);
+                    Debug.WriteLine($"✅ Added {SelectedCreature.name} (ID: {SelectedCreature.id}) to WriteToCard list.");
+                }
+                else
+                {
+                    Debug.WriteLine($"⚠️ {SelectedCreature.name} is already in the WriteToCard list.");
+                }
+            }
+            else
+            {
+                Debug.WriteLine("❌ No creature selected. Cannot add to list.");
+            }
         }
+
     }
 }
