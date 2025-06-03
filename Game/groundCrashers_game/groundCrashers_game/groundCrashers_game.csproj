@@ -15,6 +15,7 @@
     <None Remove="Images\battleGrounds\crystal_cavern_gif.gif" />
     <None Remove="Images\battleGrounds\debris.jpg" />
     <None Remove="Images\battleGrounds\desert.jpg" />
+    <None Remove="Images\battleGrounds\earth.jpg" />
     <None Remove="Images\battleGrounds\forest.jpg" />
     <None Remove="Images\battleGrounds\glacier.jpg" />
     <None Remove="Images\battleGrounds\hardcore_map.png" />
@@ -323,6 +324,7 @@
     <Resource Include="Images\battleGrounds\crystal_cavern_gif.gif" />
     <Resource Include="Images\battleGrounds\debris.jpg" />
     <Resource Include="Images\battleGrounds\desert.jpg" />
+    <Resource Include="Images\battleGrounds\earth.jpg" />
     <Resource Include="Images\battleGrounds\forest.jpg" />
     <Resource Include="Images\battleGrounds\glacier.jpg" />
     <Resource Include="Images\battleGrounds\hardcore_map.png" />
