@@ -151,7 +151,7 @@
 
                     <Button x:Name="TypeGambleBtn" Content="GAMBLE!" 
                            Background="#ff6347" Foreground="White" FontWeight="Bold"
-                           Padding="20,10" FontSize="14" CornerRadius="5"
+                           Padding="20,10" FontSize="14" 
                            BorderThickness="0" Cursor="Hand"
                            Click="TypeGambleBtn_Click">
                         <Button.Style>
@@ -205,7 +205,7 @@
 
                     <Button x:Name="ElementGambleBtn" Content="GAMBLE!" 
                            Background="#dda0dd" Foreground="Black" FontWeight="Bold"
-                           Padding="20,10" FontSize="14" CornerRadius="5"
+                           Padding="20,10" FontSize="14"
                            BorderThickness="0" Cursor="Hand"
                            Click="ElementGambleBtn_Click">
                         <Button.Style>
