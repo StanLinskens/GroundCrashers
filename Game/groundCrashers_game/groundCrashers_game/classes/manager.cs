@@ -32,6 +32,8 @@ namespace groundCrashers_game.classes
 
         public string levelName { get; set; } // Default level name
 
+        public bool hardcore { get; set; } = false; // True = hardcore mode, False = normal mode
+
         public int _maxCreatures { get; set; } = 3;
 
         public enum ActionType
@@ -202,14 +204,6 @@ namespace groundCrashers_game.classes
             {
                 Actor cpuActor = GetCpuActor();
                 ActiveCpuCreature = cpuActor.Creatures.FirstOrDefault(c => c.alive == true);
-            }
-
-            if (ActiveCpuCreature == null)
-            {
-                logs.Add("you win");
-                MessageBox.Show("You win!");
-                LevelMapWindow mapWindow = new LevelMapWindow(true, levelName);
-                mapWindow.Show();
             }
         }
 
@@ -902,8 +896,6 @@ namespace groundCrashers_game.classes
                 CpuLVLBalance();
             }
 
-
-
             // enviroment buff for CPU
             EnviromentBuff_Setup(cpuActor);
 
@@ -924,6 +916,8 @@ namespace groundCrashers_game.classes
             if (Levels.Chart.TryGetValue(levelName, out var level))
             {
                 double multiplier = level.StrengthModifier / 100.0;
+
+                if (hardcore) multiplier *= 10; // Increase difficulty in hardcore mode
 
                 foreach (var creature in GetCpuActor().Creatures)
                 {
@@ -953,7 +947,7 @@ namespace groundCrashers_game.classes
                     {
                         cpuActor.Creatures.Add(creature.Clone());
                     }
-                    else if (creatureId == 999)
+                    else if (creatureId == 0)
                     {
                         cpuActor.Creatures.AddRange(GetRandomCreatures(1));
                     }

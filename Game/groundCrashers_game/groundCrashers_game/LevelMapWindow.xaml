@@ -51,7 +51,7 @@
                 Height="1080">
             <Canvas.Background>
                 <ImageBrush x:Name="MapBackground"
-                            ImageSource="/Images/battleGrounds/hardcore_map.png"/>
+                            ImageSource="/Images/battleGrounds/map.png"/>
             </Canvas.Background>
 
             <Border

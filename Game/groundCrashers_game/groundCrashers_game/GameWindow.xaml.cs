@@ -1,6 +1,8 @@
 ﻿using groundCrashers_game.classes;
+using Microsoft.VisualBasic.Logging;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
+using System.Media;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -8,7 +10,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Xml.Linq;
 using WMPLib;
-using System.Media;
 using static groundCrashers_game.classes.Manager;
 
 namespace groundCrashers_game
@@ -61,13 +62,14 @@ namespace groundCrashers_game
             { Primaries.Titan, "#B71C1C" }      
         };
 
-        public GameWindow(bool storyMode, string LVLName = "null")
+        public GameWindow(bool storyMode, string LVLName = "null", bool hardcore = false)
         {
             InitializeComponent();
 
             // Initialize the game manager
             gameManager = new Manager();
 
+            gameManager.hardcore = hardcore; // Set hardcore mode if applicable
             gameManager.StoryMode = storyMode;
             gameManager.levelName = LVLName;
 
@@ -155,6 +157,26 @@ namespace groundCrashers_game
                 PlayerHealthBar.Value = 0;
                 PlayerHealthText.Text = "0/" + PlayerHealth_split[1];
 
+                Creature hasCreatureLeft = gameManager.GetPlayerActor().Creatures.FirstOrDefault(c => c.alive);
+                if (hasCreatureLeft == null)
+                {
+                    gameManager.logs.Add("you Lose");
+                    MessageBox.Show("You Lose!");
+
+                    if (gameManager.StoryMode)
+                    {
+                        LevelMapWindow mapWindow = new LevelMapWindow(true, gameManager.levelName, gameManager.hardcore);
+                        mapWindow.Show();
+                    }
+                    else
+                    {
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                    }
+
+                    this.Close();
+                }
+
             }
 
 
@@ -201,6 +223,21 @@ namespace groundCrashers_game
 
                 EnemyHealthBar.Value = 0;
                 EnemyHealthText.Text = "0/" + EnemyHealt_split[1];
+
+                gameManager.logs.Add("you win");
+                MessageBox.Show("You win!");
+
+                if(gameManager.StoryMode)
+                {
+                    LevelMapWindow mapWindow = new LevelMapWindow(true, gameManager.levelName, gameManager.hardcore);
+                    mapWindow.Show();
+                }
+                else
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                }
+
                 this.Close();
             }
         }
@@ -276,6 +313,7 @@ namespace groundCrashers_game
                 case Biomes.Wasteland: return "☢️";
 
                 // Space-themed biomes
+                case Biomes.Earth: return "🌍";
                 case Biomes.Moon: return "🌕";
                 case Biomes.Nebula: return "🌀";
                 case Biomes.Interstellar: return "🌌";

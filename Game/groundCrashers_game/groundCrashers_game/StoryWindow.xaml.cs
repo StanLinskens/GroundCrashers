@@ -6,11 +6,13 @@ namespace groundCrashers_game
     public partial class StoryWindow : Window
     {
         private string levelName;
+        private bool hardcore;
 
-        public StoryWindow(string biomeName, string levelName)
+        public StoryWindow(string biomeName, string levelName, bool hardcore)
         {
             InitializeComponent();
             this.levelName = levelName;
+            this.hardcore = hardcore;
             try
             {
             StoryText.Text = GetStoryForBiome(biomeName);
@@ -22,7 +24,7 @@ namespace groundCrashers_game
 
         private void StartLevel_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow gameWindow = new GameWindow(true, levelName);
+            GameWindow gameWindow = new GameWindow(true, levelName, hardcore);
             gameWindow.Show();
             this.Close();
             //Application.Current.Windows[0]?.Close(); 
