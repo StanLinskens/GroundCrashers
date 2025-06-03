@@ -101,7 +101,6 @@
             </Grid.ColumnDefinitions>
 
             <!-- Basic Gamble -->
-            <Border Grid.Column="0" Background="#2d2d44" CornerRadius="10" Margin="5"
             <Border Grid.Column="0" Background="#2d2d44" CornerRadius="10" Margin="0,5,5,0"
                     BorderBrush="#4a4a6a" BorderThickness="2">
                 <StackPanel Margin="15" HorizontalAlignment="Center">
