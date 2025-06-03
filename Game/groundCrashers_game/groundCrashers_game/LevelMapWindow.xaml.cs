@@ -27,16 +27,19 @@ namespace groundCrashers_game
 
         bool hardcore = false;
 
-        public LevelMapWindow(bool LVLWon = false, string LVLname = "")
+        public LevelMapWindow(bool LVLWon = false, string LVLname = "", bool playedHardcore = false)
         {
             InitializeComponent();
 
             SpaceBtn.Visibility = Visibility.Collapsed;
+            HardcoreBtn.Visibility = Visibility.Collapsed;
+
+
 
             currentBiomeIndex = ActiveAccount.Active_current_biome_id;
             currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
 
-            GetPlayedLevelResult(LVLWon, LVLname);
+            GetPlayedLevelResult(LVLWon, LVLname, playedHardcore);
 
             currentBiomeIndex = ActiveAccount.Active_current_biome_id;
             currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
@@ -49,16 +52,20 @@ namespace groundCrashers_game
             {
                 SpaceBtn.Visibility = Visibility.Visible;
             }
+            if (currentBiomeIndex >= 25)
+            {
+                HardcoreBtn.Visibility = Visibility.Visible;
+            }
 
             AudioPlayer.Instance.Stop();
             AudioPlayer.Instance.PlaySpecific("map.wav", true);
 
             Display_Levels();
 
-            Show_Biomes_Earth();
+            Show_Biomes();
         }
 
-        private void GetPlayedLevelResult(bool LVLWon, string LVLname)
+        private void GetPlayedLevelResult(bool LVLWon, string LVLname, bool playedHardcore)
         {
             foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
             {
@@ -70,7 +77,11 @@ namespace groundCrashers_game
                     int biomeValue = (int)biome;
                     int BiomeLVL = int.Parse(LVLname_split[1]);
                     // if lvl won and the biome and lvl have not been completed yet
-                    if (LVLWon && biomeValue == currentBiomeIndex && BiomeLVL == currentLVLIndex)
+
+                    int newActiveCurrentBiomeIndex = ActiveAccount.Active_current_biome_id;
+                    if (playedHardcore) newActiveCurrentBiomeIndex -= 25;
+
+                    if (LVLWon && biomeValue == newActiveCurrentBiomeIndex && BiomeLVL == currentLVLIndex)
                     {
                         // the earned xp for completing a level
                         int xpEarned = 1;
@@ -83,7 +94,10 @@ namespace groundCrashers_game
 
                         // lvl go up and if lvl is 6, go to next biome
                         ActiveAccount.Active_current_biome_lvl_id++;
-                        if ((ActiveAccount.Active_current_biome_lvl_id >= 6 && ActiveAccount.Active_current_biome_id <= 15) || (ActiveAccount.Active_current_biome_lvl_id >= 4 && ActiveAccount.Active_current_biome_id >= 16))
+
+                        bool completedNewEarth = ActiveAccount.Active_current_biome_lvl_id >= 6 && newActiveCurrentBiomeIndex <= 15;
+                        bool completedNewSpace = ActiveAccount.Active_current_biome_lvl_id >= 4 && newActiveCurrentBiomeIndex >= 16 && newActiveCurrentBiomeIndex <= 24;
+                        if (completedNewEarth || completedNewSpace)
                         {
                             ActiveAccount.Active_current_biome_lvl_id = 1;
                             ActiveAccount.Active_current_biome_id++;
@@ -138,14 +152,10 @@ namespace groundCrashers_game
                     }
                 }
             }
-            else if (Image == "map.png")
+            else
             {
-                Show_Biomes_Earth();
-            }
-            else if (Image == "space.png")
-            {
-                show_Biomes_space();
-            }         
+                Show_Biomes();
+            }   
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
@@ -156,16 +166,19 @@ namespace groundCrashers_game
             // Get biome name from levelName (e.g., ForestLVL1 -> Forest)
             string biomeName = levelName.Replace("LVL1", "").Replace("Button", "");
 
+            string currentImage = MapBackground.ImageSource.ToString();
+            bool isHardcore = currentImage.Contains("hardcore");
+
             // Only show story window for the first level of each biome
             if (levelName.EndsWith("LVL1"))
             {
-                StoryWindow storyWindow = new StoryWindow(biomeName, levelName);
+                StoryWindow storyWindow = new StoryWindow(biomeName, levelName, isHardcore);
                 storyWindow.Show();
                 this.Close();
             }
             else
             {
-                GameWindow gameWindow = new GameWindow(true, levelName);
+                GameWindow gameWindow = new GameWindow(true, levelName, isHardcore);
                 gameWindow.Show();
                 this.Close();
             }
@@ -175,16 +188,39 @@ namespace groundCrashers_game
         {
             spaceMap_hidden = !spaceMap_hidden;
             lvls_Hidden = false;
+            hardcore = false;
+
+            string newImage = string.Empty;
 
             string currentImage = MapBackground.ImageSource.ToString();
 
-            string newImage = currentImage.Contains("space.png")
-                ? "pack://application:,,,/Images/battleGrounds/map.png"
-                : "pack://application:,,,/Images/battleGrounds/space.png";
+            if(currentImage.Contains("space.png"))
+            {
+                newImage = "pack://application:,,,/Images/battleGrounds/map.png";
+                SpaceBtn.Content = "Space Map";
+            }
+            else
+            {
+                newImage = "pack://application:,,,/Images/battleGrounds/space.png";
+                SpaceBtn.Content = "Earth Map";
+            }
 
             MapBackground.ImageSource = new BitmapImage(new Uri(newImage));
 
-            show_Biomes_space();
+            Show_Biomes();
+
+            if (!spaceMap_hidden && currentBiomeIndex - 24 >= 16)
+            {
+                HardcoreBtn.Visibility = Visibility.Visible;
+            }
+            else if (!spaceMap_hidden)
+            {
+                HardcoreBtn.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                HardcoreBtn.Visibility = Visibility.Visible;
+            }
         }
 
         private void BiomeBtn_Click(object sender, RoutedEventArgs e)
@@ -207,6 +243,7 @@ namespace groundCrashers_game
         private void HardcoreBtn_Click(object sender, RoutedEventArgs e)
         {
             hardcore = !hardcore;
+            lvls_Hidden = false;
 
             string currentImage = MapBackground.ImageSource.ToString();
             if (spaceMap_hidden)
@@ -225,12 +262,20 @@ namespace groundCrashers_game
 
                 MapBackground.ImageSource = new BitmapImage(new Uri(newImage));
             }
+
+            Display_Levels();
+            Show_Biomes();
         }
 
         private void Display_Levels()
         {
             foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
             {
+
+                int newCurrentBiomeIndex = currentBiomeIndex;
+
+                if (hardcore) { newCurrentBiomeIndex -= 25; }
+
                 // make the enum value an int
                 int biomeValue = (int)biome;
                 // get the button name from the enum value
@@ -248,10 +293,12 @@ namespace groundCrashers_game
                         if (buttonLVL != null)
                         {
                             buttonLVL.Visibility = Visibility.Collapsed;
+                            buttonLVL.Background = new SolidColorBrush(Color.FromRgb(0x1E, 0x1E, 0x1E));  // #1E1E1E
+                            buttonLVL.BorderBrush = new SolidColorBrush(Color.FromRgb(0x44, 0x44, 0x44)); // #444444
                         }
                     }
 
-                    if (biomeValue == currentBiomeIndex)
+                    if (biomeValue == newCurrentBiomeIndex)
                     {
                         // all levels below the current level index are green
                         for (int i = 1; i <= currentLVLIndex; i++)
@@ -270,7 +317,7 @@ namespace groundCrashers_game
                         }
                     }
                     // if the biome is below the current biome, show all levels and make them greens
-                    else if (biomeValue < currentBiomeIndex)
+                    else if (biomeValue < newCurrentBiomeIndex)
                     {
                         for (int i = 1; i <= 5; i++)
                         {
@@ -289,7 +336,7 @@ namespace groundCrashers_game
             }
         }
 
-        private void show_Biomes_space()
+        private void Show_Biomes()
         {
             foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
             {
@@ -297,34 +344,18 @@ namespace groundCrashers_game
                 int biomeValue = (int)biome;
                 var buttonName = $"{biome}Button";
                 var button = this.FindName(buttonName) as UIElement;
-                if (button != null)
-                {
-                    if (spaceMap_hidden && biomeValue <= 15 && biomeValue <= currentBiomeIndex)
-                    {
-                        button.Visibility = Visibility.Visible;
-                    }
-                    else if (!spaceMap_hidden && biomeValue >= 16 && biomeValue <= 24 && biomeValue <= currentBiomeIndex)
-                    {
-                        button.Visibility = Visibility.Visible;
-                    }
-                    else
-                    {
-                        button.Visibility = Visibility.Collapsed;
-                    }
-                }
-            }
-        }
-        private void Show_Biomes_Earth()
-        {
-            foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
-            {
 
-                int biomeValue = (int)biome;
-                var buttonName = $"{biome}Button";
-                var button = this.FindName(buttonName) as UIElement;
+                int newCurrentBiomeIndex = currentBiomeIndex;
+
+                if (hardcore) { newCurrentBiomeIndex -= 25; }
+
                 if (button != null)
                 {
-                    if (biomeValue <= 15 && biomeValue <= currentBiomeIndex)
+                    if (spaceMap_hidden && biomeValue <= 15 && biomeValue <= newCurrentBiomeIndex)
+                    {
+                        button.Visibility = Visibility.Visible;
+                    }
+                    else if (!spaceMap_hidden && biomeValue >= 16 && biomeValue <= 24 && biomeValue <= newCurrentBiomeIndex)
                     {
                         button.Visibility = Visibility.Visible;
                     }

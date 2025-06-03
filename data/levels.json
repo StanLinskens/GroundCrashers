@@ -777,7 +777,7 @@
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 999 ],
+        "CreatureID": [ 0, 0, 0 ],
         "strengthModifier": 160
     },
     {
@@ -795,7 +795,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 230 ],
+        "CreatureID": [ 0, 0, 230 ],
         "strengthModifier": 125
     },
 
@@ -807,7 +807,7 @@
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 999 ],
+        "CreatureID": [ 0, 0, 0 ],
         "strengthModifier": 170
     },
     {
@@ -825,7 +825,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 233 ],
+        "CreatureID": [ 0, 0, 233 ],
         "strengthModifier": 135
     },
 
@@ -839,7 +839,7 @@
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 999 ],
+        "CreatureID": [ 0, 0, 0 ],
         "strengthModifier": 180
     },
     {
@@ -857,7 +857,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 228 ],
+        "CreatureID": [ 0, 0, 228 ],
         "strengthModifier": 145
     },
 
@@ -871,7 +871,7 @@
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 999 ],
+        "CreatureID": [ 0, 0, 0 ],
         "strengthModifier": 190
     },
     {
@@ -889,7 +889,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 234 ],
+        "CreatureID": [ 0, 0, 234 ],
         "strengthModifier": 155
     },
 
@@ -903,7 +903,7 @@
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 999 ],
+        "CreatureID": [ 0, 0, 0 ],
         "strengthModifier": 200
     },
     {
@@ -921,7 +921,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 231 ],
+        "CreatureID": [ 0, 0, 231 ],
         "strengthModifier": 165
     },
 
@@ -935,7 +935,7 @@
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 999 ],
+        "CreatureID": [ 0, 0, 0 ],
         "strengthModifier": 210
     },
     {
@@ -953,7 +953,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 229 ],
+        "CreatureID": [ 0, 0, 229 ],
         "strengthModifier": 175
     },
 
@@ -967,7 +967,7 @@
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 999 ],
+        "CreatureID": [ 0, 0, 0 ],
         "strengthModifier": 220
     },
     {
@@ -985,7 +985,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 232 ],
+        "CreatureID": [ 0, 0, 232 ],
         "strengthModifier": 185
     },
 
@@ -999,7 +999,7 @@
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 999 ],
+        "CreatureID": [ 0, 0, 0 ],
         "strengthModifier": 230
     },
     {
@@ -1017,7 +1017,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 227 ],
+        "CreatureID": [ 0, 0, 227 ],
         "strengthModifier": 195
     },
 
@@ -1031,7 +1031,7 @@
         "daytime": "Day",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 999 ],
+        "CreatureID": [ 0, 0, 0 ],
         "strengthModifier": 240
     },
     {
@@ -1049,7 +1049,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 999, 999, 226 ],
+        "CreatureID": [ 0, 0, 226 ],
         "strengthModifier": 200
     }
 ]
