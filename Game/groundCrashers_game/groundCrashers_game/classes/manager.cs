@@ -1006,6 +1006,17 @@ namespace groundCrashers_game.classes
             MessageBox.Show(message.ToString(), "Actor Info");
         }
 
+        public Creature GetRandomGambleCreature(Primaries primary, Elements element)
+        {
+            var filtered = AllCreatures.Where(c => c.primary_type == primary).ToList();
+            filtered = filtered.Where(c => c.element == element).ToList();
+            if (filtered.Count == 0)
+                return null;
+
+            var random = new Random();
+            return filtered[random.Next(filtered.Count)];
+        }
+
         public void CurrentPlayerCreatureSet(string name)
         {
             var playerActor = GetPlayerActor();

@@ -21,6 +21,7 @@ namespace groundCrashers_game.classes
         public int current_biome_lvl_id { get; set; }
         public int LVL { get; set; }
         public int XP { get; set; }
+        public int coins { get; set; }
     }
 
     public class ActiveAccount
@@ -32,6 +33,7 @@ namespace groundCrashers_game.classes
         public static int Active_current_biome_lvl_id { get; set; }
         public static int Active_LVL { get; set; }
         public static int Active_XP { get; set; }
+        public static int Active_coins { get; set; }
     }
     public class AccountManager
     {
@@ -54,6 +56,7 @@ namespace groundCrashers_game.classes
                 ActiveAccount.Active_current_biome_lvl_id = account.current_biome_lvl_id;
                 ActiveAccount.Active_LVL = account.LVL;
                 ActiveAccount.Active_XP = account.XP;
+                ActiveAccount.Active_coins = account.coins;
 
                 return true;
             }
@@ -112,8 +115,9 @@ namespace groundCrashers_game.classes
                 password = password,
                 current_biome_id = 0,
                 current_biome_lvl_id = 1,
-                LVL = 1,
-                XP = 0
+                LVL = 0,
+                XP = 0,
+                coins = 0
             });
 
             MessageBox.Show("Account created");

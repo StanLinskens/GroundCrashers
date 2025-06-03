@@ -73,7 +73,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid Margin="20">
+    <Grid Margin="5px">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -102,6 +102,7 @@
 
             <!-- Basic Gamble -->
             <Border Grid.Column="0" Background="#2d2d44" CornerRadius="10" Margin="5"
+            <Border Grid.Column="0" Background="#2d2d44" CornerRadius="10" Margin="0,5,5,0"
                     BorderBrush="#4a4a6a" BorderThickness="2">
                 <StackPanel Margin="15" HorizontalAlignment="Center">
                     <TextBlock Text="🎲 BASIC GAMBLE" FontSize="18" FontWeight="Bold" 
@@ -125,7 +126,7 @@
             </Border>
 
             <!-- Type Specific Gamble -->
-            <Border Grid.Column="1" Background="#2d2d44" CornerRadius="10" Margin="5"
+            <Border Grid.Column="1" Background="#2d2d44" CornerRadius="10" Margin="5,5,5,5"
                     BorderBrush="#4a4a6a" BorderThickness="2">
                 <StackPanel Margin="15" HorizontalAlignment="Center">
                     <TextBlock Text="🎯 TYPE GAMBLE" FontSize="18" FontWeight="Bold" 
@@ -141,12 +142,12 @@
                     </Border>
 
                     <ComboBox x:Name="TypeComboBox" Margin="0,0,0,10" Padding="5"
-                             Background="#1e1e30" Foreground="White" BorderBrush="#4a4a6a">
-                        <ComboBoxItem Content="Verdant" Foreground="White"/>
-                        <ComboBoxItem Content="Primal" Foreground="White"/>
-                        <ComboBoxItem Content="Apex" Foreground="White"/>
-                        <ComboBoxItem Content="Sapient" Foreground="White"/>
-                        <ComboBoxItem Content="Synthetic" Foreground="White"/>
+                             Background="#1e1e30" Foreground="#333" BorderBrush="#4a4a6a">
+                        <ComboBoxItem Content="Verdant" Foreground="#388E3C"/>
+                        <ComboBoxItem Content="Primal" Foreground="#FFB300"/>
+                        <ComboBoxItem Content="Apex" Foreground="#C62828"/>
+                        <ComboBoxItem Content="Sapient" Foreground="#9C27B0"/>
+                        <ComboBoxItem Content="Synthetic" Foreground="#2196F3"/>
                     </ComboBox>
 
                     <Button x:Name="TypeGambleBtn" Content="GAMBLE!" 
@@ -168,7 +169,7 @@
             </Border>
 
             <!-- Element Specific Gamble -->
-            <Border Grid.Column="2" Background="#2d2d44" CornerRadius="10" Margin="5"
+            <Border Grid.Column="2" Background="#2d2d44" CornerRadius="10" Margin="0,5,5,0"
                     BorderBrush="#4a4a6a" BorderThickness="2">
                 <StackPanel Margin="15" HorizontalAlignment="Center">
                     <TextBlock Text="⚡ ELEMENT GAMBLE" FontSize="18" FontWeight="Bold" 
@@ -183,24 +184,23 @@
                         </StackPanel>
                     </Border>
 
-                    <ComboBox x:Name="ElementComboBox" Margin="0,0,0,10" Padding="5"
-                             Background="#1e1e30" Foreground="White" BorderBrush="#4a4a6a">
-                        <ComboBoxItem Content="Nature" Foreground="White"/>
-                        <ComboBoxItem Content="Ice" Foreground="White"/>
-                        <ComboBoxItem Content="Toxic" Foreground="White"/>
-                        <ComboBoxItem Content="Fire" Foreground="White"/>
-                        <ComboBoxItem Content="Water" Foreground="White"/>
-                        <ComboBoxItem Content="Draconic" Foreground="White"/>
-                        <ComboBoxItem Content="Earth" Foreground="White"/>
-                        <ComboBoxItem Content="Dark" Foreground="White"/>
-                        <ComboBoxItem Content="Wind" Foreground="White"/>
-                        <ComboBoxItem Content="Psychic" Foreground="White"/>
-                        <ComboBoxItem Content="Light" Foreground="White"/>
-                        <ComboBoxItem Content="GOD" Foreground="White"/>
-                        <ComboBoxItem Content="Demonic" Foreground="White"/>
-                        <ComboBoxItem Content="Electric" Foreground="White"/>
-                        <ComboBoxItem Content="Acid" Foreground="White"/>
-                        <ComboBoxItem Content="Magnetic" Foreground="White"/>
+                    <ComboBox x:Name="ElementComboBox" Margin="0,0,0,10" Padding="5"  
+                             Background="#1e1e30" Foreground="#333" BorderBrush="#4a4a6a" SelectedIndex="0" >  
+                        <ComboBoxItem Content="Nature" Foreground="#6AA84F"/>  
+                        <ComboBoxItem Content="Ice" Foreground="#66CCFF"/>  
+                        <ComboBoxItem Content="Toxic" Foreground="#9C27B0"/>  
+                        <ComboBoxItem Content="Fire" Foreground="#FF5722"/>  
+                        <ComboBoxItem Content="Water" Foreground="#2196F3"/>  
+                        <ComboBoxItem Content="Draconic" Foreground="#B71C1C"/>  
+                        <ComboBoxItem Content="Earth" Foreground="#8D6E63"/>  
+                        <ComboBoxItem Content="Dark" Foreground="#888888"/>  
+                        <ComboBoxItem Content="Wind" Foreground="#26C6DA"/>  
+                        <ComboBoxItem Content="Psychic" Foreground="#EC407A"/>  
+                        <ComboBoxItem Content="Light" Foreground="#FFE066"/>  
+                        <ComboBoxItem Content="Demonic" Foreground="#880E4F"/>  
+                        <ComboBoxItem Content="Electric" Foreground="#FFEB3B"/>  
+                        <ComboBoxItem Content="Acid" Foreground="#AEEA00"/>  
+                        <ComboBoxItem Content="Magnetic" Foreground="#9E9E9E"/>  
                     </ComboBox>
 
                     <Button x:Name="ElementGambleBtn" Content="GAMBLE!" 
@@ -221,7 +221,7 @@
                 </StackPanel>
             </Border>
         </Grid>
-
+        
         <!-- Result Display -->
         <Border Grid.Row="2" Background="#2d2d44" CornerRadius="10" Margin="0,20,0,0"
                 BorderBrush="#4a4a6a" BorderThickness="2" MinHeight="80">
