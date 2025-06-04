@@ -48,7 +48,7 @@ namespace groundCrashers_game
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (_Manager.StoryMode)
+            if (!_Manager.StoryMode)
             {
                 LoadCreatureButtons();
             }
