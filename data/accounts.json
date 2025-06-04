@@ -6,7 +6,8 @@
     "current_biome_id": 0,
     "current_biome_lvl_id": 1,
     "LVL": 0,
-    "XP": 0
+    "XP": 0,
+    "coins": 300
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "current_biome_id": 25,
     "current_biome_lvl_id": 1,
     "LVL": 0,
-    "XP": 0
+    "XP": 0,
+    "coins": 0
   },
   {
     "id": 3,
@@ -24,6 +26,7 @@
     "current_biome_id": 0,
     "current_biome_lvl_id": 3,
     "LVL": 0,
-    "XP": 0
+    "XP": 0,
+    "coins": 0
   }
 ]

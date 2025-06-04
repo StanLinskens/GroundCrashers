@@ -366,5 +366,11 @@ namespace groundCrashers_game
                 }
             }
         }
+
+        private void CapsuleBtn_Click(object sender, RoutedEventArgs e)
+        {
+            GambleWindow gambleWindow = new GambleWindow(); 
+            gambleWindow.Show();
+        }
     }
 }
