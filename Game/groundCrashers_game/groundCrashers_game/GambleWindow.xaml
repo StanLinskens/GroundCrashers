@@ -101,7 +101,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Basic Gamble -->
-            <Border Grid.Column="0" Background="#2d2d44" CornerRadius="10" Margin="0,5,5,0"
+            <Border Grid.Column="0" Background="#2d2d44" CornerRadius="10" Margin="0,5,0,5"
                     BorderBrush="#4a4a6a" BorderThickness="2">
                 <StackPanel Margin="15" HorizontalAlignment="Center">
                     <TextBlock Text="🎲 BASIC GAMBLE" FontSize="18" FontWeight="Bold" 
@@ -141,7 +141,7 @@
                     </Border>
 
                     <ComboBox x:Name="TypeComboBox" Margin="0,0,0,10" Padding="5"
-                             Background="#1e1e30" Foreground="#333" BorderBrush="#4a4a6a">
+                             Background="#1e1e30" Foreground="#333" BorderBrush="#4a4a6a" SelectedIndex="0">
                         <ComboBoxItem Content="Verdant" Foreground="#388E3C"/>
                         <ComboBoxItem Content="Primal" Foreground="#FFB300"/>
                         <ComboBoxItem Content="Apex" Foreground="#C62828"/>
@@ -150,25 +150,17 @@
                     </ComboBox>
 
                     <Button x:Name="TypeGambleBtn" Content="GAMBLE!" 
+                           Style="{StaticResource RedGambleButton}"
                            Background="#ff6347" Foreground="White" FontWeight="Bold"
                            Padding="20,10" FontSize="14" 
                            BorderThickness="0" Cursor="Hand"
                            Click="TypeGambleBtn_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#cd5c5c"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
                     </Button>
                 </StackPanel>
             </Border>
 
             <!-- Element Specific Gamble -->
-            <Border Grid.Column="2" Background="#2d2d44" CornerRadius="10" Margin="0,5,5,0"
+            <Border Grid.Column="2" Background="#2d2d44" CornerRadius="10" Margin="0,5,0,5"
                     BorderBrush="#4a4a6a" BorderThickness="2">
                 <StackPanel Margin="15" HorizontalAlignment="Center">
                     <TextBlock Text="⚡ ELEMENT GAMBLE" FontSize="18" FontWeight="Bold" 
@@ -202,20 +194,12 @@
                         <ComboBoxItem Content="Magnetic" Foreground="#9E9E9E"/>  
                     </ComboBox>
 
-                    <Button x:Name="ElementGambleBtn" Content="GAMBLE!" 
+                    <Button x:Name="ElementGambleBtn" Content="GAMBLE!"
+                           Style="{StaticResource PurpleGambleButton}"
                            Background="#dda0dd" Foreground="Black" FontWeight="Bold"
                            Padding="20,10" FontSize="14"
                            BorderThickness="0" Cursor="Hand"
                            Click="ElementGambleBtn_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#ba55d3"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
                     </Button>
                 </StackPanel>
             </Border>
@@ -232,6 +216,7 @@
                           Foreground="#32cd32" HorizontalAlignment="Center" Margin="0,5,0,0"
                           TextWrapping="Wrap"/>
             </StackPanel>
+
         </Border>
     </Grid>
 </Window>

@@ -93,7 +93,7 @@ namespace groundCrashers_game
 
             Creature creature = gameManager.GetRandomGambleCreature(randomType, randomElement);
 
-            return $"{randomElement} {randomType} - {creature.name}";
+            return $" {randomType} - {randomElement}: {creature.name}";
         }
 
         private string GetTypeSpecificCreature(Primaries selectedType)
@@ -129,6 +129,11 @@ namespace groundCrashers_game
 
             // Here you would add the creature to the player's collection
             // AddCreatureToCollection(creature);
+        }
+
+        private void ShowButtons()
+        {
+
         }
 
         private void TypeGambleBtn_Click(object sender, RoutedEventArgs e)
@@ -181,6 +186,11 @@ namespace groundCrashers_game
 
             // Here you would add the creature to the player's collection
             // AddCreatureToCollection(creature);
+        }
+
+        private void SellBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
