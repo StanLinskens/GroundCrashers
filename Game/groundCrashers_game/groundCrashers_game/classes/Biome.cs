@@ -24,6 +24,15 @@ namespace groundCrashers_game
         Desert,
         Volcano,
 
+        // marine
+        OpenOcean,
+        CoralReefs,
+        Estuaries,
+        HydrothermalVents,
+        ColdSeeps,
+        DeepSeaCoralReefs,
+
+        // space map
         Earth,
         Moon,
         Nebula,
