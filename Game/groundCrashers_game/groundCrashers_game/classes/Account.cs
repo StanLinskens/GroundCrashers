@@ -83,6 +83,7 @@ namespace groundCrashers_game.classes
                 account.current_biome_lvl_id = ActiveAccount.Active_current_biome_lvl_id;
                 account.LVL = ActiveAccount.Active_LVL;
                 account.XP = ActiveAccount.Active_XP;
+                account.coins = ActiveAccount.Active_coins;
                 // Optionally update name or password if those change
                 SaveAccounts(accounts);
             }

@@ -74,6 +74,7 @@ namespace groundCrashers_game
             {
                 ResultText.Text = "❌ Not enough coins!";
                 CreatureResult.Text = "";
+                ShowButtons();
                 return false;
             }
         }
@@ -82,6 +83,7 @@ namespace groundCrashers_game
         {
             playerCoins -= amount;
             ActiveAccount.Active_coins = playerCoins;
+            AccountManager.UpdateActiveAccount();
             UpdateCoinsDisplay();
         }
 
@@ -127,13 +129,22 @@ namespace groundCrashers_game
             ResultText.Text = "You received:";
             CreatureResult.Text = creature;
 
+            ShowButtons();
+
             // Here you would add the creature to the player's collection
             // AddCreatureToCollection(creature);
         }
 
         private void ShowButtons()
         {
-
+            if(CreatureResult.Text == "")
+            {
+                ActionButtonsPanel.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                ActionButtonsPanel.Visibility = Visibility.Visible;
+            }
         }
 
         private void TypeGambleBtn_Click(object sender, RoutedEventArgs e)
@@ -158,6 +169,8 @@ namespace groundCrashers_game
             ResultText.Text = "🎉 Congratulations! You received:";
             CreatureResult.Text = creature;
 
+            ShowButtons();
+
             // Here you would add the creature to the player's collection
             // AddCreatureToCollection(creature);
         }
@@ -172,6 +185,7 @@ namespace groundCrashers_game
             {
                 ResultText.Text = "Please select a creature element first!";
                 CreatureResult.Text = "";
+                ShowButtons();
                 return;
             }
 
@@ -184,11 +198,24 @@ namespace groundCrashers_game
             ResultText.Text = "You received:";
             CreatureResult.Text = creature;
 
+            ShowButtons();
+
             // Here you would add the creature to the player's collection
             // AddCreatureToCollection(creature);
         }
 
-        private void SellBtn_Click(object sender, RoutedEventArgs e)
+        private void SellCreatureBtn_Click(object sender, RoutedEventArgs e)
+        {
+            int RandomXp = random.Next(3, 8); // Random coins between 3 and 8
+            ResultText.Text = $"you earned {RandomXp} xp";
+            CreatureResult.Text = "";
+            ShowButtons();
+
+            ActiveAccount.Active_XP += RandomXp; // Add XP to the active account
+            AccountManager.UpdateActiveAccount();
+        }
+
+        private void KeepCreatureBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }
