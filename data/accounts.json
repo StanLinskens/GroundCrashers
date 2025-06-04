@@ -19,9 +19,9 @@
     "password": "Wout",
     "current_biome_id": 25,
     "current_biome_lvl_id": 1,
-    "LVL": 0,
-    "XP": 0,
-    "coins": 5,
+    "LVL": 1,
+    "XP": 18,
+    "coins": 360,
     "Admin": true,
     "Creature_ids": [
       65
