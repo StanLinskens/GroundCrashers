@@ -285,6 +285,8 @@
     <None Remove="Images\marsh.jpg" />
     <None Remove="Images\ocean.jpg" />
     <None Remove="Images\other\questionmark.png" />
+    <None Remove="Images\portraits\aria.png" />
+    <None Remove="Images\portraits\rook.png" />
     <None Remove="Images\ruins.jpg" />
     <None Remove="Images\savanna.jpg" />
     <None Remove="Images\swamp.jpg" />
@@ -585,6 +587,8 @@
     <Resource Include="Images\GroundCrasherSprites\Zephantix.png" />
     <Resource Include="Images\GroundCrasherSprites\Zephyisanus.png" />
     <Resource Include="Images\other\questionmark.png" />
+    <Resource Include="Images\portraits\aria.png" />
+    <Resource Include="Images\portraits\rook.png" />
   </ItemGroup>
 
 </Project>
