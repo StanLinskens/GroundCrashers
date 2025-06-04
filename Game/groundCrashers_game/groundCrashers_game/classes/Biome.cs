@@ -25,12 +25,12 @@ namespace groundCrashers_game
         Volcano,
 
         // marine
-        OpenOcean,
-        CoralReefs,
         Estuaries,
-        HydrothermalVents,
-        ColdSeeps,
-        DeepSeaCoralReefs,
+        CoralReef,
+        OpenOcean,
+        DeepCoralReef,
+        ColdSeep,
+        HydrothermalVent,
 
         // space map
         Earth,

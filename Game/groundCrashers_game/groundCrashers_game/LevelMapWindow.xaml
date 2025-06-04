@@ -43,6 +43,92 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="DarkComboBox" TargetType="ComboBox">
+            <Setter Property="Background" Value="#1E1E1E"/>
+            <Setter Property="Foreground" Value="#E0E0E0"/>
+            <Setter Property="BorderBrush" Value="#444444"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Grid>
+                            <ToggleButton x:Name="ToggleButton"
+                                  Grid.Column="0"
+                                  Focusable="False"
+                                  IsChecked="{Binding Path=IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
+                                  ClickMode="Press">
+                                <ToggleButton.Template>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Border CornerRadius="10" 
+                                        Background="{TemplateBinding Background}" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                    <ColumnDefinition Width="20"/>
+                                                </Grid.ColumnDefinitions>
+                                                <ContentPresenter Grid.Column="0"
+                                                        HorizontalAlignment="Center" 
+                                                        VerticalAlignment="Center"
+                                                        Content="{TemplateBinding Content}"/>
+                                                <Path Grid.Column="1"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              Data="M 0 0 L 4 4 L 8 0 Z"
+                                              Fill="{TemplateBinding Foreground}"/>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                                <ToggleButton.Style>
+                                    <Style TargetType="ToggleButton">
+                                        <Setter Property="Background" Value="#1E1E1E"/>
+                                        <Setter Property="Foreground" Value="#E0E0E0"/>
+                                        <Setter Property="BorderBrush" Value="#444444"/>
+                                        <Setter Property="BorderThickness" Value="2"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#333333"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </ToggleButton.Style>
+                            </ToggleButton>
+                            <ContentPresenter x:Name="ContentSite"
+                                    IsHitTestVisible="False"
+                                    Content="{TemplateBinding SelectionBoxItem}"
+                                    ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                    ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Margin="8,4"/>
+                            <Popup x:Name="Popup"
+                           Placement="Bottom"
+                           IsOpen="{TemplateBinding IsDropDownOpen}"
+                           AllowsTransparency="True"
+                           Focusable="False"
+                           PopupAnimation="Slide">
+                                <Grid MaxHeight="{TemplateBinding MaxDropDownHeight}"
+                              MinWidth="{TemplateBinding ActualWidth}">
+                                    <Border Background="#2D2D2D" 
+                                    BorderBrush="#444444" 
+                                    BorderThickness="1"
+                                    CornerRadius="10">
+                                        <ScrollViewer>
+                                            <StackPanel IsItemsHost="True"/>
+                                        </ScrollViewer>
+                                    </Border>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <!-- Wrap everything in a Viewbox so it scales up/down -->
@@ -86,18 +172,16 @@
             <Border 
                     Canvas.Left="1790"
                     Canvas.Top="55">
-                <Button 
-                    x:Name="SpaceBtn"
-                    Canvas.Left="10"
-                    Canvas.Top="1000"
-                    Width="125"
-                    Height="45"
-                    FontSize="18"
-                    FontWeight="Bold"
-                    Content="Space map"
-                    Style="{StaticResource DarkButton}"
-                    ToolTip="Secret"
-                    Click="SpaceBtn_Click"/>
+                <ComboBox   x:Name="MapComboBox" 
+                            Margin="0,0,0,10"  
+                            Foreground="#E0E0E0"
+                            Width="125" Height="45"  
+                            Style="{StaticResource DarkComboBox}"
+                            SelectionChanged="MapComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Earth" Foreground="white" x:Name="MapComboBox_Earth"/>
+                    <ComboBoxItem Content="Marine" Foreground="white" x:Name="MapComboBox_Marine"/>
+                    <ComboBoxItem Content="Space" Foreground="white" x:Name="MapComboBox_Space"/>
+                </ComboBox>
             </Border>
 
             <Border 
@@ -115,6 +199,378 @@
                     Style="{StaticResource DarkButton}"
                     ToolTip="Secret"
                     Click="HardcoreBtn_Click"/>
+            </Border>
+
+            <!-- Estuaries Biome -->
+            <Border Canvas.Left="175"
+                    Canvas.Top="750">
+                <Grid>
+                    <Button 
+                   x:Name="EstuariesButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#333"
+                   BorderBrush="#333"
+                   Content="🏝️ Estuaries"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#C5E1A5"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="0,-30,0,0"
+                   Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="EstuariesPopup"
+               PlacementTarget="{Binding ElementName=EstuariesChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
+                            <StackPanel>
+                                <Button x:Name="EstuariesLVL1"
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="EstuariesLVL2"
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="EstuariesLVL3"
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="EstuariesLVL4"
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>            
+            
+            <!-- CoralReefs Biome -->
+            <Border Canvas.Left="350"
+                    Canvas.Top="250">
+                <Grid>
+                    <Button 
+                   x:Name="CoralReefButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#333"
+                   BorderBrush="#333"
+                   Content="🪸 CoralReef"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#C5E1A5"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="0,-30,0,0"
+                   Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="CoralReefPopup"
+               PlacementTarget="{Binding ElementName=CoralReefChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
+                            <StackPanel>
+                                <Button x:Name="CoralReefLVL1"
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="CoralReefLVL2"
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="CoralReefLVL3"
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="CoralReefLVL4"
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- OpenOcean Biome -->
+            <Border Canvas.Left="1200"
+                    Canvas.Top="345">
+                <Grid>
+                    <Button 
+                   x:Name="OpenOceanButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#333"
+                   BorderBrush="#333"
+                   Content="🌊 OpenOcean"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#C5E1A5"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="0,-30,0,0"
+                   Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="OpenOceanPopup"
+               PlacementTarget="{Binding ElementName=OpenOceanChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
+                            <StackPanel>
+                                <Button x:Name="OpenOceanLVL1"
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="OpenOceanLVL2"
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="OpenOceanLVL3"
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="OpenOceanLVL4"
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- DeepCoralReef Biome -->
+            <Border Canvas.Left="1425"
+                    Canvas.Top="875">
+                <Grid>
+                    <Button 
+                   x:Name="DeepCoralReefButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#333"
+                   BorderBrush="#333"
+                   Content="🪸 DeepCoralReef"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#C5E1A5"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="0,-30,0,0"
+                   Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="DeepCoralReefPopup"
+               PlacementTarget="{Binding ElementName=DeepCoralReefChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
+                            <StackPanel>
+                                <Button x:Name="DeepCoralReefLVL1"
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="DeepCoralReefLVL2"
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="DeepCoralReefLVL3"
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="DeepCoralReefLVL4"
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- ColdSeep Biome -->
+            <Border Canvas.Left="800"
+                    Canvas.Top="875">
+                <Grid>
+                    <Button 
+                   x:Name="ColdSeepButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#333"
+                   BorderBrush="#333"
+                   Content="🧊 ColdSeep"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#C5E1A5"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="0,-30,0,0"
+                   Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="ColdSeepPopup"
+               PlacementTarget="{Binding ElementName=ColdSeepChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
+                            <StackPanel>
+                                <Button x:Name="ColdSeepLVL1"
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="ColdSeepLVL2"
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="ColdSeepLVL3"
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="ColdSeepLVL4"
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <!-- HydrothermalVent Biome -->
+            <Border Canvas.Left="825"
+                    Canvas.Top="575">
+                <Grid>
+                    <Button 
+                   x:Name="HydrothermalVentButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#333"
+                   BorderBrush="#333"
+                   Content="🌋 HydrothermalVent"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#C5E1A5"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Margin="0,-30,0,0"
+                   Click="BiomeBtn_Click"/>
+
+                    <Popup x:Name="HydrothermalVentPopup"
+               PlacementTarget="{Binding ElementName=HydrothermalVentChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
+                        <Border Background="#1E1E1E"
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
+                            <StackPanel>
+                                <Button x:Name="HydrothermalVentLVL1"
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="HydrothermalVentLVL2"
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="HydrothermalVentLVL3"
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="HydrothermalVentLVL4"
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+                </Grid>
             </Border>
 
             <!-- Forest Biome -->
@@ -183,7 +639,8 @@
                         </Border>
                     </Popup>
                 </Grid>
-            </Border>
+            </Border>            
+            
             <!-- Desert Biome -->
             <Border Canvas.Left="340"
                     Canvas.Top="450">

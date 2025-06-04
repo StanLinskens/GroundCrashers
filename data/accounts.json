@@ -45,39 +45,11 @@
     "id": 4,
     "name": "1",
     "password": "1",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 3,
+    "current_biome_id": 61,
+    "current_biome_lvl_id": 1,
     "LVL": 0,
     "XP": 2,
     "coins": 7,
-    "Admin": false,
-    "Creature_ids": [
-      0
-    ]
-  },
-  {
-    "id": 5,
-    "name": "gg",
-    "password": "gg",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1,
-    "LVL": 0,
-    "XP": 0,
-    "coins": 5,
-    "Admin": false,
-    "Creature_ids": [
-      0
-    ]
-  },
-  {
-    "id": 6,
-    "name": "Tygo",
-    "password": "Tygo",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1,
-    "LVL": 0,
-    "XP": 0,
-    "coins": 5,
     "Admin": false,
     "Creature_ids": [
       0

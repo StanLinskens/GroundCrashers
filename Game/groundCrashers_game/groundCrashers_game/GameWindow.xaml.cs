@@ -312,6 +312,14 @@ namespace groundCrashers_game
                 case Biomes.CrystalCavern: return "💎";
                 case Biomes.Wasteland: return "☢️";
 
+                // marine-themed biomes
+                case Biomes.Estuaries: return "🏝️";
+                case Biomes.CoralReef: return "🪸";
+                case Biomes.OpenOcean: return "🌊";
+                case Biomes.DeepCoralReef: return "🪸";
+                case Biomes.ColdSeep: return "🧊";
+                case Biomes.HydrothermalVent: return "🌋";
+
                 // Space-themed biomes
                 case Biomes.Earth: return "🌍";
                 case Biomes.Moon: return "🌕";
