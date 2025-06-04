@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\battleGrounds\bioengineered.png" />
     <None Remove="Images\battleGrounds\cave.jpg" />
     <None Remove="Images\battleGrounds\crystalcavern.jpg" />
     <None Remove="Images\battleGrounds\crystal_cavern_gif.gif" />
@@ -18,11 +19,14 @@
     <None Remove="Images\battleGrounds\forest.jpg" />
     <None Remove="Images\battleGrounds\glacier.jpg" />
     <None Remove="Images\battleGrounds\hardcore_map.png" />
+    <None Remove="Images\battleGrounds\hardcore_marine.png" />
     <None Remove="Images\battleGrounds\hardcore_space.png" />
     <None Remove="Images\battleGrounds\highlands.jpg" />
     <None Remove="Images\battleGrounds\interstellar.jpg" />
     <None Remove="Images\battleGrounds\jungle.jpg" />
+    <None Remove="Images\battleGrounds\magical.png" />
     <None Remove="Images\battleGrounds\map.png" />
+    <None Remove="Images\battleGrounds\marine.png" />
     <None Remove="Images\battleGrounds\marsh.jpg" />
     <None Remove="Images\battleGrounds\moon.jpg" />
     <None Remove="Images\battleGrounds\mountain.jpg" />
@@ -36,6 +40,7 @@
     <None Remove="Images\battleGrounds\sun.jpg" />
     <None Remove="Images\battleGrounds\swamp.jpg" />
     <None Remove="Images\battleGrounds\tundra.jpg" />
+    <None Remove="Images\battleGrounds\underground.png" />
     <None Remove="Images\battleGrounds\volcano.jpg" />
     <None Remove="Images\battleGrounds\wasteland.jpg" />
     <None Remove="Images\cave.jpg" />
@@ -318,6 +323,7 @@
 
   <ItemGroup>
     <Resource Include="Images\battleGrounds\asteroids.jpg" />
+    <Resource Include="Images\battleGrounds\bioengineered.png" />
     <Resource Include="Images\battleGrounds\cave.jpg" />
     <Resource Include="Images\battleGrounds\crystalcavern.jpg" />
     <Resource Include="Images\battleGrounds\crystal_cavern_gif.gif" />
@@ -327,11 +333,14 @@
     <Resource Include="Images\battleGrounds\forest.jpg" />
     <Resource Include="Images\battleGrounds\glacier.jpg" />
     <Resource Include="Images\battleGrounds\hardcore_map.png" />
+    <Resource Include="Images\battleGrounds\hardcore_marine.png" />
     <Resource Include="Images\battleGrounds\hardcore_space.png" />
     <Resource Include="Images\battleGrounds\highlands.jpg" />
     <Resource Include="Images\battleGrounds\interstellar.jpg" />
     <Resource Include="Images\battleGrounds\jungle.jpg" />
+    <Resource Include="Images\battleGrounds\magical.png" />
     <Resource Include="Images\battleGrounds\map.png" />
+    <Resource Include="Images\battleGrounds\marine.png" />
     <Resource Include="Images\battleGrounds\marsh.jpg" />
     <Resource Include="Images\battleGrounds\moon.jpg" />
     <Resource Include="Images\battleGrounds\mountain.jpg" />
@@ -346,6 +355,7 @@
     <Resource Include="Images\battleGrounds\sun.jpg" />
     <Resource Include="Images\battleGrounds\swamp.jpg" />
     <Resource Include="Images\battleGrounds\tundra.jpg" />
+    <Resource Include="Images\battleGrounds\underground.png" />
     <Resource Include="Images\battleGrounds\volcano.jpg" />
     <Resource Include="Images\battleGrounds\wasteland.jpg" />
     <Resource Include="Images\GroundCrasherSprites\Abysapeus.png" />
