@@ -54,6 +54,18 @@
                             ImageSource="/Images/battleGrounds/map.png"/>
             </Canvas.Background>
 
+            <Border 
+                Canvas.Left="85"
+                Canvas.Top="1">
+                <TextBlock x:Name="currentLVL" Text="LVL: 0" FontSize="24"/>
+            </Border>
+
+            <Border 
+                Canvas.Left="85"
+                Canvas.Top="25">
+                <TextBlock x:Name="currentXP" Text="XP: 0" FontSize="24"/>
+            </Border>
+
             <Border
                     Canvas.Left="1790"
                     Canvas.Top="5">

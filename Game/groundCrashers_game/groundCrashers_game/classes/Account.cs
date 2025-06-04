@@ -22,6 +22,8 @@ namespace groundCrashers_game.classes
         public int LVL { get; set; }
         public int XP { get; set; }
         public int coins { get; set; }
+        public bool Admin { get; set; }
+        public List<int> Creature_ids { get; set; }
     }
 
     public class ActiveAccount
@@ -34,6 +36,8 @@ namespace groundCrashers_game.classes
         public static int Active_LVL { get; set; }
         public static int Active_XP { get; set; }
         public static int Active_coins { get; set; }
+        public static bool Active_Admin { get; set; }
+        public static List<int> Active_Creature_ids { get; set; }
     }
     public class AccountManager
     {
@@ -57,6 +61,8 @@ namespace groundCrashers_game.classes
                 ActiveAccount.Active_LVL = account.LVL;
                 ActiveAccount.Active_XP = account.XP;
                 ActiveAccount.Active_coins = account.coins;
+                ActiveAccount.Active_Admin = account.Admin;
+                ActiveAccount.Active_Creature_ids = account.Creature_ids;
 
                 return true;
             }
@@ -84,8 +90,22 @@ namespace groundCrashers_game.classes
                 account.LVL = ActiveAccount.Active_LVL;
                 account.XP = ActiveAccount.Active_XP;
                 account.coins = ActiveAccount.Active_coins;
+                account.Creature_ids = ActiveAccount.Active_Creature_ids;
                 // Optionally update name or password if those change
                 SaveAccounts(accounts);
+            }
+        }
+
+        public static void LevelUp()
+        {
+            // for every level you need 10 more xp to level up
+            int xpneeded = 10 + (10 * ActiveAccount.Active_LVL);
+
+            // if the player has enough XP, level up
+            if (ActiveAccount.Active_XP >= xpneeded)
+            {
+                ActiveAccount.Active_LVL++;
+                ActiveAccount.Active_XP -= xpneeded; // Reset XP after leveling up
             }
         }
 
@@ -93,6 +113,32 @@ namespace groundCrashers_game.classes
         {
             var json = JsonSerializer.Serialize(accounts, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(FilePath, json);
+        }
+
+        public static void AddCreature(int creatureId)
+        {
+            if (!ActiveAccount.Active_Admin) return; // only admins can have creatures saved in json (players need card)
+            if (creatureId <= 0) return; // creatureId must be a positive integer, 0 doesnt exist
+
+            // if the list is null, make one
+            if (ActiveAccount.Active_Creature_ids == null)
+            {
+                ActiveAccount.Active_Creature_ids = new List<int>();
+            }
+
+            // if the creatureId is not already in the list, add it
+            if (!ActiveAccount.Active_Creature_ids.Contains(creatureId))
+            {
+                // add the creatureId to the list
+                ActiveAccount.Active_Creature_ids.Add(creatureId);
+                // update the active account
+                UpdateActiveAccount();
+            }
+            // if the creatureId is already in the list, show a message
+            else
+            {
+                MessageBox.Show($"Creature ID {creatureId} is already owned.");
+            }
         }
 
         public static void AddAccount(string username, string password)
@@ -118,7 +164,9 @@ namespace groundCrashers_game.classes
                 current_biome_lvl_id = 1,
                 LVL = 0,
                 XP = 0,
-                coins = 0
+                coins = 5,
+                Admin = false,
+                Creature_ids = new List<int> { 0 }
             });
 
             MessageBox.Show("Account created");

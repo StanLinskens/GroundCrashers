@@ -78,8 +78,10 @@ namespace groundCrashers_game
                     int BiomeLVL = int.Parse(LVLname_split[1]);
                     // if lvl won and the biome and lvl have not been completed yet
 
+                    int CoinsEarned = 1;
+
                     int newActiveCurrentBiomeIndex = ActiveAccount.Active_current_biome_id;
-                    if (playedHardcore) newActiveCurrentBiomeIndex -= 25;
+                    if (playedHardcore) { newActiveCurrentBiomeIndex -= 25; CoinsEarned += 2; } 
 
                     if (LVLWon && biomeValue == newActiveCurrentBiomeIndex && BiomeLVL == currentLVLIndex)
                     {
@@ -106,21 +108,15 @@ namespace groundCrashers_game
 
                         // update the players XP
                         ActiveAccount.Active_XP += xpEarned;
+                        AccountManager.LevelUp();
 
-                        // for every level you need 10 more xp to level up
-                        int xpneeded = 10 * ActiveAccount.Active_LVL;
-
-                        // if the player has enough XP, level up
-                        if (ActiveAccount.Active_XP >= xpneeded)
-                        {
-                            ActiveAccount.Active_LVL++;
-                            ActiveAccount.Active_XP -= xpneeded; // Reset XP after leveling up
-                        }
+                        ActiveAccount.Active_coins += CoinsEarned; // Add coins for winning the level
 
                     }
                 }
             }
-            
+            currentLVL.Text = $"LVL: {ActiveAccount.Active_LVL}"; // Update the current level text
+            currentXP.Text = $"XP: {ActiveAccount.Active_XP}"; // Update the current XP text
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

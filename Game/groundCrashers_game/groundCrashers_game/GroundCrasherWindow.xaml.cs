@@ -54,10 +54,30 @@ namespace groundCrashers_game
             }
             else
             {
-                LoadCreatureButtonsFormCard(allowedIdsFromCard);
+                if(ActiveAccount.Active_Admin)
+                {
+                    LoadcreatureFromAcount();
+                }
+                else
+                {
+                    LoadCreatureButtonsFormCard(allowedIdsFromCard);
+                }
+
             }
 
 
+        }
+
+        private void LoadcreatureFromAcount()
+        {
+            if (ActiveAccount.Active_Admin)
+            {
+                LoadCreatureButtonsFormCard(ActiveAccount.Active_Creature_ids);
+            }
+            else
+            {
+                MessageBox.Show("You are not an admin, you cannot load creatures from account!");
+            }
         }
 
         private async void ScanCardButton_Click(object sender, RoutedEventArgs e)
