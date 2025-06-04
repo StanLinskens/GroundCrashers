@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\battleGrounds\astroids.jpg" />
     <None Remove="Images\battleGrounds\cave.jpg" />
     <None Remove="Images\battleGrounds\crystalcavern.jpg" />
     <None Remove="Images\battleGrounds\crystal_cavern_gif.gif" />
@@ -318,7 +317,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\battleGrounds\astroids.jpg" />
+    <Resource Include="Images\battleGrounds\asteroids.jpg" />
     <Resource Include="Images\battleGrounds\cave.jpg" />
     <Resource Include="Images\battleGrounds\crystalcavern.jpg" />
     <Resource Include="Images\battleGrounds\crystal_cavern_gif.gif" />
