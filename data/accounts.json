@@ -6,8 +6,8 @@
     "current_biome_id": 0,
     "current_biome_lvl_id": 1,
     "LVL": 0,
-    "XP": 178,
-    "coins": 300
+    "XP": 182,
+    "coins": 0
   },
   {
     "id": 2,
@@ -23,10 +23,20 @@
     "id": 3,
     "name": "Stan",
     "password": "Stan",
-    "current_biome_id": 0,
+    "current_biome_id": 49,
     "current_biome_lvl_id": 3,
-    "LVL": 0,
-    "XP": 0,
+    "LVL": 1,
+    "XP": 5,
+    "coins": 0
+  },
+  {
+    "id": 4,
+    "name": "test",
+    "password": "test",
+    "current_biome_id": 0,
+    "current_biome_lvl_id": 2,
+    "LVL": 1,
+    "XP": 1,
     "coins": 0
   }
 ]
