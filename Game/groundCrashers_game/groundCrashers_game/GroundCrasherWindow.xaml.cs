@@ -48,7 +48,7 @@ namespace groundCrashers_game
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!_Manager.StoryMode)
+            if (_Manager.StoryMode)
             {
                 LoadCreatureButtons();
             }
@@ -59,7 +59,7 @@ namespace groundCrashers_game
 
 
         }
-
+        
         private async void ScanCardButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -165,7 +165,7 @@ namespace groundCrashers_game
 
             loadedCreatures = JsonConvert.DeserializeObject<List<Creature>>(json);
 
-            foreach (Creature creature in loadedCreatures)
+            foreach (Creature creature in loadedCreatures.Take(225))
             {
                 Button btn = new Button
                 {
