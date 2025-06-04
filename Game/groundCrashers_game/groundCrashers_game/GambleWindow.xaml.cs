@@ -1,4 +1,5 @@
-﻿using groundCrashers_game.classes;
+﻿using DocumentFormat.OpenXml.Drawing.Charts;
+using groundCrashers_game.classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace groundCrashers_game
     public partial class GambleWindow : Window
     {
         private int playerCoins = 100; // Starting coins - you can modify this or connect to your game's coin system
+        private int creatureId = 0;
         private Random random = new Random();
         Manager gameManager;
 
@@ -21,6 +23,14 @@ namespace groundCrashers_game
             Primaries.Apex,
             Primaries.Sapient,
             Primaries.Synthetic
+        };
+
+        private readonly List<Elements> creatureTitanElements = new List<Elements>
+        {
+            Elements.Chaos,
+            Elements.Cosmic,
+            Elements.Void,
+            Elements.Astral
         };
 
         private readonly List<Elements> creatureElements = new List<Elements>
@@ -51,6 +61,7 @@ namespace groundCrashers_game
             // Set default selections
             TypeComboBox.SelectedIndex = 0;
             ElementComboBox.SelectedIndex = 0;
+            creatureId = 0; // Reset creature ID just in case
             playerCoins = ActiveAccount.Active_coins; // Load coins from the active account
 
             gameManager.LoadAllCreaturesFromWebAsync();
@@ -72,6 +83,7 @@ namespace groundCrashers_game
             }
             else
             {
+                creatureId = 0; // Reset creature ID if not enough coins, just in case
                 ResultText.Text = "❌ Not enough coins!";
                 CreatureResult.Text = "";
                 ShowButtons();
@@ -89,36 +101,69 @@ namespace groundCrashers_game
 
         private string GetRandomCreature()
         {
+            creatureId = 0; // Reset creature ID just in case
+            int RandomNumber = random.Next(1, 1001);
+
             // Generate random type and element
-            Primaries randomType = creatureTypes[random.Next(creatureTypes.Count)];
-            Elements randomElement = creatureElements[random.Next(creatureElements.Count)];
+            Primaries randomType;
+            Elements randomElement;
+
+            if (RandomNumber < 949)
+            {
+                // Generate random type and element
+                randomType = creatureTypes[random.Next(creatureTypes.Count)];
+                randomElement = creatureElements[random.Next(creatureElements.Count)];
+            }
+            else if (RandomNumber < 999 )
+            {
+                randomType = Primaries.Titan; // Titan is a special case
+                randomElement = creatureTitanElements[random.Next(creatureTitanElements.Count)];
+            }
+            else
+            {
+                randomType = Primaries.God;
+                randomElement = Elements.ALL;
+            }
+
 
             Creature creature = gameManager.GetRandomGambleCreature(randomType, randomElement);
+
+            creatureId = creature.id;
 
             return $" {randomType} - {randomElement}: {creature.name}";
         }
 
         private string GetTypeSpecificCreature(Primaries selectedType)
         {
+            creatureId = 0; // Reset creature ID just in case
+
             Elements randomElement = creatureElements[random.Next(creatureElements.Count)];
 
             Creature creature = gameManager.GetRandomGambleCreature(selectedType, randomElement);
+
+            creatureId = creature.id;
 
             return $"{creature.primary_type} - {creature.element}: {creature.name}";
         }
 
         private string GetElementSpecificCreature(Elements selectedElement)
         {
+            creatureId = 0; // Reset creature ID just in case
+
             Primaries randomType = creatureTypes[random.Next(creatureTypes.Count)];
 
             Creature creature = gameManager.GetRandomGambleCreature(randomType, selectedElement);
+            
+            creatureId = creature.id;
 
             return $"{creature.primary_type} - {creature.element}: {creature.name}";
         }
 
         private void BasicGambleBtn_Click(object sender, RoutedEventArgs e)
         {
-            const int cost = 5;
+            creatureId = 0; // Reset creature ID just in case
+
+            const int cost = 50;
 
             if (!HasEnoughCoins(cost)) return;
 
@@ -140,16 +185,27 @@ namespace groundCrashers_game
             if(CreatureResult.Text == "")
             {
                 ActionButtonsPanel.Visibility = Visibility.Hidden;
+
+                BasicGambleBtn.IsEnabled = true;
+                TypeGambleBtn.IsEnabled = true;
+                ElementGambleBtn.IsEnabled = true;
+
             }
             else
             {
                 ActionButtonsPanel.Visibility = Visibility.Visible;
+
+                BasicGambleBtn.IsEnabled = false;
+                TypeGambleBtn.IsEnabled = false;
+                ElementGambleBtn.IsEnabled = false;
             }
         }
 
         private void TypeGambleBtn_Click(object sender, RoutedEventArgs e)
         {
-            const int cost = 15;
+            creatureId = 0; // Reset creature ID just in case
+
+            const int cost = 10;
 
             if (!HasEnoughCoins(cost)) return;
 
@@ -177,7 +233,9 @@ namespace groundCrashers_game
 
         private void ElementGambleBtn_Click(object sender, RoutedEventArgs e)
         {
-            const int cost = 30;
+            creatureId = 0; // Reset creature ID just in case
+
+            const int cost = 20;
 
             if (!HasEnoughCoins(cost)) return;
 
@@ -212,12 +270,26 @@ namespace groundCrashers_game
             ShowButtons();
 
             ActiveAccount.Active_XP += RandomXp; // Add XP to the active account
+            AccountManager.LevelUp();
             AccountManager.UpdateActiveAccount();
+            creatureId = 0;
         }
 
         private void KeepCreatureBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(ActiveAccount.Active_Admin)
+            {
+                AccountManager.AddCreature(creatureId);
+            }
+            // dont do a else here, just do your wizard struff to add them to card. i want admins to also be able to keep them on cards and off
 
+
+
+            // reset stuff
+            ResultText.Text = $"{creatureId} added to card";
+            CreatureResult.Text = "";
+            ShowButtons();
+            creatureId = 0;
         }
     }
 }
