@@ -18,11 +18,13 @@
     <None Remove="Images\battleGrounds\forest.jpg" />
     <None Remove="Images\battleGrounds\glacier.jpg" />
     <None Remove="Images\battleGrounds\hardcore_map.png" />
+    <None Remove="Images\battleGrounds\hardcore_marine.png" />
     <None Remove="Images\battleGrounds\hardcore_space.png" />
     <None Remove="Images\battleGrounds\highlands.jpg" />
     <None Remove="Images\battleGrounds\interstellar.jpg" />
     <None Remove="Images\battleGrounds\jungle.jpg" />
     <None Remove="Images\battleGrounds\map.png" />
+    <None Remove="Images\battleGrounds\marine.png" />
     <None Remove="Images\battleGrounds\marsh.jpg" />
     <None Remove="Images\battleGrounds\moon.jpg" />
     <None Remove="Images\battleGrounds\mountain.jpg" />
@@ -327,11 +329,13 @@
     <Resource Include="Images\battleGrounds\forest.jpg" />
     <Resource Include="Images\battleGrounds\glacier.jpg" />
     <Resource Include="Images\battleGrounds\hardcore_map.png" />
+    <Resource Include="Images\battleGrounds\hardcore_marine.png" />
     <Resource Include="Images\battleGrounds\hardcore_space.png" />
     <Resource Include="Images\battleGrounds\highlands.jpg" />
     <Resource Include="Images\battleGrounds\interstellar.jpg" />
     <Resource Include="Images\battleGrounds\jungle.jpg" />
     <Resource Include="Images\battleGrounds\map.png" />
+    <Resource Include="Images\battleGrounds\marine.png" />
     <Resource Include="Images\battleGrounds\marsh.jpg" />
     <Resource Include="Images\battleGrounds\moon.jpg" />
     <Resource Include="Images\battleGrounds\mountain.jpg" />
