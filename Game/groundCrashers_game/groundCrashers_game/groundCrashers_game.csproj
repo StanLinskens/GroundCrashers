@@ -288,6 +288,7 @@
     <None Remove="Images\jungle.jpg" />
     <None Remove="Images\marsh.jpg" />
     <None Remove="Images\ocean.jpg" />
+    <None Remove="Images\other\construction.jpg" />
     <None Remove="Images\other\questionmark.png" />
     <None Remove="Images\portraits\aria.png" />
     <None Remove="Images\portraits\rook.png" />
@@ -595,6 +596,7 @@
     <Resource Include="Images\GroundCrasherSprites\Wyvern.png" />
     <Resource Include="Images\GroundCrasherSprites\Zephantix.png" />
     <Resource Include="Images\GroundCrasherSprites\Zephyisanus.png" />
+    <Resource Include="Images\battleGrounds\construction.jpg" />
     <Resource Include="Images\other\questionmark.png" />
     <Resource Include="Images\portraits\aria.png" />
     <Resource Include="Images\portraits\rook.png" />
