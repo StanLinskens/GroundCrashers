@@ -80,12 +80,12 @@ namespace groundCrashers_game
             }
 
             AudioPlayer.Instance.Stop();
-            //AudioPlayer.Instance.PlaySpecific("map.wav", true);
+            AudioPlayer.Instance.PlaySpecific("map.wav", true);
 
             Display_Levels();
 
             // Default to Earth map
-            // because of the the mapcombobox_selected_changed event triggers
+            // because of this the MapComboBox_SelectionChanged event triggers
             MapComboBox.SelectedIndex = 0; 
         }
 
