@@ -85,7 +85,7 @@ namespace groundCrashers_game
             Display_Levels();
 
             // Default to Earth map
-            // because of the the mapcombobox_selected_changed event triggers
+            // because of this the MapComboBox_SelectionChanged event triggers
             MapComboBox.SelectedIndex = 0; 
         }
 
