@@ -512,18 +512,18 @@
                 </Grid>
             </Border>
 
-            <!-- HydrothermalVent Biome -->
+            <!-- HydroVent Biome -->
             <Border Canvas.Left="825"
                     Canvas.Top="575">
                 <Grid>
                     <Button 
-                   x:Name="HydrothermalVentButton"
+                   x:Name="HydroVentButton"
                    Style="{StaticResource DarkButton}"
                    Width="150"
                    Height="45"
                    Background="#333"
                    BorderBrush="#333"
-                   Content="🌋 HydrothermalVent"
+                   Content="🌋 HydroVent"
                    FontSize="18"
                    FontWeight="Bold"
                    Foreground="#C5E1A5"
@@ -532,8 +532,8 @@
                    Margin="0,-30,0,0"
                    Click="BiomeBtn_Click"/>
 
-                    <Popup x:Name="HydrothermalVentPopup"
-               PlacementTarget="{Binding ElementName=HydrothermalVentChooseBtn}"
+                    <Popup x:Name="HydroVentPopup"
+               PlacementTarget="{Binding ElementName=HydroVentChooseBtn}"
                Placement="Bottom"
                Width="150"
                StaysOpen="False"
@@ -544,25 +544,25 @@
                     CornerRadius="6"
                     Padding="6">
                             <StackPanel>
-                                <Button x:Name="HydrothermalVentLVL1"
+                                <Button x:Name="HydroVentLVL1"
                             Content="Level 1"
                             Style="{StaticResource DarkButton}"
                             Margin="0,4,0,0"
                             Width="100"
                             Click="Start_Click"/>
-                                <Button x:Name="HydrothermalVentLVL2"
+                                <Button x:Name="HydroVentLVL2"
                             Content="Level 2"
                             Style="{StaticResource DarkButton}"
                             Margin="0,4,0,0"
                             Width="100"
                             Click="Start_Click"/>
-                                <Button x:Name="HydrothermalVentLVL3"
+                                <Button x:Name="HydroVentLVL3"
                             Content="Level 3"
                             Style="{StaticResource DarkButton}"
                             Margin="0,4,0,0"
                             Width="100"
                             Click="Start_Click"/>
-                                <Button x:Name="HydrothermalVentLVL4"
+                                <Button x:Name="HydroVentLVL4"
                             Content="Level 4"
                             Style="{StaticResource DarkButton}"
                             Margin="0,4,0,0"
@@ -1252,19 +1252,19 @@
                 </Grid>
             </Border>
 
-            <!-- altar Biome -->
+            <!-- Altar Biome -->
             <Border Canvas.Left="1010"
                     Canvas.Top="550">
                 <Grid>
                     <Button 
-                               x:Name="altarButton"
+                               x:Name="AltarButton"
                                Style="{StaticResource DarkButton}"
                                Width="150"
                                Height="45"
                                Background="#333"
                                BorderBrush="#333"
                                BorderThickness="2"
-                               Content="🛐 altar"
+                               Content="🛐 Altar"
                                FontSize="18"
                                FontWeight="Bold"
                                Foreground="#90CAF9"
@@ -1273,8 +1273,8 @@
                                Margin="0,8,0,0"
                                Click="BiomeBtn_Click"/>
 
-                    <Popup x:Name="altarPopup"
-                           PlacementTarget="{Binding ElementName=altarChooseBtn}"
+                    <Popup x:Name="AltarPopup"
+                           PlacementTarget="{Binding ElementName=AltarChooseBtn}"
                            Placement="Bottom"
                            Width="150"
                            StaysOpen="False"
@@ -1285,25 +1285,25 @@
                                 CornerRadius="6"
                                 Padding="6">
                             <StackPanel>
-                                <Button x:Name="altarlLVL1"
+                                <Button x:Name="AltarlLVL1"
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
                                         Width="100"
                                         Click="Start_Click"/>
-                                <Button x:Name="altarLVL2"
+                                <Button x:Name="AltarLVL2"
                                         Content="Level 2"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
                                         Width="100"
                                         Click="Start_Click"/>
-                                <Button x:Name="altarLVL3"
+                                <Button x:Name="AltarLVL3"
                                         Content="Level 3"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"
                                         Width="100"
                                         Click="Start_Click"/>
-                                <Button x:Name="altarLVL4"
+                                <Button x:Name="AltarLVL4"
                                         Content="Level 4"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"

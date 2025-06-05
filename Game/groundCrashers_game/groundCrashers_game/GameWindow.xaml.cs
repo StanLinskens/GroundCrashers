@@ -315,7 +315,7 @@ namespace groundCrashers_game
                 case Biomes.Catacomb: return "⚰️";
                 case Biomes.LavaChamber: return "🔥";
                 case Biomes.CaveCitadel: return "🏰";
-                case Biomes.altar: return "🛐";
+                case Biomes.Altar: return "🛐";
                 case Biomes.CaveLake: return "🏞️";
                 case Biomes.CaveVilage: return "🏡";
                 case Biomes.FungalHollow: return "🍄";
@@ -327,7 +327,7 @@ namespace groundCrashers_game
                 case Biomes.OpenOcean: return "🌊";
                 case Biomes.DeepCoralReef: return "🪸";
                 case Biomes.ColdSeep: return "🧊";
-                case Biomes.HydrothermalVent: return "🌋";
+                case Biomes.HydroVent: return "🌋";
 
                 // Space-themed biomes
                 case Biomes.Earth: return "🌍";
