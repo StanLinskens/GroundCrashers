@@ -288,51 +288,357 @@
 
 
 
+
     {
-        "name": "CaveLVL1",
-        "biome": "Cave",
+        "name": "CatacombLVL1",
+        "biome": "Catacomb",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 49, 114 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CatacombLVL2",
+        "biome": "Catacomb",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
-        "CreatureID": [ 217, 187 ],
-        "strengthModifier": 105
+        "CreatureID": [ 174, 83 ],
+        "strengthModifier": 100
     },
     {
-        "name": "CaveLVL2",
-        "biome": "Cave",
-        "daytime": "Day",
-        "amountCreaturesPlayer": 2,
-        "amountCreaturesCpu": 2,
-        "CreatureID": [ 67, 58 ],
-        "strengthModifier": 105
-    },
-    {
-        "name": "CaveLVL3",
-        "biome": "Cave",
-        "daytime": "Day",
-        "amountCreaturesPlayer": 2,
-        "amountCreaturesCpu": 2,
-        "CreatureID": [ 123, 223 ],
-        "strengthModifier": 105
-    },
-    {
-        "name": "CaveLVL4",
-        "biome": "Cave",
+        "name": "CatacombLVL3",
+        "biome": "Catacomb",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
-        "CreatureID": [ 23, 125 ],
-        "strengthModifier": 115
+        "CreatureID": [ 141, 114 ],
+        "strengthModifier": 100
     },
     {
-        "name": "CaveLVL5",
-        "biome": "Cave",
+        "name": "CatacombLVL4",
+        "biome": "Catacomb",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 63, 70 ],
+        "strengthModifier": 100
+    },
+
+
+
+    {
+        "name": "LavaChamberLVL1",
+        "biome": "LavaChamber",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 66, 203 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "LavaChamberLVL2",
+        "biome": "LavaChamber",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 65, 145 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "LavaChamberLVL3",
+        "biome": "LavaChamber",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 108, 174 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "LavaChamberLVL4",
+        "biome": "LavaChamber",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 150, 180 ],
+        "strengthModifier": 100
+    },
+
+
+
+    {
+        "name": "CaveCitadelLVL1",
+        "biome": "CaveCitadel",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 66, 203 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveCitadelLVL2",
+        "biome": "CaveCitadel",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 65, 145 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveCitadelLVL3",
+        "biome": "CaveCitadel",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 108, 174 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveCitadelLVL4",
+        "biome": "CaveCitadel",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 150, 180 ],
+        "strengthModifier": 100
+    },
+
+
+
+    {
+        "name": "CaveCitadelLVL1",
+        "biome": "CaveCitadel",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 79, 3 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveCitadelLVL2",
+        "biome": "CaveCitadel",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 39, 127 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveCitadelLVL3",
+        "biome": "CaveCitadel",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 55, 77 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveCitadelLVL4",
+        "biome": "CaveCitadel",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 155, 38 ],
+        "strengthModifier": 100
+    },
+
+
+
+    {
+        "name": "AltarLVL1",
+        "biome": "Altar",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 224, 36 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "AltarLVL2",
+        "biome": "Altar",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 25, 143 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "AltarLVL3",
+        "biome": "Altar",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 126, 122 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "AltarLVL4",
+        "biome": "Altar",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 1,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 54, 183 ],
+        "strengthModifier": 100
+    },
+
+
+
+    {
+        "name": "CaveLakeLVL1",
+        "biome": "CaveLake",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 14, 105 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveLakeLVL2",
+        "biome": "CaveLake",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 223, 66 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveLakeLVL3",
+        "biome": "CaveLake",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 162, 189 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveLakeLVL4",
+        "biome": "CaveLake",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 65, 159 ],
+        "strengthModifier": 100
+    },
+
+
+
+    {
+        "name": "CaveVilageLVL1",
+        "biome": "CaveVilage",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 35, 88 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveVilageLVL2",
+        "biome": "CaveVilage",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 105, 194 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveVilageLVL3",
+        "biome": "CaveVilage",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 26, 203 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "CaveVilageLVL4",
+        "biome": "CaveVilage",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 16, 56, 212 ],
+        "CreatureID": [ 36, 132, 21 ],
         "strengthModifier": 100
     },
+
+
+
+    {
+        "name": "FungalHollowLVL1",
+        "biome": "FungalHollow",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 104, 154 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "FungalHollowLVL2",
+        "biome": "FungalHollow",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 14, 182 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "FungalHollowLVL3",
+        "biome": "FungalHollow",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 201, 162, 222 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "FungalHollowLVL4",
+        "biome": "FungalHollow",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 180, 145, 22 ],
+        "strengthModifier": 100
+    },
+
+
+
+    {
+        "name": "DungeonLVL1",
+        "biome": "Dungeon",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 168, 33 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "DungeonLVL2",
+        "biome": "Dungeon",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 203, 70, 111 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "DungeonLVL3",
+        "biome": "Dungeon",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 22, 166, 158 ],
+        "strengthModifier": 100
+    },
+    {
+        "name": "DungeonLVL4",
+        "biome": "Dungeon",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 133, 90, 78 ],
+        "strengthModifier": 100
+    },
+
+
 
 
 
@@ -367,8 +673,8 @@
         "name": "SwampLVL4",
         "biome": "Swamp",
         "daytime": "Dusk",
-        "amountCreaturesPlayer": 3,
-        "amountCreaturesCpu": 3,
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
         "CreatureID": [ 100, 77, 65 ],
         "strengthModifier": 105
     },
@@ -376,8 +682,8 @@
         "name": "SwampLVL5",
         "biome": "Swamp",
         "daytime": "Night",
-        "amountCreaturesPlayer": 3,
-        "amountCreaturesCpu": 3,
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 2,
         "CreatureID": [ 115, 213, 209 ],
         "strengthModifier": 115
     },
@@ -673,6 +979,284 @@
 
 
 
+
+
+    {
+        "name": "EstuariesLVL1",
+        "biome": "Estuaries",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 85, 56, 206 ],
+        "strengthModifier": 130
+    },
+    {
+        "name": "EstuariesLVL2",
+        "biome": "Estuaries",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 177, 166, 20 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "EstuariesLVL3",
+        "biome": "Estuaries",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 214, 162, 131 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "EstuariesLVL4",
+        "biome": "Estuaries",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 86, 171, 999 ],
+        "strengthModifier": 150
+    },
+
+
+
+    {
+        "name": "CoralReefLVL1",
+        "biome": "CoralReef",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 131, 78, 115 ],
+        "strengthModifier": 130
+    },
+    {
+        "name": "CoralReefLVL2",
+        "biome": "CoralReef",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 1, 107, 6 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "CoralReefLVL3",
+        "biome": "CoralReef",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 158, 207, 131 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "CoralReefLVL4",
+        "biome": "CoralReef",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 115, 999, 999 ],
+        "strengthModifier": 150
+    },
+
+
+
+    {
+        "name": "CoralReefLVL1",
+        "biome": "CoralReef",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 55, 144, 225 ],
+        "strengthModifier": 130
+    },
+    {
+        "name": "CoralReefLVL2",
+        "biome": "CoralReef",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 141, 185, 60 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "CoralReefLVL3",
+        "biome": "CoralReef",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 42, 73, 127 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "CoralReefLVL4",
+        "biome": "CoralReef",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+
+
+
+    {
+        "name": "OpenOceanLVL1",
+        "biome": "OpenOcean",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 24, 211, 184 ],
+        "strengthModifier": 130
+    },
+    {
+        "name": "OpenOceanLVL2",
+        "biome": "OpenOcean",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 138, 38, 2 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "OpenOceanLVL3",
+        "biome": "OpenOcean",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "OpenOceanLVL4",
+        "biome": "OpenOcean",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+
+
+
+    {
+        "name": "DeepCoralReefLVL1",
+        "biome": "DeepCoralReef",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 142, 116, 217 ],
+        "strengthModifier": 130
+    },
+    {
+        "name": "DeepCoralReefLVL2",
+        "biome": "DeepCoralReef",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "DeepCoralReefLVL3",
+        "biome": "DeepCoralReef",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "DeepCoralReefLVL4",
+        "biome": "DeepCoralReef",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+
+
+
+    {
+        "name": "ColdSeepLVL1",
+        "biome": "ColdSeep",
+        "daytime": "Dawn",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 130
+    },
+    {
+        "name": "ColdSeepLVL2",
+        "biome": "ColdSeep",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "ColdSeepLVL3",
+        "biome": "ColdSeep",
+        "daytime": "Dusk",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "ColdSeepLVL4",
+        "biome": "ColdSeep",
+        "daytime": "Night",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+
+
+
+    {
+        "name": "HydroVentLVL1",
+        "biome": "HydroVent",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 2,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 130
+    },
+    {
+        "name": "HydroVentLVL2",
+        "biome": "HydroVent",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "HydroVentLVL3",
+        "biome": "HydroVent",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 3,
+        "CreatureID": [ 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+    {
+        "name": "HydroVentLVL4",
+        "biome": "HydroVent",
+        "daytime": "Day",
+        "amountCreaturesPlayer": 3,
+        "amountCreaturesCpu": 4,
+        "CreatureID": [ 999, 999, 999, 999 ],
+        "strengthModifier": 150
+    },
+
+
+
+
+
+
     {
         "name": "DesertLVL1",
         "biome": "Desert",
@@ -737,7 +1321,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 1,
         "CreatureID": [ 1 ],
-        "strengthModifier": 175
+        "strengthModifier": 200
     },
     {
         "name": "VolcanoLVL3",
@@ -746,7 +1330,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 1,
         "CreatureID": [ 92 ],
-        "strengthModifier": 250
+        "strengthModifier": 300
     },
     {
         "name": "VolcanoLVL4",

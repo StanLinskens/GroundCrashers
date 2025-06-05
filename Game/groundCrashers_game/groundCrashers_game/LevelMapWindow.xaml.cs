@@ -80,7 +80,7 @@ namespace groundCrashers_game
             }
 
             AudioPlayer.Instance.Stop();
-            //AudioPlayer.Instance.PlaySpecific("map.wav", true);
+            AudioPlayer.Instance.PlaySpecific("map.wav", true);
 
             Display_Levels();
 

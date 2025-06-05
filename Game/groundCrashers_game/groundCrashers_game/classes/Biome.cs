@@ -19,7 +19,7 @@ namespace groundCrashers_game
         Catacomb,
         LavaChamber,
         CaveCitadel,
-        altar,
+        Altar,
         CaveLake,
         CaveVilage,
         FungalHollow,
@@ -40,7 +40,7 @@ namespace groundCrashers_game
         OpenOcean,
         DeepCoralReef,
         ColdSeep,
-        HydrothermalVent,
+        HydroVent,
 
         // back to normal map
         Desert,
