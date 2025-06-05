@@ -58,6 +58,10 @@ namespace groundCrashers_game
                 dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Using glowing fireflies, they find the Swamp Crystal.", ImagePathPortrait = "", backgroundImage = "Swamp" });
             }else if (biomeName == "Ocean")
             {
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Beneath the waves, the Ocean holds secrets of the deep.", ImagePathPortrait = "", backgroundImage = "Ocean" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "The Water Crystal is guarded by ancient sea spirits.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Ocean" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "Let’s swim deeper. I can feel its pull.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Ocean" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "They navigate coral mazes and outsmart a giant squid to claim the Water Crystal.", ImagePathPortrait = "", backgroundImage = "Ocean" });
             }
             else if (biomeName == "Mountain")
             {
