@@ -165,7 +165,7 @@ namespace groundCrashers_game
 
                     if (gameManager.StoryMode)
                     {
-                        LevelMapWindow mapWindow = new LevelMapWindow(true, gameManager.levelName, gameManager.hardcore);
+                        LevelMapWindow mapWindow = new LevelMapWindow(false, gameManager.levelName, gameManager.hardcore);
                         mapWindow.Show();
                     }
                     else
