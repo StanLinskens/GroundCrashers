@@ -18,6 +18,7 @@
     <None Remove="Images\battleGrounds\earth.jpg" />
     <None Remove="Images\battleGrounds\forest.jpg" />
     <None Remove="Images\battleGrounds\glacier.jpg" />
+    <None Remove="Images\battleGrounds\hardcore_cave.png" />
     <None Remove="Images\battleGrounds\hardcore_map.png" />
     <None Remove="Images\battleGrounds\hardcore_marine.png" />
     <None Remove="Images\battleGrounds\hardcore_space.png" />
@@ -40,7 +41,6 @@
     <None Remove="Images\battleGrounds\sun.jpg" />
     <None Remove="Images\battleGrounds\swamp.jpg" />
     <None Remove="Images\battleGrounds\tundra.jpg" />
-    <None Remove="Images\battleGrounds\underground.png" />
     <None Remove="Images\battleGrounds\volcano.jpg" />
     <None Remove="Images\battleGrounds\wasteland.jpg" />
     <None Remove="Images\cave.jpg" />
@@ -334,6 +334,7 @@
     <Resource Include="Images\battleGrounds\earth.jpg" />
     <Resource Include="Images\battleGrounds\forest.jpg" />
     <Resource Include="Images\battleGrounds\glacier.jpg" />
+    <Resource Include="Images\battleGrounds\hardcore_cave.png" />
     <Resource Include="Images\battleGrounds\hardcore_map.png" />
     <Resource Include="Images\battleGrounds\hardcore_marine.png" />
     <Resource Include="Images\battleGrounds\hardcore_space.png" />
@@ -357,7 +358,7 @@
     <Resource Include="Images\battleGrounds\sun.jpg" />
     <Resource Include="Images\battleGrounds\swamp.jpg" />
     <Resource Include="Images\battleGrounds\tundra.jpg" />
-    <Resource Include="Images\battleGrounds\underground.png" />
+    <Resource Include="Images\battleGrounds\cave.png" />
     <Resource Include="Images\battleGrounds\volcano.jpg" />
     <Resource Include="Images\battleGrounds\wasteland.jpg" />
     <Resource Include="Images\GroundCrasherSprites\Abysapeus.png" />

@@ -31,7 +31,7 @@ namespace groundCrashers_game
 
         private int AmountofBiomes_Marine = 6;
 
-        private int AmountofBiomes = 30; // 16 map + 6 marine + 9 space
+        private int AmountofBiomes = 38; // 16 map + 6 marine + 9 space + 6 underground
 
         public LevelMapWindow(bool LVLWon = false, string LVLname = "", bool playedHardcore = false)
         {
@@ -54,17 +54,27 @@ namespace groundCrashers_game
 
             AccountManager.UpdateActiveAccount();
 
-            if (currentBiomeIndex >= 16 && currentBiomeIndex <= 22)
+            if (currentBiomeIndex >= 6 && currentBiomeIndex <= 20)
             {
                 MapComboBox.Visibility = Visibility.Visible;
                 MapComboBox_Earth.Visibility = Visibility.Visible;
+                MapComboBox_Cave.Visibility = Visibility.Visible;
+                MapComboBox_Marine.Visibility = Visibility.Collapsed;
+                MapComboBox_Space.Visibility = Visibility.Collapsed;
+            }
+            else if (currentBiomeIndex >= 21 && currentBiomeIndex <= 28 )
+            {
+                MapComboBox.Visibility = Visibility.Visible;
+                MapComboBox_Earth.Visibility = Visibility.Visible;
+                MapComboBox_Cave.Visibility = Visibility.Visible;
                 MapComboBox_Marine.Visibility = Visibility.Visible;
                 MapComboBox_Space.Visibility = Visibility.Collapsed;
             }
-            else if (currentBiomeIndex >= 23)
+            else if (currentBiomeIndex >= 29)
             {
                 MapComboBox.Visibility = Visibility.Visible;
                 MapComboBox_Earth.Visibility = Visibility.Visible;
+                MapComboBox_Cave.Visibility = Visibility.Visible;
                 MapComboBox_Marine.Visibility = Visibility.Visible;
                 MapComboBox_Space.Visibility = Visibility.Visible;
             }
@@ -95,7 +105,7 @@ namespace groundCrashers_game
                     int CoinsEarned = 1;
 
                     int newActiveCurrentBiomeIndex = ActiveAccount.Active_current_biome_id;
-                    if (playedHardcore) { newActiveCurrentBiomeIndex -= 25; CoinsEarned += 2; } 
+                    if (playedHardcore) { newActiveCurrentBiomeIndex -= AmountofBiomes; CoinsEarned += 2; } 
 
                     if (LVLWon && biomeValue == newActiveCurrentBiomeIndex && BiomeLVL == currentLVLIndex)
                     {
@@ -209,11 +219,15 @@ namespace groundCrashers_game
             {
                 newImage = "pack://application:,,,/Images/battleGrounds/map.png";
             }
-            else if (MapComboBox.SelectedIndex == 1) // Hardcore Earth Map
+            else if (MapComboBox.SelectedIndex == 1) // underground Map
+            {
+                newImage = "pack://application:,,,/Images/battleGrounds/cave.png";
+            }
+            else if (MapComboBox.SelectedIndex == 2) // Hardcore Earth Map
             {
                 newImage = "pack://application:,,,/Images/battleGrounds/marine.png";
             }
-            else if (MapComboBox.SelectedIndex == 2) // Space Map
+            else if (MapComboBox.SelectedIndex == 3) // Space Map
             {
                 newImage = "pack://application:,,,/Images/battleGrounds/space.png";
             }
@@ -222,16 +236,21 @@ namespace groundCrashers_game
 
             Show_Biomes();
 
+            int newCurrentBiomeIndex = currentBiomeIndex - AmountofBiomes;
 
-            if (MapComboBox.SelectedIndex == 2 && currentBiomeIndex - 31 >= 22)
+            if (MapComboBox.SelectedIndex == 0 && newCurrentBiomeIndex >= 0)
             {
                 HardcoreBtn.Visibility = Visibility.Visible;
             }
-            else if (MapComboBox.SelectedIndex == 1 && currentBiomeIndex - 31 >= 15)
+            else if (MapComboBox.SelectedIndex == 1 && newCurrentBiomeIndex >= 6)
             {
                 HardcoreBtn.Visibility = Visibility.Visible;
             }
-            else if (MapComboBox.SelectedIndex == 0 && currentBiomeIndex - 31 >= 0)
+            else if (MapComboBox.SelectedIndex == 2 && newCurrentBiomeIndex >= 21)
+            {
+                HardcoreBtn.Visibility = Visibility.Visible;
+            }
+            else if (MapComboBox.SelectedIndex == 3 && newCurrentBiomeIndex >= 29)
             {
                 HardcoreBtn.Visibility = Visibility.Visible;
             }
@@ -275,19 +294,25 @@ namespace groundCrashers_game
             }
             else if (MapComboBox.SelectedIndex == 1)
             {
+                string newImage = currentImage.Contains("hardcore_cave.png")
+                ? "pack://application:,,,/Images/battleGrounds/cave.png"
+                : "pack://application:,,,/Images/battleGrounds/hardcore_cave.png";
+
+                MapBackground.ImageSource = new BitmapImage(new Uri(newImage));
+            }
+            else if (MapComboBox.SelectedIndex == 2)
+            {
                 string newImage = currentImage.Contains("hardcore_marine.png")
                 ? "pack://application:,,,/Images/battleGrounds/marine.png"
                 : "pack://application:,,,/Images/battleGrounds/hardcore_marine.png";
 
                 MapBackground.ImageSource = new BitmapImage(new Uri(newImage));
             }
-            else if (MapComboBox.SelectedIndex == 2)
+            else if (MapComboBox.SelectedIndex == 3)
             {
                 string newImage = currentImage.Contains("hardcore_space.png")
                 ? "pack://application:,,,/Images/battleGrounds/space.png"
                 : "pack://application:,,,/Images/battleGrounds/hardcore_space.png";
-
-
 
                 MapBackground.ImageSource = new BitmapImage(new Uri(newImage));
             }
@@ -303,7 +328,7 @@ namespace groundCrashers_game
 
                 int newCurrentBiomeIndex = currentBiomeIndex;
 
-                if (hardcore) { newCurrentBiomeIndex -= 31; }
+                if (hardcore) { newCurrentBiomeIndex -= AmountofBiomes; }
 
                 // make the enum value an int
                 int biomeValue = (int)biome;
@@ -368,7 +393,7 @@ namespace groundCrashers_game
         private void Show_Biomes()
         {
             int newCurrentBiomeIndex = currentBiomeIndex;
-            if (hardcore) { newCurrentBiomeIndex -= 31; }
+            if (hardcore) { newCurrentBiomeIndex -= AmountofBiomes; }
 
             foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
             {
@@ -376,17 +401,25 @@ namespace groundCrashers_game
                 var buttonName = $"{biome}Button";
                 var button = this.FindName(buttonName) as UIElement;
 
+
+
                 if (button != null)
                 {
-                    if (MapComboBox.SelectedIndex == 0 && biomeValue <= 15 && biomeValue <= newCurrentBiomeIndex)
+                    bool isEarth = (biomeValue <= 5) || (biomeValue >= 14 && biomeValue <= 20) || (biomeValue >= 27 && biomeValue <= 28);
+
+                    if (MapComboBox.SelectedIndex == 0 && isEarth && biomeValue <= newCurrentBiomeIndex)
                     {
                         button.Visibility = Visibility.Visible;
                     }
-                    else if (MapComboBox.SelectedIndex == 1 && biomeValue >= 16 && biomeValue <= 21 && biomeValue <= newCurrentBiomeIndex)
+                    else if (MapComboBox.SelectedIndex == 1 && biomeValue >= 6 && biomeValue <= 13 && biomeValue <= newCurrentBiomeIndex)
                     {
                         button.Visibility = Visibility.Visible;
                     }
-                    else if (MapComboBox.SelectedIndex == 2 && biomeValue >= 22 && biomeValue <= 31 && biomeValue <= newCurrentBiomeIndex)
+                    else if (MapComboBox.SelectedIndex == 2 && biomeValue >= 21 && biomeValue <= 26 && biomeValue <= newCurrentBiomeIndex)
+                    {
+                        button.Visibility = Visibility.Visible;
+                    }
+                    else if (MapComboBox.SelectedIndex == 3 && biomeValue >= 29 && biomeValue <= 37 && biomeValue <= newCurrentBiomeIndex)
                     {
                         button.Visibility = Visibility.Visible;
                     }

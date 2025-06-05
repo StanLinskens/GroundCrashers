@@ -7,13 +7,25 @@ namespace groundCrashers_game
 {
     public enum Biomes
     {
+        // normal map
         Forest,
         Wasteland,
         Mountain,
         Glacier,
         Jungle,
         CrystalCavern,
-        Cave,
+
+        // underground
+        Catacomb,
+        LavaChamber,
+        CaveCitadel,
+        altar,
+        CaveLake,
+        CaveVilage,
+        FungalHollow,
+        Dungeon,
+
+        // back to normal map
         Swamp,
         Highlands,
         Marsh,
@@ -21,8 +33,6 @@ namespace groundCrashers_game
         Savanna,
         Ruins,
         Ocean,
-        Desert,
-        Volcano,
 
         // marine
         Estuaries,
@@ -31,6 +41,10 @@ namespace groundCrashers_game
         DeepCoralReef,
         ColdSeep,
         HydrothermalVent,
+
+        // back to normal map
+        Desert,
+        Volcano,
 
         // space map
         Earth,

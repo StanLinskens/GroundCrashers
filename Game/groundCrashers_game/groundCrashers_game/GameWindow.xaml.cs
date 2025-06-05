@@ -306,11 +306,20 @@ namespace groundCrashers_game
                 case Biomes.Savanna: return "🦁";
                 case Biomes.Jungle: return "🌴";
                 case Biomes.Tundra: return "❄️";
-                case Biomes.Cave: return "🕯️";
                 case Biomes.Ruins: return "🏰";
                 case Biomes.Marsh: return "🦢";
                 case Biomes.CrystalCavern: return "💎";
                 case Biomes.Wasteland: return "☢️";
+
+                // underground-themed biomes
+                case Biomes.Catacomb: return "⚰️";
+                case Biomes.LavaChamber: return "🔥";
+                case Biomes.CaveCitadel: return "🏰";
+                case Biomes.altar: return "🛐";
+                case Biomes.CaveLake: return "🏞️";
+                case Biomes.CaveVilage: return "🏡";
+                case Biomes.FungalHollow: return "🍄";
+                case Biomes.Dungeon: return "🗝️";
 
                 // marine-themed biomes
                 case Biomes.Estuaries: return "🏝️";
