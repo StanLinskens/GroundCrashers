@@ -121,11 +121,12 @@ namespace groundCrashers_game
                         // lvl go up and if lvl is 6, go to next biome
                         ActiveAccount.Active_current_biome_lvl_id++;
 
-                        bool completedNewEarth = ActiveAccount.Active_current_biome_lvl_id >= 6 && newActiveCurrentBiomeIndex <= 15;
-                        bool completedNewMarine = ActiveAccount.Active_current_biome_lvl_id >= 5 && newActiveCurrentBiomeIndex >= 16 && newActiveCurrentBiomeIndex <= 21;
-                        bool completedNewSpace = ActiveAccount.Active_current_biome_lvl_id >= 4 && newActiveCurrentBiomeIndex >= 22 && newActiveCurrentBiomeIndex <= 30;
+                        bool completedNewEarth = (ActiveAccount.Active_current_biome_lvl_id >= 6) && ((newActiveCurrentBiomeIndex <= 5) || (newActiveCurrentBiomeIndex >= 14 && newActiveCurrentBiomeIndex <= 20) || (newActiveCurrentBiomeIndex >= 27 && newActiveCurrentBiomeIndex <= 28));
+                        bool completedNewCave = ActiveAccount.Active_current_biome_lvl_id >= 5 && newActiveCurrentBiomeIndex >= 6 && newActiveCurrentBiomeIndex <= 13;
+                        bool completedNewMarine = ActiveAccount.Active_current_biome_lvl_id >= 5 && newActiveCurrentBiomeIndex >= 21 && newActiveCurrentBiomeIndex <= 26;
+                        bool completedNewSpace = ActiveAccount.Active_current_biome_lvl_id >= 4 && newActiveCurrentBiomeIndex >= 29 && newActiveCurrentBiomeIndex <= 37;
 
-                        if (completedNewEarth || completedNewMarine || completedNewSpace)
+                        if (completedNewEarth || completedNewMarine || completedNewSpace || completedNewCave)
                         {
                             ActiveAccount.Active_current_biome_lvl_id = 1;
                             ActiveAccount.Active_current_biome_id++;
