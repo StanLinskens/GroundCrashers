@@ -45,15 +45,14 @@
     "id": 4,
     "name": "1",
     "password": "1",
-    "current_biome_id": 6,
+    "current_biome_id": 71,
     "current_biome_lvl_id": 1,
-    "LVL": 2,
-    "XP": 12,
-    "coins": 25,
-    "Admin": true,
+    "LVL": 0,
+    "XP": 2,
+    "coins": 7,
+    "Admin": false,
     "Creature_ids": [
-      65,
-      157
+      0
     ]
   }
 ]
