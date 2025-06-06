@@ -1285,7 +1285,7 @@
                                 CornerRadius="6"
                                 Padding="6">
                             <StackPanel>
-                                <Button x:Name="AltarlLVL1"
+                                <Button x:Name="AltarLVL1"
                                         Content="Level 1"
                                         Style="{StaticResource DarkButton}"
                                         Margin="0,4,0,0"

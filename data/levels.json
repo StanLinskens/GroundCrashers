@@ -451,7 +451,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
-        "CreatureID": [ 14, 105 ],
+        "CreatureID": [ 14 ],
         "strengthModifier": 140
     },
     {
@@ -1261,7 +1261,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 1,
         "CreatureID": [ 33 ],
-        "strengthModifier": 225
+        "strengthModifier": 350
     },
 
 
@@ -1273,7 +1273,7 @@
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 1,
         "CreatureID": [ 78 ],
-        "strengthModifier": 190
+        "strengthModifier": 225
     },
     {
         "name": "VolcanoLVL2",
@@ -1282,7 +1282,7 @@
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 1,
         "CreatureID": [ 1 ],
-        "strengthModifier": 240
+        "strengthModifier": 300
     },
     {
         "name": "VolcanoLVL3",
@@ -1291,7 +1291,7 @@
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 1,
         "CreatureID": [ 92 ],
-        "strengthModifier": 290
+        "strengthModifier": 350
     },
     {
         "name": "VolcanoLVL4",
@@ -1300,7 +1300,7 @@
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 2,
         "CreatureID": [ 63, 4 ],
-        "strengthModifier": 135
+        "strengthModifier": 150
     },
     {
         "name": "VolcanoLVL5",
@@ -1309,7 +1309,7 @@
         "amountCreaturesPlayer": 1,
         "amountCreaturesCpu": 3,
         "CreatureID": [ 187, 3, 84 ],
-        "strengthModifier": 105
+        "strengthModifier": 125
     },
 
 

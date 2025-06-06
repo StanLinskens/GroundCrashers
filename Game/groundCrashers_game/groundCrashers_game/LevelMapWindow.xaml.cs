@@ -40,15 +40,7 @@ namespace groundCrashers_game
             MapComboBox.Visibility = Visibility.Collapsed;
             HardcoreBtn.Visibility = Visibility.Collapsed;
 
-
-
-            currentBiomeIndex = ActiveAccount.Active_current_biome_id;
-            currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
-
             GetPlayedLevelResult(LVLWon, LVLname, playedHardcore);
-
-            currentBiomeIndex = ActiveAccount.Active_current_biome_id;
-            currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
 
             LVLWon = false;
 
@@ -82,15 +74,22 @@ namespace groundCrashers_game
             AudioPlayer.Instance.Stop();
             AudioPlayer.Instance.PlaySpecific("map.wav", true);
 
-            Display_Levels();
-
             // Default to Earth map
             // because of this the MapComboBox_SelectionChanged event triggers
-            MapComboBox.SelectedIndex = 0; 
+            if(MapComboBox.SelectedIndex == -1) MapComboBox.SelectedIndex = 0;
         }
 
         private void GetPlayedLevelResult(bool LVLWon, string LVLname, bool playedHardcore)
         {
+
+            currentBiomeIndex = ActiveAccount.Active_current_biome_id;
+            currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
+
+            bool completedEarth = false;
+            bool completedCave = false;
+            bool completedMarine = false;
+            bool completedSpace = false;
+
             foreach (Biomes biome in Enum.GetValues(typeof(Biomes)))
             {
                 // get the name of the level
@@ -102,29 +101,40 @@ namespace groundCrashers_game
                     int BiomeLVL = int.Parse(LVLname_split[1]);
                     // if lvl won and the biome and lvl have not been completed yet
 
-                    int CoinsEarned = 1;
+                    int CoinsEarned = 0;
 
-                    int newActiveCurrentBiomeIndex = ActiveAccount.Active_current_biome_id;
-                    if (playedHardcore) { newActiveCurrentBiomeIndex -= AmountofBiomes; CoinsEarned += 2; } 
+                    // the earned xp for completing a level
+                    int xpEarned = 0;
 
-                    if (LVLWon && biomeValue == newActiveCurrentBiomeIndex && BiomeLVL == currentLVLIndex)
+                    if(LVLWon)
                     {
-                        // the earned xp for completing a level
-                        int xpEarned = 1;
-
+                        xpEarned = 1;
+                        CoinsEarned = 1; // 1 coin for winning the level
                         // if completed biome is 5, 10, 15, etc. you get 1 xp more
                         for (int i = 5; i <= currentBiomeIndex; i += 5)
                         {
                             xpEarned += 1;
                         }
+                    }
 
+
+                    int newActiveCurrentBiomeIndex = ActiveAccount.Active_current_biome_id;
+                    if (playedHardcore) { newActiveCurrentBiomeIndex -= AmountofBiomes; CoinsEarned += 2; }
+
+                    completedEarth = ((newActiveCurrentBiomeIndex <= 5) || (newActiveCurrentBiomeIndex >= 14 && newActiveCurrentBiomeIndex <= 20) || (newActiveCurrentBiomeIndex >= 27 && newActiveCurrentBiomeIndex <= 28));
+                    completedCave = newActiveCurrentBiomeIndex >= 6 && newActiveCurrentBiomeIndex <= 13;
+                    completedMarine = newActiveCurrentBiomeIndex >= 21 && newActiveCurrentBiomeIndex <= 26;
+                    completedSpace = newActiveCurrentBiomeIndex >= 29 && newActiveCurrentBiomeIndex <= 37;
+                    
+                    if (LVLWon && biomeValue == newActiveCurrentBiomeIndex && BiomeLVL == currentLVLIndex)
+                    {
                         // lvl go up and if lvl is 6, go to next biome
                         ActiveAccount.Active_current_biome_lvl_id++;
 
-                        bool completedNewEarth = (ActiveAccount.Active_current_biome_lvl_id >= 6) && ((newActiveCurrentBiomeIndex <= 5) || (newActiveCurrentBiomeIndex >= 14 && newActiveCurrentBiomeIndex <= 20) || (newActiveCurrentBiomeIndex >= 27 && newActiveCurrentBiomeIndex <= 28));
-                        bool completedNewCave = ActiveAccount.Active_current_biome_lvl_id >= 5 && newActiveCurrentBiomeIndex >= 6 && newActiveCurrentBiomeIndex <= 13;
-                        bool completedNewMarine = ActiveAccount.Active_current_biome_lvl_id >= 5 && newActiveCurrentBiomeIndex >= 21 && newActiveCurrentBiomeIndex <= 26;
-                        bool completedNewSpace = ActiveAccount.Active_current_biome_lvl_id >= 4 && newActiveCurrentBiomeIndex >= 29 && newActiveCurrentBiomeIndex <= 37;
+                        bool completedNewEarth = ActiveAccount.Active_current_biome_lvl_id >= 6 && completedEarth;
+                        bool completedNewCave = ActiveAccount.Active_current_biome_lvl_id >= 5 && completedCave;
+                        bool completedNewMarine = ActiveAccount.Active_current_biome_lvl_id >= 5 && completedMarine;
+                        bool completedNewSpace = ActiveAccount.Active_current_biome_lvl_id >= 4 && completedSpace;
 
                         if (completedNewEarth || completedNewMarine || completedNewSpace || completedNewCave)
                         {
@@ -132,18 +142,26 @@ namespace groundCrashers_game
                             ActiveAccount.Active_current_biome_id++;
                             xpEarned *= 2; // Extra XP for completing a biome
                         }
-
-                        // update the players XP
-                        ActiveAccount.Active_XP += xpEarned;
-                        AccountManager.LevelUp();
-
-                        ActiveAccount.Active_coins += CoinsEarned; // Add coins for winning the level
-
                     }
+                    // update the players XP
+                    ActiveAccount.Active_XP += xpEarned;
+                    AccountManager.LevelUp();
+
+                    ActiveAccount.Active_coins += CoinsEarned; // Add coins for winning the level
                 }
             }
             currentLVL.Text = $"LVL: {ActiveAccount.Active_LVL}"; // Update the current level text
             currentXP.Text = $"XP: {ActiveAccount.Active_XP}"; // Update the current XP text
+
+            currentBiomeIndex = ActiveAccount.Active_current_biome_id;
+            currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
+
+            Display_Levels();
+
+            if (completedEarth) MapComboBox.SelectedIndex = 0;
+            else if (completedCave) MapComboBox.SelectedIndex = 1;
+            else if (completedMarine) MapComboBox.SelectedIndex = 2;
+            else if (completedSpace) MapComboBox.SelectedIndex = 3;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
