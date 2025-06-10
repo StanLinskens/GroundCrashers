@@ -33,8 +33,11 @@ namespace groundCrashers_game
 
         private int AmountofBiomes = 38; // 16 map + 6 marine + 9 space + 6 underground
 
+        GambleWindow gambleWindow;
+
         public LevelMapWindow(bool LVLWon = false, string LVLname = "", bool playedHardcore = false)
         {
+            GambleWindow gambleWindow = new GambleWindow();
             InitializeComponent();
 
             MapComboBox.Visibility = Visibility.Collapsed;
@@ -142,6 +145,13 @@ namespace groundCrashers_game
                             ActiveAccount.Active_current_biome_id++;
                             xpEarned *= 2; // Extra XP for completing a biome
                         }
+
+                        bool isLastBiomeStory = LVLname == "CrystalCavernLVL5" || LVLname == "AltarLVL4";
+                        if (isLastBiomeStory)
+                        {
+                            StoryWindow storyWindow = new StoryWindow(LVLname, LVLname, false);
+                            storyWindow.ShowDialog(); // <- this blocks the current thread until the window is closed
+                        }
                     }
                     // update the players XP
                     ActiveAccount.Active_XP += xpEarned;
@@ -210,8 +220,10 @@ namespace groundCrashers_game
             string currentImage = MapBackground.ImageSource.ToString();
             bool isHardcore = currentImage.Contains("hardcore");
 
+            bool isStoryBiome = levelName != "GlacierLVL1" && levelName != "JungleLVL1" && levelName != "LavaChamberLVL1" && levelName != "DungeonLVL1" && levelName != "CaveVilageLVL1";
+
             // Only show story window for the first level of each biome
-            if (levelName.EndsWith("LVL1"))
+            if ((levelName.EndsWith("LVL1") && isStoryBiome))
             {
                 StoryWindow storyWindow = new StoryWindow(biomeName, levelName, isHardcore);
                 storyWindow.Show();
@@ -452,8 +464,10 @@ namespace groundCrashers_game
 
         private void CapsuleBtn_Click(object sender, RoutedEventArgs e)
         {
-            GambleWindow gambleWindow = new GambleWindow(); 
-            gambleWindow.Show();
+            if (!gambleWindow.ShowActivated)
+            {
+                gambleWindow.Show();
+            }
         }
     }
 }
