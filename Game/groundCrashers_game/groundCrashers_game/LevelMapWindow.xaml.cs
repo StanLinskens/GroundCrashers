@@ -33,11 +33,8 @@ namespace groundCrashers_game
 
         private int AmountofBiomes = 38; // 16 map + 6 marine + 9 space + 6 underground
 
-        GambleWindow gambleWindow;
-
         public LevelMapWindow(bool LVLWon = false, string LVLname = "", bool playedHardcore = false)
-        {
-            GambleWindow gambleWindow = new GambleWindow();
+        {     
             InitializeComponent();
 
             MapComboBox.Visibility = Visibility.Collapsed;
@@ -146,7 +143,7 @@ namespace groundCrashers_game
                             xpEarned *= 2; // Extra XP for completing a biome
                         }
 
-                        bool isLastBiomeStory = LVLname == "CrystalCavernLVL5" || LVLname == "AltarLVL4";
+                        bool isLastBiomeStory = LVLname == "CrystalCavernLVL5" || LVLname == "AltarLVL4" || LVLname == "OceanLVL5" || LVLname == "HydroVentLVL4" || LVLname == "VolcanoLVL5";
                         if (isLastBiomeStory)
                         {
                             StoryWindow storyWindow = new StoryWindow(LVLname, LVLname, false);
@@ -220,10 +217,14 @@ namespace groundCrashers_game
             string currentImage = MapBackground.ImageSource.ToString();
             bool isHardcore = currentImage.Contains("hardcore");
 
-            bool isStoryBiome = levelName != "GlacierLVL1" && levelName != "JungleLVL1" && levelName != "LavaChamberLVL1" && levelName != "DungeonLVL1" && levelName != "CaveVilageLVL1";
+            bool isStoryBiome = levelName != "GlacierLVL1" && levelName != "JungleLVL1" && levelName != "LavaChamberLVL1" && levelName != "DungeonLVL1" && levelName != "CaveVilageLVL1" && levelName != "SwampLVL1" &&
+                                levelName != "MarshLVL1" && levelName != "TundraLVL1" && levelName != "RuinsLVL1" && levelName != "CoralReefLVL1" && levelName != "OpenOceanLVL1" && levelName != "ColdSeepLVL1" &&
+                                levelName != "NebulaLVL1" && levelName != "InterstellarLVL1" && levelName != "DebrisLVL1" && levelName != "SaturnLVL1" && levelName != "CybertronLVL1" && levelName != "AsteroidsLVL1";
+
+            bool isSunLvl = levelName == "SunLVL2" || levelName == "SunLVL3";
 
             // Only show story window for the first level of each biome
-            if ((levelName.EndsWith("LVL1") && isStoryBiome))
+            if ((levelName.EndsWith("LVL1") && isStoryBiome) || isSunLvl)
             {
                 StoryWindow storyWindow = new StoryWindow(biomeName, levelName, isHardcore);
                 storyWindow.Show();
@@ -464,10 +465,9 @@ namespace groundCrashers_game
 
         private void CapsuleBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (!gambleWindow.ShowActivated)
-            {
-                gambleWindow.Show();
-            }
+            GambleWindow gambleWindow = new GambleWindow();
+            gambleWindow.ShowDialog();
+            
         }
     }
 }

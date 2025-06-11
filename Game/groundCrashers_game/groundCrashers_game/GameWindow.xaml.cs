@@ -650,7 +650,7 @@ namespace groundCrashers_game
         private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
         {
             GroundCrasherWindow crasherWindow = new GroundCrasherWindow(gameManager, this, portalManager);
-            crasherWindow.Show();
+            crasherWindow.ShowDialog();
             RefreshLogBox();
         }
 

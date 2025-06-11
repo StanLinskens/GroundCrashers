@@ -290,6 +290,7 @@
     <None Remove="Images\ocean.jpg" />
     <None Remove="Images\other\questionmark.png" />
     <None Remove="Images\portraits\aria.png" />
+    <None Remove="Images\portraits\ariadead.png" />
     <None Remove="Images\portraits\ChaosOrb.png" />
     <None Remove="Images\portraits\chaosorbcaged.png" />
     <None Remove="Images\portraits\chaosorbcaged1.png" />
@@ -601,6 +602,7 @@
     <Resource Include="Images\GroundCrasherSprites\Zephyisanus.png" />
     <Resource Include="Images\other\questionmark.png" />
     <Resource Include="Images\portraits\aria.png" />
+    <Resource Include="Images\portraits\ariadead.png" />
     <Resource Include="Images\portraits\ChaosOrb.png" />
     <Resource Include="Images\portraits\chaosorbcaged.png" />
     <Resource Include="Images\portraits\chaosorbcaged1.png" />

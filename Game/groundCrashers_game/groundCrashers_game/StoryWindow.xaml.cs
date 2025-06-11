@@ -20,12 +20,18 @@ namespace groundCrashers_game
         private int currentLine = 0;
         private string levelName;
         private bool hardcore;
+        private bool ariaDead = false; // Track if Aria is dead
 
         public StoryWindow(string biomeName, string levelName, bool hardcore)
         {
             InitializeComponent();
             this.levelName = levelName;
             this.hardcore = hardcore;
+
+            if (this.hardcore)
+            {
+                ariaDead = true;
+            }
 
             LoadDialog(biomeName);
             ShowCurrentLine();
@@ -116,65 +122,121 @@ namespace groundCrashers_game
                 dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrb.png", backgroundImage = "Altar" });
                 dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged1.png", backgroundImage = "Altar" });
                 dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged.png", backgroundImage = "Altar" });
-            }
-            else if (biomeName == "Swamp")
-            {
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Thick fog and poison air fill the Swamp.", ImagePathPortrait = "", backgroundImage = "Swamp" });
-                dialogLines.Add(new DialogLine { Character = "Aria", Text = "Can’t see anything... but the fireflies might lead us.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Swamp" });
-                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Trust nature. It remembers the way.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Swamp" });
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Using glowing fireflies, they find the Swamp Crystal.", ImagePathPortrait = "", backgroundImage = "Swamp" });
-            }
-            else if (biomeName == "Ocean")
-            {
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Beneath the waves, the Ocean holds secrets of the deep.", ImagePathPortrait = "", backgroundImage = "Ocean" });
-                dialogLines.Add(new DialogLine { Character = "Rook", Text = "The Water Crystal is guarded by ancient sea spirits.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Ocean" });
-                dialogLines.Add(new DialogLine { Character = "Aria", Text = "Let’s swim deeper. I can feel its pull.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Ocean" });
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "They navigate coral mazes and outsmart a giant squid to claim the Water Crystal.", ImagePathPortrait = "", backgroundImage = "Ocean" });
-            }
-            else if (biomeName == "Marsh")
-            {
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "The Marsh is dense and eerie, spirits lingering in the mist.", ImagePathPortrait = "", backgroundImage = "Marsh" });
-                dialogLines.Add(new DialogLine { Character = "Aria", Text = "Every step sinks deeper... how do we go on?", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Marsh" });
-                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Trust me, Aria. I won’t let us fall.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Marsh" });
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "The Spirit Crystal glows as their bond strengthens.", ImagePathPortrait = "", backgroundImage = "Marsh" });
-            }
-            else if (biomeName == "Tundra")
-            {
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Frozen winds howl across the Tundra.", ImagePathPortrait = "", backgroundImage = "Tundra" });
-                dialogLines.Add(new DialogLine { Character = "Rook", Text = "The Ice Crystal is close. Stay warm, stay sharp.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Tundra" });
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "They carefully bypass a sleeping frost beast to retrieve the crystal.", ImagePathPortrait = "", backgroundImage = "Tundra" });
-            }
-            else if (biomeName == "Glacier")
-            {
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Glittering caverns beneath the Glacier echo with cold silence.", ImagePathPortrait = "", backgroundImage = "Glacier" });
-                dialogLines.Add(new DialogLine { Character = "Aria", Text = "Let’s light a fire. Just for a moment.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Glacier" });
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "With warmth, they find the Cold Crystal nestled in ice.", ImagePathPortrait = "", backgroundImage = "Glacier" });
-            }
-            else if (biomeName == "Volcano")
-            {
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Lava flows and heat waves fill the Volcano.", ImagePathPortrait = "", backgroundImage = "Volcano" });
-                dialogLines.Add(new DialogLine { Character = "Rook", Text = "We’ll split up. I’ll take the ridge.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Volcano" });
-                dialogLines.Add(new DialogLine { Character = "Aria", Text = "I’ll head through the lava tunnels. Stay alive.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Volcano" });
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Through perilous paths, they secure the Fire Crystal.", ImagePathPortrait = "", backgroundImage = "Volcano" });
-            }
-            else if (biomeName == "Jungle")
-            {
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "The Jungle is thick with vines and sounds of unseen creatures.", ImagePathPortrait = "", backgroundImage = "Jungle" });
-                dialogLines.Add(new DialogLine { Character = "Aria", Text = "That serpent’s gaining on us!", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Jungle" });
-                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Keep it distracted—I’ll grab the Nature Crystal!", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Jungle" });
-            }
-            else if (biomeName == "Ruin")
-            {
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Ancient Ruins submerged in sand hide the secrets of time.", ImagePathPortrait = "", backgroundImage = "Ruin" });
-                dialogLines.Add(new DialogLine { Character = "Aria", Text = "This mural... it’s a puzzle.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Ruin" });
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "They solve the puzzle and unlock the Time Crystal.", ImagePathPortrait = "", backgroundImage = "Ruin" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "and so the first", ImagePathPortrait = "", backgroundImage = "Altar" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "m¡$†@k€.", ImagePathPortrait = "", backgroundImage = "hardcore_cave" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "was made.", ImagePathPortrait = "", backgroundImage = "Altar" });
             }
             else if (biomeName == "Highlands")
             {
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "The sacred Highlands hold Rook’s past.", ImagePathPortrait = "", backgroundImage = "Highlands" });
-                dialogLines.Add(new DialogLine { Character = "Rook", Text = "I was once a guardian here... before the fall.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Highlands" });
-                dialogLines.Add(new DialogLine { Character = "Aria", Text = "Then it’s time to reclaim your legacy.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Highlands" });
-                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "Together, they unlock the Light Crystal. The world begins to heal.", ImagePathPortrait = "", backgroundImage = "Highlands" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Could the awnser be ocean?", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Highlands" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "To the riddle.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Highlands" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "It does make sence. we can search there when we get to it.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Highlands" });
+            }
+            else if (biomeName == "Savanna")
+            {
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "somethimes these fights are just unfair.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Savanna" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "yeah they get 4 and we only 3.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Savanna" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "We have to level up. we cant lose here the whole world is in danger.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Savanna" });
+            }
+            else if (biomeName == "Ocean")
+            {
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "If we are right about the awnser of the riddle. than it should be here.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Ocean" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "It has to be right? This awnser makes the most sense.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Ocean" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "Lets look at the surface first. Than we can go deeper.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Ocean" });
+            }
+            else if (biomeName == "OceanLVL5")
+            {
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "Lets go deeper.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Ocean" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "I think i see something down there. it has to be the orb.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Ocean" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "It has to be.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Ocean" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "You can now acces the marine map by the dropdown in the top right corner in the map.", ImagePathPortrait = "", backgroundImage = "marine" });
+            }
+            else if (biomeName == "Estuaries")
+            {
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "Look how big it is down here.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Estuaries" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "How are we able to breath under water?", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Estuaries" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "It looks so nice.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Estuaries" });
+            }
+            else if (biomeName == "DeepCoralReef")
+            {
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "The GroundCrashers are getting alot stronger.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "DeepCoralReef" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "I also think they change if we figth the same lvl again.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "DeepCoralReef" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "idk it could be the case.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "DeepCoralReef" });
+            }
+            else if (biomeName == "HydroVent")
+            {
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "I think i see it.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "HydroVent" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "the second chaos orb.", ImagePathPortrait = "", backgroundImage = "HydroVent" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Lets go fast.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "HydroVent" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "First lets fight these GroundCrashers.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "HydroVent" });
+            }
+            else if (biomeName == "HydroVentLVL4")
+            {
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "I will encage it again. get back", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "HydroVent" });
+                dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrb.png", backgroundImage = "HydroVent" });
+                dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged1.png", backgroundImage = "HydroVent" });
+                dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged.png", backgroundImage = "HydroVent" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "this one wont spread chaos anymore.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "HydroVent" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "He didnt know how", ImagePathPortrait = "", backgroundImage = "HydroVent" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "₩ЯØП₲", ImagePathPortrait = "", backgroundImage = "hardcore_marine" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "he was", ImagePathPortrait = "", backgroundImage = "HydroVent" });
+            }
+            else if (biomeName == "Desert")
+            {
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "The last one has to be in the vulcano right?.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Desert" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "I think so two. we have to go quick. what if it is more unsteable because of the heat", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Desert" });
+            }
+            else if (biomeName == "Volcano")
+            {
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Is that a rocket?", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Volcano" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "What if there is an orb in space?", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Volcano" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "It could be. lets first search the vulcano. Maybe there is one here two", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Volcano" });
+            }
+            else if (biomeName == "VolcanoLVL5")
+            {
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "the third orb", ImagePathPortrait = "", backgroundImage = "Volcano" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "there is an orb.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Volcano" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Encage it quicly. what if it breaks right now?!", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Volcano" });
+                dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrb.png", backgroundImage = "Volcano" });
+                dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged1.png", backgroundImage = "Volcano" });
+                dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged.png", backgroundImage = "Volcano" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "He was right. this one ¡$ going to", ImagePathPortrait = "", backgroundImage = "Volcano" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "฿®£∆k", ImagePathPortrait = "", backgroundImage = "hardcore_map" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "any minute.", ImagePathPortrait = "", backgroundImage = "Volcano" });
+                dialogLines.Add(new DialogLine { Character = "Narrator", Text = "You can now acces the space map by the dropdown in the top right corner in the map.", ImagePathPortrait = "", backgroundImage = "space" });
+            }
+            else if (biomeName == "Earth")
+            {
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "I always wanted to go to space. now i am finaly here", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Earth" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "How are we able to breath in space??", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Earth" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "It looks so nice", ImagePathPortrait = "Images/portraits/Aria.png", backgroundImage = "Earth" });
+            }
+            else if (biomeName == "Moon")
+            {
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "What is a titan?! they are so strong.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Moon" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "yeah, but we need to fight them.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Moon" });
+            }
+            else if (biomeName == "Sun")
+            {
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "He has to be here. He has to.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Sun" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Who do you mean?", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Sun" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "He will be so proud of me.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Sun" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "What do you mean?!", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Sun" });
+            }
+            else if (biomeName == "SunLVL2")
+            {
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "I think i see him.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Sun" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Who do you mean? Please tell me.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Sun" });
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "I have to go.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Sun" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Dont leave me here With these titans!", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Sun" });
+            }
+            else if (biomeName == "SunLVL3")
+            {
+                dialogLines.Add(new DialogLine { Character = "God", Text = "Good job my servent Aria. you did well", ImagePathPortrait = "Images/GroundCrasherSprites/pattje72.png", backgroundImage = "Sun" });
+                dialogLines.Add(new DialogLine { Character = "God", Text = "But you have no use for me now", ImagePathPortrait = "Images/GroundCrasherSprites/pattje72.png", backgroundImage = "Sun" });
+                ariaDead = true; // Aria dies in this part of the story
+                dialogLines.Add(new DialogLine { Character = "Aria", Text = "Urgh…", ImagePathPortrait = "Images/portraits/ariadead.png", backgroundImage = "Sun" });
+                dialogLines.Add(new DialogLine { Character = "Rook", Text = "Noooooooo.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Sun" });
             }
             else
             {
@@ -185,7 +247,7 @@ namespace groundCrashers_game
 
         private void ShowCurrentLine()
         {
-            bool isLastBiomeStory = levelName == "CrystalCavernLVL5" || levelName == "AltarLVL4";
+            bool isLastBiomeStory = levelName == "CrystalCavernLVL5" || levelName == "AltarLVL4" || levelName == "OceanLVL5" || levelName == "HydroVentLVL4" || levelName == "VolcanoLVL5";
 
             if (currentLine >= dialogLines.Count && !isLastBiomeStory)
             {
@@ -209,10 +271,13 @@ namespace groundCrashers_game
             // Load character portraits
             try
             {
-                CharacterImage.Source = new BitmapImage(new Uri("Images/portraits/aria.png", UriKind.Relative));
+                if(ariaDead) CharacterImage.Source = new BitmapImage(new Uri("Images/portraits/ariadead.png", UriKind.Relative));
+                else CharacterImage.Source = new BitmapImage(new Uri("Images/portraits/aria.png", UriKind.Relative));
+
                 if (line.ImagePathPortrait == "Images/portraits/ChaosOrb.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrb.png", UriKind.Relative)); }
                 else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbcaged1.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbcaged1.png", UriKind.Relative)); }
                 else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbcaged.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbcaged.png", UriKind.Relative)); }
+                else if (line.ImagePathPortrait == "Images/GroundCrasherSprites/pattje72.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/GroundCrasherSprites/pattje72.png", UriKind.Relative)); }
                 else { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/rook.png", UriKind.Relative)); }
 
             }
@@ -224,7 +289,8 @@ namespace groundCrashers_game
             // Load background image if specified
             if (!string.IsNullOrEmpty(line.backgroundImage))
             {
-                bool isPng = line.backgroundImage == "cave";
+                bool isPng = line.backgroundImage == "cave" || line.backgroundImage == "hardcore_cave" || line.backgroundImage == "marine" || line.backgroundImage == "hardcore_marine" || 
+                             line.backgroundImage == "hardcore_map" || line.backgroundImage == "space";
                 try
                 {
                     if (!isPng) { var bgUri = new Uri($"pack://application:,,,/Images/battleGrounds/{line.backgroundImage.ToLower()}.jpg"); BackGround.ImageSource = new BitmapImage(bgUri); }
@@ -250,7 +316,7 @@ namespace groundCrashers_game
                 CharacterImage.Height = 464;
                 CharacterImage2.Height = 350;
             }
-            else if (line.Character == "Rook")
+            else if (line.Character == "Rook" || line.Character == "God")
             {
                 CharacterImage.Opacity = 0.3;
                 CharacterImage2.Opacity = 1.0;
