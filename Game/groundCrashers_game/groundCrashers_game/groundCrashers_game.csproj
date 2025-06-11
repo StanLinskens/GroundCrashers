@@ -9,22 +9,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\battleGrounds\altar.jpg" />
     <None Remove="Images\battleGrounds\bioengineered.png" />
+    <None Remove="Images\battleGrounds\catacomb.jpg" />
     <None Remove="Images\battleGrounds\cave.jpg" />
+    <None Remove="Images\battleGrounds\cavecitadel.jpg" />
+    <None Remove="Images\battleGrounds\cavelake.jpg" />
+    <None Remove="Images\battleGrounds\cavevilage.jpg" />
+    <None Remove="Images\battleGrounds\coldseep.jpg" />
+    <None Remove="Images\battleGrounds\construction.jpg" />
+    <None Remove="Images\battleGrounds\coralreef.jpg" />
     <None Remove="Images\battleGrounds\crystalcavern.jpg" />
     <None Remove="Images\battleGrounds\crystal_cavern_gif.gif" />
     <None Remove="Images\battleGrounds\debris.jpg" />
+    <None Remove="Images\battleGrounds\deepcoralreef.jpg" />
     <None Remove="Images\battleGrounds\desert.jpg" />
+    <None Remove="Images\battleGrounds\dungeon.jpg" />
     <None Remove="Images\battleGrounds\earth.jpg" />
+    <None Remove="Images\battleGrounds\estuaries.jpg" />
     <None Remove="Images\battleGrounds\forest.jpg" />
+    <None Remove="Images\battleGrounds\fungalhollow.jpg" />
     <None Remove="Images\battleGrounds\glacier.jpg" />
     <None Remove="Images\battleGrounds\hardcore_cave.png" />
     <None Remove="Images\battleGrounds\hardcore_map.png" />
     <None Remove="Images\battleGrounds\hardcore_marine.png" />
     <None Remove="Images\battleGrounds\hardcore_space.png" />
     <None Remove="Images\battleGrounds\highlands.jpg" />
+    <None Remove="Images\battleGrounds\hydrovent.jpg" />
+    <None Remove="Images\battleGrounds\Industrial.png" />
     <None Remove="Images\battleGrounds\interstellar.jpg" />
     <None Remove="Images\battleGrounds\jungle.jpg" />
+    <None Remove="Images\battleGrounds\lavachamber.jpg" />
     <None Remove="Images\battleGrounds\magical.png" />
     <None Remove="Images\battleGrounds\map.png" />
     <None Remove="Images\battleGrounds\marine.png" />
@@ -33,6 +48,7 @@
     <None Remove="Images\battleGrounds\mountain.jpg" />
     <None Remove="Images\battleGrounds\nebula.jpg" />
     <None Remove="Images\battleGrounds\ocean.jpg" />
+    <None Remove="Images\battleGrounds\openocean.jpg" />
     <None Remove="Images\battleGrounds\ruins.jpg" />
     <None Remove="Images\battleGrounds\Saturn.jpg" />
     <None Remove="Images\battleGrounds\savanna.jpg" />
@@ -41,6 +57,7 @@
     <None Remove="Images\battleGrounds\sun.jpg" />
     <None Remove="Images\battleGrounds\swamp.jpg" />
     <None Remove="Images\battleGrounds\tundra.jpg" />
+    <None Remove="Images\battleGrounds\Urban.png" />
     <None Remove="Images\battleGrounds\volcano.jpg" />
     <None Remove="Images\battleGrounds\wasteland.jpg" />
     <None Remove="Images\cave.jpg" />
@@ -330,23 +347,38 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\battleGrounds\altar.jpg" />
     <Resource Include="Images\battleGrounds\asteroids.jpg" />
     <Resource Include="Images\battleGrounds\bioengineered.png" />
+    <Resource Include="Images\battleGrounds\catacomb.jpg" />
     <Resource Include="Images\battleGrounds\cave.jpg" />
+    <Resource Include="Images\battleGrounds\cavecitadel.jpg" />
+    <Resource Include="Images\battleGrounds\cavelake.jpg" />
+    <Resource Include="Images\battleGrounds\cavevilage.jpg" />
+    <Resource Include="Images\battleGrounds\coldseep.jpg" />
+    <Resource Include="Images\battleGrounds\construction.jpg" />
+    <Resource Include="Images\battleGrounds\coralreef.jpg" />
     <Resource Include="Images\battleGrounds\crystalcavern.jpg" />
     <Resource Include="Images\battleGrounds\crystal_cavern_gif.gif" />
     <Resource Include="Images\battleGrounds\debris.jpg" />
+    <Resource Include="Images\battleGrounds\deepcoralreef.jpg" />
     <Resource Include="Images\battleGrounds\desert.jpg" />
+    <Resource Include="Images\battleGrounds\dungeon.jpg" />
     <Resource Include="Images\battleGrounds\earth.jpg" />
+    <Resource Include="Images\battleGrounds\estuaries.jpg" />
     <Resource Include="Images\battleGrounds\forest.jpg" />
+    <Resource Include="Images\battleGrounds\fungalhollow.jpg" />
     <Resource Include="Images\battleGrounds\glacier.jpg" />
     <Resource Include="Images\battleGrounds\hardcore_cave.png" />
     <Resource Include="Images\battleGrounds\hardcore_map.png" />
     <Resource Include="Images\battleGrounds\hardcore_marine.png" />
     <Resource Include="Images\battleGrounds\hardcore_space.png" />
     <Resource Include="Images\battleGrounds\highlands.jpg" />
+    <Resource Include="Images\battleGrounds\hydrovent.jpg" />
+    <Resource Include="Images\battleGrounds\Industrial.png" />
     <Resource Include="Images\battleGrounds\interstellar.jpg" />
     <Resource Include="Images\battleGrounds\jungle.jpg" />
+    <Resource Include="Images\battleGrounds\lavachamber.jpg" />
     <Resource Include="Images\battleGrounds\magical.png" />
     <Resource Include="Images\battleGrounds\map.png" />
     <Resource Include="Images\battleGrounds\marine.png" />
@@ -355,6 +387,7 @@
     <Resource Include="Images\battleGrounds\mountain.jpg" />
     <Resource Include="Images\battleGrounds\nebula.jpg" />
     <Resource Include="Images\battleGrounds\ocean.jpg" />
+    <Resource Include="Images\battleGrounds\openocean.jpg" />
     <Resource Include="Images\battleGrounds\ruins.jpg" />
     <Resource Include="Images\battleGrounds\Saturn.jpg" />
     <Resource Include="Images\battleGrounds\savanna.jpg" />
@@ -365,6 +398,7 @@
     <Resource Include="Images\battleGrounds\swamp.jpg" />
     <Resource Include="Images\battleGrounds\tundra.jpg" />
     <Resource Include="Images\battleGrounds\cave.png" />
+    <Resource Include="Images\battleGrounds\Urban.png" />
     <Resource Include="Images\battleGrounds\volcano.jpg" />
     <Resource Include="Images\battleGrounds\wasteland.jpg" />
     <Resource Include="Images\GroundCrasherSprites\Abysapeus.png" />
