@@ -163,8 +163,6 @@ namespace groundCrashers_game
             currentBiomeIndex = ActiveAccount.Active_current_biome_id;
             currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
 
-            Display_Levels();
-
             if (completedEarth) MapComboBox.SelectedIndex = 0;
             else if (completedCave) MapComboBox.SelectedIndex = 1;
             else if (completedMarine) MapComboBox.SelectedIndex = 2;
@@ -214,6 +212,8 @@ namespace groundCrashers_game
             // Get biome name from levelName (e.g., ForestLVL1 -> Forest)
             string biomeName = levelName.Replace("LVL1", "").Replace("Button", "");
 
+            string[] biomeNameAll = levelName.Split("LVL");
+
             string currentImage = MapBackground.ImageSource.ToString();
             bool isHardcore = currentImage.Contains("hardcore");
 
@@ -221,10 +221,12 @@ namespace groundCrashers_game
                                 levelName != "MarshLVL1" && levelName != "TundraLVL1" && levelName != "RuinsLVL1" && levelName != "CoralReefLVL1" && levelName != "OpenOceanLVL1" && levelName != "ColdSeepLVL1" &&
                                 levelName != "NebulaLVL1" && levelName != "InterstellarLVL1" && levelName != "DebrisLVL1" && levelName != "SaturnLVL1" && levelName != "CybertronLVL1" && levelName != "AsteroidsLVL1";
 
+            bool isntPlayedYet = IsStoryPlayed(biomeNameAll[0]);
+
             bool isSunLvl = levelName == "SunLVL2" || levelName == "SunLVL3";
 
             // Only show story window for the first level of each biome
-            if ((levelName.EndsWith("LVL1") && isStoryBiome) || isSunLvl)
+            if ((levelName.EndsWith("LVL1") && isStoryBiome && isntPlayedYet) || isSunLvl )
             {
                 StoryWindow storyWindow = new StoryWindow(biomeName, levelName, isHardcore);
                 storyWindow.Show();
@@ -238,51 +240,52 @@ namespace groundCrashers_game
             }
         }
 
+        private bool IsStoryPlayed(string biomeName)
+        {
+            int newCurrentBiomeIndex = currentBiomeIndex;
+            if (hardcore) newCurrentBiomeIndex -= AmountofBiomes;
+
+            if (newCurrentBiomeIndex == (int)Enum.Parse(typeof(Biomes), biomeName) && ActiveAccount.Active_current_biome_lvl_id == 1) return true;
+            return false;
+        }
+
         private void MapComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             lvls_Hidden = false;
             hardcore = false;
 
             string newImage = string.Empty;
-
             string currentImage = MapBackground.ImageSource.ToString();
+            int newCurrentBiomeIndex = currentBiomeIndex - AmountofBiomes;
 
             if (MapComboBox.SelectedIndex == 0) // Earth Map
             {
-                newImage = "pack://application:,,,/Images/battleGrounds/map.png";
+                if (newCurrentBiomeIndex >= 0 && newCurrentBiomeIndex <= 28) { newImage = "pack://application:,,,/Images/battleGrounds/hardcore_map.png"; hardcore = true; } 
+                else {newImage = "pack://application:,,,/Images/battleGrounds/map.png"; hardcore = false; } 
             }
             else if (MapComboBox.SelectedIndex == 1) // underground Map
             {
-                newImage = "pack://application:,,,/Images/battleGrounds/cave.png";
+                if (newCurrentBiomeIndex >= 6 && newCurrentBiomeIndex <= 13) { newImage = "pack://application:,,,/Images/battleGrounds/hardcore_cave.png"; hardcore = true; }
+                else { newImage = "pack://application:,,,/Images/battleGrounds/cave.png"; hardcore = false; }
             }
             else if (MapComboBox.SelectedIndex == 2) // Hardcore Earth Map
             {
-                newImage = "pack://application:,,,/Images/battleGrounds/marine.png";
+                if (newCurrentBiomeIndex >= 21 && newCurrentBiomeIndex <= 26) { newImage = "pack://application:,,,/Images/battleGrounds/hardcore_marine.png"; hardcore = true; }
+                else { newImage = "pack://application:,,,/Images/battleGrounds/marine.png"; hardcore = false; }
             }
             else if (MapComboBox.SelectedIndex == 3) // Space Map
             {
-                newImage = "pack://application:,,,/Images/battleGrounds/space.png";
+                if (newCurrentBiomeIndex >= 29 && newCurrentBiomeIndex <= 37) { newImage = "pack://application:,,,/Images/battleGrounds/hardcore_space.png"; hardcore = true; }
+                else { newImage = "pack://application:,,,/Images/battleGrounds/space.png"; hardcore = false; }
             }
 
             MapBackground.ImageSource = new BitmapImage(new Uri(newImage));
 
+            Display_Levels();
+
             Show_Biomes();
 
-            int newCurrentBiomeIndex = currentBiomeIndex - AmountofBiomes;
-
-            if (MapComboBox.SelectedIndex == 0 && newCurrentBiomeIndex >= 0)
-            {
-                HardcoreBtn.Visibility = Visibility.Visible;
-            }
-            else if (MapComboBox.SelectedIndex == 1 && newCurrentBiomeIndex >= 6)
-            {
-                HardcoreBtn.Visibility = Visibility.Visible;
-            }
-            else if (MapComboBox.SelectedIndex == 2 && newCurrentBiomeIndex >= 21)
-            {
-                HardcoreBtn.Visibility = Visibility.Visible;
-            }
-            else if (MapComboBox.SelectedIndex == 3 && newCurrentBiomeIndex >= 29)
+            if (newCurrentBiomeIndex >= 38)
             {
                 HardcoreBtn.Visibility = Visibility.Visible;
             }

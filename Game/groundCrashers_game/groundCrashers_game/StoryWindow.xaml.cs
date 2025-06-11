@@ -173,8 +173,8 @@ namespace groundCrashers_game
                         break;
                     case "Volcano":
                         dialogLines.Add(new DialogLine { Character = "Rook", Text = "Is that a rocket?", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Volcano" });
-                        dialogLines.Add(new DialogLine { Character = "Aria", Text = "What if there is an orb in space?", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Volcano" });
-                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "It could be. lets first search the vulcano. Maybe there is one here two", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Volcano" });
+                        dialogLines.Add(new DialogLine { Character = "Aria", Text = "We have to go to space. What if something is there.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Volcano" });
+                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "could be. lets first search the vulcano. Maybe there is one here two", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Volcano" });
                         break;
                     case "VolcanoLVL5":
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "the third orb", ImagePathPortrait = "", backgroundImage = "Volcano" });
@@ -226,7 +226,7 @@ namespace groundCrashers_game
                 switch (biomeName)
                 {
                     case "Forest":
-                        dialogLines.Add(new DialogLine { Character = "Narrator", Text = "There once was a tale of five Chaos Orbs, ancient relics that normally protect these lands.", ImagePathPortrait = "", backgroundImage = "Forest" });
+                        dialogLines.Add(new DialogLine { Character = "Narrator", Text = "There once was a tale of 3 Chaos Orbs, ancient relics that normally protect these lands.", ImagePathPortrait = "", backgroundImage = "Forest" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "But Aria received a vision—a warning that the Orbs would shatter, and chaos would seep into the world.", ImagePathPortrait = "", backgroundImage = "Forest" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "She confided in Rook, and together they set out to prevent the looming disaster.", ImagePathPortrait = "", backgroundImage = "Forest" });
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "This forest feels... alive. Like it's watching us.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Forest" });
@@ -352,7 +352,7 @@ namespace groundCrashers_game
                         break;
                     case "Volcano":
                         dialogLines.Add(new DialogLine { Character = "Rook", Text = "Like it is constandly playing on loop", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Volcano" });
-                        dialogLines.Add(new DialogLine { Character = "Aria", Text = "What if there is an orb in space?", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Volcano" });
+                        dialogLines.Add(new DialogLine { Character = "Aria", Text = "We have to go to space. What if something is there.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Volcano" });
                         dialogLines.Add(new DialogLine { Character = "Rook", Text = "This was all just a big mistake", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Volcano" });
                         break;
                     case "VolcanoLVL5":
@@ -363,9 +363,9 @@ namespace groundCrashers_game
                         dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged1.png", backgroundImage = "Volcano" });
                         dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged.png", backgroundImage = "Volcano" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "He was right. this one ¡$ going to", ImagePathPortrait = "", backgroundImage = "Volcano" });
-                        dialogLines.Add(new DialogLine { Character = "Narrator", Text = "฿®£∆k", ImagePathPortrait = "", backgroundImage = "hardcore_map" });
+                        dialogLines.Add(new DialogLine { Character = "Narrator", Text = "฿®£∆k", ImagePathPortrait = "", backgroundImage = "map" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "any minute.", ImagePathPortrait = "", backgroundImage = "Volcano" });
-                        dialogLines.Add(new DialogLine { Character = "Narrator", Text = "You can now acces the space map by the dropdown in the top right corner in the map.", ImagePathPortrait = "", backgroundImage = "space" });
+                        dialogLines.Add(new DialogLine { Character = "Narrator", Text = "You can now acces the space map by the dropdown in the top right corner in the map.", ImagePathPortrait = "", backgroundImage = "hardcore_space" });
                         break;
                     case "Earth":
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "I always wanted to go to space. now i am finaly here", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Earth" });
@@ -384,7 +384,7 @@ namespace groundCrashers_game
                         break;
                     case "SunLVL2":
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "I think i see him.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Sun" });
-                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "A servent of god.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Sun" });
+                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "A servent of God.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Sun" });
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "I have to go.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Sun" });
                         dialogLines.Add(new DialogLine { Character = "Rook", Text = "How could you?", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Sun" });
                         break;
@@ -393,7 +393,7 @@ namespace groundCrashers_game
                         dialogLines.Add(new DialogLine { Character = "God", Text = "But now it is your time to die Rook", ImagePathPortrait = "Images/GroundCrasherSprites/pattje72.png", backgroundImage = "Sun" });
                         ariaKilled = true; // Aria dies in this part of the story
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "Urgh…", ImagePathPortrait = "Images/portraits/ariakilled.png", backgroundImage = "Sun" });
-                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "No, i can beat you again.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Sun" });
+                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "No", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Sun" });
                         break;
                     default:
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "This biome is still under construction.", ImagePathPortrait = "", backgroundImage = "construction" });
@@ -451,7 +451,7 @@ namespace groundCrashers_game
             if (!string.IsNullOrEmpty(line.backgroundImage))
             {
                 bool isPng = line.backgroundImage == "cave" || line.backgroundImage == "hardcore_cave" || line.backgroundImage == "marine" || line.backgroundImage == "hardcore_marine" || 
-                             line.backgroundImage == "hardcore_map" || line.backgroundImage == "space";
+                             line.backgroundImage == "hardcore_map" || line.backgroundImage == "space" || line.backgroundImage == "map" || line.backgroundImage == "hardcore_space";
                 try
                 {
                     if (!isPng) { var bgUri = new Uri($"pack://application:,,,/Images/battleGrounds/{line.backgroundImage.ToLower()}.jpg"); BackGround.ImageSource = new BitmapImage(bgUri); }
