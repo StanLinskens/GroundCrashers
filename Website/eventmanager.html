@@ -49,6 +49,50 @@
             font-size: 1.1em;
         }
 
+        /* Auth Panel */
+        .auth-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .role-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .role-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .role-button.active {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+        }
+
+        .admin-login {
+            display: none;
+            margin-top: 20px;
+        }
+
         .admin-panel {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -56,6 +100,7 @@
             padding: 25px;
             margin-bottom: 30px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            display: none;
         }
 
         .admin-panel h2 {
@@ -119,6 +164,14 @@
         button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .export-btn {
+            background: linear-gradient(45deg, #27ae60, #2ecc71);
+        }
+
+        .export-btn:hover {
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.3);
         }
 
         .events-grid {
@@ -212,6 +265,11 @@
             border-bottom: none;
         }
 
+        .participant-details {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
         .remove-btn {
             background: #e74c3c;
             padding: 4px 8px;
@@ -230,6 +288,7 @@
             padding: 25px;
             margin-bottom: 30px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            display: none;
         }
 
         .statistics {
@@ -283,6 +342,27 @@
             display: none;
         }
 
+        .user-info {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logout-btn {
+            background: #e74c3c;
+            padding: 8px 15px;
+            font-size: 14px;
+        }
+
+        .logout-btn:hover {
+            background: #c0392b;
+        }
+
         @media (max-width: 768px) {
             .form-row {
                 flex-direction: column;
@@ -295,6 +375,10 @@
             .header h1 {
                 font-size: 2em;
             }
+
+            .auth-buttons {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -305,8 +389,38 @@
             <p>TerAA Innovation - Powered by domein ICT</p>
         </div>
 
+        <!-- Authentication Panel -->
+        <div class="auth-panel" id="authPanel">
+            <h2>Welkom bij EventManager</h2>
+            <p style="margin-bottom: 20px;">Kies uw rol om verder te gaan:</p>
+            <div class="auth-buttons">
+                <button class="role-button" onclick="eventManager.selectRole('student')">
+                    👨‍🎓 Student
+                </button>
+                <button class="role-button" onclick="eventManager.selectRole('admin')">
+                    👨‍💼 Administrator
+                </button>
+            </div>
+            <div class="admin-login" id="adminLogin">
+                <h3>Administrator Login</h3>
+                <div style="margin-top: 15px;">
+                    <input type="password" id="adminPassword" placeholder="Wachtwoord" style="margin-bottom: 10px;">
+                    <button onclick="eventManager.adminLogin()">Inloggen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Info Panel -->
+        <div class="user-info" id="userInfo" style="display: none;">
+            <div>
+                <strong id="userRole"></strong>
+                <span id="userName"></span>
+            </div>
+            <button class="logout-btn" onclick="eventManager.logout()">Uitloggen</button>
+        </div>
+
         <!-- Admin Panel -->
-        <div class="admin-panel">
+        <div class="admin-panel" id="adminPanel">
             <h2>🎯 Event Beheer</h2>
             <form id="eventForm">
                 <div class="form-row">
@@ -317,6 +431,16 @@
                     <div>
                         <label for="eventDescription">Beschrijving:</label>
                         <textarea id="eventDescription" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="workshopLeader">Workshop Leider:</label>
+                        <input type="text" id="workshopLeader" required>
+                    </div>
+                    <div>
+                        <label for="location">Locatie:</label>
+                        <input type="text" id="location">
                     </div>
                 </div>
                 <div class="form-row">
@@ -334,28 +458,36 @@
                         <label for="maxParticipants">Maximum Deelnemers:</label>
                         <input type="number" id="maxParticipants" min="1" max="100" value="20" required>
                     </div>
-                    <div>
-                        <label for="location">Locatie:</label>
-                        <input type="text" id="location">
-                    </div>
                 </div>
                 <button type="submit">📅 Event Toevoegen</button>
                 <button type="button" id="clearEvents">🗑️ Alle Events Wissen</button>
+                <button type="button" class="export-btn" onclick="eventManager.exportToCSV()">📊 Export CSV</button>
+                <button type="button" class="export-btn" onclick="eventManager.exportToExcel()">📊 Export Excel</button>
             </form>
         </div>
 
         <!-- Registration Form -->
-        <div class="registration-form">
+        <div class="registration-form" id="registrationForm">
             <h2>📋 Aanmelden voor Event</h2>
-            <form id="registrationForm">
+            <form id="studentRegistrationForm">
                 <div class="form-row">
                     <div>
-                        <label for="participantName">Naam:</label>
+                        <label for="participantName">Volledige Naam:</label>
                         <input type="text" id="participantName" required>
                     </div>
                     <div>
-                        <label for="participantEmail">Email:</label>
+                        <label for="participantEmail">Email Adres:</label>
                         <input type="email" id="participantEmail" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div>
+                        <label for="studentNumber">Leerlingnummer:</label>
+                        <input type="number" id="studentNumber" min="1" required>
+                    </div>
+                    <div>
+                        <label for="studentProgram">Opleiding:</label>
+                        <input type="text" id="studentProgram" required>
                     </div>
                 </div>
                 <div class="form-row">
@@ -378,7 +510,7 @@
         </div>
 
         <!-- Statistics -->
-        <div class="statistics">
+        <div class="statistics" id="statisticsPanel">
             <h2>📊 Statistieken</h2>
             <div class="stats-grid" id="statsGrid">
                 <!-- Stats will be populated here -->
@@ -390,8 +522,10 @@
         class EventManager {
             constructor() {
                 this.events = [];
-                this.participants = new Map(); // email -> event mapping
+                this.participants = new Map(); // email -> [eventIds] mapping
                 this.eventIdCounter = 1;
+                this.currentUser = null;
+                this.adminPassword = 'admin123'; // In productie zou dit veiliger moeten zijn
                 this.init();
             }
 
@@ -406,7 +540,7 @@
                     this.addEvent();
                 });
 
-                document.getElementById('registrationForm').addEventListener('submit', (e) => {
+                document.getElementById('studentRegistrationForm').addEventListener('submit', (e) => {
                     e.preventDefault();
                     this.registerParticipant();
                 });
@@ -414,11 +548,67 @@
                 document.getElementById('clearEvents').addEventListener('click', () => {
                     this.clearAllEvents();
                 });
+
+                // Enter key voor admin login
+                document.getElementById('adminPassword').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.adminLogin();
+                    }
+                });
+            }
+
+            selectRole(role) {
+                if (role === 'admin') {
+                    document.getElementById('adminLogin').style.display = 'block';
+                    document.getElementById('adminPassword').focus();
+                } else {
+                    this.currentUser = { role: 'student' };
+                    this.showInterface();
+                }
+            }
+
+            adminLogin() {
+                const password = document.getElementById('adminPassword').value;
+                if (password === this.adminPassword) {
+                    this.currentUser = { role: 'admin' };
+                    this.showInterface();
+                } else {
+                    alert('Incorrect wachtwoord!');
+                }
+            }
+
+            logout() {
+                this.currentUser = null;
+                document.getElementById('authPanel').style.display = 'block';
+                document.getElementById('userInfo').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'none';
+                document.getElementById('registrationForm').style.display = 'none';
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminPassword').value = '';
+            }
+
+            showInterface() {
+                document.getElementById('authPanel').style.display = 'none';
+                document.getElementById('userInfo').style.display = 'flex';
+                
+                const roleText = this.currentUser.role === 'admin' ? '👨‍💼 Administrator' : '👨‍🎓 Student';
+                document.getElementById('userRole').textContent = roleText;
+
+                if (this.currentUser.role === 'admin') {
+                    document.getElementById('adminPanel').style.display = 'block';
+                    document.getElementById('statisticsPanel').style.display = 'block';
+                } else {
+                    document.getElementById('registrationForm').style.display = 'block';
+                    document.getElementById('statisticsPanel').style.display = 'none';
+                }
+                
+                this.updateDisplay();
             }
 
             addEvent() {
                 const name = document.getElementById('eventName').value;
                 const description = document.getElementById('eventDescription').value;
+                const workshopLeader = document.getElementById('workshopLeader').value;
                 const startTime = document.getElementById('startTime').value;
                 const endTime = document.getElementById('endTime').value;
                 const maxParticipants = parseInt(document.getElementById('maxParticipants').value);
@@ -433,6 +623,7 @@
                     id: this.eventIdCounter++,
                     name,
                     description,
+                    workshopLeader,
                     startTime,
                     endTime,
                     maxParticipants,
@@ -450,11 +641,20 @@
             registerParticipant() {
                 const name = document.getElementById('participantName').value;
                 const email = document.getElementById('participantEmail').value;
+                const studentNumber = parseInt(document.getElementById('studentNumber').value);
+                const studentProgram = document.getElementById('studentProgram').value;
                 const eventId = parseInt(document.getElementById('eventSelect').value);
 
-                // Check if participant is already registered for any event
-                if (this.participants.has(email)) {
-                    this.showError('Je bent al aangemeld voor een event!');
+                // Check if participant exists and their event count
+                const currentEvents = this.participants.get(email) || [];
+                if (currentEvents.length >= 2) {
+                    this.showError('Je kunt je maximaal voor 2 events aanmelden!');
+                    return;
+                }
+
+                // Check if already registered for this specific event
+                if (currentEvents.includes(eventId)) {
+                    this.showError('Je bent al aangemeld voor dit event!');
                     return;
                 }
 
@@ -469,12 +669,32 @@
                     return;
                 }
 
+                // Check for duplicate student number
+                const existingStudent = this.events.some(e => 
+                    e.participants.some(p => p.studentNumber === studentNumber)
+                );
+                if (existingStudent) {
+                    this.showError('Dit leerlingnummer is al geregistreerd!');
+                    return;
+                }
+
                 // Add participant to event
-                event.participants.push({ name, email, registeredAt: new Date() });
-                this.participants.set(email, eventId);
+                const participant = {
+                    name,
+                    email,
+                    studentNumber,
+                    studentProgram,
+                    registeredAt: new Date()
+                };
+
+                event.participants.push(participant);
+                
+                // Update participant mapping
+                currentEvents.push(eventId);
+                this.participants.set(email, currentEvents);
 
                 this.updateDisplay();
-                this.clearForm('registrationForm');
+                this.clearForm('studentRegistrationForm');
                 this.showSuccess(`Succesvol aangemeld voor "${event.name}"!`);
             }
 
@@ -482,7 +702,16 @@
                 const event = this.events.find(e => e.id === eventId);
                 if (event) {
                     event.participants = event.participants.filter(p => p.email !== email);
-                    this.participants.delete(email);
+                    
+                    // Update participant mapping
+                    const currentEvents = this.participants.get(email) || [];
+                    const updatedEvents = currentEvents.filter(id => id !== eventId);
+                    if (updatedEvents.length === 0) {
+                        this.participants.delete(email);
+                    } else {
+                        this.participants.set(email, updatedEvents);
+                    }
+                    
                     this.updateDisplay();
                 }
             }
@@ -497,10 +726,63 @@
                 }
             }
 
+            exportToCSV() {
+                let csv = 'Event Naam,Beschrijving,Workshop Leider,Starttijd,Eindtijd,Locatie,Maximum Deelnemers,Aantal Aanmeldingen,Deelnemer Naam,Email,Leerlingnummer,Opleiding,Aanmelddatum\n';
+                
+                this.events.forEach(event => {
+                    const baseInfo = `"${event.name}","${event.description}","${event.workshopLeader}","${event.startTime}","${event.endTime}","${event.location}",${event.maxParticipants},${event.participants.length}`;
+                    
+                    if (event.participants.length === 0) {
+                        csv += baseInfo + ',,,,,\n';
+                    } else {
+                        event.participants.forEach(participant => {
+                            csv += baseInfo + `,"${participant.name}","${participant.email}",${participant.studentNumber},"${participant.studentProgram}","${participant.registeredAt.toLocaleString('nl-NL')}"\n`;
+                        });
+                    }
+                });
+
+                this.downloadFile(csv, 'events-export.csv', 'text/csv');
+            }
+
+            exportToExcel() {
+                // Simple HTML table format that Excel can open
+                let html = '<table border="1">';
+                html += '<tr><th>Event Naam</th><th>Beschrijving</th><th>Workshop Leider</th><th>Starttijd</th><th>Eindtijd</th><th>Locatie</th><th>Max Deelnemers</th><th>Aantal Aanmeldingen</th><th>Deelnemer Naam</th><th>Email</th><th>Leerlingnummer</th><th>Opleiding</th><th>Aanmelddatum</th></tr>';
+                
+                this.events.forEach(event => {
+                    const baseInfo = `<td>${event.name}</td><td>${event.description}</td><td>${event.workshopLeader}</td><td>${event.startTime}</td><td>${event.endTime}</td><td>${event.location}</td><td>${event.maxParticipants}</td><td>${event.participants.length}</td>`;
+                    
+                    if (event.participants.length === 0) {
+                        html += '<tr>' + baseInfo + '<td></td><td></td><td></td><td></td><td></td></tr>';
+                    } else {
+                        event.participants.forEach(participant => {
+                            html += '<tr>' + baseInfo + `<td>${participant.name}</td><td>${participant.email}</td><td>${participant.studentNumber}</td><td>${participant.studentProgram}</td><td>${participant.registeredAt.toLocaleString('nl-NL')}</td></tr>`;
+                        });
+                    }
+                });
+                
+                html += '</table>';
+                this.downloadFile(html, 'events-export.xls', 'application/vnd.ms-excel');
+            }
+
+            downloadFile(content, filename, contentType) {
+                const blob = new Blob([content], { type: contentType });
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }
+
             updateDisplay() {
                 this.updateEventsGrid();
                 this.updateEventSelect();
-                this.updateStatistics();
+                if (this.currentUser && this.currentUser.role === 'admin') {
+                    this.updateStatistics();
+                }
             }
 
             updateEventsGrid() {
@@ -527,6 +809,10 @@
                             <div class="event-details">
                                 ${event.description ? `<p style="margin-bottom: 15px; color: #7f8c8d;">${event.description}</p>` : ''}
                                 <div class="event-detail">
+                                    <span><strong>👨‍🏫 Workshop Leider:</strong></span>
+                                    <span>${event.workshopLeader}</span>
+                                </div>
+                                <div class="event-detail">
                                     <span><strong>📅 Start:</strong></span>
                                     <span>${startDate.toLocaleString('nl-NL')}</span>
                                 </div>
@@ -550,10 +836,17 @@
                                 <strong>Aangemelde deelnemers:</strong>
                                 ${event.participants.map(p => `
                                     <div class="participant-item">
-                                        <span>${p.name} (${p.email})</span>
+                                        <div>
+                                            <div><strong>${p.name}</strong> (${p.email})</div>
+                                            <div class="participant-details">
+                                                Leerlingnummer: ${p.studentNumber} | Opleiding: ${p.studentProgram}
+                                            </div>
+                                        </div>
+                                        ${this.currentUser && this.currentUser.role === 'admin' ? `
                                         <button class="remove-btn" onclick="eventManager.removeParticipant(${event.id}, '${p.email}')">
                                             ❌
                                         </button>
+                                        ` : ''}
                                     </div>
                                 `).join('')}
                             </div>
@@ -571,7 +864,7 @@
 
                 select.innerHTML = '<option value="">-- Kies een event --</option>' +
                     availableEvents.map(event => 
-                        `<option value="${event.id}">${event.name} (${event.participants.length}/${event.maxParticipants})</option>`
+                        `<option value="${event.id}">${event.name} - ${event.workshopLeader} (${event.participants.length}/${event.maxParticipants})</option>`
                     ).join('');
             }
 
@@ -581,6 +874,10 @@
                 const totalCapacity = this.events.reduce((sum, event) => sum + event.maxParticipants, 0);
                 const fullEvents = this.events.filter(event => event.participants.length >= event.maxParticipants).length;
                 const utilizationRate = totalCapacity > 0 ? Math.round((totalParticipants / totalCapacity) * 100) : 0;
+                const uniqueStudents = new Set();
+                this.events.forEach(event => {
+                    event.participants.forEach(p => uniqueStudents.add(p.email));
+                });
 
                 const statsGrid = document.getElementById('statsGrid');
                 statsGrid.innerHTML = `
@@ -590,7 +887,11 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">${totalParticipants}</div>
-                        <div class="stat-label">Aanmeldingen</div>
+                        <div class="stat-label">Totaal Aanmeldingen</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${uniqueStudents.size}</div>
+                        <div class="stat-label">Unieke Studenten</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">${totalCapacity}</div>
