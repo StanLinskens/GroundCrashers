@@ -1584,17 +1584,17 @@
         "biome": "Sun",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
-        "amountCreaturesCpu": 1,
-        "CreatureID": [ 226 ],
-        "strengthModifier": 245
+        "amountCreaturesCpu": 2,
+        "CreatureID": [ 227, 233 ],
+        "strengthModifier": 220
     },
     {
         "name": "SunLVL3",
         "biome": "Sun",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
-        "amountCreaturesCpu": 3,
-        "CreatureID": [ 0, 0, 226 ],
+        "amountCreaturesCpu": 1,
+        "CreatureID": [ 226 ],
         "strengthModifier": 230
     }
 ]
