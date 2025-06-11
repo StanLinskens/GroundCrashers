@@ -917,7 +917,7 @@ namespace groundCrashers_game.classes
             {
                 double multiplier = level.StrengthModifier / 100.0;
 
-                if (hardcore) multiplier *= 10; // Increase difficulty in hardcore mode
+                if (hardcore) multiplier *= 3; // Increase difficulty in hardcore mode
 
                 foreach (var creature in GetCpuActor().Creatures)
                 {

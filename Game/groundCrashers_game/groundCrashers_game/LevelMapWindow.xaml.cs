@@ -146,7 +146,7 @@ namespace groundCrashers_game
                         bool isLastBiomeStory = LVLname == "CrystalCavernLVL5" || LVLname == "AltarLVL4" || LVLname == "OceanLVL5" || LVLname == "HydroVentLVL4" || LVLname == "VolcanoLVL5";
                         if (isLastBiomeStory)
                         {
-                            StoryWindow storyWindow = new StoryWindow(LVLname, LVLname, false);
+                            StoryWindow storyWindow = new StoryWindow(LVLname, LVLname, playedHardcore);
                             storyWindow.ShowDialog(); // <- this blocks the current thread until the window is closed
                         }
                     }
