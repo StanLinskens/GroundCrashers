@@ -19,11 +19,11 @@ namespace groundCrashers_game
         Catacomb,
         LavaChamber,
         CaveCitadel,
-        Altar,
         CaveLake,
-        CaveVilage,
         FungalHollow,
         Dungeon,
+        CaveVilage,
+        Altar,
 
         // back to normal map
         Swamp,
