@@ -317,7 +317,7 @@ namespace groundCrashers_game
                 case Biomes.CaveCitadel: return "🏰";
                 case Biomes.Altar: return "🛐";
                 case Biomes.CaveLake: return "🏞️";
-                case Biomes.CaveVilage: return "🏡";
+                case Biomes.CaveVillage: return "🏡";
                 case Biomes.FungalHollow: return "🍄";
                 case Biomes.Dungeon: return "🗝️";
 
@@ -342,6 +342,8 @@ namespace groundCrashers_game
 
                 // might add later
                 //case Biomes.Skyloft: return "☁️";
+
+                // else
                 default: return "❓";
             }
         }
