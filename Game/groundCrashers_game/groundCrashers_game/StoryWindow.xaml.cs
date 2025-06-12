@@ -230,8 +230,8 @@ namespace groundCrashers_game
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "But Aria received a vision—a warning that the Orbs would shatter, and chaos would seep into the world.", ImagePathPortrait = "", backgroundImage = "Forest" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "She confided in Rook, and together they set out to prevent the looming disaster.", ImagePathPortrait = "", backgroundImage = "Forest" });
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "This forest feels... alive. Like it's watching us.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Forest" });
-                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "What happend to you.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Forest" });
-                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "please dont be dead.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Forest" });
+                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "What happend?! Did the chaos orb break?.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Forest" });
+                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "What happend to you? Please dont be dead.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Forest" });
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "somethings comming from behind those trees.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Forest" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "there it was a GroundCrasher. luckily Aria was prepared.", ImagePathPortrait = "", backgroundImage = "Forest" });
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "Get behind me Rook! i will handel this.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Forest" });
@@ -263,7 +263,7 @@ namespace groundCrashers_game
                         break;
                     case "Catacomb":
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "I knew I was right. I know it is here, lets go", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Catacomb" });
-                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "I believed in you. but this was all a plan to distroy the earth", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Catacomb" });
+                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "Did the chaos orb break just now?", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Catacomb" });
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "There is no time for that we have to fight.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Catacomb" });
                         break;
                     case "CaveCitadel":
@@ -292,9 +292,9 @@ namespace groundCrashers_game
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "I figured it out. i know how to encage it", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Altar" });
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "Let me work my magic.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Altar" });
                         dialogLines.Add(new DialogLine { Character = "Rook", Text = "Why do i even bother?", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Altar" });
-                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrb.png", backgroundImage = "Altar" });
-                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged1.png", backgroundImage = "Altar" });
-                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged.png", backgroundImage = "Altar" });
+                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbBroken.png", backgroundImage = "Altar" });
+                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbDelete.png", backgroundImage = "Altar" });
+                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbGone.png", backgroundImage = "Altar" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "and so the first", ImagePathPortrait = "", backgroundImage = "Altar" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "m¡$†@k€.", ImagePathPortrait = "", backgroundImage = "cave" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "was made.", ImagePathPortrait = "", backgroundImage = "Altar" });
@@ -316,7 +316,7 @@ namespace groundCrashers_game
                         break;
                     case "OceanLVL5":
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "Lets go deeper.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Ocean" });
-                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "Why am i still following you.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Ocean" });
+                        dialogLines.Add(new DialogLine { Character = "Rook", Text = "Let me guess it is going to break right when I get there.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Ocean" });
                         dialogLines.Add(new DialogLine { Character = "Rook", Text = "I dont know what i am doing here.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Ocean" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "You can now acces the marine map by the dropdown in the top right corner in the map.", ImagePathPortrait = "", backgroundImage = "hardcore_marine" });
                         break;
@@ -338,9 +338,9 @@ namespace groundCrashers_game
                         break;
                     case "HydroVentLVL4":
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "I will encage it again. get back", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "HydroVent" });
-                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrb.png", backgroundImage = "HydroVent" });
-                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged1.png", backgroundImage = "HydroVent" });
-                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged.png", backgroundImage = "HydroVent" });
+                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbBroken.png", backgroundImage = "HydroVent" });
+                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbDelete.png", backgroundImage = "HydroVent" });
+                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbGone.png", backgroundImage = "HydroVent" });
                         dialogLines.Add(new DialogLine { Character = "Rook", Text = "And again.", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "HydroVent" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "He didnt know how", ImagePathPortrait = "", backgroundImage = "HydroVent" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "₩ЯØП₲", ImagePathPortrait = "", backgroundImage = "marine" });
@@ -359,9 +359,9 @@ namespace groundCrashers_game
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "the third orb", ImagePathPortrait = "", backgroundImage = "Volcano" });
                         dialogLines.Add(new DialogLine { Character = "Aria", Text = "there is an orb.", ImagePathPortrait = "Images/portraits/aria.png", backgroundImage = "Volcano" });
                         dialogLines.Add(new DialogLine { Character = "Rook", Text = "I never should have trusted you", ImagePathPortrait = "Images/portraits/rook.png", backgroundImage = "Volcano" });
-                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrb.png", backgroundImage = "Volcano" });
-                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged1.png", backgroundImage = "Volcano" });
-                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbcaged.png", backgroundImage = "Volcano" });
+                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbBroken.png", backgroundImage = "Volcano" });
+                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbDelete.png", backgroundImage = "Volcano" });
+                        dialogLines.Add(new DialogLine { Character = "ChaosOrb", Text = "", ImagePathPortrait = "Images/portraits/ChaosOrbGone.png", backgroundImage = "Volcano" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "He was right. this one ¡$ going to", ImagePathPortrait = "", backgroundImage = "Volcano" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "฿®£∆k", ImagePathPortrait = "", backgroundImage = "map" });
                         dialogLines.Add(new DialogLine { Character = "Narrator", Text = "any minute.", ImagePathPortrait = "", backgroundImage = "Volcano" });
@@ -438,6 +438,9 @@ namespace groundCrashers_game
                 if (line.ImagePathPortrait == "Images/portraits/ChaosOrb.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrb.png", UriKind.Relative)); }
                 else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbcaged1.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbcaged1.png", UriKind.Relative)); }
                 else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbcaged.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbcaged.png", UriKind.Relative)); }
+                else if (line.ImagePathPortrait == "Images/portraits/chaosorbbroken.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbBroken.png", UriKind.Relative)); }
+                else if (line.ImagePathPortrait == "Images/portraits/chaosorbdelete.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/chaosorbdelete.png", UriKind.Relative)); }
+                else if (line.ImagePathPortrait == "Images/portraits/chaosorbgone.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/chaosorbgone.png", UriKind.Relative)); }
                 else if (line.ImagePathPortrait == "Images/GroundCrasherSprites/pattje72.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/GroundCrasherSprites/pattje72.png", UriKind.Relative)); }
                 else { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/rook.png", UriKind.Relative)); }
 

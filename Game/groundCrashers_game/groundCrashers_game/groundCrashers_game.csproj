@@ -311,8 +311,11 @@
     <None Remove="Images\portraits\ariadeadkilled.png" />
     <None Remove="Images\portraits\ariakilled.png" />
     <None Remove="Images\portraits\ChaosOrb.png" />
+    <None Remove="Images\portraits\ChaosOrbBroken.png" />
     <None Remove="Images\portraits\chaosorbcaged.png" />
     <None Remove="Images\portraits\chaosorbcaged1.png" />
+    <None Remove="Images\portraits\ChaosOrbDelete.png" />
+    <None Remove="Images\portraits\ChaosOrbGone.png" />
     <None Remove="Images\portraits\rook.png" />
     <None Remove="Images\ruins.jpg" />
     <None Remove="Images\savanna.jpg" />
@@ -642,8 +645,11 @@
     <Resource Include="Images\portraits\ariadeadkilled.png" />
     <Resource Include="Images\portraits\ariakilled.png" />
     <Resource Include="Images\portraits\ChaosOrb.png" />
+    <Resource Include="Images\portraits\chaosorbbroken.png" />
     <Resource Include="Images\portraits\chaosorbcaged.png" />
     <Resource Include="Images\portraits\chaosorbcaged1.png" />
+    <Resource Include="Images\portraits\chaosorbdelete.png" />
+    <Resource Include="Images\portraits\chaosorbgone.png" />
     <Resource Include="Images\portraits\rook.png" />
   </ItemGroup>
 

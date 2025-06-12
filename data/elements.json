@@ -76,6 +76,26 @@
       "weakAgainst": ["Acid", "Earth"]
     },
     {
+      "name": "Chaos",
+      "strongAgainst": ["Light", "Psychic"],
+      "weakAgainst": []
+    },
+    {
+      "name": "Cosmic",
+      "strongAgainst": ["Dark", "Magnetic"],
+      "weakAgainst": []
+    },
+    {
+      "name": "Void",
+      "strongAgainst": ["Astral", "Cosmic"],
+      "weakAgainst": []
+    },
+    {
+      "name": "Astral",
+      "strongAgainst": ["Void", "Chaos"],
+      "weakAgainst": []
+    },
+    {
       "name": "ALL",
       "strongAgainst": [],
       "weakAgainst": []
