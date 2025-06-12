@@ -12,8 +12,8 @@
         <Viewbox Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid Width="800" Height="600" Background="Transparent">
                 <!-- Character images first, so they're behind -->
-                <Image x:Name="CharacterImage" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Height="350" />
-                <Image x:Name="CharacterImage2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Height="350" />
+                <Image x:Name="CharacterImage" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10" Height="350" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+                <Image x:Name="CharacterImage2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" Height="350" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
 
                 <!-- Dialog box on top -->
                 <StackPanel VerticalAlignment="Bottom" Background="#88000000" Width="800"

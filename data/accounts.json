@@ -24,14 +24,21 @@
     "id": 2,
     "name": "Wout",
     "password": "Wout",
-    "current_biome_id": 25,
+    "current_biome_id": 14,
     "current_biome_lvl_id": 1,
-    "LVL": 1,
-    "XP": 18,
-    "coins": 360,
+    "LVL": 13,
+    "XP": 29,
+    "coins": 362,
     "Admin": true,
     "Creature_ids": [
-      65
+      65,
+      154,
+      222,
+      174,
+      59,
+      206,
+      84,
+      78
     ]
   },
   {
