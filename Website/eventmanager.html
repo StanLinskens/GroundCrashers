@@ -297,6 +297,7 @@
             border-radius: 15px;
             padding: 25px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            display: none;
         }
 
         .stats-grid {
@@ -788,20 +789,26 @@
                     grid.innerHTML = '<div style="text-align: center; padding: 40px; color: #7f8c8d;"><h3>Nog geen events aangemaakt</h3><p>Gebruik het formulier hierboven om je eerste event toe te voegen.</p></div>';
                     return;
                 }
+                
+                if (this.currentUser && this.currentUser.role === 'admin') {
 
-                grid.innerHTML = this.events.map(event => {
-                    const isFull = event.participants.length >= event.maxParticipants;
-                    const startDate = new Date(event.startTime);
-                    const endDate = new Date(event.endTime);
-                    
+                    const statistics = document.querySelector('.statistics');
+
+                    statistics.style.display = (this.currentUser && this.currentUser.role === 'admin') ? 'block' : 'none';
+
+                    grid.innerHTML = this.events.map(event => {
+                        const isFull = event.participants.length >= event.maxParticipants;
+                        const startDate = new Date(event.startTime);
+                        const endDate = new Date(event.endTime);
+                        
                     return `
                         <div class="event-card ${isFull ? 'full' : ''}">
                             <div class="event-header">
                                 <div class="event-title">${event.name}</div>
                                 <div class="event-status ${isFull ? 'status-full' : 'status-available'}">
                                     ${isFull ? 'VOL' : 'BESCHIKBAAR'}
-                                </div>
-                            </div>
+                                    </div>
+                                    </div>
                             <div class="event-details">
                                 ${event.description ? `<p style="margin-bottom: 15px; color: #7f8c8d;">${event.description}</p>` : ''}
                                 <div class="event-detail">
@@ -826,14 +833,14 @@
                                     <span><strong>👥 Deelnemers:</strong></span>
                                     <span>${event.participants.length}/${event.maxParticipants}</span>
                                 </div>
-                            </div>
+                                </div>
                             ${event.participants.length > 0 ? `
                             <div class="participants-list">
                                 <strong>Aangemelde deelnemers:</strong>
                                 ${event.participants.map(p => `
-                                    <div class="participant-item">
-                                        <div>
-                                            <div><strong>${p.name}</strong> (${p.email})</div>
+                                <div class="participant-item">
+                                    <div>
+                                        <div><strong>${p.name}</strong> (${p.email})</div>
                                             <div class="participant-details">
                                                 Leerlingnummer: ${p.studentNumber} | Opleiding: ${p.studentProgram}
                                             </div>
@@ -848,8 +855,9 @@
                             </div>
                             ` : ''}
                         </div>
-                    `;
-                }).join('');
+                        `;
+                    }).join('');
+                }
             }
 
             updateEventSelect() {
