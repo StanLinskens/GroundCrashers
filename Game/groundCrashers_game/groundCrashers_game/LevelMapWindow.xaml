@@ -20,6 +20,8 @@
                     Value="2"/>
             <Setter Property="FontWeight"
                     Value="Bold"/>
+            <Setter Property="FontFamily"
+                    Value="Segoe UI Emoji"/>
             <Setter Property="Padding"
                     Value="8,4"/>
             <Setter Property="Template">
@@ -204,122 +206,127 @@
 
             <!-- Estuaries Biome -->
             <Border Canvas.Left="175"
-                    Canvas.Top="750">
+        Canvas.Top="750">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="11*"/>
+                    </Grid.ColumnDefinitions>
                     <Button 
-                   x:Name="EstuariesButton"
-                   Style="{StaticResource DarkButton}"
-                   Width="150"
-                   Height="45"
-                   Background="#333"
-                   BorderBrush="#333"
-                   Content="🏝️ Estuaries"
-                   FontSize="18"
-                   FontWeight="Bold"
-                   Foreground="#C5E1A5"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="0,-30,0,0"
-                   Click="BiomeBtn_Click"/>
+       x:Name="EstuariesButton"
+       Style="{StaticResource DarkButton}"
+       Width="150"
+       Height="45"
+       Background="#1a3d4a"
+       BorderBrush="#2e5d6b"
+       Content="🏝️ Estuaries"
+       FontSize="18"
+       FontWeight="Bold"
+       Foreground="#87ceeb"
+       HorizontalAlignment="Left"
+       VerticalAlignment="Top"
+       Margin="0,-30,0,0"
+       Click="BiomeBtn_Click" Grid.ColumnSpan="3"/>
 
                     <Popup x:Name="EstuariesPopup"
-               PlacementTarget="{Binding ElementName=EstuariesChooseBtn}"
-               Placement="Bottom"
-               Width="150"
-               StaysOpen="False"
-               AllowsTransparency="True">
+   PlacementTarget="{Binding ElementName=EstuariesChooseBtn}"
+   Placement="Bottom"
+   Width="150"
+   StaysOpen="False"
+   AllowsTransparency="True" Grid.ColumnSpan="3">
                         <Border Background="#1E1E1E"
-                    BorderBrush="#444444"
-                    BorderThickness="2"
-                    CornerRadius="6"
-                    Padding="6">
+        BorderBrush="#444444"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="6">
                             <StackPanel>
                                 <Button x:Name="EstuariesLVL1"
-                            Content="Level 1"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 1"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="EstuariesLVL2"
-                            Content="Level 2"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 2"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="EstuariesLVL3"
-                            Content="Level 3"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 3"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="EstuariesLVL4"
-                            Content="Level 4"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 4"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
                 </Grid>
-            </Border>            
-            
+            </Border>
+
             <!-- CoralReefs Biome -->
             <Border Canvas.Left="350"
-                    Canvas.Top="250">
+        Canvas.Top="250">
                 <Grid>
                     <Button 
-                   x:Name="CoralReefButton"
-                   Style="{StaticResource DarkButton}"
-                   Width="150"
-                   Height="45"
-                   Background="#333"
-                   BorderBrush="#333"
-                   Content="🪸 CoralReef"
-                   FontSize="18"
-                   FontWeight="Bold"
-                   Foreground="#C5E1A5"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="0,-30,0,0"
-                   Click="BiomeBtn_Click"/>
+       x:Name="CoralReefButton"
+       Style="{StaticResource DarkButton}"
+       Width="150"
+       Height="45"
+       Background="#4a1a3d"
+       BorderBrush="#6b2e5d"
+       Content="🪸 CoralReef"
+       FontSize="18"
+       FontWeight="Bold"
+       Foreground="#ffb6c1"
+       HorizontalAlignment="Left"
+       VerticalAlignment="Top"
+       Margin="0,-30,0,0"
+       Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="CoralReefPopup"
-               PlacementTarget="{Binding ElementName=CoralReefChooseBtn}"
-               Placement="Bottom"
-               Width="150"
-               StaysOpen="False"
-               AllowsTransparency="True">
+   PlacementTarget="{Binding ElementName=CoralReefChooseBtn}"
+   Placement="Bottom"
+   Width="150"
+   StaysOpen="False"
+   AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                    BorderBrush="#444444"
-                    BorderThickness="2"
-                    CornerRadius="6"
-                    Padding="6">
+        BorderBrush="#444444"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="6">
                             <StackPanel>
                                 <Button x:Name="CoralReefLVL1"
-                            Content="Level 1"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 1"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="CoralReefLVL2"
-                            Content="Level 2"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 2"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="CoralReefLVL3"
-                            Content="Level 3"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 3"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="CoralReefLVL4"
-                            Content="Level 4"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 4"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -328,60 +335,60 @@
 
             <!-- OpenOcean Biome -->
             <Border Canvas.Left="1200"
-                    Canvas.Top="345">
+        Canvas.Top="345">
                 <Grid>
                     <Button 
-                   x:Name="OpenOceanButton"
-                   Style="{StaticResource DarkButton}"
-                   Width="150"
-                   Height="45"
-                   Background="#333"
-                   BorderBrush="#333"
-                   Content="🌊 OpenOcean"
-                   FontSize="18"
-                   FontWeight="Bold"
-                   Foreground="#C5E1A5"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="0,-30,0,0"
-                   Click="BiomeBtn_Click"/>
+       x:Name="OpenOceanButton"
+       Style="{StaticResource DarkButton}"
+       Width="150"
+       Height="45"
+       Background="#1a2d4a"
+       BorderBrush="#2e476b"
+       Content="🌊 OpenOcean"
+       FontSize="18"
+       FontWeight="Bold"
+       Foreground="#4169e1"
+       HorizontalAlignment="Left"
+       VerticalAlignment="Top"
+       Margin="0,-30,0,0"
+       Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="OpenOceanPopup"
-               PlacementTarget="{Binding ElementName=OpenOceanChooseBtn}"
-               Placement="Bottom"
-               Width="150"
-               StaysOpen="False"
-               AllowsTransparency="True">
+   PlacementTarget="{Binding ElementName=OpenOceanChooseBtn}"
+   Placement="Bottom"
+   Width="150"
+   StaysOpen="False"
+   AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                    BorderBrush="#444444"
-                    BorderThickness="2"
-                    CornerRadius="6"
-                    Padding="6">
+        BorderBrush="#444444"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="6">
                             <StackPanel>
                                 <Button x:Name="OpenOceanLVL1"
-                            Content="Level 1"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 1"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="OpenOceanLVL2"
-                            Content="Level 2"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 2"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="OpenOceanLVL3"
-                            Content="Level 3"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 3"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="OpenOceanLVL4"
-                            Content="Level 4"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 4"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -390,60 +397,60 @@
 
             <!-- DeepCoralReef Biome -->
             <Border Canvas.Left="1425"
-                    Canvas.Top="875">
+        Canvas.Top="875">
                 <Grid>
                     <Button 
-                   x:Name="DeepCoralReefButton"
-                   Style="{StaticResource DarkButton}"
-                   Width="150"
-                   Height="45"
-                   Background="#333"
-                   BorderBrush="#333"
-                   Content="🪸 DeepCoralReef"
-                   FontSize="18"
-                   FontWeight="Bold"
-                   Foreground="#C5E1A5"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="0,-30,0,0"
-                   Click="BiomeBtn_Click"/>
+       x:Name="DeepCoralReefButton"
+       Style="{StaticResource DarkButton}"
+       Width="150"
+       Height="45"
+       Background="#1a1a4a"
+       BorderBrush="#2e2e6b"
+       Content="🐠 DeepCoralReef"
+       FontSize="18"
+       FontWeight="Bold"
+       Foreground="#9370db"
+       HorizontalAlignment="Left"
+       VerticalAlignment="Top"
+       Margin="0,-30,0,0"
+       Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="DeepCoralReefPopup"
-               PlacementTarget="{Binding ElementName=DeepCoralReefChooseBtn}"
-               Placement="Bottom"
-               Width="150"
-               StaysOpen="False"
-               AllowsTransparency="True">
+   PlacementTarget="{Binding ElementName=DeepCoralReefChooseBtn}"
+   Placement="Bottom"
+   Width="150"
+   StaysOpen="False"
+   AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                    BorderBrush="#444444"
-                    BorderThickness="2"
-                    CornerRadius="6"
-                    Padding="6">
+        BorderBrush="#444444"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="6">
                             <StackPanel>
                                 <Button x:Name="DeepCoralReefLVL1"
-                            Content="Level 1"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 1"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="DeepCoralReefLVL2"
-                            Content="Level 2"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 2"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="DeepCoralReefLVL3"
-                            Content="Level 3"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 3"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="DeepCoralReefLVL4"
-                            Content="Level 4"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 4"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -452,60 +459,60 @@
 
             <!-- ColdSeep Biome -->
             <Border Canvas.Left="800"
-                    Canvas.Top="875">
+        Canvas.Top="875">
                 <Grid>
                     <Button 
-                   x:Name="ColdSeepButton"
-                   Style="{StaticResource DarkButton}"
-                   Width="150"
-                   Height="45"
-                   Background="#333"
-                   BorderBrush="#333"
-                   Content="🧊 ColdSeep"
-                   FontSize="18"
-                   FontWeight="Bold"
-                   Foreground="#C5E1A5"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="0,-30,0,0"
-                   Click="BiomeBtn_Click"/>
+       x:Name="ColdSeepButton"
+       Style="{StaticResource DarkButton}"
+       Width="150"
+       Height="45"
+       Background="#1a4a4a"
+       BorderBrush="#2e6b6b"
+       Content="❄️ ColdSeep"
+       FontSize="18"
+       FontWeight="Bold"
+       Foreground="#40e0d0"
+       HorizontalAlignment="Left"
+       VerticalAlignment="Top"
+       Margin="0,-30,0,0"
+       Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="ColdSeepPopup"
-               PlacementTarget="{Binding ElementName=ColdSeepChooseBtn}"
-               Placement="Bottom"
-               Width="150"
-               StaysOpen="False"
-               AllowsTransparency="True">
+   PlacementTarget="{Binding ElementName=ColdSeepChooseBtn}"
+   Placement="Bottom"
+   Width="150"
+   StaysOpen="False"
+   AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                    BorderBrush="#444444"
-                    BorderThickness="2"
-                    CornerRadius="6"
-                    Padding="6">
+        BorderBrush="#444444"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="6">
                             <StackPanel>
                                 <Button x:Name="ColdSeepLVL1"
-                            Content="Level 1"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 1"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="ColdSeepLVL2"
-                            Content="Level 2"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 2"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="ColdSeepLVL3"
-                            Content="Level 3"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 3"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="ColdSeepLVL4"
-                            Content="Level 4"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 4"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -514,60 +521,60 @@
 
             <!-- HydroVent Biome -->
             <Border Canvas.Left="825"
-                    Canvas.Top="575">
+        Canvas.Top="575">
                 <Grid>
                     <Button 
-                   x:Name="HydroVentButton"
-                   Style="{StaticResource DarkButton}"
-                   Width="150"
-                   Height="45"
-                   Background="#333"
-                   BorderBrush="#333"
-                   Content="🌋 HydroVent"
-                   FontSize="18"
-                   FontWeight="Bold"
-                   Foreground="#C5E1A5"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Top"
-                   Margin="0,-30,0,0"
-                   Click="BiomeBtn_Click"/>
+       x:Name="HydroVentButton"
+       Style="{StaticResource DarkButton}"
+       Width="150"
+       Height="45"
+       Background="#4a1a1a"
+       BorderBrush="#6b2e2e"
+       Content="🌋 HydroVent"
+       FontSize="18"
+       FontWeight="Bold"
+       Foreground="#ff6347"
+       HorizontalAlignment="Left"
+       VerticalAlignment="Top"
+       Margin="0,-30,0,0"
+       Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="HydroVentPopup"
-               PlacementTarget="{Binding ElementName=HydroVentChooseBtn}"
-               Placement="Bottom"
-               Width="150"
-               StaysOpen="False"
-               AllowsTransparency="True">
+   PlacementTarget="{Binding ElementName=HydroVentChooseBtn}"
+   Placement="Bottom"
+   Width="150"
+   StaysOpen="False"
+   AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                    BorderBrush="#444444"
-                    BorderThickness="2"
-                    CornerRadius="6"
-                    Padding="6">
+        BorderBrush="#444444"
+        BorderThickness="2"
+        CornerRadius="6"
+        Padding="6">
                             <StackPanel>
                                 <Button x:Name="HydroVentLVL1"
-                            Content="Level 1"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 1"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="HydroVentLVL2"
-                            Content="Level 2"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 2"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="HydroVentLVL3"
-                            Content="Level 3"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 3"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                                 <Button x:Name="HydroVentLVL4"
-                            Content="Level 4"
-                            Style="{StaticResource DarkButton}"
-                            Margin="0,4,0,0"
-                            Width="100"
-                            Click="Start_Click"/>
+                Content="Level 4"
+                Style="{StaticResource DarkButton}"
+                Margin="0,4,0,0"
+                Width="100"
+                Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -640,8 +647,8 @@
                         </Border>
                     </Popup>
                 </Grid>
-            </Border>            
-            
+            </Border>
+
             <!-- Desert Biome -->
             <Border Canvas.Left="340"
                     Canvas.Top="450">
@@ -1128,61 +1135,61 @@
 
             <!-- Catacomb Biome -->
             <Border Canvas.Left="905"
-                    Canvas.Top="230">
+        Canvas.Top="230">
                 <Grid>
                     <Button 
-                               x:Name="CatacombButton"
-                               Style="{StaticResource DarkButton}"
-                               Width="150"
-                               Height="45"
-                               Background="#333"
-                               BorderBrush="#333"
-                               BorderThickness="2"
-                               Content="⚰️ Catacomb"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="#90CAF9"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
-                               Margin="0,8,0,0"
-                               Click="BiomeBtn_Click"/>
+                   x:Name="CatacombButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#3d3d1a"
+                   BorderBrush="#6b6b2e"
+                   BorderThickness="2"
+                   Content="⚰️ Catacomb"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#f0e68c"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,8,0,0"
+                   Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="CatacombPopup"
-                           PlacementTarget="{Binding ElementName=CatacombChooseBtn}"
-                           Placement="Bottom"
-                           Width="150"
-                           StaysOpen="False"
-                           AllowsTransparency="True">
+               PlacementTarget="{Binding ElementName=CatacombChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                                BorderBrush="#444444"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="6">
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
                             <StackPanel>
                                 <Button x:Name="CatacombLVL1"
-                                        Content="Level 1"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="CatacombLVL2"
-                                        Content="Level 2"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="CatacombLVL3"
-                                        Content="Level 3"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="CatacombLVL4"
-                                        Content="Level 4"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1191,61 +1198,61 @@
 
             <!-- LavaChamber Biome -->
             <Border Canvas.Left="290"
-                    Canvas.Top="255">
+        Canvas.Top="255">
                 <Grid>
                     <Button 
-                               x:Name="LavaChamberButton"
-                               Style="{StaticResource DarkButton}"
-                               Width="150"
-                               Height="45"
-                               Background="#333"
-                               BorderBrush="#333"
-                               BorderThickness="2"
-                               Content="🔥 LavaChamber"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="#90CAF9"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
-                               Margin="0,8,0,0"
-                               Click="BiomeBtn_Click"/>
+                   x:Name="LavaChamberButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#4a1a1a"
+                   BorderBrush="#6b2e2e"
+                   BorderThickness="2"
+                   Content="🌋 LavaChamber"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#ff6347"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,8,0,0"
+                   Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="LavaChamberPopup"
-                           PlacementTarget="{Binding ElementName=LavaChamberChooseBtn}"
-                           Placement="Bottom"
-                           Width="150"
-                           StaysOpen="False"
-                           AllowsTransparency="True">
+               PlacementTarget="{Binding ElementName=LavaChamberChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                                BorderBrush="#444444"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="6">
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
                             <StackPanel>
                                 <Button x:Name="LavaChamberLVL1"
-                                        Content="Level 1"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="LavaChamberLVL2"
-                                        Content="Level 2"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="LavaChamberLVL3"
-                                        Content="Level 3"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="LavaChamberLVL4"
-                                        Content="Level 4"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1254,61 +1261,61 @@
 
             <!-- Altar Biome -->
             <Border Canvas.Left="1010"
-                    Canvas.Top="550">
+        Canvas.Top="550">
                 <Grid>
                     <Button 
-                               x:Name="AltarButton"
-                               Style="{StaticResource DarkButton}"
-                               Width="150"
-                               Height="45"
-                               Background="#333"
-                               BorderBrush="#333"
-                               BorderThickness="2"
-                               Content="🛐 Altar"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="#90CAF9"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
-                               Margin="0,8,0,0"
-                               Click="BiomeBtn_Click"/>
+                   x:Name="AltarButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#3d3d3d"
+                   BorderBrush="#6b6b6b"
+                   BorderThickness="2"
+                   Content="🛐 Altar"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#8f8f8f"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,8,0,0"
+                   Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="AltarPopup"
-                           PlacementTarget="{Binding ElementName=AltarChooseBtn}"
-                           Placement="Bottom"
-                           Width="150"
-                           StaysOpen="False"
-                           AllowsTransparency="True">
+               PlacementTarget="{Binding ElementName=AltarChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                                BorderBrush="#444444"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="6">
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
                             <StackPanel>
                                 <Button x:Name="AltarLVL1"
-                                        Content="Level 1"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="AltarLVL2"
-                                        Content="Level 2"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="AltarLVL3"
-                                        Content="Level 3"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="AltarLVL4"
-                                        Content="Level 4"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1317,61 +1324,61 @@
 
             <!-- CaveCitadel Biome -->
             <Border Canvas.Left="400"
-                    Canvas.Top="700">
+        Canvas.Top="700">
                 <Grid>
                     <Button 
-                               x:Name="CaveCitadelButton"
-                               Style="{StaticResource DarkButton}"
-                               Width="150"
-                               Height="45"
-                               Background="#333"
-                               BorderBrush="#333"
-                               BorderThickness="2"
-                               Content="🏰 CaveCitadel"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="#90CAF9"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
-                               Margin="0,8,0,0"
-                               Click="BiomeBtn_Click"/>
+                   x:Name="CaveCitadelButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#1a1a4a"
+                   BorderBrush="#2e2e6b"
+                   BorderThickness="2"
+                   Content="🏰 CaveCitadel"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#9370db"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,8,0,0"
+                   Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="CaveCitadelPopup"
-                           PlacementTarget="{Binding ElementName=CaveCitadelChooseBtn}"
-                           Placement="Bottom"
-                           Width="150"
-                           StaysOpen="False"
-                           AllowsTransparency="True">
+               PlacementTarget="{Binding ElementName=CaveCitadelChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                                BorderBrush="#444444"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="6">
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
                             <StackPanel>
                                 <Button x:Name="CaveCitadelLVL1"
-                                        Content="Level 1"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="CaveCitadelLVL2"
-                                        Content="Level 2"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="CaveCitadelLVL3"
-                                        Content="Level 3"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="CaveCitadelLVL4"
-                                        Content="Level 4"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1380,61 +1387,61 @@
 
             <!-- CaveLake Biome -->
             <Border Canvas.Left="1490"
-                    Canvas.Top="255">
+        Canvas.Top="255">
                 <Grid>
                     <Button 
-                               x:Name="CaveLakeButton"
-                               Style="{StaticResource DarkButton}"
-                               Width="150"
-                               Height="45"
-                               Background="#333"
-                               BorderBrush="#333"
-                               BorderThickness="2"
-                               Content="🏞️ CaveLake"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="#90CAF9"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
-                               Margin="0,8,0,0"
-                               Click="BiomeBtn_Click"/>
+                   x:Name="CaveLakeButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#1a3d4a"
+                   BorderBrush="#2e5d6b"
+                   BorderThickness="2"
+                   Content="🏞️ CaveLake"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#87ceeb"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,8,0,0"
+                   Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="CaveLakePopup"
-                           PlacementTarget="{Binding ElementName=CaveLakeChooseBtn}"
-                           Placement="Bottom"
-                           Width="150"
-                           StaysOpen="False"
-                           AllowsTransparency="True">
+               PlacementTarget="{Binding ElementName=CaveLakeChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                                BorderBrush="#444444"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="6">
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
                             <StackPanel>
                                 <Button x:Name="CaveLakeLVL1"
-                                        Content="Level 1"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="CaveLakeLVL2"
-                                        Content="Level 2"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="CaveLakeLVL3"
-                                        Content="Level 3"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="CaveLakeLVL4"
-                                        Content="Level 4"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1443,61 +1450,61 @@
 
             <!-- FungalHollow Biome -->
             <Border Canvas.Left="1490"
-                    Canvas.Top="600">
+        Canvas.Top="600">
                 <Grid>
                     <Button 
-                               x:Name="FungalHollowButton"
-                               Style="{StaticResource DarkButton}"
-                               Width="150"
-                               Height="45"
-                               Background="#333"
-                               BorderBrush="#333"
-                               BorderThickness="2"
-                               Content="🍄 FungalHollow"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="#90CAF9"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
-                               Margin="0,8,0,0"
-                               Click="BiomeBtn_Click"/>
+                   x:Name="FungalHollowButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#4a1a3d"
+                   BorderBrush="#6b2e5d"
+                   BorderThickness="2"
+                   Content="🍄 FungalHollow"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#dda0dd"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,8,0,0"
+                   Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="FungalHollowPopup"
-                           PlacementTarget="{Binding ElementName=FungalHollowChooseBtn}"
-                           Placement="Bottom"
-                           Width="150"
-                           StaysOpen="False"
-                           AllowsTransparency="True">
+               PlacementTarget="{Binding ElementName=FungalHollowChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                                BorderBrush="#444444"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="6">
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
                             <StackPanel>
                                 <Button x:Name="FungalHollowLVL1"
-                                        Content="Level 1"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="FungalHollowLVL2"
-                                        Content="Level 2"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="FungalHollowLVL3"
-                                        Content="Level 3"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="FungalHollowLVL4"
-                                        Content="Level 4"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
@@ -1506,130 +1513,130 @@
 
             <!-- Dungeon Biome -->
             <Border Canvas.Left="1490"
-                    Canvas.Top="870">
+        Canvas.Top="870">
                 <Grid>
                     <Button 
-                               x:Name="DungeonButton"
-                               Style="{StaticResource DarkButton}"
-                               Width="150"
-                               Height="45"
-                               Background="#333"
-                               BorderBrush="#333"
-                               BorderThickness="2"
-                               Content="🗝️ Dungeon"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="#90CAF9"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
-                               Margin="0,8,0,0"
-                               Click="BiomeBtn_Click"/>
+                   x:Name="DungeonButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#2e1a4a"
+                   BorderBrush="#4d2e6b"
+                   BorderThickness="2"
+                   Content="🗝️ Dungeon"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#ba55d3"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,8,0,0"
+                   Click="BiomeBtn_Click"/>
 
                     <Popup x:Name="DungeonPopup"
-                           PlacementTarget="{Binding ElementName=DungeonChooseBtn}"
-                           Placement="Bottom"
-                           Width="150"
-                           StaysOpen="False"
-                           AllowsTransparency="True">
+               PlacementTarget="{Binding ElementName=DungeonChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                                BorderBrush="#444444"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="6">
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
                             <StackPanel>
                                 <Button x:Name="DungeonLVL1"
-                                        Content="Level 1"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="DungeonLVL2"
-                                        Content="Level 2"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="DungeonLVL3"
-                                        Content="Level 3"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                                 <Button x:Name="DungeonLVL4"
-                                        Content="Level 4"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
                 </Grid>
             </Border>
 
-            <!-- CaveVilage Biome -->
+            <!-- CaveVillage Biome -->
             <Border Canvas.Left="1040"
-                    Canvas.Top="750">
+        Canvas.Top="750">
                 <Grid>
                     <Button 
-                               x:Name="CaveVilageButton"
-                               Style="{StaticResource DarkButton}"
-                               Width="150"
-                               Height="45"
-                               Background="#333"
-                               BorderBrush="#333"
-                               BorderThickness="2"
-                               Content="🏡 CaveVilage"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Foreground="#90CAF9"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Top"
-                               Margin="0,8,0,0"
-                               Click="BiomeBtn_Click"/>
+                   x:Name="CaveVillageButton"
+                   Style="{StaticResource DarkButton}"
+                   Width="150"
+                   Height="45"
+                   Background="#1a4a2e"
+                   BorderBrush="#2e6b4d"
+                   BorderThickness="2"
+                   Content="🏘️ CaveVillage"
+                   FontSize="18"
+                   FontWeight="Bold"
+                   Foreground="#90ee90"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Margin="0,8,0,0"
+                   Click="BiomeBtn_Click"/>
 
-                    <Popup x:Name="CaveVilagePopup"
-                           PlacementTarget="{Binding ElementName=CaveVilageChooseBtn}"
-                           Placement="Bottom"
-                           Width="150"
-                           StaysOpen="False"
-                           AllowsTransparency="True">
+                    <Popup x:Name="CaveVillagePopup"
+               PlacementTarget="{Binding ElementName=CaveVillageChooseBtn}"
+               Placement="Bottom"
+               Width="150"
+               StaysOpen="False"
+               AllowsTransparency="True">
                         <Border Background="#1E1E1E"
-                                BorderBrush="#444444"
-                                BorderThickness="2"
-                                CornerRadius="6"
-                                Padding="6">
+                    BorderBrush="#444444"
+                    BorderThickness="2"
+                    CornerRadius="6"
+                    Padding="6">
                             <StackPanel>
-                                <Button x:Name="CaveVilageLVL1"
-                                        Content="Level 1"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
-                                <Button x:Name="CaveVilageLVL2"
-                                        Content="Level 2"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
-                                <Button x:Name="CaveVilageLVL3"
-                                        Content="Level 3"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
-                                <Button x:Name="CaveVilageLVL4"
-                                        Content="Level 4"
-                                        Style="{StaticResource DarkButton}"
-                                        Margin="0,4,0,0"
-                                        Width="100"
-                                        Click="Start_Click"/>
+                                <Button x:Name="CaveVillageLVL1"
+                            Content="Level 1"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="CaveVillageLVL2"
+                            Content="Level 2"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="CaveVillageLVL3"
+                            Content="Level 3"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
+                                <Button x:Name="CaveVillageLVL4"
+                            Content="Level 4"
+                            Style="{StaticResource DarkButton}"
+                            Margin="0,4,0,0"
+                            Width="100"
+                            Click="Start_Click"/>
                             </StackPanel>
                         </Border>
                     </Popup>
                 </Grid>
             </Border>
-
+            
             <!-- Volcano Biome -->
             <Border Canvas.Left="785"
                     Canvas.Top="515">
@@ -1995,7 +2002,7 @@
                                VerticalAlignment="Top"
                                Margin="0,8,0,0"
                                Click="BiomeBtn_Click"/>
-            
+
                     <Popup x:Name="CrystalCavernPopup"
                            PlacementTarget="{Binding ElementName=CrystalCavernChooseBtn}"
                            Placement="Bottom"
