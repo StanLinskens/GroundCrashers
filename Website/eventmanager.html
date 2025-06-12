@@ -673,10 +673,6 @@
                 const existingStudent = this.events.some(e => 
                     e.participants.some(p => p.studentNumber === studentNumber)
                 );
-                if (existingStudent) {
-                    this.showError('Dit leerlingnummer is al geregistreerd!');
-                    return;
-                }
 
                 // Add participant to event
                 const participant = {
