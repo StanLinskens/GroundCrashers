@@ -12,7 +12,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A sapient creature with corrosive secretions that can dissolve metal and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Acidosophusus aeriusens"
   },
   {
@@ -28,7 +28,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A sapient creature with electricity surging through its body and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Amperologicuson natansans"
   },
   {
@@ -44,7 +44,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A apex creature with bioluminescent tissues that emit powerful rays and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Luminoregalisis volucrisae"
   },
   {
@@ -60,7 +60,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A synthetic creature with poisonous glands throughout its form and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Contagiocybernetis volucrisius"
   },
   {
@@ -76,7 +76,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A sapient creature with hollow chambers that generate powerful gusts and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Anemonanimusor caelumans"
   },
   {
@@ -92,7 +92,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A sapient creature with electricity surging through its body and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Fulminacognusis pennaeii"
   },
   {
@@ -108,7 +108,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A sapient creature with a body temperature well below freezing and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Crystallonanimusis terranusens"
   },
   {
@@ -124,7 +124,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A sapient creature with shadow matter that absorbs light and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Caligothamentison volucrisius"
   },
   {
@@ -140,7 +140,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A sapient creature with bioluminescent tissues that emit powerful rays and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Photologicusis pennaeens"
   },
   {
@@ -156,7 +156,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A sapient creature with a body temperature well below freezing and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Cryosophusa volucrisans"
   },
   {
@@ -172,7 +172,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A apex creature with hydration chambers that store large quantities of water and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Undulothuprimusus fluidusans"
   },
   {
@@ -188,7 +188,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A sapient creature with corrosive secretions that can dissolve metal and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Acidonanimuson fluidusius"
   },
   {
@@ -204,7 +204,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A verdant creature with shadow matter that absorbs light and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Umbranarboris natansius"
   },
   {
@@ -220,7 +220,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A synthetic creature with a highly developed brain with telepathic nodes and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Cognithifabricaa montanusium"
   },
   {
@@ -236,7 +236,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A apex creature with a highly developed brain with telepathic nodes and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Cognithizenitha abyssalens"
   },
   {
@@ -252,7 +252,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A verdant creature with ancient reptilian characteristics and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Wyrmotharbora volucrisens"
   },
   {
@@ -268,7 +268,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A sapient creature with bioluminescent tissues that emit powerful rays and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Photocognusa sylvanium"
   },
   {
@@ -284,7 +284,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A primal creature with a composition partially made of living minerals and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Crystallisavagusum marinusii"
   },
   {
@@ -300,7 +300,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A primal creature with ancient reptilian characteristics and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Saurathisanguinon ambulansius"
   },
   {
@@ -316,7 +316,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A synthetic creature with a highly developed brain with telepathic nodes and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Mentathaconstructis pelagicius"
   },
   {
@@ -332,7 +332,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A apex creature with a highly developed brain with telepathic nodes and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Mentathusummithon cavernaae"
   },
   {
@@ -348,7 +348,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A verdant creature with specialized organs that manipulate magnetic fields and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Lodestonicarpusa terranusii"
   },
   {
@@ -364,7 +364,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A apex creature with symbiotic plant matter integrated into its biology and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Botanizenithus aeriusans"
   },
   {
@@ -380,7 +380,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A synthetic creature with shadow matter that absorbs light and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Caligothicybernetis volucrisius"
   },
   {
@@ -396,7 +396,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A verdant creature with internal flame sacs that generate intense heat and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Combustinarboris terranusans"
   },
   {
@@ -412,7 +412,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A sapient creature with specialized organs that manipulate magnetic fields and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Lodestonilogicusus natansens"
   },
   {
@@ -428,7 +428,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A verdant creature with a highly developed brain with telepathic nodes and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Cognithicarpusor fluidusium"
   },
   {
@@ -444,7 +444,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A primal creature with symbiotic plant matter integrated into its biology and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Chlorovoraxor plumaeae"
   },
   {
@@ -460,7 +460,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A primal creature with specialized organs that manipulate magnetic fields and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Attractuvoraxus pelagicans"
   },
   {
@@ -476,7 +476,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A apex creature with a body temperature well below freezing and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Gelidodominoris ambulansans"
   },
   {
@@ -492,7 +492,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A synthetic creature with a composition partially made of living minerals and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Minerothomechanor aeriusans"
   },
   {
@@ -508,7 +508,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A synthetic creature with specialized organs that manipulate magnetic fields and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Attractofabricais terranusans"
   },
   {
@@ -524,7 +524,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A sapient creature with specialized organs that manipulate magnetic fields and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Ferrothanimusum pennaeium"
   },
   {
@@ -540,7 +540,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A primal creature with corrosive secretions that can dissolve metal and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Vitriolabestiaum skybornans"
   },
   {
@@ -556,7 +556,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A verdant creature with a composition partially made of living minerals and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Geothophyllum sylvanium"
   },
   {
@@ -572,7 +572,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A apex creature with bioluminescent tissues that emit powerful rays and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Illuminthozenithum terranusans"
   },
   {
@@ -588,7 +588,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A sapient creature with internal flame sacs that generate intense heat and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Calorithanimusa undosusens"
   },
   {
@@ -604,7 +604,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A apex creature with a composition partially made of living minerals and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Crystallisummithor skybornae"
   },
   {
@@ -620,7 +620,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A sapient creature with poisonous glands throughout its form and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Miasmamentisis plumaeii"
   },
   {
@@ -636,7 +636,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A synthetic creature with poisonous glands throughout its form and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Virulenthusynthetus pedisans"
   },
   {
@@ -652,7 +652,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A verdant creature with electricity surging through its body and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Amperothallusor cavernaens"
   },
   {
@@ -668,7 +668,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A primal creature with a body temperature well below freezing and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Frostiferoxis caelumius"
   },
   {
@@ -684,7 +684,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A primal creature with specialized organs that manipulate magnetic fields and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Fieldothisavagusum ambulansae"
   },
   {
@@ -700,7 +700,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A sapient creature with hydration chambers that store large quantities of water and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Oceanicognuson aeriusius"
   },
   {
@@ -716,7 +716,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A synthetic creature with symbiotic plant matter integrated into its biology and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Chloronartifexon pedisae"
   },
   {
@@ -732,7 +732,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A apex creature with a highly developed brain with telepathic nodes and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Psioniregalisor skybornium"
   },
   {
@@ -748,7 +748,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A apex creature with internal flame sacs that generate intense heat and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Combustinapexuson volucrisans"
   },
   {
@@ -764,7 +764,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A primal creature with a composition partially made of living minerals and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Terrovoraxa plumaeans"
   },
   {
@@ -780,7 +780,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A apex creature with hollow chambers that generate powerful gusts and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Stratosomonarchaus pelagicius"
   },
   {
@@ -796,7 +796,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A sapient creature with otherworldly aspects that defy conventional biology and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Infernonanimusor cavernaae"
   },
   {
@@ -812,7 +812,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A synthetic creature with hollow chambers that generate powerful gusts and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Stratosoconstructis sylvanae"
   },
   {
@@ -828,7 +828,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A verdant creature with otherworldly aspects that defy conventional biology and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Diabolitharhizaor pedisii"
   },
   {
@@ -844,7 +844,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A primal creature with a highly developed brain with telepathic nodes and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Psionibestiaon cavernaii"
   },
   {
@@ -860,7 +860,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A apex creature with poisonous glands throughout its form and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Miasmanapexusa volucrisium"
   },
   {
@@ -876,7 +876,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A primal creature with poisonous glands throughout its form and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Pathogenobestiaon volucrisius"
   },
   {
@@ -892,7 +892,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A synthetic creature with shadow matter that absorbs light and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Tenebrusynthetum terranusium"
   },
   {
@@ -908,7 +908,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A sapient creature with symbiotic plant matter integrated into its biology and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Phytosophusor natansens"
   },
   {
@@ -924,7 +924,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A primal creature with otherworldly aspects that defy conventional biology and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Daemonidipredaon ambulansens"
   },
   {
@@ -940,7 +940,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A sapient creature with hydration chambers that store large quantities of water and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Fluviratiois terrestrisium"
   },
   {
@@ -956,7 +956,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A primal creature with corrosive secretions that can dissolve metal and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Acidophoferusa sylvanium"
   },
   {
@@ -972,7 +972,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A synthetic creature with internal flame sacs that generate intense heat and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Combusticonstructa aeriusans"
   },
   {
@@ -988,7 +988,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A primal creature with hollow chambers that generate powerful gusts and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Anemobestiaa aeriusii"
   },
   {
@@ -1004,7 +1004,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A verdant creature with a composition partially made of living minerals and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Petronanthusis abyssalans"
   },
   {
@@ -1020,7 +1020,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A verdant creature with hollow chambers that generate powerful gusts and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Zephyranthusis cavernaius"
   },
   {
@@ -1036,7 +1036,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A apex creature with specialized organs that manipulate magnetic fields and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Fieldothuregalisis alatusans"
   },
   {
@@ -1052,7 +1052,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A verdant creature with shadow matter that absorbs light and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Caligothoflorisis pedisius"
   },
   {
@@ -1068,7 +1068,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A apex creature with internal flame sacs that generate intense heat and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Ignisummitha fluidusius"
   },
   {
@@ -1084,7 +1084,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A apex creature with otherworldly aspects that defy conventional biology and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Daemonidasummithon pelagicius"
   },
   {
@@ -1100,7 +1100,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A verdant creature with bioluminescent tissues that emit powerful rays and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Luminoflorisum pelagicens"
   },
   {
@@ -1116,7 +1116,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A primal creature with bioluminescent tissues that emit powerful rays and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Helionasanguinor pelagicii"
   },
   {
@@ -1132,7 +1132,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A synthetic creature with poisonous glands throughout its form and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Toxicoconstructa aquaticusium"
   },
   {
@@ -1148,7 +1148,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A sapient creature with otherworldly aspects that defy conventional biology and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Tartarologicusus alatusans"
   },
   {
@@ -1164,7 +1164,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A primal creature with a body temperature well below freezing and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Glacioferusus undosusium"
   },
   {
@@ -1180,7 +1180,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A primal creature with corrosive secretions that can dissolve metal and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Corrosiferoxum aquaticusii"
   },
   {
@@ -1196,7 +1196,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A verdant creature with shadow matter that absorbs light and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Abyssotharborus alatusans"
   },
   {
@@ -1212,7 +1212,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A apex creature with electricity surging through its body and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Voltaprimusa pennaeii"
   },
   {
@@ -1228,7 +1228,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A verdant creature with internal flame sacs that generate intense heat and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Ignirhizaa aquaticusens"
   },
   {
@@ -1244,7 +1244,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A verdant creature with hollow chambers that generate powerful gusts and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Aerocarpuson fluidusium"
   },
   {
@@ -1260,7 +1260,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A synthetic creature with hollow chambers that generate powerful gusts and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Ventusartifexa undosusae"
   },
   {
@@ -1276,7 +1276,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A synthetic creature with hydration chambers that store large quantities of water and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Undulothacyberneta ambulansans"
   },
   {
@@ -1292,7 +1292,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A verdant creature with symbiotic plant matter integrated into its biology and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Dendrorhizaon ambulansans"
   },
   {
@@ -1308,7 +1308,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A sapient creature with a highly developed brain with telepathic nodes and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Cerebrosophusis caelumius"
   },
   {
@@ -1324,7 +1324,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A synthetic creature with ancient reptilian characteristics and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Reptilinartificus aeriusius"
   },
   {
@@ -1340,7 +1340,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A apex creature with hydration chambers that store large quantities of water and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Marathazenithon plumaeius"
   },
   {
@@ -1356,7 +1356,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A primal creature with electricity surging through its body and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Voltisanguinus pelagicii"
   },
   {
@@ -1372,7 +1372,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A primal creature with internal flame sacs that generate intense heat and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Combustiferoxon pedisii"
   },
   {
@@ -1388,7 +1388,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A sapient creature with shadow matter that absorbs light and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Abyssothusapiensis aquaticusii"
   },
   {
@@ -1404,7 +1404,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A sapient creature with shadow matter that absorbs light and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Tenebrucognusis pedisii"
   },
   {
@@ -1420,7 +1420,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A primal creature with shadow matter that absorbs light and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Tenebrosanguinum aeriusius"
   },
   {
@@ -1436,7 +1436,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A sapient creature with otherworldly aspects that defy conventional biology and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Infernosophusus abyssalans"
   },
   {
@@ -1452,7 +1452,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A apex creature with a composition partially made of living minerals and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Lithonapexusa natansium"
   },
   {
@@ -1468,7 +1468,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A primal creature with poisonous glands throughout its form and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Venenivoraxis marinusans"
   },
   {
@@ -1484,7 +1484,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A apex creature with ancient reptilian characteristics and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Squamothozenitha ambulansius"
   },
   {
@@ -1500,7 +1500,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A primal creature with hydration chambers that store large quantities of water and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Marathusavagusum aeriusans"
   },
   {
@@ -1516,7 +1516,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A verdant creature with corrosive secretions that can dissolve metal and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Oxymoruthallusis terrestrisii"
   },
   {
@@ -1532,7 +1532,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A verdant creature with corrosive secretions that can dissolve metal and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Acidonarboror alatusium"
   },
   {
@@ -1548,7 +1548,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A primal creature with electricity surging through its body and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Amperosanguinus montanusius"
   },
   {
@@ -1564,7 +1564,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A synthetic creature with ancient reptilian characteristics and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Serpentinartifexon terranusii"
   },
   {
@@ -1580,7 +1580,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A verdant creature with ancient reptilian characteristics and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Reptilicarpusor montanusium"
   },
   {
@@ -1596,7 +1596,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A verdant creature with a highly developed brain with telepathic nodes and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Telepathinarborus caelumium"
   },
   {
@@ -1612,7 +1612,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A primal creature with ancient reptilian characteristics and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Wyrmothiferoxon aeriusens"
   },
   {
@@ -1628,7 +1628,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A apex creature with otherworldly aspects that defy conventional biology and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Maledictozenithis pedisium"
   },
   {
@@ -1644,7 +1644,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A synthetic creature with ancient reptilian characteristics and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Serpentisynthetum pelagicens"
   },
   {
@@ -1660,7 +1660,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A apex creature with a body temperature well below freezing and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Frostimonarchaus skybornans"
   },
   {
@@ -1676,7 +1676,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A verdant creature with otherworldly aspects that defy conventional biology and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Infernocarpusa marinusae"
   },
   {
@@ -1692,7 +1692,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A primal creature with a composition partially made of living minerals and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Geothusanguina cavernaii"
   },
   {
@@ -1708,7 +1708,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A sapient creature with a body temperature well below freezing and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Frostiratioum fluidusius"
   },
   {
@@ -1724,7 +1724,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A primal creature with hollow chambers that generate powerful gusts and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Ventusiferusa sylvanans"
   },
   {
@@ -1740,7 +1740,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A verdant creature with a body temperature well below freezing and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Frostiphyllor marinusae"
   },
   {
@@ -1756,7 +1756,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A synthetic creature with otherworldly aspects that defy conventional biology and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Diabolithomechanis undosusens"
   },
   {
@@ -1772,7 +1772,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A apex creature with hollow chambers that generate powerful gusts and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Anemosummithon skybornens"
   },
   {
@@ -1788,7 +1788,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A verdant creature with specialized organs that manipulate magnetic fields and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Fieldothuthallusa undosusii"
   },
   {
@@ -1804,7 +1804,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A primal creature with hydration chambers that store large quantities of water and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Marathisavagusus aquaticusans"
   },
   {
@@ -1820,7 +1820,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A apex creature with shadow matter that absorbs light and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Caligothoprimusa montanusius"
   },
   {
@@ -1836,7 +1836,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A primal creature with electricity surging through its body and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Fulminaferusus caelumium"
   },
   {
@@ -1852,7 +1852,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A primal creature with ancient reptilian characteristics and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Squamothisanguinus undosusii"
   },
   {
@@ -1868,7 +1868,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A sapient creature with a composition partially made of living minerals and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Geothocognusor abyssalae"
   },
   {
@@ -1884,7 +1884,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A verdant creature with hydration chambers that store large quantities of water and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Undulotharboron sylvanae"
   },
   {
@@ -1900,7 +1900,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A apex creature with internal flame sacs that generate intense heat and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Thermonapexusis montanusans"
   },
   {
@@ -1916,7 +1916,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A primal creature with a highly developed brain with telepathic nodes and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Cognithibestiais abyssalens"
   },
   {
@@ -1932,7 +1932,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A apex creature with shadow matter that absorbs light and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Abyssothimonarchaon undosusans"
   },
   {
@@ -1948,7 +1948,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A synthetic creature with otherworldly aspects that defy conventional biology and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Maledictartifexa volucrisius"
   },
   {
@@ -1964,7 +1964,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A synthetic creature with symbiotic plant matter integrated into its biology and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Florathocybernetor volucrisae"
   },
   {
@@ -1980,7 +1980,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A apex creature with poisonous glands throughout its form and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Toxicozenithum sylvanae"
   },
   {
@@ -1996,7 +1996,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A synthetic creature with electricity surging through its body and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Fulminamechanus aeriusae"
   },
   {
@@ -2012,7 +2012,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A synthetic creature with hydration chambers that store large quantities of water and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Marathartificum abyssalius"
   },
   {
@@ -2028,7 +2028,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A verdant creature with electricity surging through its body and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Ionotharborum undosusius"
   },
   {
@@ -2044,7 +2044,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A sapient creature with bioluminescent tissues that emit powerful rays and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Luminosapiensis aquaticusii"
   },
   {
@@ -2060,7 +2060,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A apex creature with shadow matter that absorbs light and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Abyssothapexusum skybornae"
   },
   {
@@ -2076,7 +2076,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A verdant creature with ancient reptilian characteristics and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Wyrmothothallusis natansens"
   },
   {
@@ -2092,7 +2092,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A apex creature with specialized organs that manipulate magnetic fields and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Polarinapexusis montanusae"
   },
   {
@@ -2108,7 +2108,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A apex creature with symbiotic plant matter integrated into its biology and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Mycorthaprimuson montanusans"
   },
   {
@@ -2124,7 +2124,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A sapient creature with corrosive secretions that can dissolve metal and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Acidophocognusus sylvanium"
   },
   {
@@ -2140,7 +2140,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A sapient creature with internal flame sacs that generate intense heat and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Ignilogicusum cavernaium"
   },
   {
@@ -2156,7 +2156,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A primal creature with hydration chambers that store large quantities of water and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Oceanivoraxum pedisium"
   },
   {
@@ -2172,7 +2172,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A apex creature with a body temperature well below freezing and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Crystalloregalisa natansans"
   },
   {
@@ -2188,7 +2188,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A primal creature with shadow matter that absorbs light and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Abyssothaferoxum ambulansans"
   },
   {
@@ -2204,7 +2204,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A apex creature with poisonous glands throughout its form and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Miasmazenithon pelagicans"
   },
   {
@@ -2220,7 +2220,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A sapient creature with symbiotic plant matter integrated into its biology and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Mycorthasophusor terranusens"
   },
   {
@@ -2236,7 +2236,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A primal creature with unique biological features and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Creatureferoxa pennaeens"
   },
   {
@@ -2252,7 +2252,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A verdant creature with a highly developed brain with telepathic nodes and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Noospheraphyllon pedisius"
   },
   {
@@ -2268,7 +2268,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A apex creature with corrosive secretions that can dissolve metal and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Acidomonarchaor sylvanii"
   },
   {
@@ -2284,7 +2284,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A synthetic creature with internal flame sacs that generate intense heat and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Flammafabricaa pelagicae"
   },
   {
@@ -2300,7 +2300,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A primal creature with symbiotic plant matter integrated into its biology and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Botanivoraxon undosusens"
   },
   {
@@ -2316,7 +2316,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A apex creature with bioluminescent tissues that emit powerful rays and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Auroramonarchais marinusii"
   },
   {
@@ -2332,7 +2332,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A synthetic creature with internal flame sacs that generate intense heat and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Calorithoconstructon cavernaae"
   },
   {
@@ -2348,7 +2348,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A synthetic creature with symbiotic plant matter integrated into its biology and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Phytoconstructus fluidusii"
   },
   {
@@ -2364,7 +2364,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A synthetic creature with a highly developed brain with telepathic nodes and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Noospherartificus caelumens"
   },
   {
@@ -2380,7 +2380,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A synthetic creature with bioluminescent tissues that emit powerful rays and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Helionocybernetus fluidusens"
   },
   {
@@ -2396,7 +2396,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A synthetic creature with hollow chambers that generate powerful gusts and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Anemocybernetis alatusius"
   },
   {
@@ -2412,7 +2412,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A primal creature with symbiotic plant matter integrated into its biology and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Phytoferoxa pedisae"
   },
   {
@@ -2428,7 +2428,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A apex creature with electricity surging through its body and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Ionothidominoron fluidusius"
   },
   {
@@ -2444,7 +2444,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A primal creature with otherworldly aspects that defy conventional biology and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Infernosavagusor aeriusius"
   },
   {
@@ -2460,7 +2460,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A verdant creature with electricity surging through its body and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Electroflorisis aeriusans"
   },
   {
@@ -2476,7 +2476,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A sapient creature with a highly developed brain with telepathic nodes and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Mentathalogicusa pelagicium"
   },
   {
@@ -2492,7 +2492,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A apex creature with specialized organs that manipulate magnetic fields and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Polarinapexusa fluidusius"
   },
   {
@@ -2508,7 +2508,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A verdant creature with symbiotic plant matter integrated into its biology and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Florathanthusus caelumium"
   },
   {
@@ -2524,7 +2524,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A apex creature with symbiotic plant matter integrated into its biology and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Chloroprimusum abyssalii"
   },
   {
@@ -2540,7 +2540,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A verdant creature with a body temperature well below freezing and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Gelidanthusis montanusii"
   },
   {
@@ -2556,7 +2556,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A sapient creature with hydration chambers that store large quantities of water and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Fluvimentisum abyssalii"
   },
   {
@@ -2572,7 +2572,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A primal creature with bioluminescent tissues that emit powerful rays and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Radiavoraxis cavernaens"
   },
   {
@@ -2588,7 +2588,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A sapient creature with symbiotic plant matter integrated into its biology and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Mycorthanimusa aeriusius"
   },
   {
@@ -2604,7 +2604,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A synthetic creature with hydration chambers that store large quantities of water and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Fluviconstructis aeriusans"
   },
   {
@@ -2620,7 +2620,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A primal creature with a highly developed brain with telepathic nodes and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Cognithisanguinis volucrisans"
   },
   {
@@ -2636,7 +2636,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A sapient creature with a composition partially made of living minerals and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Terrosapienson caelumii"
   },
   {
@@ -2652,7 +2652,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A primal creature with poisonous glands throughout its form and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Veneniferoxum sylvanius"
   },
   {
@@ -2668,7 +2668,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A synthetic creature with bioluminescent tissues that emit powerful rays and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Photonartifexor skybornii"
   },
   {
@@ -2684,7 +2684,7 @@
     },
     "element": "Nature",
     "ability": "",
-    "description": "A verdant creature with symbiotic plant matter integrated into its biology and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Dendroflorisis undosusium"
   },
   {
@@ -2700,7 +2700,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A primal creature with specialized organs that manipulate magnetic fields and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Fieldothibestiaum pennaeium"
   },
   {
@@ -2716,7 +2716,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A apex creature with ancient reptilian characteristics and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Serpentiprimusa fluidusii"
   },
   {
@@ -2732,7 +2732,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A primal creature with bioluminescent tissues that emit powerful rays and primitive yet perfectly evolved traits with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Aurorapredaus aeriusium"
   },
   {
@@ -2748,7 +2748,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A synthetic creature with otherworldly aspects that defy conventional biology and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Daemonidaconstructa sylvanium"
   },
   {
@@ -2764,7 +2764,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A verdant creature with poisonous glands throughout its form and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Virulenthorhizaa ambulansius"
   },
   {
@@ -2780,7 +2780,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A primal creature with shadow matter that absorbs light and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Abyssothibestiaon aquaticusii"
   },
   {
@@ -2796,7 +2796,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A sapient creature with poisonous glands throughout its form and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Venenisophusis pedisii"
   },
   {
@@ -2812,7 +2812,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A apex creature with otherworldly aspects that defy conventional biology and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Diabolithuregalison plumaeius"
   },
   {
@@ -2828,7 +2828,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A apex creature with corrosive secretions that can dissolve metal and commanding presence and superior adaptations perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Vitriolapexusus natansae"
   },
   {
@@ -2844,7 +2844,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A apex creature with hollow chambers that generate powerful gusts and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Ventusimonarchais cavernaium"
   },
   {
@@ -2860,7 +2860,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A verdant creature with a body temperature well below freezing and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Glaciocarpusus skybornens"
   },
   {
@@ -2876,7 +2876,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A sapient creature with specialized organs that manipulate magnetic fields and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Ferrothalogicusum cavernaans"
   },
   {
@@ -2892,7 +2892,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A sapient creature with hollow chambers that generate powerful gusts and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Atmospherilogicusus marinusens"
   },
   {
@@ -2908,7 +2908,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A primal creature with a body temperature well below freezing and primitive yet perfectly evolved traits adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Crystallobestiaum sylvanius"
   },
   {
@@ -2924,7 +2924,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A sapient creature with a composition partially made of living minerals and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Lithomentisus terrestrisens"
   },
   {
@@ -2940,7 +2940,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A apex creature with corrosive secretions that can dissolve metal and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Vitriolodominoror aeriusii"
   },
   {
@@ -2956,7 +2956,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A sapient creature with poisonous glands throughout its form and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Contagionanimuson natansius"
   },
   {
@@ -2972,7 +2972,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A apex creature with ancient reptilian characteristics and commanding presence and superior adaptations with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Draconidodominoron alatusans"
   },
   {
@@ -2988,7 +2988,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A primal creature with otherworldly aspects that defy conventional biology and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Tartaroferoxa fluidusii"
   },
   {
@@ -3004,7 +3004,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A synthetic creature with a composition partially made of living minerals and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Lithonartifexa montanusius"
   },
   {
@@ -3020,7 +3020,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A verdant creature with corrosive secretions that can dissolve metal and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Acidophyllum pelagicius"
   },
   {
@@ -3036,7 +3036,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A verdant creature with bioluminescent tissues that emit powerful rays and plant-like qualities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Photoflorisis sylvanii"
   },
   {
@@ -3052,7 +3052,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A apex creature with hydration chambers that store large quantities of water and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Hydroprimuson pedisens"
   },
   {
@@ -3068,7 +3068,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A primal creature with hollow chambers that generate powerful gusts and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Zephyrasanguinis aquaticusens"
   },
   {
@@ -3084,7 +3084,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A apex creature with a composition partially made of living minerals and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Terronapexusor terrestrisii"
   },
   {
@@ -3100,7 +3100,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A apex creature with electricity surging through its body and commanding presence and superior adaptations adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Galvanozenithus terrestrisii"
   },
   {
@@ -3116,7 +3116,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A sapient creature with ancient reptilian characteristics and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Reptiliratioa terrestrisium"
   },
   {
@@ -3132,7 +3132,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A sapient creature with ancient reptilian characteristics and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Wyrmothoratioon pennaeii"
   },
   {
@@ -3148,7 +3148,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A sapient creature with internal flame sacs that generate intense heat and remarkable intelligence and problem-solving abilities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Thermosophuson aeriusans"
   },
   {
@@ -3164,7 +3164,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A synthetic creature with specialized organs that manipulate magnetic fields and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Magnetoconstructa plumaeium"
   },
   {
@@ -3180,7 +3180,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A verdant creature with poisonous glands throughout its form and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Contagiophyllis alatusens"
   },
   {
@@ -3196,7 +3196,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A primal creature with internal flame sacs that generate intense heat and primitive yet perfectly evolved traits perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Ignivoraxis pelagicius"
   },
   {
@@ -3212,7 +3212,7 @@
     },
     "element": "Draconic",
     "ability": "",
-    "description": "A sapient creature with ancient reptilian characteristics and remarkable intelligence and problem-solving abilities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Saurathimentisum fluidusium"
   },
   {
@@ -3228,7 +3228,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A synthetic creature with a body temperature well below freezing and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Gelidofabricaa sylvanans"
   },
   {
@@ -3244,7 +3244,7 @@
     },
     "element": "Psychic",
     "ability": "",
-    "description": "A sapient creature with a highly developed brain with telepathic nodes and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Cognithiratiois cavernaium"
   },
   {
@@ -3260,7 +3260,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A sapient creature with electricity surging through its body and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Electrocognusor terranusens"
   },
   {
@@ -3276,7 +3276,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A verdant creature with specialized organs that manipulate magnetic fields and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Lodestoninanthusis volucrisans"
   },
   {
@@ -3292,7 +3292,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A synthetic creature with electricity surging through its body and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Voltufabricaa pedisium"
   },
   {
@@ -3308,7 +3308,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A synthetic creature with a body temperature well below freezing and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Crystallosyntheta pennaeans"
   },
   {
@@ -3324,7 +3324,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A synthetic creature with corrosive secretions that can dissolve metal and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Acidophartifexor pelagicii"
   },
   {
@@ -3340,7 +3340,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A synthetic creature with bioluminescent tissues that emit powerful rays and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Illuminthoconstructon montanusium"
   },
   {
@@ -3356,7 +3356,7 @@
     },
     "element": "Fire",
     "ability": "",
-    "description": "A verdant creature with internal flame sacs that generate intense heat and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Combustithallusum aeriusium"
   },
   {
@@ -3372,7 +3372,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A verdant creature with hollow chambers that generate powerful gusts and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Atmospheriphyllum pennaeens"
   },
   {
@@ -3388,7 +3388,7 @@
     },
     "element": "Electric",
     "ability": "",
-    "description": "A synthetic creature with electricity surging through its body and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Galvanonartifexon aquaticusius"
   },
   {
@@ -3404,7 +3404,7 @@
     },
     "element": "Demonic",
     "ability": "",
-    "description": "A verdant creature with otherworldly aspects that defy conventional biology and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Tartaronanthusum plumaeium"
   },
   {
@@ -3420,7 +3420,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A synthetic creature with corrosive secretions that can dissolve metal and artificially enhanced biological systems adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Dissolvamechanor terrestrisii"
   },
   {
@@ -3436,7 +3436,7 @@
     },
     "element": "Toxic",
     "ability": "",
-    "description": "A verdant creature with poisonous glands throughout its form and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Virulenthiphyllis undosusae"
   },
   {
@@ -3452,7 +3452,7 @@
     },
     "element": "Magnetic",
     "ability": "",
-    "description": "A synthetic creature with specialized organs that manipulate magnetic fields and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Attractartificis pelagicii"
   },
   {
@@ -3468,7 +3468,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A verdant creature with hydration chambers that store large quantities of water and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Marathophyllor plumaeium"
   },
   {
@@ -3484,7 +3484,7 @@
     },
     "element": "Water",
     "ability": "",
-    "description": "A verdant creature with hydration chambers that store large quantities of water and plant-like qualities perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its exceptional speed allows it to outmaneuver most adversaries.",
+    "description": "",
     "scientific_name": "Undulothithallusum pelagicius"
   },
   {
@@ -3500,7 +3500,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A synthetic creature with a composition partially made of living minerals and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It possesses formidable offensive capabilities that can overwhelm opponents.",
+    "description": "",
     "scientific_name": "Geothartificor natansans"
   },
   {
@@ -3516,7 +3516,7 @@
     },
     "element": "Dark",
     "ability": "",
-    "description": "A synthetic creature with shadow matter that absorbs light and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. Its defensive adaptations make it extremely difficult to harm.",
+    "description": "",
     "scientific_name": "Umbrasynthetis abyssalans"
   },
   {
@@ -3532,7 +3532,7 @@
     },
     "element": "Earth",
     "ability": "",
-    "description": "A verdant creature with a composition partially made of living minerals and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Lithothallusus plumaeius"
   },
   {
@@ -3548,7 +3548,7 @@
     },
     "element": "Ice",
     "ability": "",
-    "description": "A synthetic creature with a body temperature well below freezing and artificially enhanced biological systems perfectly suited for aquatic environments. Its streamlined body and specialized breathing apparatus allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Nivaloconstructon natansium"
   },
   {
@@ -3564,7 +3564,7 @@
     },
     "element": "Wind",
     "ability": "",
-    "description": "A sapient creature with hollow chambers that generate powerful gusts and remarkable intelligence and problem-solving abilities adapted for land environments. Its sturdy limbs and specialized appendages allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Ventusologicusus ambulansens"
   },
   {
@@ -3580,7 +3580,7 @@
     },
     "element": "Light",
     "ability": "",
-    "description": "A verdant creature with bioluminescent tissues that emit powerful rays and plant-like qualities with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Radianarborus alatusens"
   },
   {
@@ -3596,7 +3596,7 @@
     },
     "element": "Acid",
     "ability": "",
-    "description": "A synthetic creature with corrosive secretions that can dissolve metal and artificially enhanced biological systems with specialized adaptations for flight. Its lightweight frame and aerodynamic features allow it to thrive in its preferred habitat. It displays remarkable resilience and endurance in combat.",
+    "description": "",
     "scientific_name": "Oxymorusyntheton plumaeius"
   },
   {
@@ -3628,7 +3628,7 @@
     },
     "element": "Cosmic",
     "ability": "",
-    "description": "A legendary titan touched by cosmic forces",
+    "description": "",
     "scientific_name": "Cosmicus Dragonus"
   },
   {
@@ -3644,7 +3644,7 @@
     },
     "element": "Chaos",
     "ability": "",
-    "description": "An ancient wyrm whose chaotic nature makes it unpredictable in battle",
+    "description": "",
     "scientific_name": "Chaoticus Draconis"
   },
   {
@@ -3660,7 +3660,7 @@
     },
     "element": "Void",
     "ability": "",
-    "description": "A multi-headed serpent that drains the essence from all around it",
+    "description": "",
     "scientific_name": "Voidus Hydros"
   },
   {
@@ -3676,7 +3676,7 @@
     },
     "element": "Astral",
     "ability": "",
-    "description": "A celestial dragon-horse that walks between dimensions",
+    "description": "",
     "scientific_name": "Astralis Kirinus"
   },
    {
@@ -3692,7 +3692,7 @@
     },
     "element": "Cosmic",
     "ability": "",
-    "description": "A two-winged cosmic dragon that soars through stellar winds",
+    "description": "",
     "scientific_name": "Cosmicus Wyvernus"
   },
   {
@@ -3708,7 +3708,7 @@
     },
     "element": "Void",
     "ability": "",
-    "description": "A wingless dragon that devours light and matter itself",
+    "description": "",
     "scientific_name": "Voidus Drakonis"
   },
   {
@@ -3724,7 +3724,7 @@
     },
     "element": "Astral",
     "ability": "",
-    "description": "An eastern dragon that commands celestial winds and starlight",
+    "description": "",
     "scientific_name": "Astralis Lungensis"
   },
   {
@@ -3740,7 +3740,7 @@
     },
     "element": "Chaos",
     "ability": "",
-    "description": "A feathered serpent whose chaotic nature shifts like the wind",
+    "description": "",
     "scientific_name": "Chaoticus Amphitherus"
   }
 ]
