@@ -175,57 +175,265 @@
       "effect": "Health"
     }
   },
-    {
-    "name": "Interstellar",
+
+
+
+  {
+    "name": "Catacomb",
     "buff": {
-      "types": ["Titan"],
+      "types": ["Dark", "Demonic"],
       "effect": "Speed"
     },
     "debuff": {
-      "types": ["ALL"],
-      "effect": "Health"
-    }
-  },
-    {
-    "name": "Mars",
-    "buff": {
-      "types": ["Titan"],
-      "effect": "Speed"
-    },
-    "debuff": {
-      "types": ["ALL"],
-      "effect": "Speed"
-    }
-  },
-    {
-    "name": "Moon",
-    "buff": {
-      "types": ["Titan"],
-      "effect": "Speed"
-    },
-    "debuff": {
-      "types": ["ALL"],
+      "types": ["Light", "Psychic"],
       "effect": "Attack"
     }
   },
-    {
-    "name": "Skyloft",
+  {
+    "name": "LavaChamber",
     "buff": {
-      "types": ["Titan"],
+      "types": ["Fire", "Earth"],
+      "effect": "Health"
+    },
+    "debuff": {
+      "types": ["Ice", "Water"],
+      "effect": "Defense"
+    }
+  },
+  {
+    "name": "CaveCitadel",
+    "buff": {
+      "types": ["Magnetic", "Electric"],
+      "effect": "Attack"
+    },
+    "debuff": {
+      "types": ["Nature", "Acid"],
+      "effect": "Speed"
+    }
+  },
+  {
+    "name": "CaveLake",
+    "buff": {
+      "types": ["Water", "Ice"],
       "effect": "Defense"
     },
     "debuff": {
-      "types": ["ALL"],
+      "types": ["Fire", "Electric"],
       "effect": "Health"
     }
-  },  {
-    "name": "Steel",
+  },
+  {
+    "name": "FungalHollow",
     "buff": {
-      "types": ["Titan"],
+      "types": ["Toxic", "Acid"],
+      "effect": "Attack"
+    },
+    "debuff": {
+      "types": ["Psychic", "Light"],
+      "effect": "Speed"
+    }
+  },
+  {
+    "name": "Dungeon",
+    "buff": {
+      "types": ["Dark", "Psychic"],
+      "effect": "Defense"
+    },
+    "debuff": {
+      "types": ["Light", "Nature"],
+      "effect": "Attack"
+    }
+  },
+  {
+    "name": "CaveVilage",
+    "buff": {
+      "types": ["Nature", "Earth"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Electric", "Toxic"],
+      "effect": "Health"
+    }
+  },
+  {
+    "name": "Altar",
+    "buff": {
+      "types": ["Light", "Psychic"],
       "effect": "Health"
     },
     "debuff": {
-      "types": ["ALL"],
+      "types": ["Demonic", "Dark"],
+      "effect": "Speed"
+    }
+  },
+
+
+
+  {
+    "name": "Estuaries",
+    "buff": {
+      "types": ["Water", "Nature"],
+      "effect": "Health"
+    },
+    "debuff": {
+      "types": ["Fire", "Magnetic"],
+      "effect": "Attack"
+    }
+  },
+  {
+    "name": "CoralReef",
+    "buff": {
+      "types": ["Water", "Electric"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Toxic", "Dark"],
+      "effect": "Defense"
+    }
+  },
+  {
+    "name": "OpenOcean",
+    "buff": {
+      "types": ["Wind", "Water"],
+      "effect": "Attack"
+    },
+    "debuff": {
+      "types": ["Earth", "Fire"],
+      "effect": "Speed"
+    }
+  },
+  {
+    "name": "DeepCoralReef",
+    "buff": {
+      "types": ["Draconic", "Ice"],
+      "effect": "Defense"
+    },
+    "debuff": {
+      "types": ["Acid", "Electric"],
+      "effect": "Health"
+    }
+  },
+  {
+    "name": "ColdSeep",
+    "buff": {
+      "types": ["Toxic", "Water"],
+      "effect": "Attack"
+    },
+    "debuff": {
+      "types": ["Psychic", "Light"],
+      "effect": "Speed"
+    }
+  },
+  {
+    "name": "HydroVent",
+    "buff": {
+      "types": ["Fire", "Acid"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Ice", "Nature"],
+      "effect": "Defense"
+    }
+  },
+
+
+
+  {
+    "name": "Earth",
+    "buff": {
+      "types": ["Astral", "ALL"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Earth"],
+      "effect": "Health"
+    }
+  },
+  {
+    "name": "Moon",
+    "buff": {
+      "types": ["Astral", "ALL"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Water"],
+      "effect": "Speed"
+    }
+  },
+  {
+    "name": "Nebula",
+    "buff": {
+      "types": ["Chaos", "ALL"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Psychic"],
+      "effect": "Attack"
+    }
+  },
+  {
+    "name": "Interstellar",
+    "buff": {
+      "types": ["Chaos", "ALL"],
+      "effect": "Defense"
+    },
+    "debuff": {
+      "types": ["Wind"],
+      "effect": "Health"
+    }
+  },  
+  {
+    "name": "Debris",
+    "buff": {
+      "types": ["Void", "ALL"],
+      "effect": "Health"
+    },
+    "debuff": {
+      "types": ["Light"],
+      "effect": "Health"
+    }
+  },
+  {
+    "name": "Saturn",
+    "buff": {
+      "types": ["Void", "ALL"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Ice"],
+      "effect": "Speed"
+    }
+  },
+  {
+    "name": "Cybertron",
+    "buff": {
+      "types": ["Cosmic", "ALL"],
+      "effect": "Speed"
+    },
+    "debuff": {
+      "types": ["Magnetic"],
+      "effect": "Attack"
+    }
+  },
+  {
+    "name": "Asteroids",
+    "buff": {
+      "types": ["Cosmic", "ALL"],
+      "effect": "Defense"
+    },
+    "debuff": {
+      "types": ["Demonic"],
+      "effect": "Health"
+    }
+  },  
+  {
+    "name": "Sun",
+    "buff": {
+      "types": ["Astral", "Cosmic", "ALL"],
+      "effect": "Health"
+    },
+    "debuff": {
+      "types": ["Dark"],
       "effect": "Health"
     }
   }

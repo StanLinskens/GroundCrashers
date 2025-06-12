@@ -1489,7 +1489,7 @@
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 1,
-        "CreatureID": [ 229 ],
+        "CreatureID": [ 232 ],
         "strengthModifier": 215
     },
     {
@@ -1498,7 +1498,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 0, 0, 229 ],
+        "CreatureID": [ 0, 0, 232 ],
         "strengthModifier": 200
     },
 
@@ -1521,7 +1521,7 @@
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 1,
-        "CreatureID": [ 232 ],
+        "CreatureID": [ 229 ],
         "strengthModifier": 225
     },
     {
@@ -1530,7 +1530,7 @@
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
-        "CreatureID": [ 0, 0, 232 ],
+        "CreatureID": [ 0, 0, 229 ],
         "strengthModifier": 210
     },
 

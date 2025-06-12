@@ -438,9 +438,9 @@ namespace groundCrashers_game
                 if (line.ImagePathPortrait == "Images/portraits/ChaosOrb.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrb.png", UriKind.Relative)); }
                 else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbcaged1.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbcaged1.png", UriKind.Relative)); }
                 else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbcaged.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbcaged.png", UriKind.Relative)); }
-                else if (line.ImagePathPortrait == "Images/portraits/chaosorbbroken.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbBroken.png", UriKind.Relative)); }
-                else if (line.ImagePathPortrait == "Images/portraits/chaosorbdelete.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/chaosorbdelete.png", UriKind.Relative)); }
-                else if (line.ImagePathPortrait == "Images/portraits/chaosorbgone.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/chaosorbgone.png", UriKind.Relative)); }
+                else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbDelete.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/chaosorbdelete.png", UriKind.Relative)); }
+                else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbBroken.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbBroken.png", UriKind.Relative)); }
+                else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbGone.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/chaosorbgone.png", UriKind.Relative)); }
                 else if (line.ImagePathPortrait == "Images/GroundCrasherSprites/pattje72.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/GroundCrasherSprites/pattje72.png", UriKind.Relative)); }
                 else { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/rook.png", UriKind.Relative)); }
 
