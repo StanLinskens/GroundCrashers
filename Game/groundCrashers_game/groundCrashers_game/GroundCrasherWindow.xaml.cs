@@ -270,17 +270,45 @@ namespace groundCrashers_game
             }
         }
 
-        private void AddtoCard_Click(object sender, RoutedEventArgs e)
+        private async void AddtoCard_Click(object sender, RoutedEventArgs e)
         {
             if (SelectedCreature != null)
             {
-                string name = SelectedCreature.name;
+                int id = SelectedCreature.id;
 
-                //espConnectionWindow..AddCreatureToCard(name);
+                try
+                {
+                    // Show loading message
+                    _Manager.logs.Add($"Writing creature #{id} to card...");
+
+                    // Await the write operation
+                    string result = await _esp32Manager.WriteCardIDAsync(id);
+
+                    // Log the exact response for debugging
+                    _Manager.logs.Add($"ESP32 Response: '{result}'");
+
+                    // Check if write was successful
+                    if (result.Contains("SUCCESS") || result.Contains("READY_TO_BIND"))
+                    {
+                        _Manager.logs.Add($"ESP32 is ready. Now present your NFC card to the reader.");
+                    }
+                    else if (result.StartsWith("Error"))
+                    {
+                        _Manager.logs.Add($"Connection error: {result}");
+                    }
+                    else
+                    {
+                        _Manager.logs.Add($"Unexpected response: {result}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _Manager.logs.Add($"Error writing to card: {ex.Message}");
+                }
             }
             else
             {
-                _Manager.logs.Add("no creature selected to add to card!");
+                _Manager.logs.Add("No creature selected to add to card!");
             }
         }
 
