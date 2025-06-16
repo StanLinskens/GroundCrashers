@@ -13,7 +13,8 @@ namespace groundCrashers_game
         private int playerCoins = 100; // Starting coins - you can modify this or connect to your game's coin system
         private int creatureId = 0;
         private Random random = new Random();
-        Manager gameManager;
+        Manager _gameManager;
+        private LevelMapWindow _mapWindow;
 
         // Define your creature types and elements
         private readonly List<Primaries> creatureTypes = new List<Primaries>
@@ -52,11 +53,12 @@ namespace groundCrashers_game
             Elements.Magnetic
         };
 
-        public GambleWindow()
+        public GambleWindow(LevelMapWindow mapWindom)
         {
             InitializeComponent();
 
-            gameManager = new Manager();
+            _mapWindow = mapWindom;
+            _gameManager = new Manager();
 
             // Set default selections
             TypeComboBox.SelectedIndex = 0;
@@ -64,7 +66,7 @@ namespace groundCrashers_game
             creatureId = 0; // Reset creature ID just in case
             playerCoins = ActiveAccount.Active_coins; // Load coins from the active account
 
-            gameManager.LoadAllCreaturesFromWebAsync();
+            _gameManager.LoadAllCreaturesFromWebAsync();
 
             UpdateCoinsDisplay();
         }
@@ -126,7 +128,7 @@ namespace groundCrashers_game
             }
 
 
-            Creature creature = gameManager.GetRandomGambleCreature(randomType, randomElement);
+            Creature creature = _gameManager.GetRandomGambleCreature(randomType, randomElement);
 
             creatureId = creature.id;
 
@@ -139,7 +141,7 @@ namespace groundCrashers_game
 
             Elements randomElement = creatureElements[random.Next(creatureElements.Count)];
 
-            Creature creature = gameManager.GetRandomGambleCreature(selectedType, randomElement);
+            Creature creature = _gameManager.GetRandomGambleCreature(selectedType, randomElement);
 
             creatureId = creature.id;
 
@@ -152,7 +154,7 @@ namespace groundCrashers_game
 
             Primaries randomType = creatureTypes[random.Next(creatureTypes.Count)];
 
-            Creature creature = gameManager.GetRandomGambleCreature(randomType, selectedElement);
+            Creature creature = _gameManager.GetRandomGambleCreature(randomType, selectedElement);
             
             creatureId = creature.id;
 
@@ -272,6 +274,7 @@ namespace groundCrashers_game
             ActiveAccount.Active_XP += RandomXp; // Add XP to the active account
             AccountManager.LevelUp();
             AccountManager.UpdateActiveAccount();
+            _mapWindow.AccountLVLVisualChage();
             creatureId = 0;
         }
 

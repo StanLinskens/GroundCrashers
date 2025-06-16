@@ -157,8 +157,7 @@ namespace groundCrashers_game
                     ActiveAccount.Active_coins += CoinsEarned; // Add coins for winning the level
                 }
             }
-            currentLVL.Text = $"LVL: {ActiveAccount.Active_LVL}"; // Update the current level text
-            currentXP.Text = $"XP: {ActiveAccount.Active_XP}"; // Update the current XP text
+            AccountLVLVisualChage();
 
             currentBiomeIndex = ActiveAccount.Active_current_biome_id;
             currentLVLIndex = ActiveAccount.Active_current_biome_lvl_id;
@@ -468,9 +467,15 @@ namespace groundCrashers_game
 
         private void CapsuleBtn_Click(object sender, RoutedEventArgs e)
         {
-            GambleWindow gambleWindow = new GambleWindow();
+            GambleWindow gambleWindow = new GambleWindow(this);
             gambleWindow.ShowDialog();
             
+        }
+
+        public void AccountLVLVisualChage()
+        {
+            currentLVL.Text = $"LVL: {ActiveAccount.Active_LVL}"; // Update the current level text
+            currentXP.Text = $"XP: {ActiveAccount.Active_XP}"; // Update the current XP text
         }
     }
 }

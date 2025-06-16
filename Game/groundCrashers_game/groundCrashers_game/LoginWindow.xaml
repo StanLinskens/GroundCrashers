@@ -100,13 +100,13 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    
+
     <Grid>
         <!-- Background Gradient -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="#FFEEBEFA" Offset="0.0"/>
-                <GradientStop Color="#FF845EF7" Offset="1.0"/>
+                <GradientStop Color="#FF2C2C2C" Offset="0.0"/>
+                <GradientStop Color="#FF1E1E1E" Offset="1.0"/>
             </LinearGradientBrush>
         </Grid.Background>
 
@@ -123,13 +123,13 @@
                 <TextBox x:Name="TBXusername"
              Style="{StaticResource RoundedTextboxStyle}"
              Background="#7BFFFFFF"
-             BorderBrush="White"
+             BorderBrush="Black"
              BorderThickness="2"
              TextChanged="TBXusername_TextChanged" Foreground="#7F000000"/>
 
                 <TextBlock x:Name="PlaceholderUsername"
                Text="Enter your username..."
-               Foreground="Gray"
+               Foreground="Black"
                Margin="95,10,0,0"
                VerticalAlignment="Center"
                IsHitTestVisible="False"
@@ -140,13 +140,13 @@
                 <PasswordBox x:Name="PBXpassword"
              Style="{StaticResource RoundedPasswordboxStyle}"
              Background="#7FFFFFFF"
-             BorderBrush="White"
+             BorderBrush="Black"
              BorderThickness="2"
              PasswordChanged="PBXpassword_PasswordChanged"/>
 
                 <TextBlock x:Name="PlaceholderPassword"
                Text="Enter your password..."
-               Foreground="Gray"
+               Foreground="Black"
                Margin="96,10,0,0"
                VerticalAlignment="Center"
                IsHitTestVisible="False"

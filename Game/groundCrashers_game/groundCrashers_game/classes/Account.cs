@@ -99,7 +99,16 @@ namespace groundCrashers_game.classes
         public static void LevelUp()
         {
             // for every level you need 10 more xp to level up
-            int xpneeded = 10 + (10 * ActiveAccount.Active_LVL);
+            int xpneeded = 0;
+
+            // Calculate total XP needed to reach the next level from level 0 to current level
+            for (int i = 1; i <= ActiveAccount.Active_LVL + 1; i++)
+            {
+                if (i <= 10)
+                    xpneeded = i * 10;
+                else
+                    xpneeded = ((i - 1) / 10) * 100;
+            }
 
             // if the player has enough XP, level up
             if (ActiveAccount.Active_XP >= xpneeded)

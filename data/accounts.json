@@ -3,16 +3,14 @@
     "id": 1,
     "name": "pattje72",
     "password": "sven",
-    "current_biome_id": 38,
+    "current_biome_id": 1,
     "current_biome_lvl_id": 2,
-    "LVL": 9999,
-    "XP": 1055,
-    "coins": 192,
+    "LVL": 1,
+    "XP": 1,
+    "coins": 11,
     "Admin": true,
     "Creature_ids": [
-      226,
-      233,
-      227
+      65
     ]
   },
   {
