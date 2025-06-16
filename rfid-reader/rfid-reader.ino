@@ -97,7 +97,7 @@ void handleGameClientRequests() {
 // WRITE (BIND) HANDLER
 // --------------------
 void handleCreatureBindingRequest(WiFiClient& client, String& request) {
-  int idx = request.indexOf("GET /write?id=") + 15;
+  int idx = request.indexOf("GET /write?id=") + 14;
   String idStr = request.substring(idx);
   int space = idStr.indexOf(' ');
   if (space > 0) idStr = idStr.substring(0, space);
@@ -197,23 +197,54 @@ void handleCreatureCardWrites() {
 // --------------------
 // NFC WRITE ROUTINE
 // --------------------
-bool bindCreatureToCard(const String& creatureID) {
-  char buffer[32];
-  creatureID.toCharArray(buffer, sizeof(buffer));
+bool bindCreatureToCard(const String& newCreatureID) {
+  String currentData = "";
 
-  NdefMessage message = NdefMessage();
-  message.addTextRecord(buffer);
-
-  bool ok = nfc.write(message);
-  if (ok) {
-    Serial.print("[CARD] Written: ");
-    Serial.println(creatureID);
+  // Step 1: Read existing message
+  NfcTag tag = nfc.read();
+  if (tag.hasNdefMessage()) {
+    NdefMessage oldMessage = tag.getNdefMessage();
+    for (int i = 0; i < oldMessage.getRecordCount(); i++) {
+      NdefRecord record = oldMessage.getRecord(i);
+      if (record.getTnf() == 0x01 && record.getType()[0] == 'T') {
+        int payloadLength = record.getPayloadLength();
+        const byte* payload = record.getPayload();
+        int languageLen = payload[0] & 0x3F;
+        for (int j = languageLen + 1; j < payloadLength; j++) {
+          currentData += (char)payload[j];
+        }
+      }
+    }
+    Serial.print("[CARD] Existing data: ");
+    Serial.println(currentData);
   }
-  else {
+
+  // Step 2: Append new ID
+  if (currentData.length() > 0) {
+    currentData += ",";
+  }
+  currentData += newCreatureID;
+
+  // Step 3: Write updated string as a single NDEF record
+  char buffer[128];
+  currentData.toCharArray(buffer, sizeof(buffer));
+
+  NdefMessage newMessage = NdefMessage();
+  newMessage.addTextRecord(buffer);
+
+  bool ok = nfc.write(newMessage);
+  if (ok) {
+    Serial.print("[CARD] Updated list: ");
+    Serial.println(currentData);
+  } else {
     Serial.println("[CARD] Write failed");
   }
+
   return ok;
 }
+
+
+
 
 // --------------------
 // NFC READ ROUTINE
