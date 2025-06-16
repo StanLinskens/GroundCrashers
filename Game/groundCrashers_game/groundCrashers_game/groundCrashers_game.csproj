@@ -15,7 +15,6 @@
     <None Remove="Images\battleGrounds\cave.jpg" />
     <None Remove="Images\battleGrounds\cavecitadel.jpg" />
     <None Remove="Images\battleGrounds\cavelake.jpg" />
-    <None Remove="Images\battleGrounds\cavevilage.jpg" />
     <None Remove="Images\battleGrounds\coldseep.jpg" />
     <None Remove="Images\battleGrounds\construction.jpg" />
     <None Remove="Images\battleGrounds\coralreef.jpg" />
@@ -357,7 +356,7 @@
     <Resource Include="Images\battleGrounds\cave.jpg" />
     <Resource Include="Images\battleGrounds\cavecitadel.jpg" />
     <Resource Include="Images\battleGrounds\cavelake.jpg" />
-    <Resource Include="Images\battleGrounds\cavevilage.jpg" />
+    <Resource Include="Images\battleGrounds\CaveVillage.jpg" />
     <Resource Include="Images\battleGrounds\coldseep.jpg" />
     <Resource Include="Images\battleGrounds\construction.jpg" />
     <Resource Include="Images\battleGrounds\coralreef.jpg" />

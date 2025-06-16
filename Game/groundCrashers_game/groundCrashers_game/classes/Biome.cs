@@ -22,7 +22,7 @@ namespace groundCrashers_game
         CaveLake,
         FungalHollow,
         Dungeon,
-        CaveVilage,
+        CaveVillage,
         Altar,
 
         // back to normal map

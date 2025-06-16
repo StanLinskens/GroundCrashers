@@ -485,8 +485,8 @@
 
 
     {
-        "name": "CaveVilageLVL1",
-        "biome": "CaveVilage",
+        "name": "CaveVillageLVL1",
+        "biome": "CaveVillage",
         "daytime": "Night",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -494,8 +494,8 @@
         "strengthModifier": 135
     },
     {
-        "name": "CaveVilageLVL2",
-        "biome": "CaveVilage",
+        "name": "CaveVillageLVL2",
+        "biome": "CaveVillage",
         "daytime": "Dawn",
         "amountCreaturesPlayer": 2,
         "amountCreaturesCpu": 2,
@@ -503,8 +503,8 @@
         "strengthModifier": 135
     },
     {
-        "name": "CaveVilageLVL3",
-        "biome": "CaveVilage",
+        "name": "CaveVillageLVL3",
+        "biome": "CaveVillage",
         "daytime": "Dusk",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 2,
@@ -512,8 +512,8 @@
         "strengthModifier": 145
     },
     {
-        "name": "CaveVilageLVL4",
-        "biome": "CaveVilage",
+        "name": "CaveVillageLVL4",
+        "biome": "CaveVillage",
         "daytime": "Night",
         "amountCreaturesPlayer": 3,
         "amountCreaturesCpu": 3,
