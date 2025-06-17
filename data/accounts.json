@@ -45,14 +45,14 @@
     "id": 3,
     "name": "Stan",
     "password": "Stan",
-    "current_biome_id": 49,
+    "current_biome_id": 100,
     "current_biome_lvl_id": 3,
     "LVL": 0,
     "XP": 0,
     "coins": 5,
     "Admin": true,
     "Creature_ids": [
-      65
+      227, 228, 229, 230, 231, 232, 233, 234
     ]
   },
   {
