@@ -7,10 +7,13 @@
     "current_biome_lvl_id": 2,
     "LVL": 1,
     "XP": 1,
-    "coins": 11,
+    "coins": 0,
     "Admin": true,
     "Creature_ids": [
-      65
+      65,
+      81,
+      168,
+      159
     ]
   },
   {
@@ -21,7 +24,7 @@
     "current_biome_lvl_id": 1,
     "LVL": 13,
     "XP": 29,
-    "coins": 362,
+    "coins": 232,
     "Admin": true,
     "Creature_ids": [
       65,
@@ -31,7 +34,11 @@
       59,
       206,
       84,
-      78
+      78,
+      189,
+      219,
+      131,
+      68
     ]
   },
   {

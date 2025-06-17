@@ -36,6 +36,8 @@ namespace groundCrashers_game.classes
 
         public int _maxCreatures { get; set; } = 3;
 
+        public bool getFromJson = true;
+
         public enum ActionType
         {
             Attack,
@@ -104,13 +106,16 @@ namespace groundCrashers_game.classes
             try
             {
                 // Load creatures
-                LoadAllCreatures();
-                //LoadAllCreaturesFromWebAsync();
+                if (getFromJson) LoadAllCreatures();
+                else LoadAllCreaturesFromWebAsync();
+
+
 
                 if (StoryMode)
                 {
                     // Load levels from local JSON for story mode
-                    Levels.LoadLevelsFromJson();
+                    if (getFromJson) Levels.LoadLevelsFromJson();
+                    else Levels.LoadLevelsFromWebAsync();
 
                     if (Levels.Chart.TryGetValue(levelName, out var level))
                     {
@@ -119,29 +124,22 @@ namespace groundCrashers_game.classes
                     }
                 }
 
-                // Load elements
-                //ElementChart.LoadElementsFromJson();
-                ElementChart.LoadElementsFromWebAsync();
-
-                // Load primaries
-                //PrimaryChart.LoadPrimariesFromJson();
-                PrimaryChart.LoadPrimariesFromWebAsync();
-
-                // Load weather
-                //WeatherChart.LoadWeathersFromJson();
-                WeatherChart.LoadWeathersFromWebAsync();
-
-                // Load daytime
-                //DaytimeChart.LoadDaytimesFromJson();
-                DaytimeChart.LoadDaytimesFromWebAsync();
-
-                // load biomes
-                //BiomeChart.LoadBiomesFromJson();
-                BiomeChart.LoadBiomesFromWebAsync();
-
-
-
-                //logs.Add("Game data loaded successfully");
+                if (getFromJson)
+                {
+                    ElementChart.LoadElementsFromJson();
+                    PrimaryChart.LoadPrimariesFromJson();
+                    WeatherChart.LoadWeathersFromJson();
+                    DaytimeChart.LoadDaytimesFromJson();
+                    BiomeChart.LoadBiomesFromJson();
+                }
+                else
+                {
+                    ElementChart.LoadElementsFromWebAsync();
+                    PrimaryChart.LoadPrimariesFromWebAsync();
+                    WeatherChart.LoadWeathersFromWebAsync();
+                    DaytimeChart.LoadDaytimesFromWebAsync();
+                    BiomeChart.LoadBiomesFromWebAsync();
+                }
             }
             catch (Exception ex)
             {

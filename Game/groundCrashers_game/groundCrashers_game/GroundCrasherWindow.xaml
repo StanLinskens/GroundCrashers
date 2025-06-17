@@ -101,18 +101,7 @@
                     <!-- Confirm and Add to ListButtons -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Button Name="ConfirmButton" Style="{StaticResource DarkButton}" Content="Confirm" Width="110" Height="40" Margin="5,20,5,0" Click="ConfirmGroundCrasher_Click" />
-                        <Button Name="AddToListButton" Style="{StaticResource DarkButton}" Content="Add to List" Width="110" Height="40" Margin="5,20,5,0" Click="AddToList_Click" />
-                    </StackPanel>
-                </StackPanel>
-            </Border>
-
-            <!-- Card Actions Box -->
-            <Border Background="#323232" CornerRadius="10" BorderBrush="#666666" BorderThickness="4" Margin="0,10,0,0">
-                <StackPanel Margin="10">
-                    <TextBlock Text="Card Actions" FontSize="16" FontWeight="Bold" Foreground="White" Margin="0,0,0,10" HorizontalAlignment="Center" />
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <Button Name="AddToCardButton" Style="{StaticResource DarkButton}" Content="Add to Card" Width="110" Height="40" Margin="5,0,5,0" Click="AddtoCard_Click" />
-                        <Button Name="ScanCardButton" Content="Scan Card" Style="{StaticResource DarkButton}" Height="40" Width="110" Margin="5,0,5,0" Click="ScanCardButton_Click" />
+                        <Button Name="ScanCardButton" Content="Scan Card" Style="{StaticResource DarkButton}" Height="40" Width="110" Margin="5,20,5,0" Click="ScanCardButton_Click" />
                     </StackPanel>
                 </StackPanel>
             </Border>

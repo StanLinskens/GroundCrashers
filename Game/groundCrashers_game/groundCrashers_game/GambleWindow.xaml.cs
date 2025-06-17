@@ -15,6 +15,7 @@ namespace groundCrashers_game
         private Random random = new Random();
         Manager _gameManager;
         private LevelMapWindow _mapWindow;
+        private Esp32Manager _esp32Manager;
 
         // Define your creature types and elements
         private readonly List<Primaries> creatureTypes = new List<Primaries>
@@ -59,6 +60,7 @@ namespace groundCrashers_game
 
             _mapWindow = mapWindom;
             _gameManager = new Manager();
+            _esp32Manager = new Esp32Manager();
 
             // Set default selections
             TypeComboBox.SelectedIndex = 0;
@@ -66,7 +68,8 @@ namespace groundCrashers_game
             creatureId = 0; // Reset creature ID just in case
             playerCoins = ActiveAccount.Active_coins; // Load coins from the active account
 
-            _gameManager.LoadAllCreaturesFromWebAsync();
+            if (_gameManager.getFromJson) _gameManager.LoadAllCreatures();
+            else _gameManager.LoadAllCreaturesFromWebAsync();
 
             UpdateCoinsDisplay();
         }
@@ -278,7 +281,7 @@ namespace groundCrashers_game
             creatureId = 0;
         }
 
-        private void KeepCreatureBtn_Click(object sender, RoutedEventArgs e)
+        private async void KeepCreatureBtn_Click(object sender, RoutedEventArgs e)
         {
             if(ActiveAccount.Active_Admin)
             {
@@ -286,7 +289,42 @@ namespace groundCrashers_game
             }
             // dont do a else here, just do your wizard struff to add them to card. i want admins to also be able to keep them on cards and off
 
+            if (creatureId != 0)
+            {
+                try
+                {
+                    // Show loading message
+                    MessageBox.Show($"Writing creature #{creatureId} to card...");
 
+                    // Await the write operation
+                    string result = await _esp32Manager.WriteCardIDAsync(creatureId);
+
+                    // Log the exact response for debugging
+                    MessageBox.Show($"ESP32 Response: '{result}'");
+
+                    // Check if write was successful
+                    if (result.Contains("SUCCESS") || result.Contains("READY_TO_BIND"))
+                    {
+                        MessageBox.Show($"ESP32 is ready. Now present your NFC card to the reader.");
+                    }
+                    else if (result.StartsWith("Error"))
+                    {
+                        MessageBox.Show($"Connection error: {result}");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Unexpected response: {result}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error writing to card: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No creature selected to add to card!");
+            }
 
             // reset stuff
             ResultText.Text = $"{creatureId} added to card";
