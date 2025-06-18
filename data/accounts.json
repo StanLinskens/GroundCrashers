@@ -47,12 +47,19 @@
     "password": "Stan",
     "current_biome_id": 100,
     "current_biome_lvl_id": 3,
-    "LVL": 0,
-    "XP": 0,
-    "coins": 5,
+    "LVL": 1,
+    "XP": 11,
+    "coins": 6,
     "Admin": true,
     "Creature_ids": [
-      227, 228, 229, 230, 231, 232, 233, 234
+      227,
+      228,
+      229,
+      230,
+      231,
+      232,
+      233,
+      234
     ]
   },
   {
@@ -92,6 +99,20 @@
     "LVL": 0,
     "XP": 0,
     "coins": 5,
+    "Admin": false,
+    "Creature_ids": [
+      0
+    ]
+  },
+  {
+    "id": 7,
+    "name": "UBERMENSCH",
+    "password": "EINZWEI",
+    "current_biome_id": 1,
+    "current_biome_lvl_id": 2,
+    "LVL": 0,
+    "XP": 7,
+    "coins": 1,
     "Admin": false,
     "Creature_ids": [
       0

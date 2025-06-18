@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:groundCrashers_game"
         mc:Ignorable="d"
-        Title="Choose Your GroundCrasher" Height="560" Width="800"
+        Title="Choose Your GroundCrasher" Height="439" Width="800"
         Loaded="Window_Loaded">
 
     <Window.Resources>

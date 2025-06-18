@@ -145,13 +145,13 @@
             <Border 
                 Canvas.Left="85"
                 Canvas.Top="1">
-                <TextBlock x:Name="currentLVL" Text="LVL: 0" FontSize="24"/>
+                <TextBlock x:Name="currentLVL" Text="LVL: 0" FontSize="24" Foreground="#E0E0E0"/>
             </Border>
 
             <Border 
                 Canvas.Left="85"
                 Canvas.Top="25">
-                <TextBlock x:Name="currentXP" Text="XP: 0" FontSize="24"/>
+                <TextBlock x:Name="currentXP" Text="XP: 0" FontSize="24" Foreground="#E0E0E0"/>
             </Border>
 
             <Border
