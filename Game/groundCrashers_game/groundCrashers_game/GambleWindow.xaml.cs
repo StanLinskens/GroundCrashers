@@ -283,29 +283,29 @@ namespace groundCrashers_game
 
         private async void KeepCreatureBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(ActiveAccount.Active_Admin)
-            {
-                AccountManager.AddCreature(creatureId);
-            }
+
+            string message = AccountManager.AddCreature(creatureId);
+
+            if (message == "not a creature" || message == "Creature is already owned.") { MessageBox.Show(message); return; } 
             // dont do a else here, just do your wizard struff to add them to card. i want admins to also be able to keep them on cards and off
 
-            if (creatureId != 0)
+            if (creatureId != 0 && message == "Creature added successfully!")
             {
                 try
                 {
-                    // Show loading message
-                    MessageBox.Show($"Writing creature #{creatureId} to card...");
-
                     // Await the write operation
                     string result = await _esp32Manager.WriteCardIDAsync(creatureId);
 
-                    // Log the exact response for debugging
-                    MessageBox.Show($"ESP32 Response: '{result}'");
 
                     // Check if write was successful
                     if (result.Contains("SUCCESS") || result.Contains("READY_TO_BIND"))
                     {
-                        MessageBox.Show($"ESP32 is ready. Now present your NFC card to the reader.");
+
+                        // reset stuff
+                        ResultText.Text = $"{creatureId} added to card";
+                        CreatureResult.Text = "";
+                        ShowButtons();
+                        creatureId = 0;
                     }
                     else if (result.StartsWith("Error"))
                     {
@@ -325,12 +325,6 @@ namespace groundCrashers_game
             {
                 MessageBox.Show("No creature selected to add to card!");
             }
-
-            // reset stuff
-            ResultText.Text = $"{creatureId} added to card";
-            CreatureResult.Text = "";
-            ShowButtons();
-            creatureId = 0;
         }
     }
 }

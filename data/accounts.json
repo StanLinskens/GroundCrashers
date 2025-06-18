@@ -5,15 +5,12 @@
     "password": "sven",
     "current_biome_id": 1,
     "current_biome_lvl_id": 2,
-    "LVL": 1,
-    "XP": 1,
-    "coins": 0,
+    "LVL": 2,
+    "XP": 14,
+    "coins": 99530,
     "Admin": true,
     "Creature_ids": [
-      65,
-      81,
-      168,
-      159
+      65
     ]
   },
   {
@@ -73,35 +70,7 @@
     "coins": 5,
     "Admin": false,
     "Creature_ids": [
-      0
-    ]
-  },
-  {
-    "id": 5,
-    "name": "test",
-    "password": "test",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1,
-    "LVL": 0,
-    "XP": 0,
-    "coins": 5,
-    "Admin": false,
-    "Creature_ids": [
-      0
-    ]
-  },
-  {
-    "id": 6,
-    "name": "aap",
-    "password": "aap",
-    "current_biome_id": 0,
-    "current_biome_lvl_id": 1,
-    "LVL": 0,
-    "XP": 0,
-    "coins": 5,
-    "Admin": false,
-    "Creature_ids": [
-      0
+      65
     ]
   },
   {

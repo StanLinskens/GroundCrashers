@@ -124,15 +124,15 @@ namespace groundCrashers_game.classes
             File.WriteAllText(FilePath, json);
         }
 
-        public static void AddCreature(int creatureId)
+        public static string AddCreature(int creatureId)
         {
-            if (!ActiveAccount.Active_Admin) return; // only admins can have creatures saved in json (players need card)
-            if (creatureId <= 0) return; // creatureId must be a positive integer, 0 doesnt exist
+            if (creatureId <= 0) return "Not a creature"; // creatureId must be a positive integer, 0 doesnt exist
 
             // if the list is null, make one
             if (ActiveAccount.Active_Creature_ids == null)
             {
                 ActiveAccount.Active_Creature_ids = new List<int>();
+                return "Not a creature";
             }
 
             // if the creatureId is not already in the list, add it
@@ -142,11 +142,12 @@ namespace groundCrashers_game.classes
                 ActiveAccount.Active_Creature_ids.Add(creatureId);
                 // update the active account
                 UpdateActiveAccount();
+                return "Creature added successfully!";
             }
             // if the creatureId is already in the list, show a message
             else
             {
-                MessageBox.Show($"Creature ID {creatureId} is already owned.");
+                return "Creature is already owned.";
             }
         }
 
@@ -175,7 +176,7 @@ namespace groundCrashers_game.classes
                 XP = 0,
                 coins = 5,
                 Admin = false,
-                Creature_ids = new List<int> { 0 }
+                Creature_ids = new List<int> { 65 }
             });
 
             MessageBox.Show("Account created");
