@@ -305,6 +305,8 @@
     <None Remove="Images\marsh.jpg" />
     <None Remove="Images\ocean.jpg" />
     <None Remove="Images\other\questionmark.png" />
+    <None Remove="Images\other\youlose.png" />
+    <None Remove="Images\other\youwin.png" />
     <None Remove="Images\portraits\aria.png" />
     <None Remove="Images\portraits\ariadead.png" />
     <None Remove="Images\portraits\ariadeadkilled.png" />
@@ -639,6 +641,8 @@
     <Resource Include="Images\GroundCrasherSprites\Zephantix.png" />
     <Resource Include="Images\GroundCrasherSprites\Zephyisanus.png" />
     <Resource Include="Images\other\questionmark.png" />
+    <Resource Include="Images\other\youlose.png" />
+    <Resource Include="Images\other\youwin.png" />
     <Resource Include="Images\portraits\aria.png" />
     <Resource Include="Images\portraits\ariadead.png" />
     <Resource Include="Images\portraits\ariadeadkilled.png" />

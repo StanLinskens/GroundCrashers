@@ -801,19 +801,21 @@
       // Create the title element
       const title = document.createElement('h3');
       title.textContent = `${type.name} (${typeCategory})`;
-      title.classList.add(typeClass); // Add the generated class
+      title.classList.add(typeClass);
 
-      // Add the rest of the card content
+      // Create content based on the new schema
       const content = document.createElement('div');
       if (typeCategory === 'Primary') {
         content.innerHTML = `
-                  <p><strong>Strong vs:</strong> ${type.strong_against.join(', ')}</p>
-                  <p><strong>Weak vs:</strong> ${type.weak_against.join(', ')}</p>
-              `;
+          <p><strong>Strong vs:</strong> ${type.strongAgainst?.join(', ') || 'None'}</p>
+          <p><strong>Better vs:</strong> ${type.betterAgainst?.join(', ') || 'None'}</p>
+          <p><strong>Weaker vs:</strong> ${type.weakerAgainst?.join(', ') || 'None'}</p>
+          <p><strong>Weak vs:</strong> ${type.weakAgainst?.join(', ') || 'None'}</p>
+        `;
       } else {
         content.innerHTML = `
-                  <p><strong>Passive:</strong> ${type.passive_boost}</p>
-              `;
+          <p><strong>Passive:</strong> ${type.passiveBoost || 'None'}</p>
+        `;
       }
 
       // Combine and append
