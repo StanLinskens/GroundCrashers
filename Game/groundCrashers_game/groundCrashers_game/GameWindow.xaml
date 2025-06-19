@@ -198,8 +198,8 @@
                 </Canvas>
             </Grid>
 
-            
-            
+
+
             <!-- Player Info -->
             <Border Grid.Row="3" Padding="20">
                 <Grid>
@@ -249,6 +249,15 @@
                     </WrapPanel>
                 </Grid>
             </Border>
+            <Grid Name="WinLoseOverlay" Background="#80000000" Visibility="Collapsed" Grid.RowSpan="5">
+                <Image  Name="WinLoseImage"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Source="/Images/other/youlose.png"
+                        Stretch="Uniform"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        MouseLeftButtonDown="WinLoseImage_MouseLeftButtonDown"/>
+            </Grid>
         </Grid>
     </Viewbox>
 </Window>
