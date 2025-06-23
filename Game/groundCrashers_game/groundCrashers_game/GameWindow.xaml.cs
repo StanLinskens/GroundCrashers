@@ -123,7 +123,6 @@ namespace groundCrashers_game
             var playerCreature = gameManager.ActivePlayerCreature;
             if (playerCreature != null)
             {
-                attack_Animation(attacker_name: "Player");
                 PlayerCreatureName.Content = playerCreature.name;
                 PlayerHealthText.Text = playerCreature.stats.hp.ToString() + "/" + playerCreature.stats.max_hp.ToString();
                 PlayerHealthBar.Value = playerCreature.stats.hp;
@@ -183,7 +182,6 @@ namespace groundCrashers_game
             var cpuCreature = gameManager.ActiveCpuCreature;
             if (cpuCreature != null)
             {
-                attack_Animation(attacker_name: "Enemy");
                 EnemyCreatureName.Content = cpuCreature.name;
                 EnemyHealthText.Text = cpuCreature.stats.hp.ToString() + "/" + cpuCreature.stats.max_hp.ToString();
                 EnemyHealthBar.Value = cpuCreature.stats.hp;
@@ -570,7 +568,7 @@ namespace groundCrashers_game
         private void Attack_Button_Click(object sender, RoutedEventArgs e)
         {
             gameManager.ProcessTurn(ActionType.Attack);
-
+            attack_Animation(attacker_name: "Player");
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
@@ -581,7 +579,7 @@ namespace groundCrashers_game
         {
             // Implement elemental attack logic
             gameManager.ProcessTurn(ActionType.ElementAttack);
-
+            attack_Animation(attacker_name: "Player");
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
