@@ -44,9 +44,9 @@
     "password": "Stan",
     "current_biome_id": 100,
     "current_biome_lvl_id": 3,
-    "LVL": 1,
-    "XP": 11,
-    "coins": 6,
+    "LVL": 3,
+    "XP": 3,
+    "coins": 8,
     "Admin": true,
     "Creature_ids": [
       227,
