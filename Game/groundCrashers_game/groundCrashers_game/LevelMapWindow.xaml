@@ -4,7 +4,7 @@
         Title="Level Map"
         Background="#2D2D30"
         WindowState="Maximized"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
 
     <!-- Dark theme style resources -->
     <Window.Resources>

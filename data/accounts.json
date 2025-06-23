@@ -102,5 +102,19 @@
     "Creature_ids": [
       0
     ]
+  },
+  {
+    "id": 8,
+    "name": "james",
+    "password": "james",
+    "current_biome_id": 0,
+    "current_biome_lvl_id": 1,
+    "LVL": 0,
+    "XP": 0,
+    "coins": 5,
+    "Admin": false,
+    "Creature_ids": [
+      65
+    ]
   }
 ]

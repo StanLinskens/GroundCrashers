@@ -4,7 +4,7 @@
         Title="Ground Crashers"
         WindowState="Maximized"
         WindowStartupLocation="CenterScreen"
-        Background="Black">
+        Background="Black" WindowStyle="None">
 
     <Window.Resources>
         <!-- Dark theme style resources -->
