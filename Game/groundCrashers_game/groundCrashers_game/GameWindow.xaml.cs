@@ -7,6 +7,7 @@ using System.Media;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Xml.Linq;
@@ -121,6 +122,7 @@ namespace groundCrashers_game
             var playerCreature = gameManager.ActivePlayerCreature;
             if (playerCreature != null)
             {
+                attack_Animation(); // Start attack animation
                 PlayerCreatureName.Content = playerCreature.name;
                 PlayerHealthText.Text = playerCreature.stats.hp.ToString() + "/" + playerCreature.stats.max_hp.ToString();
                 PlayerHealthBar.Value = playerCreature.stats.hp;
@@ -180,6 +182,7 @@ namespace groundCrashers_game
             var cpuCreature = gameManager.ActiveCpuCreature;
             if (cpuCreature != null)
             {
+                attack_Animation();
                 EnemyCreatureName.Content = cpuCreature.name;
                 EnemyHealthText.Text = cpuCreature.stats.hp.ToString() + "/" + cpuCreature.stats.max_hp.ToString();
                 EnemyHealthBar.Value = cpuCreature.stats.hp;
@@ -228,6 +231,62 @@ namespace groundCrashers_game
                 gameManager.Win = true;
             }
         }
+
+        private void attack_Animation()
+        {
+            // Create the animation using keyframes
+            var keyFrames = new DoubleAnimationUsingKeyFrames
+            {
+                Duration = TimeSpan.FromSeconds(0.4)
+            };
+
+            // Attack swing forward
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(25, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.05))));
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(-30, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.2)))
+            {
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            });
+
+            // Recoil slightly
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(10, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.3)))
+            {
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut }
+            });
+
+            // Return to original position
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.4)))
+            {
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            });
+
+            // Make sure we have a proper RenderTransform with RotateTransform
+            if (!(PlayerImageBox.RenderTransform is TransformGroup group))
+            {
+                group = new TransformGroup();
+                group.Children.Add(new ScaleTransform(-1, 1)); // Keep flip
+                group.Children.Add(new RotateTransform(0));
+                PlayerImageBox.RenderTransform = group;
+            }
+
+            // Get the RotateTransform from the group
+            RotateTransform rotateTransform = group.Children.OfType<RotateTransform>().FirstOrDefault();
+            if (rotateTransform == null)
+            {
+                rotateTransform = new RotateTransform(0);
+                group.Children.Add(rotateTransform);
+            }
+
+            // Create the storyboard
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(keyFrames);
+            Storyboard.SetTarget(keyFrames, PlayerImageBox);
+            Storyboard.SetTargetProperty(keyFrames, new PropertyPath("RenderTransform.Children[1].(RotateTransform.Angle)")); // Adjust index if needed
+
+            // Start the animation
+            storyboard.Begin();
+        }
+
+
 
         private void EnviromentGenerator()
         {

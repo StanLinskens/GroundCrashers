@@ -160,14 +160,17 @@
 
                     <!-- ✅ Transparent Image Above Player -->
                     <Image x:Name="PlayerImageBox"
-                       Width="300" Height="300"
-                       Canvas.Left="200" Canvas.Top="250"
-                       Source="/Images/other/questionmark.png"
-                       Opacity="1"
-                       Stretch="Uniform"
-                       RenderTransformOrigin="0.5,0.5">
+       Width="300" Height="300"
+       Canvas.Left="200" Canvas.Top="250"
+       Source="/Images/other/questionmark.png"
+       Opacity="1"
+       Stretch="Uniform"
+       RenderTransformOrigin="0.5,0.5">
                         <Image.RenderTransform>
-                            <ScaleTransform ScaleX="-1"/>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <RotateTransform Angle="0"/>
+                            </TransformGroup>
                         </Image.RenderTransform>
                     </Image>
 
