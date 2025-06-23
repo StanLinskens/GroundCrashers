@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="nl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -120,7 +121,7 @@
             flex-wrap: wrap;
         }
 
-        .form-row > div {
+        .form-row>div {
             flex: 1;
             min-width: 200px;
         }
@@ -132,7 +133,9 @@
             font-weight: 600;
         }
 
-        input, textarea, select {
+        input,
+        textarea,
+        select {
             width: 100%;
             padding: 12px;
             border: 2px solid #e1e8ed;
@@ -141,7 +144,9 @@
             transition: all 0.3s ease;
         }
 
-        input:focus, textarea:focus, select:focus {
+        input:focus,
+        textarea:focus,
+        select:focus {
             outline: none;
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
@@ -368,11 +373,11 @@
             .form-row {
                 flex-direction: column;
             }
-            
+
             .events-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .header h1 {
                 font-size: 2em;
             }
@@ -383,6 +388,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -591,7 +597,7 @@
             showInterface() {
                 document.getElementById('authPanel').style.display = 'none';
                 document.getElementById('userInfo').style.display = 'flex';
-                
+
                 const roleText = this.currentUser.role === 'admin' ? '👨‍💼 Administrator' : '👨‍🎓 Student';
                 document.getElementById('userRole').textContent = roleText;
 
@@ -602,7 +608,7 @@
                     document.getElementById('registrationForm').style.display = 'block';
                     document.getElementById('statisticsPanel').style.display = 'none';
                 }
-                
+
                 this.updateDisplay();
             }
 
@@ -646,36 +652,48 @@
                 const studentProgram = document.getElementById('studentProgram').value;
                 const eventId = parseInt(document.getElementById('eventSelect').value);
 
-                // Check if participant exists and their event count
-                const currentEvents = this.participants.get(email) || [];
-                if (currentEvents.length >= 2) {
-                    this.showError('Je kunt je maximaal voor 2 events aanmelden!');
-                    return;
-                }
-
-                // Check if already registered for this specific event
-                if (currentEvents.includes(eventId)) {
-                    this.showError('Je bent al aangemeld voor dit event!');
-                    return;
-                }
-
                 const event = this.events.find(e => e.id === eventId);
                 if (!event) {
                     this.showError('Event niet gevonden!');
                     return;
                 }
 
+                const currentEvents = this.participants.get(email) || [];
+
+                // Max 2 event registrations
+                if (currentEvents.length >= 2) {
+                    this.showError('Je kunt je maximaal voor 2 events aanmelden!');
+                    return;
+                }
+
+                // Already registered for this event
+                if (currentEvents.includes(eventId)) {
+                    this.showError('Je bent al aangemeld voor dit event!');
+                    return;
+                }
+
+                // Check for same-time events
+                const hasTimeConflict = currentEvents.some(id => {
+                    const registeredEvent = this.events.find(e => e.id === id);
+                    return registeredEvent && registeredEvent.time === event.time;
+                });
+
+                if (hasTimeConflict) {
+                    this.showError('Je bent al aangemeld voor een event op hetzelfde tijdstip!');
+                    return;
+                }
+
+                // Event full
                 if (event.participants.length >= event.maxParticipants) {
                     this.showError('Dit event is vol!');
                     return;
                 }
 
-                // Check for duplicate student number
-                const existingStudent = this.events.some(e => 
+                // Duplicate student number
+                const existingStudent = this.events.some(e =>
                     e.participants.some(p => p.studentNumber === studentNumber)
                 );
 
-                // Add participant to event
                 const participant = {
                     name,
                     email,
@@ -685,8 +703,6 @@
                 };
 
                 event.participants.push(participant);
-                
-                // Update participant mapping
                 currentEvents.push(eventId);
                 this.participants.set(email, currentEvents);
 
@@ -695,11 +711,12 @@
                 this.showSuccess(`Succesvol aangemeld voor "${event.name}"!`);
             }
 
+
             removeParticipant(eventId, email) {
                 const event = this.events.find(e => e.id === eventId);
-                if (event) {
+                if (event && this.currentUser.role === 'admin') {
                     event.participants = event.participants.filter(p => p.email !== email);
-                    
+
                     // Update participant mapping
                     const currentEvents = this.participants.get(email) || [];
                     const updatedEvents = currentEvents.filter(id => id !== eventId);
@@ -708,7 +725,7 @@
                     } else {
                         this.participants.set(email, updatedEvents);
                     }
-                    
+
                     this.updateDisplay();
                 }
             }
@@ -725,10 +742,10 @@
 
             exportToCSV() {
                 let csv = 'Event Naam,Beschrijving,Workshop Leider,Starttijd,Eindtijd,Locatie,Maximum Deelnemers,Aantal Aanmeldingen,Deelnemer Naam,Email,Leerlingnummer,Opleiding,Aanmelddatum\n';
-                
+
                 this.events.forEach(event => {
                     const baseInfo = `"${event.name}","${event.description}","${event.workshopLeader}","${event.startTime}","${event.endTime}","${event.location}",${event.maxParticipants},${event.participants.length}`;
-                    
+
                     if (event.participants.length === 0) {
                         csv += baseInfo + ',,,,,\n';
                     } else {
@@ -745,10 +762,10 @@
                 // Simple HTML table format that Excel can open
                 let html = '<table border="1">';
                 html += '<tr><th>Event Naam</th><th>Beschrijving</th><th>Workshop Leider</th><th>Starttijd</th><th>Eindtijd</th><th>Locatie</th><th>Max Deelnemers</th><th>Aantal Aanmeldingen</th><th>Deelnemer Naam</th><th>Email</th><th>Leerlingnummer</th><th>Opleiding</th><th>Aanmelddatum</th></tr>';
-                
+
                 this.events.forEach(event => {
                     const baseInfo = `<td>${event.name}</td><td>${event.description}</td><td>${event.workshopLeader}</td><td>${event.startTime}</td><td>${event.endTime}</td><td>${event.location}</td><td>${event.maxParticipants}</td><td>${event.participants.length}</td>`;
-                    
+
                     if (event.participants.length === 0) {
                         html += '<tr>' + baseInfo + '<td></td><td></td><td></td><td></td><td></td></tr>';
                     } else {
@@ -757,7 +774,7 @@
                         });
                     }
                 });
-                
+
                 html += '</table>';
                 this.downloadFile(html, 'events-export.xls', 'application/vnd.ms-excel');
             }
@@ -784,12 +801,12 @@
 
             updateEventsGrid() {
                 const grid = document.getElementById('eventsGrid');
-                
+
                 if (this.events.length === 0) {
                     grid.innerHTML = '<div style="text-align: center; padding: 40px; color: #7f8c8d;"><h3>Nog geen events aangemaakt</h3><p>Gebruik het formulier hierboven om je eerste event toe te voegen.</p></div>';
                     return;
                 }
-                
+
                 if (this.currentUser && this.currentUser.role === 'admin') {
 
                     const statistics = document.querySelector('.statistics');
@@ -800,8 +817,8 @@
                         const isFull = event.participants.length >= event.maxParticipants;
                         const startDate = new Date(event.startTime);
                         const endDate = new Date(event.endTime);
-                        
-                    return `
+
+                        return `
                         <div class="event-card ${isFull ? 'full' : ''}">
                             <div class="event-header">
                                 <div class="event-title">${event.name}</div>
@@ -862,12 +879,12 @@
 
             updateEventSelect() {
                 const select = document.getElementById('eventSelect');
-                const availableEvents = this.events.filter(event => 
+                const availableEvents = this.events.filter(event =>
                     event.participants.length < event.maxParticipants
                 );
 
                 select.innerHTML = '<option value="">-- Kies een event --</option>' +
-                    availableEvents.map(event => 
+                    availableEvents.map(event =>
                         `<option value="${event.id}">${event.name} - ${event.workshopLeader} (${event.participants.length}/${event.maxParticipants})</option>`
                     ).join('');
             }
@@ -939,4 +956,5 @@
         const eventManager = new EventManager();
     </script>
 </body>
+
 </html>
