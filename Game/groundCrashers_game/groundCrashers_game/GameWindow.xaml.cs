@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using groundCrashers_game.classes;
 using Microsoft.VisualBasic.Logging;
 using System.Diagnostics;
@@ -122,7 +123,7 @@ namespace groundCrashers_game
             var playerCreature = gameManager.ActivePlayerCreature;
             if (playerCreature != null)
             {
-                attack_Animation(); // Start attack animation
+                attack_Animation(attacker_name: "Player");
                 PlayerCreatureName.Content = playerCreature.name;
                 PlayerHealthText.Text = playerCreature.stats.hp.ToString() + "/" + playerCreature.stats.max_hp.ToString();
                 PlayerHealthBar.Value = playerCreature.stats.hp;
@@ -182,7 +183,7 @@ namespace groundCrashers_game
             var cpuCreature = gameManager.ActiveCpuCreature;
             if (cpuCreature != null)
             {
-                attack_Animation();
+                attack_Animation(attacker_name: "Enemy");
                 EnemyCreatureName.Content = cpuCreature.name;
                 EnemyHealthText.Text = cpuCreature.stats.hp.ToString() + "/" + cpuCreature.stats.max_hp.ToString();
                 EnemyHealthBar.Value = cpuCreature.stats.hp;
@@ -232,43 +233,58 @@ namespace groundCrashers_game
             }
         }
 
-        private void attack_Animation()
+        private void attack_Animation(string attacker_name)
         {
+            // Define base rotation angles for the attack animation
+            double[] angles = new double[] { 25, -30, 10, 0 };
+
+            // Flip the angles for the enemy to mirror the animation
+            if (attacker_name == "Enemy")
+            {
+                angles = angles.Select(a => -a).ToArray();
+            }
+
             // Create the animation using keyframes
             var keyFrames = new DoubleAnimationUsingKeyFrames
             {
                 Duration = TimeSpan.FromSeconds(0.4)
             };
 
-            // Attack swing forward
-            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(25, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.05))));
-            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(-30, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.2)))
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(angles[0], KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.05))));
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(angles[1], KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.2)))
             {
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
             });
-
-            // Recoil slightly
-            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(10, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.3)))
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(angles[2], KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.3)))
             {
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut }
             });
-
-            // Return to original position
-            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.4)))
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(angles[3], KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.4)))
             {
                 EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
             });
 
-            // Make sure we have a proper RenderTransform with RotateTransform
-            if (!(PlayerImageBox.RenderTransform is TransformGroup group))
+            // Apply to the correct image
+            Image attackerBox;
+            if (attacker_name == "Player")
             {
-                group = new TransformGroup();
-                group.Children.Add(new ScaleTransform(-1, 1)); // Keep flip
-                group.Children.Add(new RotateTransform(0));
-                PlayerImageBox.RenderTransform = group;
+                attackerBox = PlayerImageBox;
+            }
+            else
+            {
+                attackerBox = EnemyImageBox;
             }
 
-            // Get the RotateTransform from the group
+            // Ensure the RenderTransform is properly set
+            if (!(attackerBox.RenderTransform is TransformGroup group))
+            {
+                group = new TransformGroup();
+                group.Children.Add(new ScaleTransform(-1, 1)); // Keep horizontal flip
+                group.Children.Add(new RotateTransform(0));
+                attackerBox.RenderTransform = group;
+            }
+
+            // Ensure there's a RotateTransform present
             RotateTransform rotateTransform = group.Children.OfType<RotateTransform>().FirstOrDefault();
             if (rotateTransform == null)
             {
@@ -276,15 +292,14 @@ namespace groundCrashers_game
                 group.Children.Add(rotateTransform);
             }
 
-            // Create the storyboard
+            // Create and start the animation storyboard
             Storyboard storyboard = new Storyboard();
             storyboard.Children.Add(keyFrames);
-            Storyboard.SetTarget(keyFrames, PlayerImageBox);
-            Storyboard.SetTargetProperty(keyFrames, new PropertyPath("RenderTransform.Children[1].(RotateTransform.Angle)")); // Adjust index if needed
-
-            // Start the animation
+            Storyboard.SetTarget(keyFrames, attackerBox);
+            Storyboard.SetTargetProperty(keyFrames, new PropertyPath("RenderTransform.Children[1].(RotateTransform.Angle)"));
             storyboard.Begin();
         }
+
 
 
 
@@ -531,11 +546,11 @@ namespace groundCrashers_game
                 Content = content,
                 Height = 60,
                 Width = 400,
-                Margin = new Thickness(10),
+                Margin = new System.Windows.Thickness(10),
                 FontSize = 20,
                 Background = (Brush)new BrushConverter().ConvertFromString(background),
                 BorderBrush = (Brush)new BrushConverter().ConvertFromString(border),
-                Style = (Style)FindResource("DarkButton"), // Apply the shared DarkButton style
+                Style = (System.Windows.Style)FindResource("DarkButton"), // Apply the shared DarkButton style
             };
 
             // Add DropShadowEffect
