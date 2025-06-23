@@ -1,4 +1,5 @@
-﻿using groundCrashers_game.classes;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using groundCrashers_game.classes;
 using Microsoft.VisualBasic.Logging;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
@@ -72,6 +73,10 @@ namespace groundCrashers_game
             gameManager.hardcore = hardcore; // Set hardcore mode if applicable
             gameManager.StoryMode = storyMode;
             gameManager.levelName = LVLName;
+
+            WinLoseImage.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/youlose.png", UriKind.Absolute));
+            WinLoseOverlay.Visibility = Visibility.Collapsed;
+            WinLoseImage.IsEnabled = false;
 
             gameManager.LoadGameData();
             gameManager.LoadActorsForBattleMode();
@@ -161,20 +166,11 @@ namespace groundCrashers_game
                 if (hasCreatureLeft == null)
                 {
                     gameManager.logs.Add("you Lose");
-                    MessageBox.Show("You Lose!");
-
-                    if (gameManager.StoryMode)
-                    {
-                        LevelMapWindow mapWindow = new LevelMapWindow(false, gameManager.levelName, gameManager.hardcore);
-                        mapWindow.Show();
-                    }
-                    else
-                    {
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
-                    }
-
-                    this.Close();
+                    RefreshLogBox();
+                    WinLoseImage.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/youlose.png", UriKind.Absolute));
+                    WinLoseOverlay.Visibility = Visibility.Visible;
+                    WinLoseImage.IsEnabled = true;
+                    gameManager.Win = false;
                 }
 
             }
@@ -225,20 +221,11 @@ namespace groundCrashers_game
                 EnemyHealthText.Text = "0/" + EnemyHealt_split[1];
 
                 gameManager.logs.Add("you win");
-                MessageBox.Show("You win!");
-
-                if(gameManager.StoryMode)
-                {
-                    LevelMapWindow mapWindow = new LevelMapWindow(true, gameManager.levelName, gameManager.hardcore);
-                    mapWindow.Show();
-                }
-                else
-                {
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
-                }
-
-                this.Close();
+                RefreshLogBox();
+                WinLoseImage.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/youwin.png", UriKind.Absolute));
+                WinLoseOverlay.Visibility = Visibility.Visible;
+                WinLoseImage.IsEnabled = true;
+                gameManager.Win = true;
             }
         }
 
@@ -262,7 +249,7 @@ namespace groundCrashers_game
             }
             catch
             {
-                MessageBox.Show("fuck this shit");
+                MessageBox.Show("Error loading biome");
             }
 
         }
@@ -739,6 +726,21 @@ namespace groundCrashers_game
             }
             gameManager.logs.Add("Creature not found.");
             RefreshLogBox();
+        }
+
+        private void WinLoseImage_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (gameManager.StoryMode)
+            {
+                LevelMapWindow mapWindow = new LevelMapWindow(gameManager.Win, gameManager.levelName, gameManager.hardcore);
+                mapWindow.Show();
+            }
+            else
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+            }
+            this.Close();
         }
     }
 }

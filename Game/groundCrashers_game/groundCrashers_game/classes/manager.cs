@@ -36,6 +36,8 @@ namespace groundCrashers_game.classes
 
         public int _maxCreatures { get; set; } = 3;
 
+        public bool Win { get; set; } = false;
+
         public bool getFromJson = true;
 
         public enum ActionType

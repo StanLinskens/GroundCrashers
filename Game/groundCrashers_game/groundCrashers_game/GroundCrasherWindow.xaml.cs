@@ -97,6 +97,7 @@ namespace groundCrashers_game
                     MessageBox.Show("No creatures found on card.");
                     _Manager.logs.Add("Card scan returned no creatures.");
                 }
+                _gameWindow.RefreshLogBox();
             }
             catch (Exception ex)
             {
@@ -228,6 +229,7 @@ namespace groundCrashers_game
                 }
             }
 
+
             var allCreatures = JsonConvert.DeserializeObject<List<Creature>>(json);
             loadedCreatures = allCreatures.Where(c => allowedCreatureIds.Contains(c.id)).ToList();
 
@@ -248,8 +250,6 @@ namespace groundCrashers_game
             }
         }
 
-
-
         private void ConfirmGroundCrasher_Click(object sender, RoutedEventArgs e)
         {
             if (SelectedCreature != null)
@@ -267,6 +267,7 @@ namespace groundCrashers_game
             else
             {
                 _Manager.logs.Add("no creature selected added to team");
+                _gameWindow.RefreshLogBox();
             }
         }
     }
