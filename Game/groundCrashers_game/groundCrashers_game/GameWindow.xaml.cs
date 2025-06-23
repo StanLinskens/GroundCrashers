@@ -663,8 +663,6 @@ namespace groundCrashers_game
 
         private void Swap_Button_Click(object sender, RoutedEventArgs e)
         {
-            UpdateBattleUI();
-
             Actor playerActor = gameManager.GetPlayerActor();
             if (playerActor.Creatures.Count < gameManager._maxCreatures)
             {
@@ -672,6 +670,7 @@ namespace groundCrashers_game
             }
             else
             {
+                UpdateBattleUI();
                 //Replace the current buttons with combat options
                 ShowSwapOptions();
             }
