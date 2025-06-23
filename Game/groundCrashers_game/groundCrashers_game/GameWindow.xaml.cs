@@ -313,6 +313,10 @@ namespace groundCrashers_game
         {
             if (gameManager.playerChoise != "none" && gameManager.playerChoise != "swap")
             {
+                if (gameManager.playerChoise == "attack" || gameManager.playerChoise == "elementattack")
+                {
+                    attack_Animation(attacker_name: "Player");
+                }
                 PlayerChoise.Visibility = Visibility.Visible;
                 string location = $"pack://application:,,,/images/other/{gameManager.playerChoise}.png";
                 PlayerChoise.Source = new BitmapImage(new Uri(location, UriKind.Absolute));
@@ -328,6 +332,10 @@ namespace groundCrashers_game
         {
             if (gameManager.cpuChoise != "none" && gameManager.cpuChoise != "swap")
             {
+                if (gameManager.cpuChoise == "attack" || gameManager.cpuChoise == "elementattack")
+                {
+                    attack_Animation(attacker_name: "Enemy");
+                }
                 CpuChoise.Visibility = Visibility.Visible;
                 string location = $"pack://application:,,,/images/other/{gameManager.cpuChoise}CPU.png";
                 CpuChoise.Source = new BitmapImage(new Uri(location, UriKind.Absolute));
@@ -608,7 +616,6 @@ namespace groundCrashers_game
         private void Attack_Button_Click(object sender, RoutedEventArgs e)
         {
             gameManager.ProcessTurn(ActionType.Attack);
-            attack_Animation(attacker_name: "Player");
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
@@ -619,7 +626,6 @@ namespace groundCrashers_game
         {
             // Implement elemental attack logic
             gameManager.ProcessTurn(ActionType.ElementAttack);
-            attack_Animation(attacker_name: "Player");
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
