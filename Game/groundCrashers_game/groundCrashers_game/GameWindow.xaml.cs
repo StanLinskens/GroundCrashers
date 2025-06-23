@@ -144,6 +144,8 @@ namespace groundCrashers_game
                 try
                 {
                     PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{playerCreature.name}.png", UriKind.Absolute));
+
+                    ActionDisplayPlayer();
                 }
                 catch (Exception ex)
                 {
@@ -154,6 +156,8 @@ namespace groundCrashers_game
             }
             else
             {
+                gameManager.playerChoise = "none";
+
                 PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
 
                 string PlayerHealthT = PlayerHealthText.Text.ToString();
@@ -203,15 +207,20 @@ namespace groundCrashers_game
                 try
                 {
                     EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{cpuCreature.name}.png", UriKind.Absolute));
+
+                    ActionDisplayCpu();
                 }
                 catch (Exception ex)
                 {
                     //MessageBox.Show($"Error loading image: {ex.Message}");
                     EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
+                    CpuChoise.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
                 }
             }
             else
             {
+                gameManager.playerChoise = "none";
+
                 EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
 
                 string EnemyHealthT = EnemyHealthText.Text.ToString();
@@ -226,6 +235,36 @@ namespace groundCrashers_game
                 WinLoseOverlay.Visibility = Visibility.Visible;
                 WinLoseImage.IsEnabled = true;
                 gameManager.Win = true;
+            }
+        }
+
+        private void ActionDisplayPlayer()
+        {
+            if (gameManager.playerChoise != "none" && gameManager.playerChoise != "swap")
+            {
+                PlayerChoise.Visibility = Visibility.Visible;
+                string location = $"pack://application:,,,/images/other/{gameManager.playerChoise}.png";
+                PlayerChoise.Source = new BitmapImage(new Uri(location, UriKind.Absolute));
+                gameManager.playerChoise = "none"; // Reset after displaying
+            }
+            else
+            {
+                PlayerChoise.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void ActionDisplayCpu()
+        {
+            if (gameManager.cpuChoise != "none" && gameManager.cpuChoise != "swap")
+            {
+                CpuChoise.Visibility = Visibility.Visible;
+                string location = $"pack://application:,,,/images/other/{gameManager.cpuChoise}CPU.png";
+                CpuChoise.Source = new BitmapImage(new Uri(location, UriKind.Absolute));
+                gameManager.cpuChoise = "none"; // Reset after displaying
+            }
+            else
+            {
+                CpuChoise.Visibility = Visibility.Hidden;
             }
         }
 
@@ -443,6 +482,8 @@ namespace groundCrashers_game
 
         private void ShowCombatOptions()
         {
+            UpdateBattleUI();
+
             // Save original buttons if not already saved
             if (fightButton == null)
             {
@@ -545,6 +586,8 @@ namespace groundCrashers_game
 
         private void Swap_Button_Click(object sender, RoutedEventArgs e)
         {
+            UpdateBattleUI();
+
             Actor playerActor = gameManager.GetPlayerActor();
             if (playerActor.Creatures.Count < gameManager._maxCreatures)
             {

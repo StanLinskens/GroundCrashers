@@ -304,6 +304,11 @@
     <None Remove="Images\jungle.jpg" />
     <None Remove="Images\marsh.jpg" />
     <None Remove="Images\ocean.jpg" />
+    <None Remove="Images\other\attack.png" />
+    <None Remove="Images\other\attackCPU.png" />
+    <None Remove="Images\other\defendCPU.png" />
+    <None Remove="Images\other\elementattack.png" />
+    <None Remove="Images\other\elementattackCPU.png" />
     <None Remove="Images\other\questionmark.png" />
     <None Remove="Images\other\youlose.png" />
     <None Remove="Images\other\youwin.png" />
@@ -640,6 +645,12 @@
     <Resource Include="Images\GroundCrasherSprites\Wyvern.png" />
     <Resource Include="Images\GroundCrasherSprites\Zephantix.png" />
     <Resource Include="Images\GroundCrasherSprites\Zephyisanus.png" />
+    <Resource Include="Images\other\attack.png" />
+    <Resource Include="Images\other\attackCPU.png" />
+    <Resource Include="Images\other\defend.png" />
+    <Resource Include="Images\other\defendCPU.png" />
+    <Resource Include="Images\other\elementattack.png" />
+    <Resource Include="Images\other\elementattackCPU.png" />
     <Resource Include="Images\other\questionmark.png" />
     <Resource Include="Images\other\youlose.png" />
     <Resource Include="Images\other\youwin.png" />

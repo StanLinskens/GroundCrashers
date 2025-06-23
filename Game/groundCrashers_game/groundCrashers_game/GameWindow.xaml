@@ -150,6 +150,18 @@
 
             <!-- Battle Area -->
             <Grid Grid.Row="2">
+
+                <Image  Name="CpuChoise"
+                        VerticalAlignment="Top"
+                        Opacity="100"
+                        Width="300"
+                        Height="300"
+                        HorizontalAlignment="Left"
+                        Source="/Images/other/attackCPU.png"
+                        Visibility="Hidden"
+                        Stretch="Uniform"
+                        RenderOptions.BitmapScalingMode="HighQuality" Margin="960,-128,0,0"/>
+
                 <Canvas>
                     <!-- Player Platform - Shadow Effect -->
                     <Ellipse x:Name="PlayerEllipse" Width="300" Height="60" Fill="#222" Stroke="#555555" StrokeThickness="2" Opacity="0.7" Canvas.Left="200" Canvas.Top="500">
@@ -195,6 +207,14 @@
                     <Border x:Name="PlayerCreatureBorder" Canvas.Left="180" Canvas.Top="460" >
                         <Button x:Name="PlayerCreatureName" Content="PLAYER" Background="#111" BorderBrush="#444444" BorderThickness="2" FontSize="20" Foreground="#66FF66" FontWeight="Normal" Padding="10,5" Click="PlayerCreatureName_Click"/>
                     </Border>
+                    <Image  x:Name="PlayerChoise"
+                        Opacity="100"
+                        Width="300"
+                        Height="299"
+                        Source="/Images/other/attack.png"
+                        Stretch="Uniform"
+                        Visibility="Hidden"
+                        RenderOptions.BitmapScalingMode="HighQuality" HorizontalAlignment="Left" Canvas.Left="553" Canvas.Top="250" VerticalAlignment="Top"/>
                 </Canvas>
             </Grid>
 
