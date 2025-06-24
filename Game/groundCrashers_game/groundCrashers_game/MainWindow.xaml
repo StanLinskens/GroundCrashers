@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         Title="GroundCrashers - Start Screen" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
+
     <Window.Resources>
-        <!-- Button Style -->
+        <!-- Button Style with enhanced animations -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="Foreground" Value="White"/>
@@ -20,6 +21,12 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="FontSize" Value="27"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -38,9 +45,39 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Opacity" Value="0.9"/>
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                                 To="1.05" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                                 To="1.05" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                                 To="1" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                                 To="1" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
                     <Setter Property="Opacity" Value="0.7"/>
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                                 To="0.95" Duration="0:0:0.1"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                                 To="0.95" Duration="0:0:0.1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -64,9 +101,93 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <!-- Floating particles animation -->
+        <Storyboard x:Key="FloatingParticles" RepeatBehavior="Forever">
+            <DoubleAnimation Storyboard.TargetName="particle1"  Storyboard.TargetProperty="(Canvas.Top)" From="1080" To="-50" Duration="0:0:8"/>
+            <DoubleAnimation Storyboard.TargetName="particle2"  Storyboard.TargetProperty="(Canvas.Top)" From="1080" To="-50" Duration="0:0:12" BeginTime="0:0:2"/>
+            <DoubleAnimation Storyboard.TargetName="particle3"  Storyboard.TargetProperty="(Canvas.Top)" From="1080" To="-50" Duration="0:0:10" BeginTime="0:0:4"/>
+            <DoubleAnimation Storyboard.TargetName="particle4"  Storyboard.TargetProperty="(Canvas.Top)" From="1080" To="-50" Duration="0:0:10" BeginTime="0:0:1"/>
+            <DoubleAnimation Storyboard.TargetName="particle5"  Storyboard.TargetProperty="(Canvas.Top)" From="1080" To="-50" Duration="0:0:9" BeginTime="0:0:3"/>
+            <DoubleAnimation Storyboard.TargetName="particle6" Storyboard.TargetProperty="(Canvas.Top)" From="1080" To="-50" Duration="0:0:5" BeginTime="0:0:5"/>
+            <DoubleAnimation Storyboard.TargetName="particle7" Storyboard.TargetProperty="(Canvas.Top)" From="1080" To="-50" Duration="0:0:3" BeginTime="0:0:6"/>
+            <DoubleAnimation Storyboard.TargetName="particle8" Storyboard.TargetProperty="(Canvas.Top)" From="1080" To="-50" Duration="0:0:1" BeginTime="0:0:7"/>
+            <DoubleAnimation Storyboard.TargetName="particle9" Storyboard.TargetProperty="(Canvas.Top)" From="1080" To="-50" Duration="0:0:5" BeginTime="0:0:8"/>
+            <DoubleAnimation Storyboard.TargetName="particle10" Storyboard.TargetProperty="(Canvas.Top)" From="1080" To="-50" Duration="0:0:1" BeginTime="0:0:9"/>
+        </Storyboard>
+
+        <!-- Pulse animation for corner accents -->
+        <Storyboard x:Key="PulseAnimation" RepeatBehavior="Forever">
+            <DoubleAnimation Storyboard.TargetName="topLeftAccent" 
+                             Storyboard.TargetProperty="Opacity"
+                             From="0.1" To="0.3" Duration="0:0:3" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="bottomRightAccent" 
+                             Storyboard.TargetProperty="Opacity"
+                             From="0.1" To="0.25" Duration="0:0:4" AutoReverse="True" BeginTime="0:0:1"/>
+        </Storyboard>
+
+        <!-- Logo entrance animation -->
+        <Storyboard x:Key="LogoEntrance">
+            <DoubleAnimation Storyboard.TargetName="logoimage" 
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:1.5"/>
+            <DoubleAnimation Storyboard.TargetName="logoimage" 
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                             From="0.8" To="1" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <ElasticEase EasingMode="EaseOut" Oscillations="2"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            <DoubleAnimation Storyboard.TargetName="logoimage" 
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                             From="0.8" To="1" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <ElasticEase EasingMode="EaseOut" Oscillations="2"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <!-- Menu buttons entrance animation -->
+        <Storyboard x:Key="MenuEntrance">
+            <DoubleAnimation Storyboard.TargetName="menuButtons" 
+                             Storyboard.TargetProperty="Opacity"
+                             From="0" To="1" Duration="0:0:0.8" BeginTime="0:0:0.5"/>
+            <DoubleAnimation Storyboard.TargetName="menuButtons" 
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)"
+                             From="50" To="0" Duration="0:0:0.8" BeginTime="0:0:0.5">
+                <DoubleAnimation.EasingFunction>
+                    <CubicEase EasingMode="EaseOut"/>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+        </Storyboard>
+
+        <!-- Subtle logo breathing animation -->
+        <Storyboard x:Key="LogoBreathing" RepeatBehavior="Forever">
+            <DoubleAnimation Storyboard.TargetName="logoimage" 
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                             From="1" To="1.05" Duration="0:0:4" AutoReverse="True"/>
+            <DoubleAnimation Storyboard.TargetName="logoimage" 
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                             From="1" To="1.05" Duration="0:0:4" AutoReverse="True"/>
+        </Storyboard>
     </Window.Resources>
 
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource LogoEntrance}"/>
+            <BeginStoryboard Storyboard="{StaticResource MenuEntrance}"/>
+            <BeginStoryboard Storyboard="{StaticResource FloatingParticles}"/>
+            <BeginStoryboard Storyboard="{StaticResource PulseAnimation}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="413*"/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="1184*"/>
+            <ColumnDefinition Width="314*"/>
+        </Grid.ColumnDefinitions>
         <!-- Background with animated gradient -->
         <Grid.Background>
             <RadialGradientBrush Center="0.5,0.3" RadiusX="1.2" RadiusY="1.2">
@@ -75,19 +196,77 @@
                 <GradientStop Color="#FF0F1419" Offset="1.0"/>
             </RadialGradientBrush>
         </Grid.Background>
+        <!-- Decorative Elements -->
+        <Canvas Grid.ColumnSpan="4">
+            <!-- Top-left corner accent -->
+            <Rectangle x:Name="topLeftAccent"
+               Width="504" Height="504" 
+               Canvas.Left="-46" Canvas.Top="42"
+               Fill="#FF2196F3" 
+               Opacity="0.1">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="45"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
 
+            <!-- Bottom-right corner accent -->
+            <Rectangle x:Name="bottomRightAccent"
+               Width="449" Height="450" 
+               Canvas.Right="-50" Canvas.Bottom="-50"
+               Fill="#FFE91E63" 
+               Opacity="0.1" Canvas.Left="1931" Canvas.Top="582">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="45"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <!-- Floating particles -->
+            <Ellipse x:Name="particle1" Width="15" Height="16" Fill="#FF4CAF50" Opacity="0.6" Canvas.Left="203" Canvas.Top="-18"/>
+            <Ellipse x:Name="particle2" Width="10" Height="10" Fill="#FF2196F3" Opacity="0.4" Canvas.Left="1600" HorizontalAlignment="Center" Canvas.Top="-12" VerticalAlignment="Top"/>
+            <Ellipse x:Name="particle3" Width="20" Height="20" Fill="#FFE91E63" Opacity="0.5" Canvas.Left="799" Canvas.Top="-32" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Ellipse x:Name="particle4" Width="25" Height="24" Fill="#FF9C27B0" Opacity="0.3" Canvas.Left="1200" HorizontalAlignment="Center" Canvas.Top="-32" VerticalAlignment="Top"/>
+            <Ellipse x:Name="particle5" Width="30" Height="30" Fill="Aqua" Opacity="0.4" Canvas.Left="404" Canvas.Top="-37"/>
+            <Ellipse x:Name="particle6" Width="30" Height="30" Fill="Bisque" Opacity="0.4" Canvas.Left="250" Canvas.Top="-37"/>
+            <Ellipse x:Name="particle7" Width="30" Height="30" Fill="BurlyWood" Opacity="0.4" Canvas.Left="303" Canvas.Top="-37"/>
+            <Ellipse x:Name="particle8" Width="30" Height="30" Fill="DarkGreen" Opacity="0.4" Canvas.Left="100" Canvas.Top="-37"/>
+            <Ellipse x:Name="particle9" Width="30" Height="30" Fill="GreenYellow" Opacity="0.4" Canvas.Left="1500" Canvas.Top="-37"/>
+            <Ellipse x:Name="particle10" Width="30" Height="30" Fill="#FFFF9800" Opacity="0.4" Canvas.Left="1300" Canvas.Top="-37"/>
+        </Canvas>
         <!-- Main Content Container -->
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="1200">
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Width="1200" Grid.ColumnSpan="3" Margin="360,0,0,0">
 
             <!-- Logo Section -->
             <Grid Margin="0,0,0,0">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                    <Image x:Name="logoimage" Source="/Images/other/groundcrasherslogo.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" Width="1000" Height="auto"/>
+                    <Image x:Name="logoimage" 
+                           Source="/Images/other/groundcrasherslogo.png" 
+                           RenderOptions.BitmapScalingMode="NearestNeighbor" 
+                           RenderOptions.EdgeMode="Aliased" 
+                           Width="1000" 
+                           Height="auto"
+                           Opacity="0"
+                           RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <ScaleTransform ScaleX="0.8" ScaleY="0.8"/>
+                        </Image.RenderTransform>
+                        <Image.Triggers>
+                            <EventTrigger RoutedEvent="Image.Loaded">
+                                <BeginStoryboard Storyboard="{StaticResource LogoBreathing}" x:Name="breathingStoryboard"/>
+                            </EventTrigger>
+                        </Image.Triggers>
+                    </Image>
                 </StackPanel>
             </Grid>
 
             <!-- Menu Buttons -->
-            <StackPanel HorizontalAlignment="Center">
+            <StackPanel x:Name="menuButtons" 
+                        HorizontalAlignment="Center" 
+                        Opacity="0"
+                        RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TranslateTransform Y="50"/>
+                </StackPanel.RenderTransform>
+
                 <Button Content="🚀 START GAME"
                         Style="{StaticResource RoundedButtonStyle}"
                         Background="#FF4CAF50"
@@ -117,27 +296,5 @@
                        Margin="0,30,0,0"/>
         </StackPanel>
 
-        <!-- Decorative Elements -->
-        <Canvas>
-            <!-- Top-left corner accent -->
-            <Rectangle Width="504" Height="504" 
-                       Canvas.Left="-46" Canvas.Top="42"
-                       Fill="#FF2196F3" 
-                       Opacity="0.1">
-                <Rectangle.RenderTransform>
-                    <RotateTransform Angle="45"/>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-
-            <!-- Bottom-right corner accent -->
-            <Rectangle Width="449" Height="450" 
-                       Canvas.Right="-50" Canvas.Bottom="-50"
-                       Fill="#FFE91E63" 
-                       Opacity="0.1" Canvas.Left="1931" Canvas.Top="582">
-                <Rectangle.RenderTransform>
-                    <RotateTransform Angle="45"/>
-                </Rectangle.RenderTransform>
-            </Rectangle>
-        </Canvas>
     </Grid>
 </Window>

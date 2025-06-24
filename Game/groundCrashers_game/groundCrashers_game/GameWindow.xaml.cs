@@ -489,6 +489,7 @@ namespace groundCrashers_game
 
         private void FindActionButtonsPanel()
         {
+            // This method locates the WrapPanel that contains the action buttons in the UI.
             try
             {
                 Grid mainGrid = (Grid)((Viewbox)Content).Child;
