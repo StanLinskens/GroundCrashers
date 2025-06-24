@@ -152,12 +152,17 @@ namespace groundCrashers_game
                 catch (Exception ex)
                 {
                     //MessageBox.Show($"Error loading image: {ex.Message}");
-                    EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
+                    PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
+                    PlayerChoise.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
                 }
 
             }
             else
             {
+
+                try { ActionDisplayPlayer(); }
+                catch { PlayerChoise.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute)); } // Just to avoid any null reference issues
+
                 gameManager.playerChoise = "none";
 
                 PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
@@ -221,6 +226,9 @@ namespace groundCrashers_game
             }
             else
             {
+                try { ActionDisplayCpu(); }
+                catch { CpuChoise.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute)); } // Just to avoid any null reference issues
+
                 gameManager.playerChoise = "none";
 
                 EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));

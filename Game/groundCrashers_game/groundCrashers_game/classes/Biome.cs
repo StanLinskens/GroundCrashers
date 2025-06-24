@@ -206,6 +206,11 @@ namespace groundCrashers_game
 
         public static bool IsLoaded => _isLoaded;
 
+        /// <summary>
+        /// gets the effectiveness of a creature in the current biome.
+        /// </summary>
+        /// <param name="creature">the creature</param>
+        /// <returns>buff/debuff and stat that gets effected</returns>
         public static string GetBiomeEffectiveness(Creature creature)
         {
             if (!_isLoaded)
@@ -215,10 +220,13 @@ namespace groundCrashers_game
 
             if (_chart.TryGetValue(currentBiome, out var biome))
             {
+                // check if the creature's element is in the buff or debuff types of the biome
                 if (biome.Buff.Types.Contains(creature.element)) return $"Buff/{biome.Buff.EffectType}";
+                // if the creature's element is not buffed, check if it is debuffed
                 else if (biome.Debuff.Types.Contains(creature.element)) return $"Debuff/{biome.Debuff.EffectType}";
             }
 
+            // if the biome is not loaded or the creature's element is not affected, return "none/none"
             return "none/none";
         }
     }
