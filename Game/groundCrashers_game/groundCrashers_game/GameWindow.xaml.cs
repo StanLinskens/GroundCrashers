@@ -31,6 +31,7 @@ namespace groundCrashers_game
         private Button runButton;
         private WrapPanel actionButtonsPanel;
 
+        // link the elements to a color for later use
         private Dictionary<Elements, string> CreatureElementColor = new()
         {
             { Elements.Nature, "#6AA84F" },     
@@ -54,6 +55,7 @@ namespace groundCrashers_game
             { Elements.Astral, "#CEB4FF" }      
         };
 
+        // link the primaries to a color for later use
         private Dictionary<Primaries, string> CreaturePrimaryColor = new()
         {
             { Primaries.Verdant, "#388E3C" },   
@@ -65,6 +67,12 @@ namespace groundCrashers_game
             { Primaries.Titan, "#B71C1C" }      
         };
 
+        /// <summary>
+        /// the gamewindow where all the magic for the game happens.
+        /// </summary>
+        /// <param name="storyMode">if storymode or not</param>
+        /// <param name="LVLName">what level it is or null as default</param>
+        /// <param name="hardcore">if hardcore or not</param>
         public GameWindow(bool storyMode, string LVLName = "null", bool hardcore = false)
         {
             InitializeComponent();
@@ -73,24 +81,27 @@ namespace groundCrashers_game
             gameManager = new Manager();
 
             gameManager.hardcore = hardcore; // Set hardcore mode if applicable
-            gameManager.StoryMode = storyMode;
-            gameManager.levelName = LVLName;
+            gameManager.StoryMode = storyMode; // set story mode if applicable
+            gameManager.levelName = LVLName; // set the level name if applicable
 
+            // set the default img
             WinLoseImage.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/youlose.png", UriKind.Absolute));
             WinLoseOverlay.Visibility = Visibility.Collapsed;
             WinLoseImage.IsEnabled = false;
 
+            // pull the data
             gameManager.LoadGameData();
+            // load the actors for the battle mode
             gameManager.LoadActorsForBattleMode();
 
+            // Initialize the portal manager
             portalManager = new Esp32Manager();
-
-            //UpdateBattleUI();
 
             // Find the WrapPanel in the XAML layout
             FindActionButtonsPanel();
 
-            if(storyMode)
+            // if story mode is enabled, generate the environment based on the level
+            if (storyMode)
             {
                 EnviromentGenerator();
 
@@ -101,25 +112,33 @@ namespace groundCrashers_game
             }
             else
             {
-                RandomScenarioGenerator();
+                RandomScenarioGenerator(); // Generate a random scenario if not in story mode
             }
 
-            
+            // play the random battle music
             AudioPlayer.Instance.Stop();
             AudioPlayer.Instance.PlayRandomBattleMusic();
 
+            // refresh the log box
             RefreshLogBox();
         }
 
+        /// <summary>
+        /// this method refreshes the log box with the latest logs from the game manager. 
+        /// and updates the logbox text with the latest logs.
+        /// </summary>
         public void RefreshLogBox()
         {
             gameManager.ControlLogs();
             logbox.Text = string.Join("\n", gameManager.logs);
         }
 
+        /// <summary>
+        /// update the battle UI with the current player and CPU creature stats.
+        /// </summary>
         public void UpdateBattleUI()
         {
-            // Instead of grabbing player.Creatures[0], we use ActivePlayerCreature
+            // get the active player creature and update the UI elements accordingly
             var playerCreature = gameManager.ActivePlayerCreature;
             if (playerCreature != null)
             {
@@ -145,37 +164,46 @@ namespace groundCrashers_game
                             "#222")));
                 try
                 {
+                    // set the img
                     PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{playerCreature.name}.png", UriKind.Absolute));
 
+                    // show attack like sword/elemnt/defend img
                     ActionDisplayPlayer();
                 }
                 catch (Exception ex)
                 {
-                    //MessageBox.Show($"Error loading image: {ex.Message}");
+                    // if there was a error set the default img
                     PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
                     PlayerChoise.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
                 }
 
             }
+            // if player has none selected
             else
             {
-
+                // check if actiondisplayplayer can be called, if not catch the error
                 try { ActionDisplayPlayer(); }
                 catch { PlayerChoise.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute)); } // Just to avoid any null reference issues
 
+                // reset the player choise to none
                 gameManager.playerChoise = "none";
 
+                // reset the player img to default
                 PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
 
+                // update player health bar and text
                 string PlayerHealthT = PlayerHealthText.Text.ToString();
                 string[] PlayerHealth_split = PlayerHealthT.Split('/');
 
+                // bar to 0
                 PlayerHealthBar.Value = 0;
                 PlayerHealthText.Text = "0/" + PlayerHealth_split[1];
 
+                // check if the player has any creatures left
                 Creature hasCreatureLeft = gameManager.GetPlayerActor().Creatures.FirstOrDefault(c => c.alive);
                 if (hasCreatureLeft == null)
                 {
+                    // show you lose img and log
                     gameManager.logs.Add("you Lose");
                     RefreshLogBox();
                     WinLoseImage.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/youlose.png", UriKind.Absolute));
@@ -213,8 +241,10 @@ namespace groundCrashers_game
                                 "#222")));
                 try
                 {
+                    // set the img
                     EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{cpuCreature.name}.png", UriKind.Absolute));
 
+                    // dispaly the cpu action img
                     ActionDisplayCpu();
                 }
                 catch (Exception ex)
@@ -226,11 +256,14 @@ namespace groundCrashers_game
             }
             else
             {
+                // display the cpu action img if error catch
                 try { ActionDisplayCpu(); }
                 catch { CpuChoise.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute)); } // Just to avoid any null reference issues
 
-                gameManager.playerChoise = "none";
+                // reset it
+                gameManager.cpuChoise = "none";
 
+                // reset the cpu img to default
                 EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
 
                 string EnemyHealthT = EnemyHealthText.Text.ToString();
@@ -239,8 +272,11 @@ namespace groundCrashers_game
                 EnemyHealthBar.Value = 0;
                 EnemyHealthText.Text = "0/" + EnemyHealt_split[1];
 
+                // you win if the cpu has no creatures left
                 gameManager.logs.Add("you win");
+                // logbox refresh
                 RefreshLogBox();
+                // show you win img
                 WinLoseImage.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/youwin.png", UriKind.Absolute));
                 WinLoseOverlay.Visibility = Visibility.Visible;
                 WinLoseImage.IsEnabled = true;
@@ -313,8 +349,9 @@ namespace groundCrashers_game
             storyboard.Begin();
         }
 
-
-
+        /// <summary>
+        /// this displays the player's action in the battle UI.
+        /// </summary>
         private void ActionDisplayPlayer()
         {
             // If the player made an action, display it
@@ -325,7 +362,9 @@ namespace groundCrashers_game
                 {
                     attack_Animation(attacker_name: "Player");
                 }
+                // make the img visable
                 PlayerChoise.Visibility = Visibility.Visible;
+                // update img to most recent action
                 string location = $"pack://application:,,,/images/other/{gameManager.playerChoise}.png";
                 PlayerChoise.Source = new BitmapImage(new Uri(location, UriKind.Absolute));
                 gameManager.playerChoise = "none"; // Reset after displaying
@@ -333,10 +372,13 @@ namespace groundCrashers_game
             // If the player did not make an action, hide the image
             else
             {
-                PlayerChoise.Visibility = Visibility.Hidden;
+                PlayerChoise.Visibility = Visibility.Hidden; // hide if the action is none or swap
             }
         }
 
+        /// <summary>
+        /// display the action of the CPU in the battle UI.
+        /// </summary>
         private void ActionDisplayCpu()
         {
             // If the CPU made an action, display it
@@ -347,7 +389,9 @@ namespace groundCrashers_game
                 {
                     attack_Animation(attacker_name: "Enemy");
                 }
+                // make the img visable
                 CpuChoise.Visibility = Visibility.Visible;
+                // chance the img to the most recent action
                 string location = $"pack://application:,,,/images/other/{gameManager.cpuChoise}CPU.png";
                 CpuChoise.Source = new BitmapImage(new Uri(location, UriKind.Absolute));
                 gameManager.cpuChoise = "none"; // Reset after displaying
@@ -355,13 +399,17 @@ namespace groundCrashers_game
             // If the CPU did not make an action, hide the image
             else
             {
+                // if not an action, hide the image
                 CpuChoise.Visibility = Visibility.Hidden;
             }
         }
 
+        /// <summary>
+        /// generate the environment based on the current level or scenario.
+        /// </summary>
         private void EnviromentGenerator()
         {
-            // 1) Get random enum values
+            // 1) Get enum values
             var Biome = gameManager.GetBiome();
             var Time = gameManager.GetDaytime();
             var randomWeather = Manager.GetRandomWeather();
@@ -406,7 +454,11 @@ namespace groundCrashers_game
             BiomeBackground.ImageSource = new BitmapImage(new Uri($"pack://application:,,,/images/battleGrounds/{randomBiome.ToString().ToLower()}.jpg", UriKind.Absolute));
         }
 
-        // Helper: map each Biome to a simple emoji
+        /// <summary>
+        /// map each Biome to a simple emoji
+        /// </summary>
+        /// <param name="b"></param>
+        /// <returns></returns>
         private string GetBiomeEmoji(Biomes b)
         {
             switch (b)
@@ -465,7 +517,11 @@ namespace groundCrashers_game
             }
         }
 
-        // Helper: map each Daytime to an emoji
+        /// <summary>
+        /// map each Daytime to an emoji
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
         private string GetDaytimeEmoji(Daytimes d)
         {
             switch (d)
@@ -478,7 +534,11 @@ namespace groundCrashers_game
             }
         }
 
-        // Helper: map each Weather to an emoji
+        /// <summary>
+        /// map each Weather to an emoji
+        /// </summary>
+        /// <param name="w"></param>
+        /// <returns></returns>
         private string GetWeatherEmoji(Weathers w)
         {
             switch (w)
@@ -495,6 +555,9 @@ namespace groundCrashers_game
             }
         }
 
+        /// <summary>
+        /// get the action buttons panel from the XAML layout.
+        /// </summary>
         private void FindActionButtonsPanel()
         {
             // This method locates the WrapPanel that contains the action buttons in the UI.
@@ -530,7 +593,7 @@ namespace groundCrashers_game
             }
         }
 
-
+        // store the references to the original action buttons for later use
         private void StoreButtonReferences()
         {
             // Get references to the original buttons for later use
@@ -558,6 +621,11 @@ namespace groundCrashers_game
             }
         }
 
+        /// <summary>
+        /// if the fight button is clicked, it will check if the player has a creature selected.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Fight_Button_Click(object sender, RoutedEventArgs e)
         {
             if (gameManager.ActivePlayerCreature != null)
@@ -572,6 +640,9 @@ namespace groundCrashers_game
             RefreshLogBox();
         }
 
+        /// <summary>
+        /// show the combat options when the fight button is clicked.
+        /// </summary>
         private void ShowCombatOptions()
         {
             UpdateBattleUI();
@@ -598,6 +669,14 @@ namespace groundCrashers_game
             actionButtonsPanel.Children.Add(backButton);
         }
 
+        /// <summary>
+        /// create buttons place
+        /// </summary>
+        /// <param name="content">the content</param>
+        /// <param name="background">the background color</param>
+        /// <param name="border">the border</param>
+        /// <param name="clickHandler">the clickhandeler</param>
+        /// <returns></returns>
         private Button CreateButton(string content, string background, string border, RoutedEventHandler clickHandler)
         {
             Button button = new Button
@@ -626,6 +705,11 @@ namespace groundCrashers_game
             return button;
         }
 
+        /// <summary>
+        /// if attack button is clicked, it will process the turn with an attack action.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Attack_Button_Click(object sender, RoutedEventArgs e)
         {
             gameManager.ProcessTurn(ActionType.Attack);
@@ -635,6 +719,11 @@ namespace groundCrashers_game
             RefreshLogBox();
         }
 
+        /// <summary>
+        /// if the element button is clicked, it will process the turn with an elemental attack action.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Element_Button_Click(object sender, RoutedEventArgs e)
         {
             // Implement elemental attack logic
@@ -645,6 +734,11 @@ namespace groundCrashers_game
             RefreshLogBox();
         }
 
+        /// <summary>
+        /// if the defend button is clicked, it will process the turn with a defend action.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Defend_Button_Click(object sender, RoutedEventArgs e)
         {
             // Implement defense logic
@@ -656,6 +750,11 @@ namespace groundCrashers_game
             RefreshLogBox();
         }
 
+        /// <summary>
+        /// if the back button is clicked, it will restore the main action buttons.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Back_Button_Click(object sender, RoutedEventArgs e)
         {
             // Go back to main action buttons
@@ -663,17 +762,25 @@ namespace groundCrashers_game
             RefreshLogBox();
         }
 
+        /// <summary>
+        /// restore the main action buttons to the action buttons panel
+        /// </summary>
         private void RestoreMainActionButtons()
         {
             actionButtonsPanel.Children.Clear();
 
+            // add them to the action button pannel if it is not null
             if (fightButton != null) actionButtonsPanel.Children.Add(fightButton);
             if (bagButton != null) actionButtonsPanel.Children.Add(bagButton);
             if (groundCrashersButton != null) actionButtonsPanel.Children.Add(groundCrashersButton);
             if (runButton != null) actionButtonsPanel.Children.Add(runButton);
         }
 
-
+        /// <summary>
+        /// when the swap button is clicked, it will check if the player has enough creatures to swap.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Swap_Button_Click(object sender, RoutedEventArgs e)
         {
             Actor playerActor = gameManager.GetPlayerActor();
@@ -683,8 +790,9 @@ namespace groundCrashers_game
             }
             else
             {
+                // update the battle UI
                 UpdateBattleUI();
-                //Replace the current buttons with combat options
+                //Replace the current buttons with swap options
                 ShowSwapOptions();
             }
             RefreshLogBox();
@@ -701,8 +809,10 @@ namespace groundCrashers_game
             // Clear the current buttons from the panel
             actionButtonsPanel.Children.Clear();
 
+            // get the player actor
             Actor playerActor = gameManager.GetPlayerActor();
 
+            // go trough the creatures and create buttons for each creature. only if alive create a button
             foreach (Creature c in playerActor.Creatures)
             {
                 if(c.alive)
@@ -711,14 +821,19 @@ namespace groundCrashers_game
                     actionButtonsPanel.Children.Add(Creature);
                 }
             }
-           
+
+            // back button to return to main action buttons
             Button back_S_Button = CreateButton("BACK", "Gray", "DarkGray", Back_S_Button_Click);
 
             // Add the new buttons to the panel
-
             actionButtonsPanel.Children.Add(back_S_Button);
         }
 
+        /// <summary>
+        /// when player pressed on creature button, it will swap the active creature with the selected one.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Creature_Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -726,26 +841,32 @@ namespace groundCrashers_game
                 Button clicked = sender as Button;
                 string name = clicked.Content.ToString() ?? "default";
 
+                // get the player actor and find the creature by name
                 Actor playerActor = gameManager.GetPlayerActor();
                 var creature = playerActor.Creatures.FirstOrDefault(c => c.name == name);
 
+                // if it is null, it means the creature was not found
                 if (creature == null)
                 {
                     gameManager.logs.Add("Creature not found.");
                 }
+                // if it is dead it cant swap to it
                 else if (!creature.alive)
                 {
                     gameManager.logs.Add("This creature is dead.");
                 }
+                // if the creature is alive and not the active player creature, swap to it
                 else if (gameManager.ActivePlayerCreature != null && gameManager.ActivePlayerCreature.name != name)
                 {
                     gameManager.ProcessTurn(ActionType.Swap, name);
                     gameManager.logs.Add("Player swapped to " + name);
                 }
+                // if the active player creature is null, set it to the selected creature without processing a turn
                 else if (gameManager.ActivePlayerCreature == null)
                 {
                     gameManager.CurrentPlayerCreatureSet(name);
                 }
+                // if the creature is already active, do nothing
                 else
                 {
                     gameManager.logs.Add("This creature is already active.");
@@ -761,6 +882,11 @@ namespace groundCrashers_game
             }
         }
 
+        /// <summary>
+        /// restore the main action buttons when the back button is clicked in the swap options.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Back_S_Button_Click(object sender, RoutedEventArgs e)
         {
             // Go back to main action buttons
@@ -768,6 +894,11 @@ namespace groundCrashers_game
             RefreshLogBox();
         }
 
+        /// <summary>
+        /// show the groundcrashers window when the groundcrashers button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GroundCrashers_Button_Click_2(object sender, RoutedEventArgs e)
         {
             GroundCrasherWindow crasherWindow = new GroundCrasherWindow(gameManager, this, portalManager);
@@ -775,6 +906,11 @@ namespace groundCrashers_game
             RefreshLogBox();
         }
 
+        /// <summary>
+        /// leave the game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Run_Button_Click(object sender, RoutedEventArgs e)
         {
             if (gameManager.StoryMode)
@@ -794,21 +930,31 @@ namespace groundCrashers_game
 
         }
 
+        /// <summary>
+        /// shwo the stats of the player creature when clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PlayerCreatureName_Click(object sender, RoutedEventArgs e)
         {
+            // get information about the player creature and display it in the logbox
             List<string> newLogs = new List<string>();
             Actor PlayerActor = gameManager.GetPlayerActor();
+            // go trough all the creatures of the player actor and find the one that matches the PlayerCreatureName
             foreach (Creature c in PlayerActor.Creatures)
             {
                 if (c.name == PlayerCreatureName.Content.ToString())
                 {
+                    // dispaly the information in the logbox
                     newLogs.Add($"{c.name} (Player)");
                     newLogs.Add($"Primary Type: {c.primary_type}");
                     newLogs.Add($"Element: {c.element}");
                     newLogs.Add($"Curse: {c.curse}");
 
+                    // go trough all the creatures and find the one that matches the PlayerCreatureName
                     foreach (Creature all_c in gameManager.AllCreatures)
                     {
+                        // display the stats of the player creature and the normal stats without the buffs/curse
                         if (all_c.name == PlayerCreatureName.Content.ToString())
                         {
                             newLogs.Add($"current hp: {c.stats.hp} max hp: {c.stats.max_hp} normal max hp: {all_c.stats.hp * 3}");
@@ -818,31 +964,43 @@ namespace groundCrashers_game
                         }
                     }
 
+                    // set the logbox text to the new logs
                     logbox.Text = string.Join("\n", newLogs);
                     newLogs.Clear();
                     return;
                 }
             }
+            // if the creature was not found, add a log to the game manager logs
             gameManager.logs.Add("Creature not found.");
             RefreshLogBox();
         }
 
+        /// <summary>
+        /// show the stats of the enemy creature when clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EnemyCreatureName_Click(object sender, RoutedEventArgs e)
         {
+            // get information about the cpu creature and display it in the logbox
             List<string> newLogs = new List<string>();
             Actor CpuActor = gameManager.GetCpuActor();
+            // go trough all the creatures of the player actor and find the one that matches the PlayerCreatureName
             foreach (Creature c in CpuActor.Creatures)
             {
                 if (c.name == EnemyCreatureName.Content.ToString())
                 {
+                    // dispaly the information in the logbox
                     newLogs.Add($"{c.name} (CPU)");
                     newLogs.Add($"Primary Type: {c.primary_type}");
                     newLogs.Add($"Element: {c.element}");
                     newLogs.Add($"Curse: {c.curse}");
 
+                    // go trough all the creatures and find the one that matches the PlayerCreatureName
                     foreach (Creature all_c in gameManager.AllCreatures)
                     {
-                        if(all_c.name == EnemyCreatureName.Content.ToString())
+                        // display the stats of the player creature and the normal stats without the buffs/curse
+                        if (all_c.name == EnemyCreatureName.Content.ToString())
                         {
                             newLogs.Add($"current hp: {c.stats.hp} max hp: {c.stats.max_hp} normal max hp: {all_c.stats.hp * 3}");
                             newLogs.Add($"current attack: {c.stats.attack} max attack: {c.stats.max_attack} normal attack: {all_c.stats.attack}");
@@ -850,16 +1008,22 @@ namespace groundCrashers_game
                             newLogs.Add($"current speed: {c.stats.speed} max speed: {c.stats.max_speed} normal speed: {all_c.stats.speed}");
                         }
                     }
-
+                    // set the logbox text to the new logs
                     logbox.Text = string.Join("\n", newLogs);
                     newLogs.Clear();
                     return;
                 }
             }
+            // if the creature was not found, add a log to the game manager logs
             gameManager.logs.Add("Creature not found.");
             RefreshLogBox();
         }
 
+        /// <summary>
+        /// when the game is over and the player pressed on the img go the the main screen or the level map depending on the game mode.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void WinLoseImage_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (gameManager.StoryMode)

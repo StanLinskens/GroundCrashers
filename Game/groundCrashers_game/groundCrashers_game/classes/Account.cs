@@ -124,6 +124,11 @@ namespace groundCrashers_game.classes
             File.WriteAllText(FilePath, json);
         }
 
+        /// <summary>
+        /// add the creatureId to the active account's list of owned creatures
+        /// </summary>
+        /// <param name="creatureId">the creature id</param>
+        /// <returns>the error message or succes message</returns>
         public static string AddCreature(int creatureId)
         {
             if (creatureId <= 0) return "Not a creature"; // creatureId must be a positive integer, 0 doesnt exist

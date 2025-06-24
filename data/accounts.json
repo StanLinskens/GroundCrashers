@@ -5,9 +5,9 @@
     "password": "sven",
     "current_biome_id": 1,
     "current_biome_lvl_id": 3,
-    "LVL": 2,
-    "XP": 15,
-    "coins": 99531,
+    "LVL": 3,
+    "XP": 0,
+    "coins": 99451,
     "Admin": true,
     "Creature_ids": [
       65
