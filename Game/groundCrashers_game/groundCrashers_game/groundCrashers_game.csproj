@@ -309,6 +309,7 @@
     <None Remove="Images\other\defendCPU.png" />
     <None Remove="Images\other\elementattack.png" />
     <None Remove="Images\other\elementattackCPU.png" />
+    <None Remove="Images\other\groundcrasherslogo.png" />
     <None Remove="Images\other\questionmark.png" />
     <None Remove="Images\other\youlose.png" />
     <None Remove="Images\other\youwin.png" />
@@ -651,6 +652,7 @@
     <Resource Include="Images\other\defendCPU.png" />
     <Resource Include="Images\other\elementattack.png" />
     <Resource Include="Images\other\elementattackCPU.png" />
+    <Resource Include="Images\other\groundcrasherslogo.png" />
     <Resource Include="Images\other\questionmark.png" />
     <Resource Include="Images\other\youlose.png" />
     <Resource Include="Images\other\youwin.png" />

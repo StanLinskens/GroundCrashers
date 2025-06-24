@@ -5,25 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:groundCrashers_game"
         mc:Ignorable="d"
-        Title="Start Screen" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        WindowState="Maximized"
+        Title="GroundCrashers - Start Screen" Height="1080" Width="1920" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None">
     <Window.Resources>
         <!-- Button Style -->
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="Margin" Value="0,10,0,0"/>
-            <Setter Property="Width" Value="220"/>
-            <Setter Property="Height" Value="50"/>
+            <Setter Property="Margin" Value="0,15,0,0"/>
+            <Setter Property="Width" Value="500"/>
+            <Setter Property="Height" Value="110"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="27"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}"
-                                CornerRadius="10"
+                                CornerRadius="12"
                                 SnapsToDevicePixels="True">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="3" Opacity="0.3"/>
+                            </Border.Effect>
                             <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
                         </Border>
@@ -32,54 +37,107 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Opacity" Value="0.85"/>
+                    <Setter Property="Opacity" Value="0.9"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Opacity" Value="0.7"/>
                 </Trigger>
             </Style.Triggers>
+        </Style>
+
+        <!-- Logo Style -->
+        <Style x:Key="LogoTextStyle" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Impact, Arial Black, sans-serif"/>
+            <Setter Property="FontWeight" Value="Black"/>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Color="#FFE91E63" Offset="0.0"/>
+                        <GradientStop Color="#FF9C27B0" Offset="0.5"/>
+                        <GradientStop Color="#FF673AB7" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="15" ShadowDepth="4" Opacity="0.7"/>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
 
     <Grid>
-        <!-- Background Gradient -->
+        <!-- Background with animated gradient -->
         <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="#FF2C2C2C" Offset="0.0"/>
-                <GradientStop Color="#FF1E1E1E" Offset="1.0"/>
-            </LinearGradientBrush>
+            <RadialGradientBrush Center="0.5,0.3" RadiusX="1.2" RadiusY="1.2">
+                <GradientStop Color="#FF1A1A2E" Offset="0.0"/>
+                <GradientStop Color="#FF16213E" Offset="0.5"/>
+                <GradientStop Color="#FF0F1419" Offset="1.0"/>
+            </RadialGradientBrush>
         </Grid.Background>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
-            <TextBlock Text="GroundCrashers!"
-                       FontSize="36"
-                       FontWeight="Bold"
-                       Foreground="White"
+        <!-- Main Content Container -->
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="1200">
+
+            <!-- Logo Section -->
+            <Grid Margin="0,0,0,0">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <Image x:Name="logoimage" Source="/Images/other/groundcrasherslogo.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" Width="1000" Height="auto"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Menu Buttons -->
+            <StackPanel HorizontalAlignment="Center">
+                <Button Content="🚀 START GAME"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Background="#FF4CAF50"
+                        Click="StartGame_Click"/>
+
+                <Button Content="📖 STORY MODE"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Background="#FF2196F3"
+                        Click="Map_Click"/>
+
+                <Button Content="🌀 PORTAL"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Background="#FF9C27B0"
+                        Click="Portal_Click"/>
+
+                <Button Content="❌ EXIT"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Background="#FFF44336"
+                        Click="Exit_Click"/>
+            </StackPanel>
+
+            <!-- Version Info -->
+            <TextBlock Text="v1.0.0" 
+                       FontSize="12" 
+                       Foreground="#FF666666"
                        HorizontalAlignment="Center"
-                       Margin="0,0,0,30">
-                <TextBlock.Effect>
-                    <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2"/>
-                </TextBlock.Effect>
-            </TextBlock>
-
-            <Button Content="Start Game"
-                    Style="{StaticResource RoundedButtonStyle}"
-                    Background="#FF4CAF50"
-                    Click="StartGame_Click"/>
-
-            <Button Content="Story mode"
-                    Style="{StaticResource RoundedButtonStyle}"
-                    Background="#3be9ff"
-                    Click="Map_Click"
-                    Foreground="Black"/>
-
-            <Button Content="Portal"
-                Style="{StaticResource RoundedButtonStyle}"
-                Background="#1ba491"
-                Click="Portal_Click"
-                Foreground="Black"/>
-
-            <Button Content="Exit"
-                Style="{StaticResource RoundedButtonStyle}"
-                Background="#FFF44336"
-                Click="Exit_Click"/>
+                       Margin="0,30,0,0"/>
         </StackPanel>
+
+        <!-- Decorative Elements -->
+        <Canvas>
+            <!-- Top-left corner accent -->
+            <Rectangle Width="504" Height="504" 
+                       Canvas.Left="-46" Canvas.Top="42"
+                       Fill="#FF2196F3" 
+                       Opacity="0.1">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="45"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <!-- Bottom-right corner accent -->
+            <Rectangle Width="449" Height="450" 
+                       Canvas.Right="-50" Canvas.Bottom="-50"
+                       Fill="#FFE91E63" 
+                       Opacity="0.1" Canvas.Left="1931" Canvas.Top="582">
+                <Rectangle.RenderTransform>
+                    <RotateTransform Angle="45"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+        </Canvas>
     </Grid>
 </Window>

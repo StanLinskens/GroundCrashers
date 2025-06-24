@@ -273,14 +273,12 @@ namespace groundCrashers_game
 
             // Apply to the correct image
             Image attackerBox;
-            if (attacker_name == "Player")
-            {
+            if (attacker_name == "Player") {
                 attackerBox = PlayerImageBox;
-            }
-            else
-            {
+            } else {
                 attackerBox = EnemyImageBox;
             }
+
 
             // Ensure the RenderTransform is properly set
             if (!(attackerBox.RenderTransform is TransformGroup group))
@@ -311,8 +309,10 @@ namespace groundCrashers_game
 
         private void ActionDisplayPlayer()
         {
+            // If the player made an action, display it
             if (gameManager.playerChoise != "none" && gameManager.playerChoise != "swap")
             {
+                // If the player made an attack or elemental attack, play the animation
                 if (gameManager.playerChoise == "attack" || gameManager.playerChoise == "elementattack")
                 {
                     attack_Animation(attacker_name: "Player");
@@ -322,6 +322,7 @@ namespace groundCrashers_game
                 PlayerChoise.Source = new BitmapImage(new Uri(location, UriKind.Absolute));
                 gameManager.playerChoise = "none"; // Reset after displaying
             }
+            // If the player did not make an action, hide the image
             else
             {
                 PlayerChoise.Visibility = Visibility.Hidden;
@@ -330,8 +331,10 @@ namespace groundCrashers_game
 
         private void ActionDisplayCpu()
         {
+            // If the CPU made an action, display it
             if (gameManager.cpuChoise != "none" && gameManager.cpuChoise != "swap")
             {
+                // If the CPU made an attack or elemental attack, play the animation
                 if (gameManager.cpuChoise == "attack" || gameManager.cpuChoise == "elementattack")
                 {
                     attack_Animation(attacker_name: "Enemy");
@@ -341,6 +344,7 @@ namespace groundCrashers_game
                 CpuChoise.Source = new BitmapImage(new Uri(location, UriKind.Absolute));
                 gameManager.cpuChoise = "none"; // Reset after displaying
             }
+            // If the CPU did not make an action, hide the image
             else
             {
                 CpuChoise.Visibility = Visibility.Hidden;
