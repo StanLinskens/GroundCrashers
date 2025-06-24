@@ -36,6 +36,10 @@ namespace groundCrashers_game.classes
 
         public int _maxCreatures { get; set; } = 3;
 
+        public string playerChoise { get; set; } = "none"; // Default player action
+
+        public string cpuChoise { get; set; } = "none"; // Default CPU action
+
         public bool Win { get; set; } = false;
 
         public bool getFromJson = true;
@@ -199,6 +203,9 @@ namespace groundCrashers_game.classes
             cpuDied = DeadCheck(cpuDied);
             ActionChoice(action, actionCpu, name);
             cpuDied = DeadCheck(cpuDied);
+
+            playerChoise = action.ToString().ToLower();
+            cpuChoise = actionCpu.ToString().ToLower();
 
             if (cpuDied == true)
             {

@@ -1,7 +1,9 @@
 ﻿<Window x:Class="groundCrashers_game.StoryWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="StoryWindow" Height="600" Width="800">
+        Title="StoryWindow" Height="600" Width="800" WindowStyle="None"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid.Background>

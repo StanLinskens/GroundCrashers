@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using groundCrashers_game.classes;
 using Microsoft.VisualBasic.Logging;
 using System.Diagnostics;
@@ -7,6 +8,7 @@ using System.Media;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Xml.Linq;
@@ -144,6 +146,8 @@ namespace groundCrashers_game
                 try
                 {
                     PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{playerCreature.name}.png", UriKind.Absolute));
+
+                    ActionDisplayPlayer();
                 }
                 catch (Exception ex)
                 {
@@ -154,6 +158,8 @@ namespace groundCrashers_game
             }
             else
             {
+                gameManager.playerChoise = "none";
+
                 PlayerImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
 
                 string PlayerHealthT = PlayerHealthText.Text.ToString();
@@ -203,15 +209,20 @@ namespace groundCrashers_game
                 try
                 {
                     EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/GroundCrasherSprites/{cpuCreature.name}.png", UriKind.Absolute));
+
+                    ActionDisplayCpu();
                 }
                 catch (Exception ex)
                 {
                     //MessageBox.Show($"Error loading image: {ex.Message}");
                     EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
+                    CpuChoise.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
                 }
             }
             else
             {
+                gameManager.playerChoise = "none";
+
                 EnemyImageBox.Source = new BitmapImage(new Uri($"pack://application:,,,/images/other/questionmark.png", UriKind.Absolute));
 
                 string EnemyHealthT = EnemyHealthText.Text.ToString();
@@ -226,6 +237,113 @@ namespace groundCrashers_game
                 WinLoseOverlay.Visibility = Visibility.Visible;
                 WinLoseImage.IsEnabled = true;
                 gameManager.Win = true;
+            }
+        }
+
+        private void attack_Animation(string attacker_name)
+        {
+            // Define base rotation angles for the attack animation
+            double[] angles = new double[] { 25, -30, 10, 0 };
+
+            // Flip the angles for the enemy to mirror the animation
+            if (attacker_name == "Enemy")
+            {
+                angles = angles.Select(a => -a).ToArray();
+            }
+
+            // Create the animation using keyframes
+            var keyFrames = new DoubleAnimationUsingKeyFrames
+            {
+                Duration = TimeSpan.FromSeconds(0.4)
+            };
+
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(angles[0], KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.05))));
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(angles[1], KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.2)))
+            {
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            });
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(angles[2], KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.3)))
+            {
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseInOut }
+            });
+            keyFrames.KeyFrames.Add(new EasingDoubleKeyFrame(angles[3], KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.4)))
+            {
+                EasingFunction = new CubicEase { EasingMode = EasingMode.EaseOut }
+            });
+
+            // Apply to the correct image
+            Image attackerBox;
+            if (attacker_name == "Player")
+            {
+                attackerBox = PlayerImageBox;
+            }
+            else
+            {
+                attackerBox = EnemyImageBox;
+            }
+
+            // Ensure the RenderTransform is properly set
+            if (!(attackerBox.RenderTransform is TransformGroup group))
+            {
+                group = new TransformGroup();
+                group.Children.Add(new ScaleTransform(-1, 1)); // Keep horizontal flip
+                group.Children.Add(new RotateTransform(0));
+                attackerBox.RenderTransform = group;
+            }
+
+            // Ensure there's a RotateTransform present
+            RotateTransform rotateTransform = group.Children.OfType<RotateTransform>().FirstOrDefault();
+            if (rotateTransform == null)
+            {
+                rotateTransform = new RotateTransform(0);
+                group.Children.Add(rotateTransform);
+            }
+
+            // Create and start the animation storyboard
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(keyFrames);
+            Storyboard.SetTarget(keyFrames, attackerBox);
+            Storyboard.SetTargetProperty(keyFrames, new PropertyPath("RenderTransform.Children[1].(RotateTransform.Angle)"));
+            storyboard.Begin();
+        }
+
+
+
+        private void ActionDisplayPlayer()
+        {
+            if (gameManager.playerChoise != "none" && gameManager.playerChoise != "swap")
+            {
+                if (gameManager.playerChoise == "attack" || gameManager.playerChoise == "elementattack")
+                {
+                    attack_Animation(attacker_name: "Player");
+                }
+                PlayerChoise.Visibility = Visibility.Visible;
+                string location = $"pack://application:,,,/images/other/{gameManager.playerChoise}.png";
+                PlayerChoise.Source = new BitmapImage(new Uri(location, UriKind.Absolute));
+                gameManager.playerChoise = "none"; // Reset after displaying
+            }
+            else
+            {
+                PlayerChoise.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void ActionDisplayCpu()
+        {
+            if (gameManager.cpuChoise != "none" && gameManager.cpuChoise != "swap")
+            {
+                if (gameManager.cpuChoise == "attack" || gameManager.cpuChoise == "elementattack")
+                {
+                    attack_Animation(attacker_name: "Enemy");
+                }
+                CpuChoise.Visibility = Visibility.Visible;
+                string location = $"pack://application:,,,/images/other/{gameManager.cpuChoise}CPU.png";
+                CpuChoise.Source = new BitmapImage(new Uri(location, UriKind.Absolute));
+                gameManager.cpuChoise = "none"; // Reset after displaying
+            }
+            else
+            {
+                CpuChoise.Visibility = Visibility.Hidden;
             }
         }
 
@@ -443,6 +561,8 @@ namespace groundCrashers_game
 
         private void ShowCombatOptions()
         {
+            UpdateBattleUI();
+
             // Save original buttons if not already saved
             if (fightButton == null)
             {
@@ -472,11 +592,11 @@ namespace groundCrashers_game
                 Content = content,
                 Height = 60,
                 Width = 400,
-                Margin = new Thickness(10),
+                Margin = new System.Windows.Thickness(10),
                 FontSize = 20,
                 Background = (Brush)new BrushConverter().ConvertFromString(background),
                 BorderBrush = (Brush)new BrushConverter().ConvertFromString(border),
-                Style = (Style)FindResource("DarkButton"), // Apply the shared DarkButton style
+                Style = (System.Windows.Style)FindResource("DarkButton"), // Apply the shared DarkButton style
             };
 
             // Add DropShadowEffect
@@ -496,7 +616,6 @@ namespace groundCrashers_game
         private void Attack_Button_Click(object sender, RoutedEventArgs e)
         {
             gameManager.ProcessTurn(ActionType.Attack);
-
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
@@ -507,7 +626,6 @@ namespace groundCrashers_game
         {
             // Implement elemental attack logic
             gameManager.ProcessTurn(ActionType.ElementAttack);
-
             UpdateBattleUI();
             // After attack, restore main action buttons
             RestoreMainActionButtons();
@@ -552,6 +670,7 @@ namespace groundCrashers_game
             }
             else
             {
+                UpdateBattleUI();
                 //Replace the current buttons with combat options
                 ShowSwapOptions();
             }
