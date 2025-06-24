@@ -172,6 +172,11 @@ namespace groundCrashers_game
 
         public static bool IsLoaded => _isLoaded;
 
+        /// <summary>
+        /// get the effectiveness of the current daytime for a creature
+        /// </summary>
+        /// <param name="creature">the creature</param>
+        /// <returns>buff/debuff and the stat that gets affected</returns>
         public static string GetDaytimeEffectiveness(Creature creature)
         {
             if (!_isLoaded)
@@ -181,10 +186,13 @@ namespace groundCrashers_game
 
             if (_chart.TryGetValue(currentDaytime, out var daytime))
             {
+                // Check if the creature's primary type is affected by the current daytime
                 if (daytime.Buff.Types.Contains(creature.primary_type)) return $"Buff/{daytime.Buff.EffectType}";
+                // If the creature's primary type is not buffed, check if it is debuffed
                 else if (daytime.Debuff.Types.Contains(creature.primary_type)) return $"Debuff/{daytime.Debuff.EffectType}";
             }
 
+            // If no effect is found, return "none/none"
             return "none/none";
         }
     }

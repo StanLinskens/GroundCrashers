@@ -188,17 +188,24 @@ namespace groundCrashers_game
 
         public static bool IsLoaded => _isLoaded;
 
+        /// <summary>
+        /// to get the effectiveness of the current weather on a creature
+        /// </summary>
+        /// <param name="creature">the creature that gets the buff/debuff </param>
+        /// <returns>the buff/debuff or nothing</returns>
         public static string GetWeatherEffectiveness(Creature creature)
         {
+            // if the weather is not loaded, load it from web
             if (!_isLoaded)
             {
-                LoadWeathersFromJson();
+                //LoadWeathersFromJson();
 
                 LoadWeathersFromWebAsync();
             }
-
+            // get the current weather from the chart
             if (_chart.TryGetValue(currentWeather, out var weather))
             {
+                // if the creature's element matches the weather's buff or debuff types, return the effect type
                 if (weather.Buff.Types.Contains(creature.element)) return $"Buff/{weather.Buff.EffectType}"; // Example: "Buff/Attack"
                 else if (weather.Debuff.Types.Contains(creature.element)) return $"Debuff/{weather.Debuff.EffectType}"; // Example: "Debuff/Health
             }
