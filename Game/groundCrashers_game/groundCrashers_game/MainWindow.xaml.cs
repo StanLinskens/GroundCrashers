@@ -5,13 +5,10 @@ namespace groundCrashers_game
 {
     public partial class MainWindow : Window
     {
-        LoginWindow LoginWindow;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            LoginWindow = new LoginWindow(this);
 
             // music
             AudioPlayer.Instance.Stop();
@@ -32,7 +29,6 @@ namespace groundCrashers_game
             // false is that the game is started from the main menu (arcadeMode)
             GameWindow gameWindow = new GameWindow(false);
             gameWindow.Show();
-            LoginWindow.Close(); // close the login window if it is open
             this.Close();
         }
 
@@ -55,7 +51,9 @@ namespace groundCrashers_game
         {
             if (ActiveAccount.Active_id == 0)
             {
+                LoginWindow LoginWindow = new LoginWindow();
                 LoginWindow.Show();
+                this.Close();
             }
             else
             {
@@ -73,14 +71,12 @@ namespace groundCrashers_game
         /// <param name="e"></param>
         private void Portal_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow.Close();
             espConnectionWindow espConnectionWindow = new espConnectionWindow();
             espConnectionWindow.Show();
         }
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow.Close();
             ActiveAccount.Active_id = 0; // reset the active account id to 0
             logOut.Visibility = Visibility.Collapsed; // hide the logout button
         }
