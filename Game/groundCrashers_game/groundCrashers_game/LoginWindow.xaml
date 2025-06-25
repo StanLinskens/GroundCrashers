@@ -8,33 +8,33 @@
         Title="LoginWindow" Height="450" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
-        <Setter Property="FontSize" Value="18"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Padding" Value="10,5"/>
-        <Setter Property="Margin" Value="0,10,0,0"/>
-        <Setter Property="Width" Value="220"/>
-        <Setter Property="Height" Value="50"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}"
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Width" Value="220"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
                                 CornerRadius="10"
                                 SnapsToDevicePixels="True">
-                        <ContentPresenter HorizontalAlignment="Center"
+                            <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Opacity" Value="0.85"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.85"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
         <Style x:Key="RoundedTextboxStyle" TargetType="TextBox">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="Foreground" Value="Black"/>
@@ -153,19 +153,19 @@
                Visibility="Visible"/>
             </Grid>
 
-        <Button x:Name="BtnLogin"
+            <Button x:Name="BtnLogin"
         Content="Login account"
         Style="{StaticResource RoundedButtonStyle}"
         Background="White"
         Foreground="Black" Click="BtnLogin_Click" BorderBrush="White"/>
-            
 
-        <Button x:Name="BtnCreate"
+
+            <Button x:Name="BtnCreate"
         Content="create account"
         Style="{StaticResource RoundedButtonStyle}"
         Background="White" Click="BtnCreate_Click"
         Foreground="Black"/>
-        
+
         </StackPanel>
     </Grid>
 </Window>
