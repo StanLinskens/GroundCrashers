@@ -12,13 +12,27 @@
             <Setter Property="Background" Value="#1E1E1E"/>
             <Setter Property="Foreground" Value="#E0E0E0"/>
             <Setter Property="BorderBrush" Value="#444444"/>
-            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="FontFamily" Value="Segoe UI Emoji"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border Background="{TemplateBinding Background}"
+                        CornerRadius="10"
+                        SnapsToDevicePixels="True">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="6" ShadowDepth="2" Opacity="0.4"/>
+                            </Border.Effect>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -27,6 +41,40 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Background" Value="#333333"/>
+                    <Setter Property="Opacity" Value="0.9"/>
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                         To="1.05" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                         To="1.05" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                         To="1" Duration="0:0:0.2"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                         To="1" Duration="0:0:0.2"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Opacity" Value="0.7"/>
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                         To="0.95" Duration="0:0:0.1"/>
+                                <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                         To="0.95" Duration="0:0:0.1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -39,9 +87,19 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="ProgressBar">
-                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="5">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        Background="{TemplateBinding Background}" 
+                        CornerRadius="12">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="1" Opacity="0.2"/>
+                            </Border.Effect>
                             <Grid x:Name="PART_Track">
-                                <Rectangle x:Name="PART_Indicator" HorizontalAlignment="Left" Fill="{TemplateBinding Foreground}" RadiusX="4" RadiusY="4"/>
+                                <Rectangle x:Name="PART_Indicator" 
+                                   HorizontalAlignment="Left" 
+                                   Fill="{TemplateBinding Foreground}" 
+                                   RadiusX="11" 
+                                   RadiusY="11"/>
                             </Grid>
                         </Border>
                     </ControlTemplate>
@@ -51,7 +109,7 @@
 
         <Style x:Key="StatusText" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#E0E0E0"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Background" Value="#222222"/>
             <Setter Property="Padding" Value="10,5"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -61,7 +119,7 @@
             <Setter Property="Foreground" Value="#E0E0E0"/>
             <Setter Property="Background" Value="#333333"/>
             <Setter Property="Padding" Value="8,4"/>
-            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -72,10 +130,15 @@
             <Setter Property="Background" Value="#333333"/>
             <Setter Property="BorderBrush" Value="#555555"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="CornerRadius" Value="12"/>
             <Setter Property="Width" Value="40"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="Margin" Value="5"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="1" Opacity="0.3"/>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Window.Resources>
 
@@ -100,39 +163,63 @@
             </Grid.RowDefinitions>
 
             <!-- Environment Enum Panel -->
-            <Border Grid.Row="0" Background="#222222" BorderBrush="#444444" BorderThickness="0,0,0,2">
-                <Grid Margin="10">
+            <Border Grid.Row="0" Background="#222222" BorderBrush="#444444" BorderThickness="0" CornerRadius="12" Margin="5">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" BlurRadius="6" ShadowDepth="2" Opacity="0.3"/>
+                </Border.Effect>
+                <Grid Margin="15">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-
                     <!-- Biome Display -->
                     <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="BIOME:" Foreground="#999999" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <TextBlock Text="BIOME:" Foreground="#BBBBBB" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,10,0"/>
                         <Border Style="{StaticResource EnumIcon}" Background="#3A2E39">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="1" Opacity="0.4"/>
+                            </Border.Effect>
                             <TextBlock x:Name="BiomeIcon" Text="🌲" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
-                        <TextBlock x:Name="BiomeText" Style="{StaticResource EnumDisplay}" Text="FOREST" Margin="5,0,0,0"/>
+                        <Border Background="#3A2E39" CornerRadius="8" Margin="5,0,0,0" Padding="10,5">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="1" Opacity="0.3"/>
+                            </Border.Effect>
+                            <TextBlock x:Name="BiomeText" Style="{StaticResource EnumDisplay}" Text="FOREST" Background="Transparent"/>
+                        </Border>
                     </StackPanel>
-
                     <!-- Daytime Display -->
                     <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="TIME:" Foreground="#999999" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <TextBlock Text="TIME:" Foreground="#BBBBBB" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,10,0"/>
                         <Border Style="{StaticResource EnumIcon}" Background="#253654">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="1" Opacity="0.4"/>
+                            </Border.Effect>
                             <TextBlock x:Name="DaytimeIcon" Text="🌙" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
-                        <TextBlock x:Name="DaytimeText" Style="{StaticResource EnumDisplay}" Text="NIGHT" Margin="5,0,0,0"/>
+                        <Border Background="#253654" CornerRadius="8" Margin="5,0,0,0" Padding="10,5">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="1" Opacity="0.3"/>
+                            </Border.Effect>
+                            <TextBlock x:Name="DaytimeText" Style="{StaticResource EnumDisplay}" Text="NIGHT" Background="Transparent"/>
+                        </Border>
                     </StackPanel>
-
                     <!-- Weather Display -->
                     <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="WEATHER:" Foreground="#999999" FontSize="18" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                        <TextBlock Text="WEATHER:" Foreground="#BBBBBB" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0,0,10,0"/>
                         <Border Style="{StaticResource EnumIcon}" Background="#424242">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="1" Opacity="0.4"/>
+                            </Border.Effect>
                             <TextBlock x:Name="WeatherIcon" Text="🌧" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
-                        <TextBlock x:Name="WeatherText" Style="{StaticResource EnumDisplay}" Text="RAINY" Margin="5,0,0,0"/>
+                        <Border Background="#424242" CornerRadius="8" Margin="5,0,0,0" Padding="10,5">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="1" Opacity="0.3"/>
+                            </Border.Effect>
+                            <TextBlock x:Name="WeatherText" Style="{StaticResource EnumDisplay}" Text="RAINY" Background="Transparent"/>
+                        </Border>
                     </StackPanel>
                 </Grid>
             </Border>
