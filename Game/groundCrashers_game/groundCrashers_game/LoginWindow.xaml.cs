@@ -92,5 +92,12 @@ namespace groundCrashers_game
                 AccountManager.AddAccount(username, password);
             }
         }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close(); // Close the login window when going back to the main menu
+        }
     }
 }
