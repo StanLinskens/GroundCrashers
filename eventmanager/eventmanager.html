@@ -386,6 +386,10 @@
                 flex-direction: column;
             }
         }
+
+        /* #registerBtn {
+            display: none;
+        } */
     </style>
 </head>
 
@@ -465,7 +469,7 @@
                         <input type="number" id="maxParticipants" min="1" max="100" value="20" required>
                     </div>
                 </div>
-                <button type="submit">📅 Event Toevoegen</button>
+                <button type="submit">📅 Workshop Toevoegen</button>
                 <button type="button" id="clearEvents">🗑️ Alle Events Wissen</button>
                 <button type="button" class="export-btn" onclick="eventManager.exportToCSV()">📊 Export CSV</button>
                 <button type="button" class="export-btn" onclick="eventManager.exportToExcel()">📊 Export Excel</button>
@@ -474,7 +478,7 @@
 
         <!-- Registration Form -->
         <div class="registration-form" id="registrationForm">
-            <h2>📋 Aanmelden voor Event</h2>
+            <h2>📋 Aanmelden voor Workshop</h2>
             <form id="studentRegistrationForm">
                 <div class="form-row">
                     <div>
@@ -498,13 +502,25 @@
                 </div>
                 <div class="form-row">
                     <div>
-                        <label for="eventSelect">Selecteer Event:</label>
+                        <label for="eventSelect">Selecteer Workshop 1:</label>
                         <select id="eventSelect" required>
-                            <option value="">-- Kies een event --</option>
+                            <option value="">-- Kies een workshop --</option>
+                        </select>
+
+                        <label for="eventSelect2">Selecteer Workshop 2:</label>
+                        <select id="eventSelect2" required>
+                            <option value="">-- Kies een workshop --</option>
+                        </select>
+
+                        <label for="eventSelect3">Selecteer Workshop 3:</label>
+                        <select id="eventSelect3" required>
+                            <option value="">-- Kies een workshop --</option>
                         </select>
                     </div>
                 </div>
-                <button type="submit">✅ Aanmelden</button>
+                <button id="registerBtn" onclick="RegisterParticipant()">
+                    ✅ Aanmelden
+                </button>
             </form>
             <div class="error-message" id="errorMessage"></div>
             <div class="success-message" id="successMessage"></div>
@@ -649,49 +665,60 @@
                 const email = document.getElementById('participantEmail').value;
                 const studentNumber = parseInt(document.getElementById('studentNumber').value);
                 const studentProgram = document.getElementById('studentProgram').value;
-                const eventId = parseInt(document.getElementById('eventSelect').value);
 
-                const event = this.events.find(e => e.id === eventId);
-                if (!event) {
-                    this.showError('Event niet gevonden!');
+                const selectedIds = [
+                    document.getElementById('eventSelect').value,
+                    document.getElementById('eventSelect2').value,
+                    document.getElementById('eventSelect3').value
+                ]
+                    .filter(v => v)                          // Remove empty selections
+                    .map(v => parseInt(v));
+
+                const uniqueEventIds = [...new Set(selectedIds)];
+
+                if (uniqueEventIds.length !== selectedIds.length) {
+                    this.showError('Je hebt hetzelfde event meer dan eens geselecteerd!');
                     return;
                 }
 
                 const currentEvents = this.participants.get(email) || [];
 
-                // Max 2 event registrations
-                if (currentEvents.length >= 2) {
-                    this.showError('Je kunt je maximaal voor 2 events aanmelden!');
+                if (currentEvents.length + uniqueEventIds.length > 2) {
+                    this.showError('Je kunt je maximaal voor 2 workshops aanmelden!');
                     return;
                 }
 
-                // Already registered for this event
-                if (currentEvents.includes(eventId)) {
-                    this.showError('Je bent al aangemeld voor dit event!');
-                    return;
+                const newEvents = [];
+
+                for (const eventId of uniqueEventIds) {
+                    if (currentEvents.includes(eventId)) {
+                        this.showError('Je bent al aangemeld voor een van deze workshops!');
+                        return;
+                    }
+
+                    const event = this.events.find(e => e.id === eventId);
+                    if (!event) {
+                        this.showError(`Event met ID ${eventId} niet gevonden!`);
+                        return;
+                    }
+
+                    if (event.participants.length >= event.maxParticipants) {
+                        this.showError(`Event "${event.name}" is vol!`);
+                        return;
+                    }
+
+                    const hasTimeConflict = currentEvents.some(id => {
+                        const e = this.events.find(ev => ev.id === id);
+                        return e && e.time === event.time;
+                    }) || newEvents.some(e => e.time === event.time);
+
+                    if (hasTimeConflict) {
+                        this.showError(`Tijdconflict gevonden voor "${event.name}"!`);
+                        return;
+                    }
+
+                    newEvents.push(event);
                 }
-
-                // Check for same-time events
-                const hasTimeConflict = currentEvents.some(id => {
-                    const registeredEvent = this.events.find(e => e.id === id);
-                    return registeredEvent && registeredEvent.time === event.time;
-                });
-
-                if (hasTimeConflict) {
-                    this.showError('Je bent al aangemeld voor een event op hetzelfde tijdstip!');
-                    return;
-                }
-
-                // Event full
-                if (event.participants.length >= event.maxParticipants) {
-                    this.showError('Dit event is vol!');
-                    return;
-                }
-
-                // Duplicate student number
-                const existingStudent = this.events.some(e =>
-                    e.participants.some(p => p.studentNumber === studentNumber)
-                );
 
                 const participant = {
                     name,
@@ -701,14 +728,18 @@
                     registeredAt: new Date()
                 };
 
-                event.participants.push(participant);
-                currentEvents.push(eventId);
+                for (const event of newEvents) {
+                    event.participants.push(participant);
+                    currentEvents.push(event.id);
+                }
+
                 this.participants.set(email, currentEvents);
 
                 this.updateDisplay();
                 this.clearForm('studentRegistrationForm');
-                this.showSuccess(`Succesvol aangemeld voor "${event.name}"!`);
+                this.showSuccess(`Succesvol aangemeld voor: ${newEvents.map(e => `"${e.name}"`).join(', ')}`);
             }
+
 
 
             removeParticipant(eventId, email) {
@@ -729,8 +760,24 @@
                 }
             }
 
+            // validateFormInputs() {
+            //     const name = document.getElementById('participantName').value.trim();
+            //     const email = document.getElementById('participantEmail').value.trim();
+            //     const studentNumber = document.getElementById('studentNumber').value.trim();
+            //     const studentProgram = document.getElementById('studentProgram').value.trim();
+
+            //     const event1 = document.getElementById('eventSelect').value;
+            //     const event2 = document.getElementById('eventSelect2').value;
+            //     const event3 = document.getElementById('eventSelect3').value;
+
+            //     const allFieldsFilled = name && email && studentNumber && studentProgram && event1 && event2 && event3;
+
+            //     document.getElementById('registerBtn').style.display = allFieldsFilled ? 'block' : 'none';
+            // }
+
+
             clearAllEvents() {
-                if (confirm('Weet je zeker dat je alle events wilt wissen?')) {
+                if (confirm('Weet je zeker dat je alle workshops wilt wissen?')) {
                     this.events = [];
                     this.participants.clear();
                     this.eventIdCounter = 1;
@@ -877,16 +924,24 @@
             }
 
             updateEventSelect() {
-                const select = document.getElementById('eventSelect');
+                const selectIds = ['eventSelect', 'eventSelect2', 'eventSelect3'];
                 const availableEvents = this.events.filter(event =>
                     event.participants.length < event.maxParticipants
                 );
 
-                select.innerHTML = '<option value="">-- Kies een event --</option>' +
+                const optionsHTML = '<option value="">-- Kies een workshop --</option>' +
                     availableEvents.map(event =>
                         `<option value="${event.id}">${event.name} - ${event.workshopLeader} (${event.participants.length}/${event.maxParticipants})</option>`
                     ).join('');
+
+                for (const id of selectIds) {
+                    const select = document.getElementById(id);
+                    if (select) {
+                        select.innerHTML = optionsHTML;
+                    }
+                }
             }
+
 
             updateStatistics() {
                 const totalEvents = this.events.length;
