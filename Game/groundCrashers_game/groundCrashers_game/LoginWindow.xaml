@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:groundCrashers_game"
         mc:Ignorable="d"
+        WindowState="Maximized"
         Title="LoginWindow" Height="450" Width="300" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="RoundedButtonStyle" TargetType="Button">
