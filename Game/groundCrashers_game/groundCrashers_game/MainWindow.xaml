@@ -277,15 +277,23 @@
                         Background="#FF2196F3"
                         Click="Map_Click"/>
 
+                <Button x:Name="logOut"
+                        Content="👋 logout"
+                        Style="{StaticResource RoundedButtonStyle}"
+                        Background="#FF9C27B0"
+                        Click="Logout_Click"/>
+
                 <Button Content="🌀 PORTAL"
                         Style="{StaticResource RoundedButtonStyle}"
                         Background="#FF9C27B0"
+                        Visibility="Collapsed"
                         Click="Portal_Click"/>
 
                 <Button Content="❌ EXIT"
                         Style="{StaticResource RoundedButtonStyle}"
                         Background="#FFF44336"
                         Click="Exit_Click"/>
+                
             </StackPanel>
 
             <!-- Version Info -->

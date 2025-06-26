@@ -23,26 +23,40 @@ namespace groundCrashers_game
         private bool ariaDead = false; // Track if Aria is dead
         private bool ariaKilled = false;
 
+        /// <summary>
+        /// this window is used to show the story of the game
+        /// </summary>
+        /// <param name="biomeName">the name of the biome that is going to be played</param>
+        /// <param name="levelName">the name of the level that is going to be played</param>
+        /// <param name="hardcore">if hardcore is enabled or not</param>
         public StoryWindow(string biomeName, string levelName, bool hardcore)
         {
             InitializeComponent();
+
+            // save them for later use
             this.levelName = levelName;
             this.hardcore = hardcore;
 
+            // if the level is hardcore, we set ariaDead to true
             if (this.hardcore)
             {
                 ariaDead = true;
             }
 
+            /// Load the dialog lines based on the biome name
             LoadDialog(biomeName);
+
+            // show the lines that are in the dialogLines list
             ShowCurrentLine();
         }
 
         private void LoadDialog(string biomeName)
         {
+            // list to save the dialog lines
             dialogLines = new List<DialogLine>();
 
-            if(!hardcore)
+            // if the hardcore mode is not enabled, we will show the normal story
+            if (!hardcore)
             {
                 switch (biomeName)
                 {
@@ -221,6 +235,7 @@ namespace groundCrashers_game
                         break;
                 }
             }
+            // if the hardcore mode is enabled, we will show the hardcore story
             else
             {
                 switch (biomeName)
@@ -406,6 +421,7 @@ namespace groundCrashers_game
 
         private void ShowCurrentLine()
         {
+            // biomes that have a story at the end of the level
             bool isLastBiomeStory = levelName == "CrystalCavernLVL5" || levelName == "AltarLVL4" || levelName == "OceanLVL5" || levelName == "HydroVentLVL4" || levelName == "VolcanoLVL5";
 
             if (currentLine >= dialogLines.Count && !isLastBiomeStory)
@@ -420,21 +436,27 @@ namespace groundCrashers_game
             {
                 this.Close();
                 return; // Close the story window if it's the last line in the last biome story
+                // this doesnt open the game window, because the level is already won
             }
 
+            // current line is saved in the line variable
             var line = dialogLines[currentLine];
 
+            // to show who is speaking
             CharacterName.Text = line.Character;
+            // to show what is said
             DialogText.Text = line.Text;
 
             // Load character portraits
             try
             {
+                // check if aria is dead/killed or not
                 if (ariaDead && ariaKilled) CharacterImage.Source = new BitmapImage(new Uri("Images/portraits/ariadeadkilled.png", UriKind.Relative));
                 else if (ariaKilled) CharacterImage.Source = new BitmapImage(new Uri("Images/portraits/ariakilled.png", UriKind.Relative));
                 else if (ariaDead) CharacterImage.Source = new BitmapImage(new Uri("Images/portraits/ariadead.png", UriKind.Relative));
                 else CharacterImage.Source = new BitmapImage(new Uri("Images/portraits/aria.png", UriKind.Relative));
 
+                // rook is changed to god/choas orb when needed
                 if (line.ImagePathPortrait == "Images/portraits/ChaosOrb.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrb.png", UriKind.Relative)); }
                 else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbcaged1.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbcaged1.png", UriKind.Relative)); }
                 else if (line.ImagePathPortrait == "Images/portraits/ChaosOrbcaged.png") { CharacterImage2.Source = new BitmapImage(new Uri("Images/portraits/ChaosOrbcaged.png", UriKind.Relative)); }
@@ -447,16 +469,18 @@ namespace groundCrashers_game
             }
             catch
             {
-                // Ignore portrait load failure
+                 // if there is error go like normal
             }
 
             // Load background image if specified
             if (!string.IsNullOrEmpty(line.backgroundImage))
             {
+                // Check if the background image is a PNG or JPG based on the name
                 bool isPng = line.backgroundImage == "cave" || line.backgroundImage == "hardcore_cave" || line.backgroundImage == "marine" || line.backgroundImage == "hardcore_marine" || 
                              line.backgroundImage == "hardcore_map" || line.backgroundImage == "space" || line.backgroundImage == "map" || line.backgroundImage == "hardcore_space";
                 try
                 {
+                    // Load the background image based on its type
                     if (!isPng) { var bgUri = new Uri($"pack://application:,,,/Images/battleGrounds/{line.backgroundImage.ToLower()}.jpg"); BackGround.ImageSource = new BitmapImage(bgUri); }
                     else { var bgUri = new Uri($"pack://application:,,,/Images/battleGrounds/{line.backgroundImage.ToLower()}.png"); BackGround.ImageSource = new BitmapImage(bgUri); }
                     
@@ -487,6 +511,7 @@ namespace groundCrashers_game
                 CharacterImage2.Height = 464;
                 CharacterImage.Height = 350;
             }
+            // when chaos orb is speaking highlight everyone
             else if (line.Character == "ChaosOrb")
             {
                 CharacterImage.Opacity = 1.0;
@@ -494,6 +519,7 @@ namespace groundCrashers_game
                 CharacterImage.Height = 464;
                 CharacterImage2.Height = 464;
             }
+            // if nerator is speaking higlight no one
             else
             {
                 CharacterImage.Opacity = 0.3;
@@ -501,6 +527,12 @@ namespace groundCrashers_game
             }
         }
 
+        /// <summary>
+        /// when the next button is clicked, it will show the next line of the story
+        /// or end it based on where the player is in the story
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
             currentLine++;

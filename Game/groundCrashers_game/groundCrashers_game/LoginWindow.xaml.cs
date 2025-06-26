@@ -26,6 +26,12 @@ namespace groundCrashers_game
             InitializeComponent();
         }
 
+        /// <summary>
+        /// for the username
+        /// when the text in the username textbox changes, this method will be called to show or hide the placeholder text  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TBXusername_TextChanged(object sender, TextChangedEventArgs e)
         {
             PlaceholderUsername.Visibility = string.IsNullOrEmpty(TBXusername.Text)
@@ -33,6 +39,12 @@ namespace groundCrashers_game
                 : Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// for the username
+        /// when the text in the username textbox changes, this method will be called to show or hide the placeholder text  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PBXpassword_PasswordChanged(object sender, RoutedEventArgs e)
         {
             PlaceholderPassword.Visibility = string.IsNullOrEmpty(PBXpassword.Password)
@@ -40,10 +52,15 @@ namespace groundCrashers_game
                 : Visibility.Collapsed;
         }
 
+        /// <summary>
+        /// handle the event for loggin in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             string username = TBXusername.Text;
-            string password = PBXpassword.Password; // Assuming you're using PasswordBox for passwords
+            string password = PBXpassword.Password;
 
             bool success = AccountManager.Login(username, password);
 
@@ -59,6 +76,12 @@ namespace groundCrashers_game
             }
         }
 
+        /// <summary>
+        /// this method is called when the create account button is clicked
+        /// to create a new account with the username and password entered in the textboxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCreate_Click(object sender, RoutedEventArgs e)
         {
             string username = TBXusername.Text;
