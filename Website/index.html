@@ -493,12 +493,12 @@
 
   <nav id="categoryNav">
     <button class="nav-btn active" data-category="creatures">Creatures</button>
-    <button class="nav-btn" data-category="abilities">Abilities</button>
-    <button class="nav-btn" data-category="elements">Elements</button>
+    <!-- <button class="nav-btn" data-category="abilities">Abilities</button> -->
+    <!-- <button class="nav-btn" data-category="elements">Elements</button> -->
     <button class="nav-btn" data-category="biomes">Biomes</button>
     <button class="nav-btn" data-category="weather">Weather</button>
     <button class="nav-btn" data-category="daytime">Daytime</button>
-    <button class="nav-btn" data-category="types">Types</button>
+    <!-- <button class="nav-btn" data-category="types">Types</button> -->
   </nav>
 
   <div class="search-container">
@@ -673,8 +673,8 @@
                       <span>${creature.stats.speed}</span>
                   </div>
               </div>
-              <p><strong>Ability:</strong> ${creature.ability}</p>
-          `;
+              `;
+      // <p><strong>Ability:</strong> ${creature.ability}</p>
 
       card.addEventListener('click', function () {
         showCreatureDetails(creature);
@@ -709,8 +709,7 @@
     }
 
     function createElementCard(element) {
-      if (searchText && !element.name.toLowerCase().includes(searchText) &&
-        !element.status_effect.toLowerCase().includes(searchText)) {
+      if (searchText && !element.name.toLowerCase().includes(searchText.toLowerCase())) {
         return;
       }
 
@@ -719,20 +718,19 @@
 
       const title = document.createElement('h3');
       title.textContent = element.name;
-      title.classList.add(formatClassName('element', element.name)); // Add the element-specific class
+      title.classList.add(formatClassName('element', element.name)); // if you have this
 
       const content = document.createElement('div');
       content.innerHTML = `
-              <p><strong>Status Effect:</strong> ${element.status_effect}</p>
-              <p><strong>Effect:</strong> ${element.effect_description}</p>
-              <p><strong>Strong vs:</strong> ${element.effectiveness.strong_against.join(', ')}</p>
-              <p><strong>Weak vs:</strong> ${element.effectiveness.weak_against.join(', ')}</p>
-          `;
+    <p><strong>Strong vs:</strong> ${element.strongAgainst?.join(', ') || 'None'}</p>
+    <p><strong>Weak vs:</strong> ${element.weakAgainst?.join(', ') || 'None'}</p>
+  `;
 
       card.appendChild(title);
       card.appendChild(content);
       dataDisplay.appendChild(card);
     }
+
 
     function createBiomeCard(biome) {
       if (searchText && !biome.name.toLowerCase().includes(searchText)) {
@@ -866,11 +864,11 @@
                         <span>${creature.stats.speed}</span>
                     </div>
                 </div>
-                <h4>Ability: ${creature.ability}</h4>
-                <div id="abilityDetails" class="hidden">
-                    <!-- Ability details will be loaded here dynamically -->
-                </div>
-            `;
+                `;
+      // <h4>Ability: ${creature.ability}</h4>
+      // <div id="abilityDetails" class="hidden">
+      //     <!-- Ability details will be loaded here dynamically -->
+      // </div>
 
       // Find and display ability details
       const creatureAbility = abilities.find(a => a.name === creature.ability);
