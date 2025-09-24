@@ -1,0 +1,1 @@
+A turn based strategy toys to life game, with a story mode and using RFID to store and choice you creatures to fight with.
