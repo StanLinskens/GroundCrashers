@@ -42,5 +42,25 @@ RFID Setup
 
 Wiki
 
+![Homepage](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(1).webp)
+![Selection: Synthetic 1](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(2).webp)
+![Selection: Sapient](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(3).webp)
+![Selection: Primal](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(4).webp)
+![Selection: Synthetic 2](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(5).webp)
+![Selection: Verdent](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(6).webp)
+![Battle start](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(7).webp)
+![Battle Defend](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(8).webp)
+![Player wins](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(9).webp)
+![Map 1](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(10).webp)
+![Map 2](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(11).webp)
+![Map underground](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(12).webp)
+![Map oceania](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(13).webp)
+![Map space](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(14).webp)
+![Map hardcore](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(15).webp)
+![Map underground hardcore](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(16).webp)
+![Map oceania hardcore](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(17).webp)
+![Map space hardcore](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(18).webp)
+![Map creature gamble](https://stan.1pc.nl/images/groundcrashers/groundcrashers%20(19).webp)
+
 For more info like game rules, RFID configuration, or network setup, visit the GroundCrashers Wiki:
 [https://github.com/StanLinskens/GroundCrashers/wiki](https://stan.1pc.nl/)
